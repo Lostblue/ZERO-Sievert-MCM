@@ -57,7 +57,7 @@ if mouse_check_button_pressed(mb_left)
                             var caliber_found = 0
                             for (var i = 0; i < how_many_caliber; i++)
                             {
-                                if (arma_caliber[obj_player.weapon_slot[(1 << 0)]] == repair_caliber[quale_item_, i])
+                                if (arma_caliber[obj_player.weapon_slot[(1 << 0)]] == repair_caliber[quale_item_][i])
                                     caliber_found = 1
                             }
                             if (caliber_found == 1)

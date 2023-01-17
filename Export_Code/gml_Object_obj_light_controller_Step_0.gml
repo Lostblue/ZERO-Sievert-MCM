@@ -12,7 +12,7 @@ if (!instance_exists(obj_main_menu))
 {
     if instance_exists(obj_player)
     {
-        if (obj_player.state != 50)
+        if (obj_player.state != gml_Script_scr_player_state_start)
         {
             second += time_increase
             time_second += time_increase

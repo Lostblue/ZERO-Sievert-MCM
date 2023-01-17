@@ -3,6 +3,19 @@ if (global.show_explosion_ghoul_lair == 1)
     global.show_explosion_ghoul_lair = 0
     alarm[10] = 120
 }
+if (entrata_distrutta == 0)
+{
+    if (global.quest_unique_done[(37 << 0)] == 1)
+    {
+        if instance_exists(obj_indoor)
+        {
+            var _indoor = instance_nearest(x, y, obj_indoor)
+            with (_indoor)
+                instance_destroy()
+            entrata_distrutta = 1
+        }
+    }
+}
 if (show_explosion == 1)
 {
     var a = (41 << 0)

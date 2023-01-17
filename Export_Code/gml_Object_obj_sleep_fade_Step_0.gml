@@ -8,7 +8,7 @@ if (alpha >= 1 && pausa == 0)
 if (alpha <= 0)
 {
     instance_destroy()
-    obj_player.state = 22
+    obj_player.state = gml_Script_scr_player_state_move
 }
 alpha = clamp(alpha, 0, 1)
 if (alpha == 1)

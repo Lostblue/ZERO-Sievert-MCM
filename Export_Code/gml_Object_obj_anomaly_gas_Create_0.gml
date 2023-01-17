@@ -10,5 +10,5 @@ mp_grid_add_cell(global.grid_move, x1, (y1 + 1))
 mp_grid_add_cell(global.grid_move, (x1 + 1), (y1 + 1))
 var _rad = obj_rad_25
 if scr_chance(20)
-    _rad = 580
+    _rad = 603
 instance_create_depth(x, y, 0, _rad)

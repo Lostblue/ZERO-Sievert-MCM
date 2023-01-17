@@ -1,4 +1,4 @@
-if (obj_player.state == 22 || obj_player.state == 24)
+if (obj_player.state == gml_Script_scr_player_state_move || obj_player.state == gml_Script_scr_player_state_medication)
 {
     var xx = obj_player.x
     var yy = obj_player.y

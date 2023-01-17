@@ -311,7 +311,7 @@ if (npc_trader_id[npc_id] != (0 << 0))
         money_trader = floor((trader_money[npc_trader_id[npc_id]] * global.sk_k[(22 << 0)]))
         randomize()
         for (i = 0; i < quanti_item; i++)
-            loot[i] = trader_item[npc_trader_id[npc_id], i]
+            loot[i] = trader_item[npc_trader_id[npc_id]][i]
         ini_open(global.save_general)
         ini_write_real(name_, "money", money_trader)
         for (i = 0; i < 12; i++)
@@ -324,7 +324,7 @@ if (npc_trader_id[npc_id] != (0 << 0))
             ds_grid_clear(grid_item, 0)
             for (i = 0; i < quanti_item; i++)
             {
-                if (trader_page[_id_t, i] == _page)
+                if (trader_page[_id_t][i] == _page)
                 {
                     var id_item = loot[i]
                     var placed = 0
@@ -361,10 +361,10 @@ if (npc_trader_id[npc_id] != (0 << 0))
                                         lootx[i] = (xx * 16)
                                         looty[i] = (yy * 16)
                                         loot_page[i] = _page
-                                        loot_qnt[i] = ceil((trader_qnt[npc_trader_id[npc_id], i] * global.sk_k[(23 << 0)]))
-                                        loot_livello_min[i] = trader_liv[npc_trader_id[npc_id], i]
+                                        loot_qnt[i] = ceil((trader_qnt[npc_trader_id[npc_id]][i] * global.sk_k[(23 << 0)]))
+                                        loot_livello_min[i] = trader_liv[npc_trader_id[npc_id]][i]
                                         placed = 1
-                                        _counter[_page]++
+                                        _counter[_page] = (_counter[_page] + 1)
                                     }
                                 }
                             }

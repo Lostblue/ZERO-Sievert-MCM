@@ -4,7 +4,7 @@ if (uscito == 0)
     {
         if (point_distance((x + 8), (y + 8), obj_player.x, obj_player.y) < minimum_dis_exit)
         {
-            if (obj_player.state != 23)
+            if (obj_player.state != gml_Script_scr_player_state_inventory)
             {
                 timer_exit++
                 if (timer_exit >= timer_exit_max)
@@ -17,7 +17,7 @@ if (uscito == 0)
                             with (obj_light_torch)
                                 instance_destroy()
                         }
-                        obj_player.state = 50
+                        obj_player.state = gml_Script_scr_player_state_start
                         var eend = instance_create_depth(x, y, -9999, obj_exit_screen)
                         eend.survived = 1
                         eend.factor_survived = 1

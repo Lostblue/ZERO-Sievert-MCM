@@ -19,7 +19,7 @@ if instance_exists(obj_map_generator)
                 player_deployed = 1
                 obj_player.y = (y + 24)
                 obj_player.visible = true
-                obj_player.state = 22
+                obj_player.state = gml_Script_scr_player_state_move
                 alarm[3] = 60
                 alarm[1] = 60
                 obj_controller.alarm[5] = 5400

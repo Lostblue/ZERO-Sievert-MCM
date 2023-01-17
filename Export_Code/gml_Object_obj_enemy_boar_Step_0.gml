@@ -1,8 +1,8 @@
 event_inherited()
-if (state == npc_state_alert[npc_id] || state == (40 << 0))
+if (state == npc_state_alert[npc_id] || state == (41 << 0))
 {
     var _chance = 0.8333333333333334
-    if (state == (40 << 0))
+    if (state == (41 << 0))
         _chance = 1.6666666666666667
     if scr_chance(_chance)
     {

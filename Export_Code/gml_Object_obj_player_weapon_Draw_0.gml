@@ -1,4 +1,4 @@
-if (obj_player.state != 50)
+if (obj_player.state != gml_Script_scr_player_state_start)
 {
     if (follow_id.draw_weapon == 1)
     {
@@ -17,134 +17,134 @@ if (obj_player.state != 50)
             draw_clear_alpha(c_black, 0)
             draw_sprite(op.item_sprite_inv[op.arma_now], 0, 0, 0)
             var m = (0 << 0)
-            if (op.mod_id[op.weapon_slot_now, m] != -1)
-                draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now, m]], 0, op.arma_mod_x[op.arma_now, m], op.arma_mod_y[op.arma_now, m])
+            if (op.mod_id[op.weapon_slot_now][m] != -1)
+                draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now][m]], 0, op.arma_mod_x[op.arma_now][m], op.arma_mod_y[op.arma_now][m])
             m = (1 << 0)
-            if (op.mod_id[op.weapon_slot_now, m] != -1)
-                draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now, m]], 0, op.arma_mod_x[op.arma_now, m], op.arma_mod_y[op.arma_now, m])
+            if (op.mod_id[op.weapon_slot_now][m] != -1)
+                draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now][m]], 0, op.arma_mod_x[op.arma_now][m], op.arma_mod_y[op.arma_now][m])
             m = (3 << 0)
-            if (op.mod_id[op.weapon_slot_now, m] != -1)
-                draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now, m]], 0, op.arma_mod_x[op.arma_now, m], op.arma_mod_y[op.arma_now, m])
+            if (op.mod_id[op.weapon_slot_now][m] != -1)
+                draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now][m]], 0, op.arma_mod_x[op.arma_now][m], op.arma_mod_y[op.arma_now][m])
             m = (2 << 0)
-            if (op.mod_id[op.weapon_slot_now, m] != -1)
-                draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now, m]], 0, op.arma_mod_x[op.arma_now, m], op.arma_mod_y[op.arma_now, m])
+            if (op.mod_id[op.weapon_slot_now][m] != -1)
+                draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now][m]], 0, op.arma_mod_x[op.arma_now][m], op.arma_mod_y[op.arma_now][m])
             m = (4 << 0)
-            if (op.mod_id[op.weapon_slot_now, m] != -1)
-                draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now, m]], 0, op.arma_mod_x[op.arma_now, m], op.arma_mod_y[op.arma_now, m])
+            if (op.mod_id[op.weapon_slot_now][m] != -1)
+                draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now][m]], 0, op.arma_mod_x[op.arma_now][m], op.arma_mod_y[op.arma_now][m])
             m = (6 << 0)
-            if (op.mod_id[op.weapon_slot_now, m] != -1)
-                draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now, m]], 0, op.arma_mod_x[op.arma_now, m], op.arma_mod_y[op.arma_now, m])
-            if (op.mod_id[op.weapon_slot_now, (3 << 0)] != -1)
+            if (op.mod_id[op.weapon_slot_now][m] != -1)
+                draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now][m]], 0, op.arma_mod_x[op.arma_now][m], op.arma_mod_y[op.arma_now][m])
+            if (op.mod_id[op.weapon_slot_now][(3 << 0)] != -1)
             {
                 m = (5 << 0)
-                if (op.mod_id[op.weapon_slot_now, m] != -1)
-                    draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now, m]], 0, op.brake_x, op.brake_y)
+                if (op.mod_id[op.weapon_slot_now][m] != -1)
+                    draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now][m]], 0, op.brake_x, op.brake_y)
             }
-            else if (op.arma_mod_moddable[op.arma_now, (3 << 0)] == 0)
+            else if (op.arma_mod_moddable[op.arma_now][(3 << 0)] == 0)
             {
                 m = (5 << 0)
-                if (op.mod_id[op.weapon_slot_now, m] != -1)
+                if (op.mod_id[op.weapon_slot_now][m] != -1)
                 {
-                    op.brake_x = op.arma_mod_x[op.arma_now, m]
-                    op.brake_y = op.arma_mod_y[op.arma_now, m]
-                    draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now, m]], 0, op.brake_x, op.brake_y)
+                    op.brake_x = op.arma_mod_x[op.arma_now][m]
+                    op.brake_y = op.arma_mod_y[op.arma_now][m]
+                    draw_sprite(op.item_sprite_ingame[op.mod_id[op.weapon_slot_now][m]], 0, op.brake_x, op.brake_y)
                 }
             }
             m = (2 << 0)
-            if (op.mod_id[op.weapon_slot_now, m] != -1)
+            if (op.mod_id[op.weapon_slot_now][m] != -1)
             {
-                var h_id = op.mod_id[op.weapon_slot_now, m]
-                if (op.mod_handguard_slot[h_id, 0] == 1)
+                var h_id = op.mod_id[op.weapon_slot_now][m]
+                if (op.mod_handguard_slot[h_id][0] == 1)
                 {
-                    var id_of_mod = op.mod_id[op.weapon_slot_now, (7 << 0)]
+                    var id_of_mod = op.mod_id[op.weapon_slot_now][(7 << 0)]
                     if (id_of_mod != -1)
                     {
-                        var xx = (op.mod_handguard_x[h_id, 0] + op.arma_mod_x[op.arma_now, (2 << 0)])
-                        var yy = (op.mod_handguard_y[h_id, 0] + op.arma_mod_y[op.arma_now, (2 << 0)])
+                        var xx = (op.mod_handguard_x[h_id][0] + op.arma_mod_x[op.arma_now][(2 << 0)])
+                        var yy = (op.mod_handguard_y[h_id][0] + op.arma_mod_y[op.arma_now][(2 << 0)])
                         draw_sprite(op.item_sprite_ingame[id_of_mod], 0, xx, yy)
                     }
                 }
-                if (op.mod_handguard_slot[h_id, 1] == 1)
+                if (op.mod_handguard_slot[h_id][1] == 1)
                 {
-                    id_of_mod = op.mod_id[op.weapon_slot_now, (8 << 0)]
+                    id_of_mod = op.mod_id[op.weapon_slot_now][(8 << 0)]
                     if (id_of_mod != -1)
                     {
-                        xx = (op.mod_handguard_x[h_id, 1] + op.arma_mod_x[op.arma_now, (2 << 0)])
-                        yy = (op.mod_handguard_y[h_id, 1] + op.arma_mod_y[op.arma_now, (2 << 0)])
+                        xx = (op.mod_handguard_x[h_id][1] + op.arma_mod_x[op.arma_now][(2 << 0)])
+                        yy = (op.mod_handguard_y[h_id][1] + op.arma_mod_y[op.arma_now][(2 << 0)])
                         draw_sprite(op.item_sprite_ingame[id_of_mod], 0, xx, yy)
                     }
                 }
-                if (op.mod_handguard_slot[h_id, 2] == 1)
+                if (op.mod_handguard_slot[h_id][2] == 1)
                 {
-                    id_of_mod = op.mod_id[op.weapon_slot_now, (9 << 0)]
+                    id_of_mod = op.mod_id[op.weapon_slot_now][(9 << 0)]
                     if (id_of_mod != -1)
                     {
-                        xx = (op.mod_handguard_x[h_id, 2] + op.arma_mod_x[op.arma_now, (2 << 0)])
-                        yy = (op.mod_handguard_y[h_id, 2] + op.arma_mod_y[op.arma_now, (2 << 0)])
+                        xx = (op.mod_handguard_x[h_id][2] + op.arma_mod_x[op.arma_now][(2 << 0)])
+                        yy = (op.mod_handguard_y[h_id][2] + op.arma_mod_y[op.arma_now][(2 << 0)])
                         draw_sprite(op.item_sprite_ingame[id_of_mod], 0, xx, yy)
                     }
                 }
-                if (op.mod_handguard_slot[h_id, 3] == 1)
+                if (op.mod_handguard_slot[h_id][3] == 1)
                 {
-                    id_of_mod = op.mod_id[op.weapon_slot_now, (10 << 0)]
+                    id_of_mod = op.mod_id[op.weapon_slot_now][(10 << 0)]
                     if (id_of_mod != -1)
                     {
-                        var mod_type_ = op.mod_type[op.mod_id[op.weapon_slot_now, (10 << 0)]]
+                        var mod_type_ = op.mod_type[op.mod_id[op.weapon_slot_now][(10 << 0)]]
                         var upside = 1
                         if (mod_type_ == (6 << 0) || mod_type_ == (10 << 0))
                             upside = -1
-                        xx = (op.mod_handguard_x[h_id, 3] + op.arma_mod_x[op.arma_now, (2 << 0)])
-                        yy = (op.mod_handguard_y[h_id, 3] + op.arma_mod_y[op.arma_now, (2 << 0)])
+                        xx = (op.mod_handguard_x[h_id][3] + op.arma_mod_x[op.arma_now][(2 << 0)])
+                        yy = (op.mod_handguard_y[h_id][3] + op.arma_mod_y[op.arma_now][(2 << 0)])
                         draw_sprite_ext(op.item_sprite_ingame[id_of_mod], 0, xx, yy, 1, upside, 0, c_white, 1)
                     }
                 }
             }
-            if (op.mod_id[op.weapon_slot_now, m] == -1)
+            if (op.mod_id[op.weapon_slot_now][m] == -1)
             {
-                if (op.arma_mod_moddable[op.arma_now, m] == 0)
+                if (op.arma_mod_moddable[op.arma_now][m] == 0)
                 {
                     var j = (7 << 0)
-                    id_of_mod = op.mod_id[op.weapon_slot_now, j]
-                    if (op.arma_mod_moddable[op.arma_now, j] == 1)
+                    id_of_mod = op.mod_id[op.weapon_slot_now][j]
+                    if (op.arma_mod_moddable[op.arma_now][j] == 1)
                     {
                         if (id_of_mod != -1)
                         {
-                            xx = op.arma_mod_x[op.arma_now, j]
-                            yy = op.arma_mod_y[op.arma_now, j]
+                            xx = op.arma_mod_x[op.arma_now][j]
+                            yy = op.arma_mod_y[op.arma_now][j]
                             draw_sprite(op.item_sprite_ingame[id_of_mod], 0, xx, yy)
                         }
                     }
                     j = (8 << 0)
-                    id_of_mod = op.mod_id[op.weapon_slot_now, j]
-                    if (op.arma_mod_moddable[op.arma_now, j] == 1)
+                    id_of_mod = op.mod_id[op.weapon_slot_now][j]
+                    if (op.arma_mod_moddable[op.arma_now][j] == 1)
                     {
                         if (id_of_mod != -1)
                         {
-                            xx = op.arma_mod_x[op.arma_now, j]
-                            yy = op.arma_mod_y[op.arma_now, j]
+                            xx = op.arma_mod_x[op.arma_now][j]
+                            yy = op.arma_mod_y[op.arma_now][j]
                             draw_sprite(op.item_sprite_ingame[id_of_mod], 0, xx, yy)
                         }
                     }
                     j = (9 << 0)
-                    id_of_mod = op.mod_id[op.weapon_slot_now, j]
-                    if (op.arma_mod_moddable[op.arma_now, j] == 1)
+                    id_of_mod = op.mod_id[op.weapon_slot_now][j]
+                    if (op.arma_mod_moddable[op.arma_now][j] == 1)
                     {
                         if (id_of_mod != -1)
                         {
-                            xx = op.arma_mod_x[op.arma_now, j]
-                            yy = op.arma_mod_y[op.arma_now, j]
+                            xx = op.arma_mod_x[op.arma_now][j]
+                            yy = op.arma_mod_y[op.arma_now][j]
                             draw_sprite(op.item_sprite_ingame[id_of_mod], 0, xx, yy)
                         }
                     }
                     j = (10 << 0)
-                    id_of_mod = op.mod_id[op.weapon_slot_now, j]
-                    if (op.arma_mod_moddable[op.arma_now, j] == 1)
+                    id_of_mod = op.mod_id[op.weapon_slot_now][j]
+                    if (op.arma_mod_moddable[op.arma_now][j] == 1)
                     {
                         if (id_of_mod != -1)
                         {
-                            xx = op.arma_mod_x[op.arma_now, j]
-                            yy = op.arma_mod_y[op.arma_now, j]
-                            mod_type_ = op.mod_type[op.mod_id[op.weapon_slot_now, j]]
+                            xx = op.arma_mod_x[op.arma_now][j]
+                            yy = op.arma_mod_y[op.arma_now][j]
+                            mod_type_ = op.mod_type[op.mod_id[op.weapon_slot_now][j]]
                             upside = 1
                             if (mod_type_ == (6 << 0) || mod_type_ == (10 << 0))
                                 upside = -1
@@ -167,7 +167,7 @@ if (obj_player.state != 50)
                 rx = ((lengthdir_x((-ox), image_angle) - lengthdir_y((-oy), image_angle)) * 0.4)
                 ry = ((lengthdir_y((-ox), image_angle) + lengthdir_x((-oy), image_angle)) * 0.4)
             }
-            if (op.state == 67)
+            if (op.state == gml_Script_scr_player_weapon_look)
             {
                 rx = ((lengthdir_x((-ox), image_angle) - lengthdir_y((-oy), image_angle)) * 0.4)
                 ry = ((lengthdir_y((-ox), image_angle) + lengthdir_x((-oy), image_angle)) * 0.4)

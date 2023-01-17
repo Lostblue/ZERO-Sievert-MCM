@@ -11,7 +11,7 @@ if (global.ga_pop_up == 1)
     _normal = 0
 if (_normal == 1)
 {
-    if (page_state != (10 << 0))
+    if (page_state != (11 << 0))
     {
         var startx = (option_startx[page_state] - (button_w / 2))
         var starty = (option_starty[page_state] - (button_h / 2))
@@ -32,10 +32,10 @@ if (_normal == 1)
             option_selected = -1
         if (page_state == (4 << 0))
         {
-            global.volume_master = option_var[(4 << 0), (0 << 0)]
-            global.volume_radiation = option_var[(4 << 0), (1 << 0)]
-            global.volume_heart = option_var[(4 << 0), (2 << 0)]
-            global.volume_main_menu = option_var[(4 << 0), (3 << 0)]
+            global.volume_master = option_var[(4 << 0)][(0 << 0)]
+            global.volume_radiation = option_var[(4 << 0)][(1 << 0)]
+            global.volume_heart = option_var[(4 << 0)][(2 << 0)]
+            global.volume_main_menu = option_var[(4 << 0)][(3 << 0)]
             audio_group_set_gain(3, global.volume_radiation, 1)
             audio_group_set_gain(13, global.volume_heart, 1)
             audio_group_set_gain(14, global.volume_main_menu, 1)
@@ -51,8 +51,8 @@ if (_normal == 1)
                     var s_w = sprite_get_width(s_hud_slider_bar)
                     if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty), (s_w + (offset_slider * 2)), button_h)
                     {
-                        option_var[(4 << 0), (0 << 0)] = (((mouse_x - camx) - slider_startx) / s_w)
-                        option_var[(4 << 0), (0 << 0)] = clamp(option_var[(4 << 0), (0 << 0)], 0, 1)
+                        option_var[(4 << 0)][(0 << 0)] = (((mouse_x - camx) - slider_startx) / s_w)
+                        option_var[(4 << 0)][(0 << 0)] = clamp(option_var[(4 << 0)][(0 << 0)], 0, 1)
                     }
                 }
                 if mouse_check_button(mb_left)
@@ -60,8 +60,8 @@ if (_normal == 1)
                     s_w = sprite_get_width(s_hud_slider_bar)
                     if scr_mouse_inside(((camx + slider_startx) - offset_slider), ((camy + starty) + button_h_sep), (s_w + (offset_slider * 2)), button_h)
                     {
-                        option_var[(4 << 0), (1 << 0)] = (((mouse_x - camx) - slider_startx) / s_w)
-                        option_var[(4 << 0), (1 << 0)] = clamp(option_var[(4 << 0), (1 << 0)], 0, 1)
+                        option_var[(4 << 0)][(1 << 0)] = (((mouse_x - camx) - slider_startx) / s_w)
+                        option_var[(4 << 0)][(1 << 0)] = clamp(option_var[(4 << 0)][(1 << 0)], 0, 1)
                     }
                 }
                 if mouse_check_button(mb_left)
@@ -69,8 +69,8 @@ if (_normal == 1)
                     s_w = sprite_get_width(s_hud_slider_bar)
                     if scr_mouse_inside(((camx + slider_startx) - offset_slider), ((camy + starty) + (button_h_sep * 2)), (s_w + (offset_slider * 2)), button_h)
                     {
-                        option_var[(4 << 0), (2 << 0)] = (((mouse_x - camx) - slider_startx) / s_w)
-                        option_var[(4 << 0), (2 << 0)] = clamp(option_var[(4 << 0), (2 << 0)], 0, 1)
+                        option_var[(4 << 0)][(2 << 0)] = (((mouse_x - camx) - slider_startx) / s_w)
+                        option_var[(4 << 0)][(2 << 0)] = clamp(option_var[(4 << 0)][(2 << 0)], 0, 1)
                     }
                 }
                 if mouse_check_button(mb_left)
@@ -78,31 +78,69 @@ if (_normal == 1)
                     s_w = sprite_get_width(s_hud_slider_bar)
                     if scr_mouse_inside(((camx + slider_startx) - offset_slider), ((camy + starty) + (button_h_sep * 3)), (s_w + (offset_slider * 2)), button_h)
                     {
-                        option_var[(4 << 0), (3 << 0)] = (((mouse_x - camx) - slider_startx) / s_w)
-                        option_var[(4 << 0), (3 << 0)] = clamp(option_var[(4 << 0), (3 << 0)], 0, 1)
+                        option_var[(4 << 0)][(3 << 0)] = (((mouse_x - camx) - slider_startx) / s_w)
+                        option_var[(4 << 0)][(3 << 0)] = clamp(option_var[(4 << 0)][(3 << 0)], 0, 1)
+                    }
+                }
+            }
+        }
+        if (page_state == (7 << 0))
+        {
+            global.toggle_sprint = option_var[(7 << 0)][(0 << 0)]
+            global.bunker_animation = option_var[(7 << 0)][(1 << 0)]
+            global.hud_item_overlay = option_var[(7 << 0)][(2 << 0)]
+            if mouse_check_button_pressed(mb_left)
+            {
+                for (i = 0; i < n_option; i++)
+                {
+                    if (option_type[page_state][i] == (2 << 0))
+                    {
+                        if scr_mouse_inside((camx + on_x), ((camy + starty) + (button_h_sep * i)), on_w, button_h)
+                            option_var[(7 << 0)][i] = true
+                        if scr_mouse_inside(((camx + on_x) + on_w), ((camy + starty) + (button_h_sep * i)), on_w, button_h)
+                            option_var[(7 << 0)][i] = false
+                    }
+                }
+            }
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+            {
+                can_slide = 0
+                s_w = sprite_get_width(s_hud_slider_bar)
+            }
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    s_w = sprite_get_width(s_hud_slider_bar)
+                    if scr_mouse_inside(((camx + slider_startx) - offset_slider), ((camy + starty) + (button_h_sep * 2)), (s_w + (offset_slider * 2)), button_h)
+                    {
+                        option_var[(7 << 0)][(2 << 0)] = (((mouse_x - camx) - slider_startx) / s_w)
+                        option_var[(7 << 0)][(2 << 0)] = clamp(option_var[(7 << 0)][(2 << 0)], 0, 1)
                     }
                 }
             }
         }
         if (page_state == (6 << 0))
         {
-            global.erba_dinamica = option_var[(6 << 0), (1 << 0)]
-            global.erba_amount = option_var[(6 << 0), (0 << 0)]
-            global.fog_rain = option_var[(6 << 0), (2 << 0)]
-            global.low_spec = option_var[(6 << 0), (3 << 0)]
-            global.fullscreen = option_var[(6 << 0), (4 << 0)]
-            global.fog_enable = option_var[(6 << 0), (5 << 0)]
-            global.fog_alpha = option_var[(6 << 0), (6 << 0)]
+            global.erba_dinamica = option_var[(6 << 0)][(1 << 0)]
+            global.erba_amount = option_var[(6 << 0)][(0 << 0)]
+            global.fog_rain = option_var[(6 << 0)][(2 << 0)]
+            global.low_spec = option_var[(6 << 0)][(3 << 0)]
+            global.fullscreen = option_var[(6 << 0)][(4 << 0)]
+            global.fog_enable = option_var[(6 << 0)][(5 << 0)]
+            global.fog_alpha = option_var[(6 << 0)][(6 << 0)]
             if mouse_check_button_pressed(mb_left)
             {
                 for (i = 0; i < n_option; i++)
                 {
-                    if (option_type[page_state, i] == (2 << 0))
+                    if (option_type[page_state][i] == (2 << 0))
                     {
                         if scr_mouse_inside((camx + on_x), ((camy + starty) + (button_h_sep * i)), on_w, button_h)
-                            option_var[(6 << 0), i] = 1
+                            option_var[(6 << 0)][i] = 1
                         if scr_mouse_inside(((camx + on_x) + on_w), ((camy + starty) + (button_h_sep * i)), on_w, button_h)
-                            option_var[(6 << 0), i] = 0
+                            option_var[(6 << 0)][i] = 0
                     }
                 }
             }
@@ -122,29 +160,29 @@ if (_normal == 1)
                     s_w = sprite_get_width(s_hud_slider_bar)
                     if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty), (s_w + (offset_slider * 2)), button_h)
                     {
-                        option_var[(6 << 0), (0 << 0)] = (((mouse_x - camx) - slider_startx) / s_w)
-                        option_var[(6 << 0), (0 << 0)] = clamp(option_var[(6 << 0), (0 << 0)], 0, 1)
+                        option_var[(6 << 0)][(0 << 0)] = (((mouse_x - camx) - slider_startx) / s_w)
+                        option_var[(6 << 0)][(0 << 0)] = clamp(option_var[(6 << 0)][(0 << 0)], 0, 1)
                     }
                     if scr_mouse_inside(((camx + slider_startx) - offset_slider), ((camy + starty) + (button_h_sep * 6)), (s_w + (offset_slider * 2)), button_h)
                     {
-                        option_var[(6 << 0), (6 << 0)] = (((mouse_x - camx) - slider_startx) / s_w)
-                        option_var[(6 << 0), (6 << 0)] = clamp(option_var[(6 << 0), (6 << 0)], 0, 1)
+                        option_var[(6 << 0)][(6 << 0)] = (((mouse_x - camx) - slider_startx) / s_w)
+                        option_var[(6 << 0)][(6 << 0)] = clamp(option_var[(6 << 0)][(6 << 0)], 0, 1)
                     }
                 }
             }
         }
-        if (page_state == (13 << 0))
+        if (page_state == (14 << 0))
         {
-            global.ga_collect_data = option_var[(13 << 0), (0 << 0)]
+            global.ga_collect_data = option_var[(14 << 0)][(0 << 0)]
             if mouse_check_button_pressed(mb_left)
             {
                 for (i = 0; i < n_option; i++)
                 {
-                    if (option_type[page_state, i] == (2 << 0))
+                    if (option_type[page_state][i] == (2 << 0))
                     {
                         if scr_mouse_inside((camx + on_x), ((camy + starty) + (button_h_sep * i)), on_w, button_h)
                         {
-                            option_var[(13 << 0), i] = 1
+                            option_var[(14 << 0)][i] = 1
                             if (i == (0 << 0))
                                 scr_draw_text_with_box("In order for this change to be effective, the game must be restarted.")
                             global.ga_collect_data = 1
@@ -156,7 +194,7 @@ if (_normal == 1)
                         }
                         if scr_mouse_inside(((camx + on_x) + on_w), ((camy + starty) + (button_h_sep * i)), on_w, button_h)
                         {
-                            option_var[(13 << 0), i] = 0
+                            option_var[(14 << 0)][i] = 0
                             if (i == (0 << 0))
                                 scr_draw_text_with_box("The game will no longer collect game data")
                             global.ga_collect_data = 0
@@ -190,7 +228,61 @@ if (_normal == 1)
         {
             var ww = keyb_w
             var hh = keyb_h
-            if mouse_check_button_pressed(mb_left)
+            var _wait_next_step = 0
+            if (wait_input == 1)
+            {
+                _wait_next_step = 1
+                var _key_is_pressed = 0
+                var _key_pressed = -4
+                if keyboard_check_pressed(vk_anykey)
+                    _key_pressed = keyboard_key
+                if mouse_check_button_pressed(mb_any)
+                    _key_pressed = mouse_lastbutton
+                if (_key_pressed != -4)
+                {
+                    var t = scr_key_map(_key_pressed)
+                    var valid_key = 1
+                    var _key_no_mouse = 0
+                    var already_key = 0
+                    if (t == "Error")
+                        valid_key = 0
+                    if (global.kb_accept_mouse[key_selected] == 0)
+                    {
+                        if mouse_check_button_pressed(mb_any)
+                        {
+                            valid_key = 0
+                            _key_no_mouse = 1
+                        }
+                    }
+                    for (i = 0; i < array_length_1d(global.kb_id); i++)
+                    {
+                        if (global.kb_now[i] == _key_pressed)
+                            already_key = 1
+                    }
+                    if (valid_key == 1 && already_key == 0)
+                    {
+                        global.kb_now[key_selected] = _key_pressed
+                        wait_input = 0
+                        scr_draw_text_with_box("Key set")
+                    }
+                    if (valid_key == 0)
+                    {
+                        scr_draw_text_with_box("Invalid key")
+                        wait_input = 0
+                    }
+                    if (already_key == 1)
+                    {
+                        scr_draw_text_with_box("Key already used")
+                        wait_input = 0
+                    }
+                    if (_key_no_mouse == 1)
+                    {
+                        wait_input = 0
+                        scr_draw_text_with_box("This key doesn't accept a mouse button")
+                    }
+                }
+            }
+            if (mouse_check_button_pressed(mb_left) && wait_input == 0 && _wait_next_step == 0)
             {
                 for (i = 0; i < array_length_1d(global.kb_id); i++)
                 {
@@ -209,37 +301,6 @@ if (_normal == 1)
                         scr_draw_text_with_box("Waiting for input...")
                         wait_input = 1
                         key_selected = i
-                    }
-                }
-            }
-            if (wait_input == 1)
-            {
-                if keyboard_check_pressed(vk_anykey)
-                {
-                    var t = scr_key_map(keyboard_key)
-                    var valid_key = 1
-                    var already_key = 0
-                    if (t == "Error")
-                        valid_key = 0
-                    for (i = 0; i < array_length_1d(global.kb_id); i++)
-                    {
-                        if (global.kb_now[i] == keyboard_key)
-                            already_key = 1
-                    }
-                    if (valid_key == 1 && already_key == 0)
-                    {
-                        global.kb_now[key_selected] = keyboard_key
-                        wait_input = 0
-                    }
-                    if (valid_key == 0)
-                    {
-                        scr_draw_text_with_box("Invalid key")
-                        wait_input = 0
-                    }
-                    if (already_key == 1)
-                    {
-                        scr_draw_text_with_box("Key already used")
-                        wait_input = 0
                     }
                 }
             }
@@ -292,23 +353,23 @@ if (_normal == 1)
                             page_state = (1 << 0)
                             break
                         case (1 << 0):
-                            page_state = (9 << 0)
+                            page_state = (10 << 0)
                             break
                         case (2 << 0):
-                            page_state = (11 << 0)
+                            page_state = (12 << 0)
                             break
                         case (3 << 0):
                             page_state = (3 << 0)
                             break
                         case (4 << 0):
-                            scr_open_url("https://discord.gg/4HPNUpWVU9")
+                            url_open("https://discord.gg/4HPNUpWVU9")
                             break
                         case (5 << 0):
-                            page_state = (13 << 0)
-                            option_var[(13 << 0), (0 << 0)] = global.ga_collect_data
+                            page_state = (14 << 0)
+                            option_var[(14 << 0)][(0 << 0)] = global.ga_collect_data
                             break
                         case (6 << 0):
-                            page_state = (14 << 0)
+                            page_state = (15 << 0)
                             credits_movement = 0
                             alarm[2] = 120
                             break
@@ -325,15 +386,18 @@ if (_normal == 1)
                             page_state = (4 << 0)
                             break
                         case (1 << 0):
-                            page_state = (6 << 0)
-                            break
-                        case (2 << 0):
                             page_state = (7 << 0)
                             break
+                        case (2 << 0):
+                            page_state = (6 << 0)
+                            break
                         case (3 << 0):
-                            page_state = (5 << 0)
+                            page_state = (8 << 0)
                             break
                         case (4 << 0):
+                            page_state = (5 << 0)
+                            break
+                        case (5 << 0):
                             if (room == r_menu)
                                 page_state = (0 << 0)
                             else
@@ -355,7 +419,7 @@ if (_normal == 1)
                             global.slot_selected = 3
                             break
                         case (3 << 0):
-                            page_state = (10 << 0)
+                            page_state = (11 << 0)
                             break
                         case (4 << 0):
                             page_state = (0 << 0)
@@ -363,7 +427,7 @@ if (_normal == 1)
                     }
 
                     break
-                case (9 << 0):
+                case (10 << 0):
                     switch option_selected
                     {
                         case (0 << 0):
@@ -402,7 +466,7 @@ if (_normal == 1)
                     }
 
                     break
-                case (8 << 0):
+                case (9 << 0):
                     switch option_selected
                     {
                         case (0 << 0):
@@ -454,10 +518,10 @@ if (_normal == 1)
                             page_state = (3 << 0)
                             break
                         case (2 << 0):
-                            page_state = (11 << 0)
+                            page_state = (12 << 0)
                             break
                         case (3 << 0):
-                            scr_open_url("https://discord.gg/4HPNUpWVU9")
+                            url_open("https://discord.gg/4HPNUpWVU9")
                             break
                         case (4 << 0):
                             state_sure = 1
@@ -465,7 +529,7 @@ if (_normal == 1)
                     }
 
                     break
-                case (15 << 0):
+                case (16 << 0):
                     switch option_selected
                     {
                         case (0 << 0):
@@ -565,6 +629,20 @@ if (_normal == 1)
                         case (3 << 0):
                             page_state = (3 << 0)
                             ini_open("settings.ini")
+                            ini_write_real("settings", "bunker_animation", global.bunker_animation)
+                            ini_write_real("settings", "toggle_sprint", global.toggle_sprint)
+                            ini_write_real("settings", "item_overlay", global.hud_item_overlay)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (8 << 0):
+                    switch option_selected
+                    {
+                        case (3 << 0):
+                            page_state = (3 << 0)
+                            ini_open("settings.ini")
                             ini_write_real("resolution", "resolution", global.resolution)
                             ini_close()
                             if (!window_get_fullscreen())
@@ -585,36 +663,36 @@ if (_normal == 1)
                     }
 
                     break
-                case (11 << 0):
+                case (12 << 0):
                     switch option_selected
                     {
                         case (0 << 0):
-                            page_state = (12 << 0)
+                            page_state = (13 << 0)
                             tutorial_page = (0 << 0)
                             tutorial_sub_page = 0
                             break
                         case (1 << 0):
-                            page_state = (12 << 0)
+                            page_state = (13 << 0)
                             tutorial_page = (1 << 0)
                             tutorial_sub_page = 0
                             break
                         case (4 << 0):
-                            page_state = (12 << 0)
+                            page_state = (13 << 0)
                             tutorial_page = (4 << 0)
                             tutorial_sub_page = 0
                             break
                         case (2 << 0):
-                            page_state = (12 << 0)
+                            page_state = (13 << 0)
                             tutorial_page = (2 << 0)
                             tutorial_sub_page = 0
                             break
                         case (5 << 0):
-                            page_state = (12 << 0)
+                            page_state = (13 << 0)
                             tutorial_page = (5 << 0)
                             tutorial_sub_page = 0
                             break
                         case (3 << 0):
-                            page_state = (12 << 0)
+                            page_state = (13 << 0)
                             tutorial_page = (3 << 0)
                             tutorial_sub_page = 0
                             break
@@ -627,22 +705,22 @@ if (_normal == 1)
                     }
 
                     break
-                case (12 << 0):
+                case (13 << 0):
                     switch option_selected
                     {
                         case (0 << 0):
-                            page_state = (11 << 0)
+                            page_state = (12 << 0)
                             break
                     }
 
                     break
-                case (13 << 0):
+                case (14 << 0):
                     switch option_selected
                     {
                         case (0 << 0):
                             break
                         case (1 << 0):
-                            scr_open_url("https://modernwolf.net/media/Developers/CaboStudio/Privacy%20Notice_%20Zero%20Sievert.pdf")
+                            url_open("https://modernwolf.net/media/Developers/CaboStudio/Privacy%20Notice_%20Zero%20Sievert.pdf")
                             break
                         case (2 << 0):
                             if (room == r_menu)
@@ -660,7 +738,7 @@ if (_normal == 1)
                     }
 
                     break
-                case (14 << 0):
+                case (15 << 0):
                     switch option_selected
                     {
                         case (0 << 0):
@@ -673,7 +751,7 @@ if (_normal == 1)
 
         }
     }
-    if (page_state == (12 << 0))
+    if (page_state == (13 << 0))
     {
         if mouse_check_button_pressed(mb_left)
         {
@@ -688,7 +766,7 @@ if (_normal == 1)
             tutorial_sub_page = clamp(tutorial_sub_page, 0, (_max - 1))
         }
     }
-    if (page_state == (10 << 0))
+    if (page_state == (11 << 0))
     {
         global.trait_hover = -1
         for (i = 0; i < array_length_1d(global.trait_id); i++)
@@ -711,7 +789,7 @@ if (_normal == 1)
                 ds_grid_clear(grid_item_, 0)
                 for (i = 0; i < array_length_2d(global.arr_trait_item_id, global.trait_selected); i++)
                 {
-                    var id_item = global.arr_trait_item_id[global.trait_selected, i]
+                    var id_item = global.arr_trait_item_id[global.trait_selected][i]
                     var placed = 0
                     var necessario_w = (sprite_get_width(item_sprite_inv[id_item]) div 16)
                     var necessario_h = (sprite_get_height(item_sprite_inv[id_item]) div 16)
@@ -747,7 +825,7 @@ if (_normal == 1)
                                         var objy = ((camy + grid_y) + (yy * 16))
                                         var oggetto = instance_create_depth(objx, objy, -8000, obj_item)
                                         oggetto.my_id = id_item
-                                        oggetto.qnt = global.arr_trait_item_qnt[global.trait_selected, i]
+                                        oggetto.qnt = global.arr_trait_item_qnt[global.trait_selected][i]
                                         oggetto.my_x = (xx * 16)
                                         oggetto.my_y = (yy * 16)
                                         oggetto.sprite_index = item_sprite_inv[id_item]
@@ -800,7 +878,7 @@ if (_normal == 1)
             }
         }
     }
-    if (page_state == (14 << 0))
+    if (page_state == (15 << 0))
     {
         if (credits_movement == 1)
             credits_y -= credits_speed
@@ -900,14 +978,14 @@ else
         if scr_mouse_inside((camx + _lx), (camy + _ly), ga_link_w, ga_link_h)
         {
             if mouse_check_button_released(mb_left)
-                scr_open_url("https://modernwolf.net/media/Developers/CaboStudio/Privacy%20Notice_%20Zero%20Sievert.pdf")
+                url_open("https://modernwolf.net/media/Developers/CaboStudio/Privacy%20Notice_%20Zero%20Sievert.pdf")
         }
         _lx = (ga_link2_x - (ga_link_w / 2))
         _ly = (ga_link2_y - (ga_link_h / 2))
         if scr_mouse_inside((camx + _lx), (camy + _ly), ga_link_w, ga_link_h)
         {
             if mouse_check_button_released(mb_left)
-                scr_open_url("https://gameanalytics.com/privacy/")
+                url_open("https://gameanalytics.com/privacy/")
         }
     }
 }

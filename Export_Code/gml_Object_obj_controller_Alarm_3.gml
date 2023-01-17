@@ -38,7 +38,7 @@ if (room == room1)
                                 {
                                     var _npc_to_create = obj_enemy_human_bandit_regular
                                     if scr_chance(20)
-                                        _npc_to_create = 701
+                                        _npc_to_create = 727
                                     instance_create_depth(_x, _y, 0, _npc_to_create)
                                     _amount_now++
                                 }

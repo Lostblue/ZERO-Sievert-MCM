@@ -3,13 +3,13 @@ var camx = 0
 var camy = 0
 var cax = camera_get_view_x(view_camera[0])
 var cay = camera_get_view_y(view_camera[0])
-if (page_state != (10 << 0))
+if (page_state != (11 << 0))
 {
     var startx = (option_startx[page_state] - (button_w / 2))
     var starty = (option_starty[page_state] - (button_h / 2))
     var n_option = array_length_2d(option_name, page_state)
     draw_sprite(s_main_menu, 0, camx, camy)
-    if (page_state == (14 << 0))
+    if (page_state == (15 << 0))
     {
         draw_sprite(s_death_screen, 0, 0, 0)
         var _x = 240
@@ -41,9 +41,9 @@ if (page_state != (10 << 0))
         }
         draw_surface(surface_credits, 0, (_y + credits_y))
     }
-    if (page_state == (12 << 0))
+    if (page_state == (13 << 0))
     {
-        draw_sprite(tut_image[tutorial_page, tutorial_sub_page], 0, 0, 0)
+        draw_sprite(tut_image[tutorial_page][tutorial_sub_page], 0, 0, 0)
         draw_set_font(font0)
         draw_set_halign(fa_left)
         draw_set_valign(fa_top)
@@ -73,7 +73,7 @@ if (page_state != (10 << 0))
         var but_sep = button_h_sep
         if (page_state == (5 << 0))
             but_sep = 25
-        if (option_type[page_state, i] == (0 << 0) || option_type[page_state, i] == (3 << 0))
+        if (option_type[page_state][i] == (0 << 0) || option_type[page_state][i] == (3 << 0))
         {
             if (option_selected == i)
             {
@@ -81,7 +81,7 @@ if (page_state != (10 << 0))
                 col_text_selected = c_black
             }
         }
-        if (option_type[page_state, i] == (3 << 0))
+        if (option_type[page_state][i] == (3 << 0))
         {
             if (global.slot_selected == (i + 1))
             {
@@ -95,23 +95,23 @@ if (page_state != (10 << 0))
         draw_set_valign(fa_middle)
         draw_set_font(font0)
         if (col_rect == c_black)
-            draw_text_transformed_color((camx + option_startx[page_state]), (((camy + option_starty[page_state]) + (but_sep * i)) + 1), option_name[page_state, i], 2, 2, 0, c_sotto, c_sotto, c_sotto, c_sotto, 1)
-        draw_text_transformed_color((camx + option_startx[page_state]), ((camy + option_starty[page_state]) + (but_sep * i)), option_name[page_state, i], 2, 2, 0, col_text_selected, col_text_selected, col_text_selected, col_text_selected, 1)
-        if (option_type[page_state, i] == (1 << 0))
+            draw_text_transformed_color((camx + option_startx[page_state]), (((camy + option_starty[page_state]) + (but_sep * i)) + 1), option_name[page_state][i], 2, 2, 0, c_sotto, c_sotto, c_sotto, c_sotto, 1)
+        draw_text_transformed_color((camx + option_startx[page_state]), ((camy + option_starty[page_state]) + (but_sep * i)), option_name[page_state][i], 2, 2, 0, col_text_selected, col_text_selected, col_text_selected, col_text_selected, 1)
+        if (option_type[page_state][i] == (1 << 0))
         {
             draw_sprite_ext(s_hud_slider_bar, 0, (camx + slider_startx), ((camy + option_starty[page_state]) + (but_sep * i)), 1, 1, 0, c_hover, 1)
             var slider_w = sprite_get_width(s_hud_slider_bar)
-            var slider_pointx = (slider_w * option_var[page_state, i])
+            var slider_pointx = (slider_w * option_var[page_state][i])
             draw_sprite_ext(s_hud_slider_point, 0, ((camx + slider_startx) + slider_pointx), ((camy + option_starty[page_state]) + (but_sep * i)), 1, 1, 0, c_hover, 1)
             draw_set_font(font0)
             draw_set_halign(fa_center)
             draw_set_valign(fa_middle)
-            _t = option_var[page_state, i]
+            _t = option_var[page_state][i]
             draw_text_color(((slider_startx + slider_w) + 15), ((camy + option_starty[page_state]) + (but_sep * i)), string(_t), col_text_selected, col_text_selected, col_text_selected, col_text_selected, 1)
         }
-        if (option_type[page_state, i] == (2 << 0))
+        if (option_type[page_state][i] == (2 << 0))
         {
-            var k = option_var[page_state, i]
+            var k = option_var[page_state][i]
             var a_on = 0
             var a_off = 0
             if (k == 1)
@@ -139,7 +139,7 @@ if (page_state != (10 << 0))
                 draw_text_transformed_color(((on_x + on_w) + (on_w / 2)), (option_starty[page_state] + (but_sep * i)), "OFF", 2, 2, 0, c_black, c_black, c_black, c_black, 1)
             }
         }
-        if (option_name[page_state, i] == "SLOT 1" || option_name[page_state, i] == "SLOT 2" || option_name[page_state, i] == "SLOT 3")
+        if (option_name[page_state][i] == "SLOT 1" || option_name[page_state][i] == "SLOT 2" || option_name[page_state][i] == "SLOT 3")
         {
             if file_exists((("save_general_" + string((i + 1))) + ".ini"))
             {
@@ -191,7 +191,7 @@ if (page_state == (5 << 0))
         draw_text_color((camx + _bx), (sy + (i * sep)), key_n, c_t, c_t, c_t, c_t, 1)
     }
 }
-if (page_state == (10 << 0))
+if (page_state == (11 << 0))
 {
     var c = c_black
     draw_rectangle_color((camx - 1), (camy - 1), ((camx + 480) + 1), ((camy + 270) + 1), c, c, c, c, 0)
@@ -254,9 +254,9 @@ var gy = ((camy + 270) - 20)
 draw_set_font(font0)
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
-if (page_state != (12 << 0))
+if (page_state != (13 << 0))
     draw_text_color(gx, gy, global.game_version, c_hover, c_hover, c_hover, c_hover, 1)
-if (page_state == (7 << 0))
+if (page_state == (8 << 0))
 {
     _w = 380
     _h = 40

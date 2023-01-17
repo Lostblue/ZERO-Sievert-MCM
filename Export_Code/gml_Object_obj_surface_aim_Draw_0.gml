@@ -4,7 +4,7 @@ if (global.aiming == 1)
 {
     if (!surface_exists(surface_aim))
     {
-        var get_scope_id = obj_player.mod_id[obj_player.weapon_slot_now, (6 << 0)]
+        var get_scope_id = obj_player.mod_id[obj_player.weapon_slot_now][(6 << 0)]
         var scope_sprite = obj_player.mod_scope_image[get_scope_id]
         var scopew = sprite_get_width(scope_sprite)
         var scopeh = sprite_get_height(scope_sprite)

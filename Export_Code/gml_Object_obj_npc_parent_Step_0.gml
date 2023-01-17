@@ -1,8 +1,9 @@
-var _list_possible_mod, _counter_array_action_ally, _counter_array_action_same_target;
 depth = ((-y) - (sprite_get_height(sprite_index) / 2))
 audio_emitter_position(emitter_shoot, x, y, 0)
 audio_emitter_position(emitter_walk, x, y, 0)
 audio_emitter_position(emitter_talk, x, y, 0)
+var camx = camera_get_view_x(view_camera[0])
+var camy = camera_get_view_y(view_camera[0])
 alert_player -= 0.5
 alert_player = clamp(alert_player, 0, alert_player_max)
 if (last_seen_delay == 1)
@@ -60,17 +61,17 @@ if (start_mod_weapon == 1)
         weapon_modded = 1
         if (arma_moddable[arma_now] == 1)
         {
-            mod_id[(0 << 0)] = arma_mod_id[arma_now, (0 << 0)]
-            mod_id[(1 << 0)] = arma_mod_id[arma_now, (1 << 0)]
-            mod_id[(3 << 0)] = arma_mod_id[arma_now, (3 << 0)]
-            mod_id[(2 << 0)] = arma_mod_id[arma_now, (2 << 0)]
-            mod_id[(5 << 0)] = arma_mod_id[arma_now, (5 << 0)]
-            mod_id[(4 << 0)] = arma_mod_id[arma_now, (4 << 0)]
-            mod_id[(6 << 0)] = arma_mod_id[arma_now, (6 << 0)]
-            mod_id[(7 << 0)] = arma_mod_id[arma_now, (7 << 0)]
-            mod_id[(8 << 0)] = arma_mod_id[arma_now, (8 << 0)]
-            mod_id[(9 << 0)] = arma_mod_id[arma_now, (9 << 0)]
-            mod_id[(10 << 0)] = arma_mod_id[arma_now, (10 << 0)]
+            mod_id[(0 << 0)] = arma_mod_id[arma_now][(0 << 0)]
+            mod_id[(1 << 0)] = arma_mod_id[arma_now][(1 << 0)]
+            mod_id[(3 << 0)] = arma_mod_id[arma_now][(3 << 0)]
+            mod_id[(2 << 0)] = arma_mod_id[arma_now][(2 << 0)]
+            mod_id[(5 << 0)] = arma_mod_id[arma_now][(5 << 0)]
+            mod_id[(4 << 0)] = arma_mod_id[arma_now][(4 << 0)]
+            mod_id[(6 << 0)] = arma_mod_id[arma_now][(6 << 0)]
+            mod_id[(7 << 0)] = arma_mod_id[arma_now][(7 << 0)]
+            mod_id[(8 << 0)] = arma_mod_id[arma_now][(8 << 0)]
+            mod_id[(9 << 0)] = arma_mod_id[arma_now][(9 << 0)]
+            mod_id[(10 << 0)] = arma_mod_id[arma_now][(10 << 0)]
             if instance_exists(linked_weapon_id)
             {
                 var _idw = linked_weapon_id
@@ -96,7 +97,7 @@ if (start_mod_weapon == 1)
                             var _stesso_slot = 0
                             for (var k = 0; k < array_length_2d(mod_position, j); k++)
                             {
-                                if (mod_position[j, k] == i)
+                                if (mod_position[j][k] == i)
                                     _stesso_slot = 1
                             }
                             if (_stesso_slot == 1)
@@ -108,7 +109,7 @@ if (start_mod_weapon == 1)
                                 {
                                     for (k = 0; k < array_length_2d(mod_weapon_id, j); k++)
                                     {
-                                        if (mod_weapon_id[j, k] == arma_now)
+                                        if (mod_weapon_id[j][k] == arma_now)
                                             _va_bene_per_questa_arma = 1
                                     }
                                 }
@@ -139,9 +140,9 @@ if (start_mod_weapon == 1)
                 }
                 for (i = 0; i <= (10 << 0); i++)
                 {
-                    if (arma_mod_moddable[arma_now, i] == 1)
+                    if (arma_mod_moddable[arma_now][i] == 1)
                     {
-                        if (arma_mod_id[arma_now, i] == -1)
+                        if (arma_mod_id[arma_now][i] == -1)
                         {
                             var _amount = 1
                             if (i == (5 << 0))
@@ -163,13 +164,13 @@ if (start_mod_weapon == 1)
                             var _hand_id = mod_id[(2 << 0)]
                             if (_hand_id != -1)
                             {
-                                if (mod_handguard_slot[_hand_id, 0] == 1 && i == (7 << 0))
+                                if (mod_handguard_slot[_hand_id][0] == 1 && i == (7 << 0))
                                     _can_mod = 1
-                                if (mod_handguard_slot[_hand_id, 1] == 1 && i == (8 << 0))
+                                if (mod_handguard_slot[_hand_id][1] == 1 && i == (8 << 0))
                                     _can_mod = 1
-                                if (mod_handguard_slot[_hand_id, 2] == 1 && i == (9 << 0))
+                                if (mod_handguard_slot[_hand_id][2] == 1 && i == (9 << 0))
                                     _can_mod = 1
-                                if (mod_handguard_slot[_hand_id, 3] == 1 && i == (10 << 0))
+                                if (mod_handguard_slot[_hand_id][3] == 1 && i == (10 << 0))
                                     _can_mod = 1
                             }
                         }
@@ -258,6 +259,9 @@ switch state
     case (1 << 0):
         target_for_image_scale = obj_player.x
         break
+    case (76 << 0):
+        target_for_image_scale = (x + 1)
+        break
     case (2 << 0):
         if (human_tick >= human_tick_max)
         {
@@ -269,7 +273,7 @@ switch state
                 state = state_before
         }
         break
-    case (18 << 0):
+    case (19 << 0):
         target_for_image_scale = obj_player.x
         if (can_talk == 1)
         {
@@ -288,7 +292,7 @@ switch state
                 case (2 << 0):
                     hspd = 0
                     vspd = 0
-                    state = (12 << 0)
+                    state = (13 << 0)
                     break
                 case (0 << 0):
                     break
@@ -298,7 +302,7 @@ switch state
 
         }
         break
-    case (20 << 0):
+    case (21 << 0):
         target_for_image_scale = obj_player.x
         if instance_exists(obj_player)
         {
@@ -319,7 +323,7 @@ switch state
             }
         }
         break
-    case (21 << 0):
+    case (22 << 0):
         target_for_image_scale = 1
         if instance_exists(obj_player)
         {
@@ -409,7 +413,7 @@ switch state
             {
                 with (obj_npc_draw_text)
                 {
-                    if (global.t_npc_text_next_id[text_id] == 714 || global.t_npc_text_next_id[text_id] == 715)
+                    if (global.t_npc_text_next_id[text_id] == 741 || global.t_npc_text_next_id[text_id] == 742)
                         point_player = 1
                 }
             }
@@ -465,7 +469,7 @@ switch state
         weapon_pointing_direction = clamp(weapon_pointing_direction, -100, 15)
         target_for_image_scale = (x + lengthdir_x(2, weapon_pointing_direction))
         break
-    case (23 << 0):
+    case (24 << 0):
         if scr_chance(2)
             weapon_pointing_amount = choose((-weapon_pointing_angle), weapon_pointing_angle, 0)
         weapon_pointing_direction += weapon_pointing_amount
@@ -522,7 +526,7 @@ switch state
                 case (2 << 0):
                     hspd = 0
                     vspd = 0
-                    state = (12 << 0)
+                    state = (13 << 0)
                     break
                 case (0 << 0):
                     break
@@ -532,7 +536,7 @@ switch state
 
         }
         break
-    case (24 << 0):
+    case (25 << 0):
         if (global.az_done[(8 << 0)] == 0)
         {
             if (point_distance(x, y, obj_player.x, obj_player.y) < 144)
@@ -546,32 +550,36 @@ switch state
             }
         }
         break
-    case (29 << 0):
+    case (30 << 0):
         scr_npc_state_arms(obj_arms_smoke)
         break
-    case (30 << 0):
+    case (31 << 0):
         scr_npc_state_arms(obj_arms_eat)
         break
-    case (31 << 0):
+    case (32 << 0):
         scr_npc_state_arms(obj_arms_drink)
         break
-    case (32 << 0):
+    case (33 << 0):
         scr_npc_state_arms(obj_arms_guitar)
         break
-    case (33 << 0):
+    case (34 << 0):
         scr_enemy_path()
         if (point_distance(x, y, move_point_x, move_point_y) < 12)
         {
             path_end()
             if (!instance_exists(obj_arms_guitar))
-                scr_npc_arms((32 << 0), obj_arms_guitar)
+                scr_npc_arms((33 << 0), obj_arms_guitar)
             else
-                state = (8 << 0)
+                state = (9 << 0)
         }
         break
     case (4 << 0):
         scr_enemy_choose_idle_or_move()
-        scr_collision()
+        if (room == r_hub)
+        {
+            if (x > (camx - 240) && x < (camx + 720) && y > (camy - 135) && y < (camy + 405))
+                scr_collision()
+        }
         target_for_image_scale = (x + lengthdir_x(2, weapon_pointing_direction))
         if (x > xprevious)
         {
@@ -586,14 +594,8 @@ switch state
             target_for_image_scale = (x - 2)
             weapon_pointing_direction = 240
         }
-        if scr_chance(0.03)
-            scr_npc_arms((30 << 0), obj_arms_eat)
-        if scr_chance(0.03)
-            scr_npc_arms((29 << 0), obj_arms_smoke)
-        if scr_chance(0.03)
-            scr_npc_arms((31 << 0), obj_arms_drink)
         break
-    case (28 << 0):
+    case (29 << 0):
         scr_enemy_path()
         if (point_distance(x, y, move_point_x, move_point_y) < 4)
         {
@@ -602,21 +604,21 @@ switch state
             move_point_y = original_y
             if scr_chance(50)
             {
-                state = (30 << 0)
+                state = (31 << 0)
                 var aa = instance_create_depth(x, y, 0, obj_arms_eat)
                 aa.linked_id = id
                 aa.image_xscale = image_xscale
             }
             else
             {
-                state = (31 << 0)
+                state = (32 << 0)
                 aa = instance_create_depth(x, y, 0, obj_arms_drink)
                 aa.linked_id = id
                 aa.image_xscale = image_xscale
             }
         }
         break
-    case (27 << 0):
+    case (28 << 0):
         scr_enemy_path()
         if (point_distance(x, y, move_point_x, move_point_y) < 4)
         {
@@ -624,7 +626,7 @@ switch state
             state = (4 << 0)
         }
         break
-    case (8 << 0):
+    case (9 << 0):
         scr_enemy_choose_idle_or_move()
         scr_collision()
         draw_weapon = 1
@@ -665,12 +667,12 @@ switch state
                 case (2 << 0):
                     hspd = 0
                     vspd = 0
-                    state = (12 << 0)
+                    state = (13 << 0)
                     break
                 case (0 << 0):
                     hspd = 0
                     vspd = 0
-                    state = (9 << 0)
+                    state = (10 << 0)
                     break
                 case (1 << 0):
                     break
@@ -690,14 +692,14 @@ switch state
                         {
                             move_point_x = (nearest.x + irandom_range(-10, 10))
                             move_point_y = nearest.y
-                            state = (33 << 0)
+                            state = (34 << 0)
                         }
                     }
                 }
             }
         }
         break
-    case (9 << 0):
+    case (10 << 0):
         scr_collision()
         target_for_image_scale = (x + lengthdir_x(2, weapon_pointing_direction))
         target = scr_find_target_for_human()
@@ -708,7 +710,7 @@ switch state
                 case (2 << 0):
                     hspd = 0
                     vspd = 0
-                    state = (12 << 0)
+                    state = (13 << 0)
                     break
                 case (0 << 0):
                     weapon_pointing_direction = point_direction(x, y, target.x, target.y)
@@ -722,18 +724,42 @@ switch state
                         }
                     }
                     if collision_line(x, y, target.x, target.y, obj_solid, true, true)
-                        state = (8 << 0)
+                        state = (9 << 0)
                     break
                 case (1 << 0):
-                    state = (8 << 0)
+                    state = (9 << 0)
                     break
             }
 
         }
         else
-            state = (8 << 0)
+            state = (9 << 0)
         break
     case (7 << 0):
+        tick_from_roof = 0
+        tick_now++
+        if (tick_now >= tick_max)
+        {
+            tick_from_roof = 1
+            tick_now = 0
+            node_state_now = 3
+            pos_now = pos_roof
+            show_debug_message("\n\nNEW TICK\n")
+            fun_bt_traverse(pos_now)
+            for (i = 0; i < array_length(tree_id); i++)
+            {
+                tree_condition_checked[i] += 1
+                tree_node_child_now[i] = 0
+            }
+        }
+        if (tick_from_roof == 0)
+        {
+            node_state_now = 2
+            pos_now = node_running_now
+            fun_bt_traverse(pos_now)
+        }
+        break
+    case (8 << 0):
         var _next_state = -1
         scr_bullet_near()
         human_tick++
@@ -1241,7 +1267,7 @@ switch state
                             {
                                 if (_arma_dir_target == 1)
                                 {
-                                    p = (29 << 0)
+                                    p = (32 << 0)
                                     ds_priority_add(_list_action, p, global.sub_ai_peso[p])
                                 }
                             }
@@ -1283,6 +1309,17 @@ switch state
                 {
                     p = (0 << 0)
                     ds_priority_add(_list_action, p, global.sub_ai_peso[p])
+                }
+            }
+            if (global.is_emission_now == 1)
+            {
+                if (global.player_is_indoor == 0)
+                {
+                    if (global.state_emission_now > (16 << 0))
+                    {
+                        p = (29 << 0)
+                        ds_priority_add(_list_action, p, global.sub_ai_peso[p])
+                    }
                 }
             }
             if (have_to_reload == 1)
@@ -1433,6 +1470,12 @@ switch state
                                 target = id_chest_ally_dead.id_of_the_killer
                             break
                         case (29 << 0):
+                            var _y = y
+                            var _pos_found = 0
+                            move_point_x = (x + 64)
+                            move_point_y = y
+                            break
+                        case (32 << 0):
                             path_end()
                             if (target == obj_player)
                             {
@@ -1693,11 +1736,11 @@ switch state
                 else
                     state_finito = 1
                 break
-            case (29 << 0):
+            case (32 << 0):
                 if instance_exists(target)
                 {
                     var _x = target.x
-                    var _y = target.y
+                    _y = target.y
                     _dir = point_direction(x, y, _x, _y)
                     weapon_pointing_direction = _dir
                     target_for_image_scale = (x + lengthdir_x(2, weapon_pointing_direction))
@@ -1711,6 +1754,11 @@ switch state
                     state_finito = 1
                 break
             case (28 << 0):
+                scr_enemy_path()
+                if (point_distance(x, y, move_point_x, move_point_y) < 4)
+                    state_finito = 1
+                break
+            case (29 << 0):
                 scr_enemy_path()
                 if (point_distance(x, y, move_point_x, move_point_y) < 4)
                     state_finito = 1
@@ -1764,7 +1812,7 @@ switch state
         }
 
         break
-    case (10 << 0):
+    case (11 << 0):
         target = scr_find_target_for_human()
         draw_weapon = 1
         if (target != noone)
@@ -1774,7 +1822,7 @@ switch state
                 weapon_pointing_direction = point_direction(x, y, target.x, target.y)
                 scr_enemy_alert_near_enemy()
                 if (!(collision_line(x, y, target.x, target.y, obj_solid, true, true)))
-                    state = (12 << 0)
+                    state = (13 << 0)
                 else
                 {
                     move_point_x = 0
@@ -1783,17 +1831,17 @@ switch state
                     {
                         scr_enemy_search_shoot_position()
                         if (move_point_x != 0)
-                            state = (14 << 0)
+                            state = (15 << 0)
                         else
                         {
                             scr_enemy_choose_move_pos(last_seen_x, last_seen_y, 64)
-                            state = (15 << 0)
+                            state = (16 << 0)
                         }
                     }
                     else if scr_chance(0.5)
                     {
                         scr_enemy_choose_move_pos(last_seen_x, last_seen_y, 64)
-                        state = (15 << 0)
+                        state = (16 << 0)
                     }
                 }
             }
@@ -1801,19 +1849,19 @@ switch state
             {
                 hspd = 0
                 vspd = 0
-                state = (9 << 0)
+                state = (10 << 0)
             }
             if (target_relation == (1 << 0))
             {
                 hspd = 0
                 vspd = 0
-                state = (8 << 0)
+                state = (9 << 0)
             }
         }
         break
-    case (13 << 0):
+    case (14 << 0):
         if (object_index == obj_green_quest_swamp)
-            state = (10 << 0)
+            state = (11 << 0)
         if (point_distance(x, y, move_point_x, move_point_y) < 4)
         {
             target = scr_find_target_for_human()
@@ -1824,31 +1872,31 @@ switch state
                     var chance = ((100 - ((ammo_now * 100) / arma_magazine[arma_now])) * 2)
                     if scr_chance(chance)
                     {
-                        state = (17 << 0)
+                        state = (18 << 0)
                         reloading = 1
                         alarm[0] = (irandom(100) + 60)
                         scr_draw_npc_text(id, (5 << 0))
                     }
                 }
                 else if (target != noone)
-                    state = (10 << 0)
+                    state = (11 << 0)
             }
             if (target_relation == (0 << 0))
             {
                 hspd = 0
                 vspd = 0
-                state = (9 << 0)
+                state = (10 << 0)
             }
             if (target_relation == (1 << 0))
             {
                 hspd = 0
                 vspd = 0
-                state = (8 << 0)
+                state = (9 << 0)
             }
         }
         scr_enemy_path()
         break
-    case (14 << 0):
+    case (15 << 0):
         target = scr_find_target_for_human()
         if (target != noone)
         {
@@ -1858,27 +1906,27 @@ switch state
                 if (point_distance(x, y, move_point_x, move_point_y) < 8)
                 {
                     if (!(collision_line(x, y, target.x, target.y, obj_solid, true, true)))
-                        state = (12 << 0)
+                        state = (13 << 0)
                     else
-                        state = (10 << 0)
+                        state = (11 << 0)
                 }
             }
             if (target_relation == (0 << 0))
             {
                 hspd = 0
                 vspd = 0
-                state = (9 << 0)
+                state = (10 << 0)
             }
             if (target_relation == (1 << 0))
             {
                 hspd = 0
                 vspd = 0
-                state = (8 << 0)
+                state = (9 << 0)
             }
         }
         scr_enemy_path()
         break
-    case (12 << 0):
+    case (13 << 0):
         draw_weapon = 1
         if (shoot_time == 0)
         {
@@ -1918,25 +1966,25 @@ switch state
                                 if scr_chance(80)
                                 {
                                     scr_enemy_search_cover_position()
-                                    state = (13 << 0)
+                                    state = (14 << 0)
                                     scr_draw_npc_text(id, (1 << 0))
                                 }
                                 else
                                 {
                                     scr_enemy_change_cover()
-                                    state = (13 << 0)
+                                    state = (14 << 0)
                                 }
                             }
                             else
                             {
-                                state = (12 << 0)
+                                state = (13 << 0)
                                 if scr_chance(10)
                                     scr_draw_npc_text(id, (0 << 0))
                             }
                             if (point_direction(x, y, mouse_x, mouse_y) < 16)
                             {
                                 scr_enemy_search_cover_position()
-                                state = (13 << 0)
+                                state = (14 << 0)
                                 scr_draw_npc_text(id, (1 << 0))
                             }
                         }
@@ -1944,7 +1992,7 @@ switch state
                     else
                     {
                         scr_enemy_choose_move_pos(last_seen_x, last_seen_y, 8)
-                        state = (15 << 0)
+                        state = (16 << 0)
                         scr_draw_npc_text(id, (7 << 0))
                     }
                 }
@@ -1955,7 +2003,7 @@ switch state
                     if scr_chance(0.13)
                     {
                         scr_enemy_choose_move_pos(last_seen_x, last_seen_y, 8)
-                        state = (15 << 0)
+                        state = (16 << 0)
                         scr_draw_npc_text(id, (7 << 0))
                     }
                 }
@@ -1965,14 +2013,14 @@ switch state
                     if scr_chance(chance)
                     {
                         scr_enemy_search_cover_position()
-                        state = (13 << 0)
+                        state = (14 << 0)
                         scr_draw_npc_text(id, (6 << 0))
                     }
                     if (npc_spd_alerted[npc_id] == 0)
                     {
                         if scr_chance(chance)
                         {
-                            state = (17 << 0)
+                            state = (18 << 0)
                             reloading = 1
                             alarm[0] = (irandom(100) + 60)
                             scr_draw_npc_text(id, (5 << 0))
@@ -1984,18 +2032,18 @@ switch state
             {
                 hspd = 0
                 vspd = 0
-                state = (9 << 0)
+                state = (10 << 0)
             }
             if (target_relation == (1 << 0))
             {
                 hspd = 0
                 vspd = 0
-                state = (8 << 0)
+                state = (9 << 0)
             }
         }
         scr_enemy_path()
         break
-    case (15 << 0):
+    case (16 << 0):
         target = scr_find_target_for_human()
         draw_weapon = 1
         if (target != noone)
@@ -2003,14 +2051,14 @@ switch state
             if (target_relation == (2 << 0))
             {
                 if ((!(collision_line(x, y, target.x, target.y, obj_solid, true, true))) && point_distance(x, y, target.x, target.y) < (npc_alert_visual_distance[npc_id] * 1.4))
-                    state = (12 << 0)
+                    state = (13 << 0)
                 if (point_distance(x, y, move_point_x, move_point_y) < 8)
                 {
                     if collision_line(x, y, target.x, target.y, obj_solid, true, true)
                     {
                         path_end()
                         alarm[5] = reset_state_to_patrol_time
-                        state = (16 << 0)
+                        state = (17 << 0)
                         scr_draw_npc_text(id, (8 << 0))
                     }
                 }
@@ -2019,18 +2067,18 @@ switch state
             {
                 hspd = 0
                 vspd = 0
-                state = (9 << 0)
+                state = (10 << 0)
             }
             if (target_relation == (1 << 0))
             {
                 hspd = 0
                 vspd = 0
-                state = (8 << 0)
+                state = (9 << 0)
             }
         }
         scr_enemy_path()
         break
-    case (22 << 0):
+    case (23 << 0):
         if (faction != (7 << 0))
         {
             target = scr_find_target_for_human()
@@ -2039,32 +2087,32 @@ switch state
                 if (target_relation == (2 << 0))
                 {
                     if ((!(collision_line(x, y, target.x, target.y, obj_solid, true, true))) && point_distance(x, y, target.x, target.y) < (npc_alert_visual_distance[npc_id] * 1.2))
-                        state = (12 << 0)
+                        state = (13 << 0)
                 }
                 if (target_relation == (0 << 0))
                 {
                     hspd = 0
                     vspd = 0
-                    state = (9 << 0)
+                    state = (10 << 0)
                 }
                 if (target_relation == (1 << 0))
                 {
                     hspd = 0
                     vspd = 0
-                    state = (8 << 0)
+                    state = (9 << 0)
                 }
             }
         }
         if (faction == (7 << 0))
         {
             if ((!(collision_line(x, y, target.x, target.y, obj_solid, true, true))) && point_distance(x, y, target.x, target.y) < 160)
-                state = (35 << 0)
+                state = (36 << 0)
         }
         move_point_x = target.x
         move_point_y = target.y
         scr_enemy_path()
         break
-    case (16 << 0):
+    case (17 << 0):
         target = scr_find_target_for_human()
         draw_weapon = 1
         if scr_chance(npc_prob_idle[npc_id])
@@ -2090,34 +2138,34 @@ switch state
                 if (!(collision_line(x, y, target.x, target.y, obj_solid, true, true)))
                 {
                     scr_draw_npc_text(id, (11 << 0))
-                    state = (10 << 0)
+                    state = (11 << 0)
                 }
             }
             if (target_relation == (0 << 0))
             {
                 hspd = 0
                 vspd = 0
-                state = (9 << 0)
+                state = (10 << 0)
             }
             if (target_relation == (1 << 0))
             {
                 hspd = 0
                 vspd = 0
-                state = (8 << 0)
+                state = (9 << 0)
             }
         }
         break
-    case (17 << 0):
+    case (18 << 0):
         if (reloading == 0)
-            state = (10 << 0)
+            state = (11 << 0)
         if (image_xscale == 1)
             weapon_pointing_direction = 0
         else
             weapon_pointing_direction = 180
         break
-    case (19 << 0):
+    case (20 << 0):
         break
-    case (26 << 0):
+    case (27 << 0):
         scr_enemy_choose_idle_or_move()
         scr_collision()
         if scr_chance(2)
@@ -2132,7 +2180,7 @@ switch state
                 case (2 << 0):
                     hspd = 0
                     vspd = 0
-                    state = (12 << 0)
+                    state = (13 << 0)
                     break
                 case (0 << 0):
                     break
@@ -2142,16 +2190,16 @@ switch state
 
         }
         break
-    case (25 << 0):
+    case (26 << 0):
         scr_npc_state_arms(obj_arms_scientist_working)
         if scr_chance(0.2)
             scr_draw_npc_text(id, (60 << 0))
         break
-    case (34 << 0):
+    case (35 << 0):
         scr_bullet_near()
         state_enemy_mutant_patrol()
         break
-    case (35 << 0):
+    case (36 << 0):
         scr_bullet_near()
         target = scr_find_target_for_mutant(npc_alert_visual_distance[npc_id])
         if (target != noone)
@@ -2193,14 +2241,14 @@ switch state
                         if (can_attack == 1)
                         {
                             if scr_chance(2)
-                                state = (55 << 0)
+                                state = (56 << 0)
                         }
                     }
                 }
                 if (object_index == obj_enemy_big)
                 {
                     if scr_chance(0.2)
-                        state = (56 << 0)
+                        state = (57 << 0)
                     if (point_distance(x, y, target.x, target.y) > 32 && point_distance(x, y, target.x, target.y) < 80)
                     {
                         if (can_attack == 1)
@@ -2210,7 +2258,7 @@ switch state
                                 can_attack = 0
                                 alarm[8] = attack_recovery
                                 dir_attack = point_direction(x, y, target.x, target.y)
-                                state = (58 << 0)
+                                state = (59 << 0)
                                 var sspd = 3
                                 hspd = lengthdir_x(sspd, dir_attack)
                                 vspd = lengthdir_y(sspd, dir_attack)
@@ -2225,7 +2273,7 @@ switch state
                         if (can_attack == 1)
                         {
                             can_attack = 0
-                            state = (54 << 0)
+                            state = (55 << 0)
                             alarm[8] = attack_recovery
                             audio_play_sound_on(emitter_talk, snd_blink_attack1, false, 20)
                         }
@@ -2237,7 +2285,7 @@ switch state
             scr_mutant_target_not_in_sight()
         scr_enemy_path()
         break
-    case (41 << 0):
+    case (42 << 0):
         scr_enemy_choose_idle_or_move()
         scr_collision()
         target = scr_find_target_for_mutant(npc_alert_visual_distance[npc_id])
@@ -2245,7 +2293,7 @@ switch state
         {
             hspd = 0
             vspd = 0
-            state = (46 << 0)
+            state = (47 << 0)
         }
         if (target == noone)
         {
@@ -2255,13 +2303,13 @@ switch state
                 tick = 0
                 _x = x
                 _y = y
-                _next_state = (41 << 0)
+                _next_state = (42 << 0)
                 if scr_chance(8)
-                    _next_state = (42 << 0)
+                    _next_state = (43 << 0)
                 if scr_chance(5)
-                    _next_state = (45 << 0)
+                    _next_state = (46 << 0)
                 if scr_chance(0.5)
-                    _next_state = (51 << 0)
+                    _next_state = (52 << 0)
                 var _move_x = 0
                 var _move_y = 0
                 if instance_exists(obj_chest_general)
@@ -2284,20 +2332,20 @@ switch state
                     var _eat_counter = 0
                     with (obj_enemy_wolf_brown)
                     {
-                        if (state == (44 << 0) || state == (43 << 0))
+                        if (state == (45 << 0) || state == (44 << 0))
                             _eat_counter++
                     }
                     if (_eat_counter < 2)
                     {
-                        _next_state = (43 << 0)
+                        _next_state = (44 << 0)
                         move_point_x = _move_x
                         move_point_y = _move_y
                         path_timer = path_timer_reset
                     }
                 }
-                if (_next_state != (43 << 0))
+                if (_next_state != (44 << 0))
                     var _ret = scr_wolf_decidi_attaccare()
-                if (_next_state == (51 << 0))
+                if (_next_state == (52 << 0))
                 {
                     var _sound = choose(283, 284)
                     var sound_durata = audio_sound_length(_sound)
@@ -2309,35 +2357,20 @@ switch state
             }
         }
         break
-    case (42 << 0):
+    case (43 << 0):
         target = scr_find_target_for_mutant(npc_alert_visual_distance[npc_id])
         if (target != noone)
         {
             hspd = 0
             vspd = 0
-            state = (46 << 0)
+            state = (47 << 0)
         }
         if (target == noone)
         {
-            var _end = scr_animation_end(177)
+            var _end = scr_animation_end(178)
             if (_end == 1)
-                state = (41 << 0)
+                state = (42 << 0)
         }
-        break
-    case (43 << 0):
-        target = scr_find_target_for_mutant(wolf_alert_raggio2)
-        if (target != noone)
-        {
-            hspd = 0
-            vspd = 0
-            state = (46 << 0)
-        }
-        if (target == noone)
-        {
-            if (point_distance(x, y, move_point_x, move_point_y) < 4)
-                state = (44 << 0)
-        }
-        scr_enemy_path()
         break
     case (44 << 0):
         target = scr_find_target_for_mutant(wolf_alert_raggio2)
@@ -2345,16 +2378,12 @@ switch state
         {
             hspd = 0
             vspd = 0
-            state = (46 << 0)
+            state = (47 << 0)
         }
         if (target == noone)
         {
-            _end = scr_animation_end(179)
-            if (_end == 1)
-            {
-                if scr_chance(12)
-                    state = (41 << 0)
-            }
+            if (point_distance(x, y, move_point_x, move_point_y) < 4)
+                state = (45 << 0)
         }
         scr_enemy_path()
         break
@@ -2364,42 +2393,61 @@ switch state
         {
             hspd = 0
             vspd = 0
-            state = (46 << 0)
+            state = (47 << 0)
+        }
+        if (target == noone)
+        {
+            _end = scr_animation_end(180)
+            if (_end == 1)
+            {
+                if scr_chance(12)
+                    state = (42 << 0)
+            }
+        }
+        scr_enemy_path()
+        break
+    case (46 << 0):
+        target = scr_find_target_for_mutant(wolf_alert_raggio2)
+        if (target != noone)
+        {
+            hspd = 0
+            vspd = 0
+            state = (47 << 0)
             image_index = 0
         }
         if (target == noone)
         {
-            _end = scr_animation_end(182)
+            _end = scr_animation_end(184)
             if (_end == 1)
             {
                 if scr_chance(20)
-                    state = (41 << 0)
+                    state = (42 << 0)
             }
         }
         break
-    case (46 << 0):
+    case (47 << 0):
         target = scr_find_target_for_mutant(npc_alert_visual_distance[npc_id])
         path_end()
         if (target != noone)
         {
             hspd = 0
             vspd = 0
-            _end = scr_animation_end(183)
+            _end = scr_animation_end(185)
             if (_end == 1)
             {
                 var _attack = scr_wolf_decidi_attaccare()
                 if (_attack == 1)
-                    state = (47 << 0)
+                    state = (48 << 0)
             }
         }
         if (target == noone)
         {
-            _end = scr_animation_end(183)
+            _end = scr_animation_end(185)
             if (_end == 1)
-                state = (41 << 0)
+                state = (42 << 0)
         }
         break
-    case (47 << 0):
+    case (48 << 0):
         target = scr_find_target_for_mutant(npc_alert_visual_distance[npc_id])
         if instance_exists(target)
         {
@@ -2411,7 +2459,7 @@ switch state
                 if (tick >= tick_max)
                 {
                     tick = 0
-                    _next_state = (47 << 0)
+                    _next_state = (48 << 0)
                     var _movex = 0
                     var _movey = 0
                     _id = id
@@ -2424,12 +2472,12 @@ switch state
                     {
                         if (id != _id)
                         {
-                            if (state == (48 << 0))
+                            if (state == (49 << 0))
                             {
                                 if (target == _target)
                                     _counter_attack++
                             }
-                            if (state == (51 << 0))
+                            if (state == (52 << 0))
                                 _counter_ululato++
                         }
                     }
@@ -2460,7 +2508,7 @@ switch state
                         path_timer = path_timer_reset
                     }
                     if scr_chance(5)
-                        _next_state = (46 << 0)
+                        _next_state = (47 << 0)
                     _dis = point_distance(x, y, target.x, target.y)
                     if (_dis < 32)
                     {
@@ -2470,7 +2518,7 @@ switch state
                             {
                                 can_attack = 0
                                 alarm[8] = 60
-                                _next_state = (48 << 0)
+                                _next_state = (49 << 0)
                                 dir_attack = point_direction(x, y, target.x, target.y)
                                 sspd = 2.5
                                 hspd = lengthdir_x(sspd, dir_attack)
@@ -2483,10 +2531,10 @@ switch state
                         if (_counter_attack >= _max_attack)
                         {
                             if scr_chance(12)
-                                _next_state = (51 << 0)
+                                _next_state = (52 << 0)
                         }
                         if scr_chance(2)
-                            _next_state = (51 << 0)
+                            _next_state = (52 << 0)
                     }
                     _dis = point_distance(x, y, target.x, target.y)
                     if (_dis > 96)
@@ -2496,7 +2544,7 @@ switch state
                         _movex = (target.x + lengthdir_x(_dis, _dir))
                         _movey = (target.y + lengthdir_y(_dis, _dir))
                     }
-                    if (_next_state == (51 << 0))
+                    if (_next_state == (52 << 0))
                     {
                         _sound = choose(283, 284)
                         sound_durata = audio_sound_length(_sound)
@@ -2523,27 +2571,27 @@ switch state
                 if (move_point_x != 0 && move_point_y != 0)
                     scr_enemy_path()
                 if (point_distance(x, y, target.x, target.y) > 220)
-                    state = (41 << 0)
+                    state = (42 << 0)
             }
             if (target == noone)
             {
-                state = (41 << 0)
+                state = (42 << 0)
                 if instance_exists(search_target_id)
                 {
                     if (point_distance(x, y, search_target_id.x, search_target_id.y) > 220)
-                        state = (41 << 0)
+                        state = (42 << 0)
                     else
                         scr_mutant_target_not_in_sight()
                 }
             }
         }
         break
-    case (48 << 0):
+    case (49 << 0):
         path_end()
-        _end = scr_animation_end(180)
+        _end = scr_animation_end(181)
         if (_end == 1)
         {
-            state = (47 << 0)
+            state = (48 << 0)
             hspd = 0
             vspd = 0
         }
@@ -2560,26 +2608,26 @@ switch state
                 scr_collision()
         }
         else
-            state = (41 << 0)
+            state = (42 << 0)
         break
-    case (49 << 0):
+    case (50 << 0):
         path_end()
         hspd = 0
         vspd = 0
-        _end = scr_animation_end(181)
+        _end = scr_animation_end(182)
         if (_end == 1)
         {
-            state = (47 << 0)
+            state = (48 << 0)
             hspd = 0
             vspd = 0
         }
         break
-    case (50 << 0):
+    case (51 << 0):
         if (point_distance(x, y, move_point_x, move_point_y) < 10)
-            state = (41 << 0)
+            state = (42 << 0)
         scr_enemy_path()
         break
-    case (51 << 0):
+    case (52 << 0):
         target = scr_find_target_for_mutant(npc_alert_visual_distance[npc_id])
         path_end()
         if (image_index >= (image_number - 2))
@@ -2591,13 +2639,13 @@ switch state
             {
                 hspd = 0
                 vspd = 0
-                state = (47 << 0)
+                state = (48 << 0)
             }
             if (target == noone)
-                state = (41 << 0)
+                state = (42 << 0)
         }
         break
-    case (56 << 0):
+    case (57 << 0):
         path_end()
         hspd = 0
         vspd = 0
@@ -2607,24 +2655,24 @@ switch state
             timer_ruggito_max = (sound_durata * 60)
             timer_ruggito = 0
             audio_play_sound_on(emitter_shoot, snd_big_ruggito_1, false, 20)
-            state = (57 << 0)
+            state = (58 << 0)
         }
         break
-    case (57 << 0):
+    case (58 << 0):
         timer_ruggito++
         if (timer_ruggito >= timer_ruggito_max)
         {
             timer_ruggito = 0
-            state = (35 << 0)
+            state = (36 << 0)
         }
         break
-    case (58 << 0):
+    case (59 << 0):
         path_end()
         if instance_exists(target)
         {
             if (image_index >= (sprite_get_number(sprite_index) - 1))
             {
-                state = (35 << 0)
+                state = (36 << 0)
                 path_timer = 999
             }
             if (image_index >= 4)
@@ -2635,7 +2683,7 @@ switch state
             scr_collision()
         }
         break
-    case (37 << 0):
+    case (38 << 0):
         target = scr_find_target_for_mutant(npc_alert_visual_distance[npc_id])
         if (target != noone)
         {
@@ -2666,32 +2714,37 @@ switch state
                 var spazio_frenata = 64
                 start_frenata_x = (target.x + lengthdir_x(spazio_frenata, dir))
                 start_frenata_y = (target.y + lengthdir_y(spazio_frenata, dir))
-                state = (38 << 0)
+                state = (39 << 0)
                 frenata_dir = dir
+            }
+            if (point_distance(x, y, target.x, target.y) > 128)
+            {
+                if scr_chance(5)
+                    state = (40 << 0)
             }
             mp_potential_step_object(move_point_x, move_point_y, npc_spd_alerted[npc_id], obj_solid)
         }
         else
             scr_mutant_target_not_in_sight()
         break
-    case (38 << 0):
+    case (39 << 0):
         frenata_step++
         if (frenata_step >= frenata_step_max)
         {
             frenata_step = 0
-            state = (34 << 0)
+            state = (35 << 0)
         }
         hspd = (lengthdir_x(npc_spd_alerted[npc_id], frenata_dir) - ((lengthdir_x(npc_spd_alerted[npc_id], frenata_dir) / frenata_step_max) * frenata_step))
         vspd = (lengthdir_y(npc_spd_alerted[npc_id], frenata_dir) - ((lengthdir_y(npc_spd_alerted[npc_id], frenata_dir) / frenata_step_max) * frenata_step))
         scr_collision()
         break
-    case (39 << 0):
+    case (40 << 0):
         target = scr_find_target_for_mutant(npc_alert_visual_distance[npc_id])
         _end = scr_animation_end(98)
         if (target != noone)
         {
             if (_end == 1)
-                state = (40 << 0)
+                state = (41 << 0)
         }
         else
             scr_mutant_target_not_in_sight()
@@ -2710,7 +2763,7 @@ switch state
         vspd = 0
         scr_collision()
         break
-    case (40 << 0):
+    case (41 << 0):
         target = scr_find_target_for_mutant(npc_alert_visual_distance[npc_id])
         if (target != noone)
         {
@@ -2724,34 +2777,34 @@ switch state
                 spazio_frenata = 64
                 start_frenata_x = (target.x + lengthdir_x(spazio_frenata, dir))
                 start_frenata_y = (target.y + lengthdir_y(spazio_frenata, dir))
-                state = (38 << 0)
+                state = (39 << 0)
                 frenata_dir = dir
             }
         }
         else
             scr_mutant_target_not_in_sight()
         break
-    case (54 << 0):
+    case (55 << 0):
         hspd = 0
         vspd = 0
         path_end()
         if (image_index >= (sprite_get_number(sprite_index) - 1))
-            state = (35 << 0)
-        break
-    case (52 << 0):
-        hspd = 0
-        vspd = 0
-        path_end()
-        if (image_index >= (sprite_get_number(sprite_index) - 1))
-            state = (35 << 0)
+            state = (36 << 0)
         break
     case (53 << 0):
+        hspd = 0
+        vspd = 0
+        path_end()
+        if (image_index >= (sprite_get_number(sprite_index) - 1))
+            state = (36 << 0)
+        break
+    case (54 << 0):
         path_end()
         if instance_exists(target)
         {
             if (image_index >= 6)
             {
-                state = (35 << 0)
+                state = (36 << 0)
                 range_ = 64
                 move_point_x = (target.x + irandom_range((-range_), range_))
                 move_point_y = (target.y + irandom_range((-range_), range_))
@@ -2760,9 +2813,9 @@ switch state
             scr_collision()
         }
         else
-            state = (34 << 0)
+            state = (35 << 0)
         break
-    case (55 << 0):
+    case (56 << 0):
         path_end()
         hspd = 0
         vspd = 0
@@ -2783,13 +2836,13 @@ switch state
                 audio_play_sound_on(emitter_talk, snd_ghoul_attack, false, 5)
             }
             if (image_index >= 11)
-                state = (35 << 0)
+                state = (36 << 0)
         }
         break
-    case (59 << 0):
+    case (60 << 0):
         state_enemy_mutant_patrol()
         break
-    case (60 << 0):
+    case (61 << 0):
         target = scr_find_target_for_mutant(npc_alert_visual_distance[npc_id])
         if (target != noone)
         {
@@ -2833,10 +2886,10 @@ switch state
         else
             scr_mutant_target_not_in_sight()
         break
-    case (61 << 0):
+    case (62 << 0):
         state_enemy_mutant_patrol()
         break
-    case (62 << 0):
+    case (63 << 0):
         target = scr_find_target_for_mutant(npc_alert_visual_distance[npc_id])
         if (target != noone)
         {
@@ -2902,12 +2955,12 @@ switch state
         else
             scr_mutant_target_not_in_sight()
         break
-    case (63 << 0):
+    case (64 << 0):
         scr_enemy_choose_idle_or_move()
         scr_collision()
         if scr_chance(0.5)
         {
-            state = (64 << 0)
+            state = (65 << 0)
             hspd = 0
             vspd = 0
         }
@@ -2919,13 +2972,13 @@ switch state
             var range = 128
             move_point_x = (x + irandom_range(((-range) - (range / 2)), (range + (range / 2))))
             move_point_y = (y + irandom_range(((-range) - (range / 2)), (range + (range / 2))))
-            state = (65 << 0)
+            state = (66 << 0)
         }
         break
-    case (64 << 0):
+    case (65 << 0):
         scr_collision()
         if (image_index >= (sprite_get_number(s_rabbit_idle2) - 2))
-            state = (63 << 0)
+            state = (64 << 0)
         target = scr_find_target_for_mutant(npc_alert_visual_distance[npc_id])
         if (target != -4)
         {
@@ -2934,10 +2987,10 @@ switch state
             range = 128
             move_point_x = (x + irandom_range(((-range) - (range / 2)), (range + (range / 2))))
             move_point_y = (y + irandom_range(((-range) - (range / 2)), (range + (range / 2))))
-            state = (65 << 0)
+            state = (66 << 0)
         }
         break
-    case (65 << 0):
+    case (66 << 0):
         path_timer++
         if (path_timer >= path_timer_reset)
         {
@@ -2948,49 +3001,49 @@ switch state
         }
         target_for_image_scale = move_point_x
         if (abs((x - move_point_x)) < 16 && abs((y - move_point_y)) < 16)
-            state = (63 << 0)
+            state = (64 << 0)
         break
-    case (66 << 0):
+    case (67 << 0):
         scr_enemy_choose_idle_or_move()
         scr_collision()
         if scr_chance(0.5)
         {
-            state = (67 << 0)
+            state = (68 << 0)
             hspd = 0
             vspd = 0
         }
         scr_enemy_crow_check_if_escape()
         break
-    case (67 << 0):
+    case (68 << 0):
         scr_collision()
         if (image_index >= (sprite_get_number(s_crow_idle2) - 2))
-            state = (66 << 0)
+            state = (67 << 0)
         scr_enemy_crow_check_if_escape()
         break
-    case (70 << 0):
+    case (71 << 0):
         move_towards_point(move_point_x, move_point_y, 2.5)
         if (point_distance(x, y, move_point_x, move_point_y) < 16)
             instance_destroy()
         break
-    case (71 << 0):
+    case (72 << 0):
         if scr_chance(0.5)
         {
-            state = (73 << 0)
+            state = (74 << 0)
             hspd = 0
             vspd = 0
         }
         scr_enemy_crow_check_if_escape()
         break
-    case (73 << 0):
+    case (74 << 0):
         speed = 0
         if scr_chance(1)
         {
             image_index = 0
-            state = (71 << 0)
+            state = (72 << 0)
         }
         scr_enemy_crow_check_if_escape()
         break
-    case (72 << 0):
+    case (73 << 0):
         move_towards_point(move_point_x, move_point_y, 2)
         if (point_distance(x, y, move_point_x, move_point_y) < 128 && point_distance(x, y, move_point_x, move_point_y) > 64)
         {
@@ -3009,12 +3062,12 @@ switch state
             move_point_x = (x + lengthdir_x(range, dir))
             move_point_y = (y + lengthdir_y(range, dir))
             if scr_chance(30)
-                state = (73 << 0)
+                state = (74 << 0)
             else
-                state = (71 << 0)
+                state = (72 << 0)
         }
         break
-    case (74 << 0):
+    case (75 << 0):
         target = scr_find_target_for_mutant(npc_alert_visual_distance[npc_id])
         if (target != noone)
         {
@@ -3039,6 +3092,20 @@ switch state
 
 }
 
+if (room == room1)
+{
+    if (global.emission_make_npc_die == 1)
+    {
+        if (global.is_emission_now == 0)
+        {
+            if instance_exists(obj_map_generator)
+            {
+                if (y < obj_map_generator.map_height)
+                    hp = -100
+            }
+        }
+    }
+}
 if (hp <= 0)
 {
     hp = -100
@@ -3050,19 +3117,19 @@ if (hp <= 0)
             case obj_enemy_wolf_brown:
                 sound_ = 281
                 break
-            case 198:
+            case 219:
                 sound_ = 309
                 break
-            case 199:
+            case 220:
                 sound_ = 309
                 break
-            case 187:
+            case 208:
                 sound_ = 320
                 break
-            case 200:
+            case 221:
                 sound_ = 303
                 break
-            case 189:
+            case 210:
                 sound_ = 295
                 break
         }
@@ -3101,7 +3168,7 @@ if (hp <= 0)
     }
     instance_destroy()
 }
-if (state == (46 << 0) && state_before != (46 << 0))
+if (state == (47 << 0) && state_before != (47 << 0))
     audio_play_sound_on(emitter_talk, snd_wolf_growl, false, 8)
 if (state != (2 << 0))
     state_before = state

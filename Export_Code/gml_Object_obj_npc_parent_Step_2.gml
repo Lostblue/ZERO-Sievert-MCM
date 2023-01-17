@@ -22,7 +22,7 @@ if (xprevious == x && yprevious == y)
     im = npc_sprite_idle[npc_id]
     ims = npc_ims_idle[npc_id]
 }
-if (state == (15 << 0) || state == (13 << 0) || state == (28 << 0) || state == (27 << 0) || human_state_now == (16 << 0) || human_state_now == (18 << 0) || human_state_now == (12 << 0) || human_state_now == (15 << 0))
+if (state == (16 << 0) || state == (14 << 0) || state == (29 << 0) || state == (28 << 0) || human_state_now == (16 << 0) || human_state_now == (18 << 0) || human_state_now == (12 << 0) || human_state_now == (15 << 0))
 {
     if (x != xprevious)
     {
@@ -31,82 +31,87 @@ if (state == (15 << 0) || state == (13 << 0) || state == (28 << 0) || state == (
         target_for_image_scale = (x + lengthdir_x(2, weapon_pointing_direction))
     }
 }
-if (state == (64 << 0))
+if (human_state_now == (29 << 0))
+{
+    target_for_image_scale = (x + 10)
+    weapon_pointing_direction = 0
+}
+if (state == (65 << 0))
 {
     im = s_rabbit_idle2
     ims = 0.5
 }
-if (state == (52 << 0))
+if (state == (53 << 0))
 {
     im = s_enemy_wolf_brown_attack
     ims = 1
 }
-if (state == (53 << 0))
+if (state == (54 << 0))
 {
     im = s_enemy_wolf_brown_attack2
     ims = 1
 }
-if (state == (55 << 0))
+if (state == (56 << 0))
 {
     im = s_ghoul_attack1
     ims = 1
 }
-if (state == (56 << 0))
+if (state == (57 << 0))
 {
     im = s_big_aggro
     ims = 0.5
 }
-if (state == (57 << 0))
+if (state == (58 << 0))
 {
     im = s_big_ruggito
     ims = 1
 }
-if (state == (58 << 0))
+if (state == (59 << 0))
 {
     im = s_big_attack1
     ims = 0.5
 }
-if (state == (54 << 0))
+if (state == (55 << 0))
 {
     im = s_blink_attack1
     ims = 1.2
 }
-if (state == (42 << 0))
+if (state == (43 << 0))
 {
     im = s_lupo_idle2
     ims = 0.4
 }
-if (state == (44 << 0))
+if (state == (45 << 0))
 {
     im = s_lupo_eat
     ims = 0.5
 }
-if (state == (45 << 0))
+if (state == (46 << 0))
 {
     im = s_lupo_sleep
     ims = 0.25
 }
-if (state == (46 << 0))
+if (state == (47 << 0))
 {
     im = s_lupo_ringhio
     ims = 1.1
 }
-if (state == (48 << 0))
+if (state == (49 << 0))
 {
     im = s_lupo_a1
     ims = 1
 }
-if (state == (49 << 0))
+if (state == (50 << 0))
 {
     im = s_lupo_a2
     ims = 1
 }
-if (state == (51 << 0))
+if (state == (52 << 0))
 {
     im = s_lupo_ululato
     ims = 1
 }
-if (state == (39 << 0))
+if (state == (40 << 0))
 {
     im = s_enemy_cinghiale_raspare
     ims = 1

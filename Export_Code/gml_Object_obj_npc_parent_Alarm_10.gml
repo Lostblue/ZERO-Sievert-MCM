@@ -8,7 +8,7 @@ if (is_a_quest_giver[npc_speaker_id[npc_id]] == 1)
     var list_quest = ds_list_create()
     var list_reward = ds_list_create()
     ini_open(global.save_general)
-    var o = 4
+    var o = 22
     var quest_amount = 30
     var quest_slot = 0
     for (var j = 0; j < quest_amount; j++)
@@ -45,7 +45,7 @@ if (is_a_quest_giver[npc_speaker_id[npc_id]] == 1)
         var n_quest_trader = array_length_2d(speaker_quest, npc_speaker_id[npc_id])
         for (i = 0; i < n_quest_trader; i++)
         {
-            var get_quest_id = speaker_quest[npc_speaker_id[npc_id], i]
+            var get_quest_id = speaker_quest[npc_speaker_id[npc_id]][i]
             var _can_place = 0
             if (global.quest_is_unique[get_quest_id] == 1)
             {
@@ -56,10 +56,10 @@ if (is_a_quest_giver[npc_speaker_id[npc_id]] == 1)
                 _can_place = 1
             if (_can_place == 1)
             {
-                repeat speaker_quest_chance[npc_speaker_id[npc_id], i]
+                repeat speaker_quest_chance[npc_speaker_id[npc_id]][i]
                 {
-                    ds_list_add(list_quest_possibili, speaker_quest[npc_speaker_id[npc_id], i])
-                    var get_list_id = global.quest_reward_arr[speaker_quest[npc_speaker_id[npc_id], i]]
+                    ds_list_add(list_quest_possibili, speaker_quest[npc_speaker_id[npc_id]][i])
+                    var get_list_id = global.quest_reward_arr[speaker_quest[npc_speaker_id[npc_id]][i]]
                     var get_list = global.list_reward_quest[get_list_id]
                     ds_list_shuffle(get_list)
                     var c_reward = ds_list_find_value(get_list, 0)

@@ -1,6 +1,6 @@
 if instance_exists(obj_player)
 {
-    if (obj_player.state == 22 && obj_player.shooting == 1)
+    if (obj_player.state == gml_Script_scr_player_state_move && obj_player.shooting == 1)
     {
         var _dis = point_distance(x, y, mouse_x, mouse_y)
         if (_dis < 0.5)
@@ -60,7 +60,7 @@ var headset_startx = (camx + 224)
 var headset_starty = (camy + 162)
 if instance_exists(obj_player)
 {
-    if (obj_player.state == 22)
+    if (obj_player.state == gml_Script_scr_player_state_move)
         image_index = 1
     linea_libera_gun_mouse = 1
     _dir = (point_direction(obj_player.laser_startx, obj_player.laser_starty, x, y) + 90)
@@ -76,7 +76,7 @@ if instance_exists(obj_player)
         linea_libera_gun_mouse = 0
     if (!instance_exists(obj_inspect))
     {
-        if (obj_player.state == 23)
+        if (obj_player.state == gml_Script_scr_player_state_inventory)
         {
             if instance_place(x, y, obj_item)
             {
@@ -117,7 +117,7 @@ if instance_exists(obj_player)
                         if (from_trade_to_buy == 1)
                         {
                             if (global.livello_now >= item_id_dragged.livello_min)
-                                scr_move_item_quickly(obj_sound_controller, (3 << 0), (13 << 0))
+                                scr_move_item_quickly(obj_node_roof, (3 << 0), (13 << 0))
                             else
                             {
                                 var t_ = ("Unlock at reputation's level " + string(item_id_dragged.livello_min))
@@ -140,7 +140,7 @@ if instance_exists(obj_player)
                                 }
                             }
                             if (_is_in_this_page == 1)
-                                scr_move_item_quickly(obj_sound_controller, (13 << 0), (3 << 0))
+                                scr_move_item_quickly(obj_node_roof, (13 << 0), (3 << 0))
                             else
                             {
                                 var trader_nearest = global.speaker_nearest
@@ -161,8 +161,16 @@ if instance_exists(obj_player)
                             prev_y = item_id_dragged.y
                             prev_rotation = item_id_dragged.rotation
                             item_id_dragged.depth -= 1
-                            click_offsetx = (item_id_dragged.x - x)
-                            click_offsety = (item_id_dragged.y - y)
+                            if (item_id_dragged.rotation == 0)
+                            {
+                                click_offsetx = (((-item_id_dragged.caselle_x) * 16) / 2)
+                                click_offsety = (((-item_id_dragged.caselle_y) * 16) / 2)
+                            }
+                            else
+                            {
+                                click_offsetx = (((-item_id_dragged.caselle_x) * 16) / 2)
+                                click_offsety = ((item_id_dragged.caselle_y * 16) / 2)
+                            }
                         }
                     }
                 }
@@ -431,16 +439,16 @@ if instance_exists(obj_player)
                                 quale_item = item_id_clicked.my_id
                                 var item_posizione = item_id_clicked.position
                                 if (item_posizione == (0 << 0))
-                                    scr_move_item_quickly(obj_sound_controller, (0 << 0), (14 << 0))
+                                    scr_move_item_quickly(obj_node_roof, (0 << 0), (14 << 0))
                                 if (item_posizione == (14 << 0))
-                                    scr_move_item_quickly(obj_sound_controller, (14 << 0), (0 << 0))
+                                    scr_move_item_quickly(obj_node_roof, (14 << 0), (0 << 0))
                             }
                             if (obj_player.looting == 1 || obj_player.looting_player_stash == 1 || (obj_player.looting == 0 && obj_player.looting_player_stash == 0 && obj_player.trading == 0))
                             {
                                 if (mouse_x >= inv_startx && mouse_x < (inv_startx + 128) && mouse_y >= inv_starty && mouse_y < (inv_starty + 176))
-                                    scr_move_item_quickly(obj_sound_controller, (0 << 0), (3 << 0))
+                                    scr_move_item_quickly(obj_node_roof, (0 << 0), (3 << 0))
                                 if (mouse_x >= loot_startx && mouse_x < (loot_startx + 128) && mouse_y >= loot_starty && mouse_y < (loot_starty + 176))
-                                    scr_move_item_quickly(obj_sound_controller, (3 << 0), (0 << 0))
+                                    scr_move_item_quickly(obj_node_roof, (3 << 0), (0 << 0))
                             }
                         }
                     }

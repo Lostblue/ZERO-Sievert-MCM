@@ -1,4 +1,3 @@
-var _list_amount_messi, _prova_x, _prova_y;
 switch state
 {
     case (0 << 0):
@@ -838,15 +837,15 @@ switch state
         var lista_place = ds_list_create()
         for (i = 0; i < array_length_2d(area_index, area); i++)
         {
-            repeat area_obj_amount[area, i]
-                ds_list_add(lista_place, area_index[area, i])
+            repeat area_obj_amount[area][i]
+                ds_list_add(lista_place, area_index[area][i])
         }
         amount = 0
         var max_ = area_obj_total_amount[area]
         if (max_ > 0)
         {
-            var try = 75000
-            for (j = 0; j < try; j++)
+            var _try = 75000
+            for (j = 0; j < _try; j++)
             {
                 if (amount < max_)
                 {
@@ -854,8 +853,8 @@ switch state
                     yy = irandom(grid_tile_h)
                     ds_list_shuffle(lista_place)
                     var which_place = ds_list_find_value(lista_place, 0)
-                    var place_id = area_obj[area, which_place]
-                    if (area_obj_amount_now[area, which_place] < area_obj_amount[area, which_place])
+                    var place_id = area_obj[area][which_place]
+                    if (area_obj_amount_now[area][which_place] < area_obj_amount[area][which_place])
                     {
                         if (ds_grid_get(grid_tile, xx, yy) == -1 && ds_grid_get(grid_building, xx, yy) == (0 << 0))
                         {
@@ -876,13 +875,13 @@ switch state
                                 var posx = ((xx + raggio_) * 16)
                                 var posy = ((yy + raggio_) * 16)
                                 instance_create_depth(posx, posy, (-y), place_obj[place_id])
-                                area_obj_amount_now[area, which_place] += 1
+                                area_obj_amount_now[area][which_place] += 1
                             }
                         }
                     }
                 }
                 else
-                    j = (try - 1)
+                    j = (_try - 1)
             }
         }
         break
@@ -915,8 +914,8 @@ switch state
         lista_decor = ds_list_create()
         for (i = 0; i < area_different_decor[area]; i++)
         {
-            repeat area_decor[area, i]
-                ds_list_add(lista_decor, area_decor_obj[area, i])
+            repeat area_decor[area][i]
+                ds_list_add(lista_decor, area_decor_obj[area][i])
         }
         repeat area_decor_number[area]
         {
@@ -961,7 +960,7 @@ switch state
                 o = obj_map_generator
                 if (o.decor_is_building[decor_id] == 1)
                 {
-                    if (o.b_image_has_entrance[decor_id, image_index] == 1)
+                    if (o.b_image_has_entrance[decor_id][image_index] == 1)
                     {
                         var indoor_w = o.b_width[decor_id]
                         var indoor_h = o.b_height[decor_id]
@@ -1006,8 +1005,8 @@ switch state
                                             var get_list = o.b_list[decor_id]
                                             ds_list_shuffle(get_list)
                                             var choose_indoor = ds_list_find_value(get_list, 0)
-                                            var tele_x = ((x + o.b_x[decor_id, image_index]) + 8)
-                                            var tele_y = ((y + o.b_y[decor_id, image_index]) + 10)
+                                            var tele_x = ((x + o.b_x[decor_id][image_index]) + 8)
+                                            var tele_y = ((y + o.b_y[decor_id][image_index]) + 10)
                                             script_execute(choose_indoor, xx, yy, tele_x, tele_y)
                                             for (i = (xx - off); i < ((xx + indoor_w) + off); i++)
                                             {
@@ -1167,11 +1166,11 @@ switch state
             {
                 for (var k = 0; k < array_length_2d(global.quest_type, quest_id_); k++)
                 {
-                    if (global.quest_type[quest_id_, k] == (4 << 0))
+                    if (global.quest_type[quest_id_][k] == (4 << 0))
                     {
-                        if (global.quest_retrive_map[quest_id_, k] == area)
+                        if (global.quest_retrive_map[quest_id_][k] == area)
                         {
-                            if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                            if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                             {
                                 var retrive_chest_created = 0
                                 repeat (5500)
@@ -1190,9 +1189,9 @@ switch state
                                             {
                                                 tx = (((xx * 16) + 8) + irandom_range(-8, 8))
                                                 ty = (((yy * 16) + 8) + irandom_range(-8, 8))
-                                                var chest_retrive_object = global.quest_retrive_chest[quest_id_, k]
+                                                var chest_retrive_object = global.quest_retrive_chest[quest_id_][k]
                                                 instance_create_depth(tx, ty, ((-y) + 10), chest_retrive_object)
-                                                scr_add_objective_map_to_list(tx, ty, j, quest_id_, global.quest_marker_sub[quest_id_, k])
+                                                scr_add_objective_map_to_list(tx, ty, j, quest_id_, global.quest_marker_sub[quest_id_][k])
                                                 retrive_chest_created = 1
                                             }
                                         }
@@ -1201,11 +1200,11 @@ switch state
                             }
                         }
                     }
-                    if (global.quest_type[quest_id_, k] == (5 << 0))
+                    if (global.quest_type[quest_id_][k] == (5 << 0))
                     {
-                        if (global.quest_retrive_map[quest_id_, k] == area)
+                        if (global.quest_retrive_map[quest_id_][k] == area)
                         {
-                            if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                            if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                             {
                                 retrive_chest_created = 0
                                 var list_id_anomaly_generator = ds_list_create()
@@ -1243,13 +1242,13 @@ switch state
                                     dir = irandom(360)
                                     xx = (gen_id.x + lengthdir_x(dis, dir))
                                     yy = (gen_id.y + lengthdir_y(dis, dir))
-                                    instance_create_depth(xx, yy, 0, global.quest_retrive_chest[quest_id_, k])
-                                    scr_add_objective_map_to_list(xx, yy, j, quest_id_, global.quest_marker_sub[quest_id_, k])
+                                    instance_create_depth(xx, yy, 0, global.quest_retrive_chest[quest_id_][k])
+                                    scr_add_objective_map_to_list(xx, yy, j, quest_id_, global.quest_marker_sub[quest_id_][k])
                                 }
                             }
                         }
                     }
-                    if (global.quest_type[quest_id_, k] == (6 << 0))
+                    if (global.quest_type[quest_id_][k] == (6 << 0))
                     {
                         var _prosegui = 1
                         if (quest_id_ == (29 << 0))
@@ -1257,13 +1256,13 @@ switch state
                             if (global.az_done[(1 << 0)] == 1)
                                 _prosegui = 0
                         }
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
-                            if (global.quest_contract_map[quest_id_, k] == area && _prosegui == 1)
+                            if (global.quest_contract_map[quest_id_][k] == area && _prosegui == 1)
                             {
                                 var enemy_marked = 0
                                 var enemy_placed = 0
-                                if (!(instance_exists(global.quest_obj_to_kill[quest_id_, k])))
+                                if (!instance_exists(global.quest_obj_to_kill[quest_id_][k]))
                                 {
                                     repeat (75000)
                                     {
@@ -1280,15 +1279,15 @@ switch state
                                                 if (tile_sopra && tile_sotto && tile_dx && tile_sx)
                                                 {
                                                     enemy_placed = 1
-                                                    instance_create_depth((xx * 16), (yy * 16), 0, global.quest_obj_to_kill[quest_id_, k])
+                                                    instance_create_depth((xx * 16), (yy * 16), 0, global.quest_obj_to_kill[quest_id_][k])
                                                 }
                                             }
                                         }
                                     }
                                 }
-                                if instance_exists(global.quest_obj_to_kill[quest_id_, k])
+                                if instance_exists(global.quest_obj_to_kill[quest_id_][k])
                                 {
-                                    with (global.quest_obj_to_kill[quest_id_, k])
+                                    with (global.quest_obj_to_kill[quest_id_][k])
                                     {
                                         if (enemy_marked == 0 && y < obj_map_generator.map_height)
                                         {
@@ -1302,13 +1301,13 @@ switch state
                             }
                         }
                     }
-                    if (global.quest_type[quest_id_, k] == (16 << 0))
+                    if (global.quest_type[quest_id_][k] == (16 << 0))
                     {
-                        if (!(instance_exists(global.quest_approach_obj[quest_id_, k])))
+                        if (!instance_exists(global.quest_approach_obj[quest_id_][k]))
                         {
-                            if (global.quest_approach_map[quest_id_, k] == area)
+                            if (global.quest_approach_map[quest_id_][k] == area)
                             {
-                                if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                                if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                                 {
                                     enemy_placed = 0
                                     repeat (50000)
@@ -1326,7 +1325,7 @@ switch state
                                                 if (tile_sopra && tile_sotto && tile_dx && tile_sx)
                                                 {
                                                     enemy_placed = 1
-                                                    instance_create_depth((xx * 16), (yy * 16), 0, global.quest_approach_obj[quest_id_, k])
+                                                    instance_create_depth((xx * 16), (yy * 16), 0, global.quest_approach_obj[quest_id_][k])
                                                 }
                                             }
                                         }
@@ -1334,30 +1333,30 @@ switch state
                                 }
                             }
                         }
-                        if instance_exists(global.quest_approach_obj[quest_id_, k])
+                        if instance_exists(global.quest_approach_obj[quest_id_][k])
                         {
-                            if (global.quest_approach_map[quest_id_, k] == area)
+                            if (global.quest_approach_map[quest_id_][k] == area)
                             {
-                                if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                                if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                                 {
-                                    if (global.quest_marker[quest_id_, k] == 1)
+                                    if (global.quest_marker[quest_id_][k] == 1)
                                     {
-                                        var _obj = global.quest_approach_obj[quest_id_, k]
-                                        scr_add_objective_map_to_list(_obj.x, _obj.y, j, quest_id_, global.quest_marker_sub[quest_id_, k])
+                                        var _obj = global.quest_approach_obj[quest_id_][k]
+                                        scr_add_objective_map_to_list(_obj.x, _obj.y, j, quest_id_, global.quest_marker_sub[quest_id_][k])
                                     }
                                 }
                             }
                         }
                     }
-                    if (global.quest_type[quest_id_, k] == (7 << 0))
+                    if (global.quest_type[quest_id_][k] == (7 << 0))
                     {
-                        if (global.quest_place_marker_map[quest_id_, k] == area)
+                        if (global.quest_place_marker_map[quest_id_][k] == area)
                         {
-                            if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                            if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                             {
                                 var object_marked = 0
                                 var object_placed = 0
-                                if (!(instance_exists(global.quest_place_marker_object[quest_id_, k])))
+                                if (!instance_exists(global.quest_place_marker_object[quest_id_][k]))
                                 {
                                     for (xx = 5; xx < (grid_strada_w - 5); xx++)
                                     {
@@ -1369,7 +1368,7 @@ switch state
                                                 {
                                                     if scr_chance(25)
                                                     {
-                                                        instance_create_depth((xx * 96), (yy * 96), 0, global.quest_place_marker_object[quest_id_, k])
+                                                        instance_create_depth((xx * 96), (yy * 96), 0, global.quest_place_marker_object[quest_id_][k])
                                                         object_placed = 1
                                                     }
                                                 }
@@ -1377,9 +1376,9 @@ switch state
                                         }
                                     }
                                 }
-                                if instance_exists(global.quest_place_marker_object[quest_id_, k])
+                                if instance_exists(global.quest_place_marker_object[quest_id_][k])
                                 {
-                                    with (global.quest_place_marker_object[quest_id_, k])
+                                    with (global.quest_place_marker_object[quest_id_][k])
                                     {
                                         if (object_marked == 0)
                                         {
@@ -1387,8 +1386,8 @@ switch state
                                             {
                                                 object_marked = 1
                                                 obj_controller.marked_object_id = id
-                                                if (global.quest_marker[quest_id_, k] == 1)
-                                                    scr_add_objective_map_to_list(x, y, j, quest_id_, global.quest_marker_sub[quest_id_, k])
+                                                if (global.quest_marker[quest_id_][k] == 1)
+                                                    scr_add_objective_map_to_list(x, y, j, quest_id_, global.quest_marker_sub[quest_id_][k])
                                             }
                                         }
                                     }
@@ -1398,7 +1397,7 @@ switch state
                     }
                     if (quest_id_ == (4 << 0))
                     {
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
                             if instance_exists(obj_quest_tp)
                             {
@@ -1412,7 +1411,7 @@ switch state
                     }
                     if (quest_id_ == (90 << 0))
                     {
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
                             if instance_exists(obj_quest_document_2)
                             {
@@ -1426,7 +1425,7 @@ switch state
                     }
                     if (quest_id_ == (29 << 0))
                     {
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
                             if instance_exists(obj_house_trader_forest)
                                 scr_add_objective_map_to_list(obj_house_trader_forest.x, obj_house_trader_forest.y, j, quest_id_, 12)
@@ -1434,15 +1433,15 @@ switch state
                     }
                     if (quest_id_ == (37 << 0))
                     {
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
                             if instance_exists(obj_lair_ghoul)
-                                scr_add_objective_map_to_list(obj_lair_ghoul.x, obj_lair_ghoul.y, j, quest_id_, global.quest_marker_sub[quest_id_, k])
+                                scr_add_objective_map_to_list(obj_lair_ghoul.x, obj_lair_ghoul.y, j, quest_id_, global.quest_marker_sub[quest_id_][k])
                         }
                     }
                     if (quest_id_ == (31 << 0))
                     {
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
                             if instance_exists(obj_quest_find_usb_sawmill)
                             {
@@ -1456,39 +1455,39 @@ switch state
                     }
                     if (quest_id_ == (45 << 0))
                     {
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
                             if instance_exists(obj_elicottero_distrutto)
-                                scr_add_objective_map_to_list(obj_elicottero_distrutto.x, obj_elicottero_distrutto.y, j, quest_id_, global.quest_marker_sub[quest_id_, k])
+                                scr_add_objective_map_to_list(obj_elicottero_distrutto.x, obj_elicottero_distrutto.y, j, quest_id_, global.quest_marker_sub[quest_id_][k])
                         }
                     }
                     if (quest_id_ == (47 << 0))
                     {
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
                             if instance_exists(obj_faro)
-                                scr_add_objective_map_to_list(obj_faro.x, obj_faro.y, j, quest_id_, global.quest_marker_sub[quest_id_, k])
+                                scr_add_objective_map_to_list(obj_faro.x, obj_faro.y, j, quest_id_, global.quest_marker_sub[quest_id_][k])
                         }
                     }
                     if (quest_id_ == (94 << 0))
                     {
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
                             if instance_exists(obj_cristallo_viola)
-                                scr_add_objective_map_to_list(obj_cristallo_viola.x, obj_cristallo_viola.y, j, quest_id_, global.quest_marker_sub[quest_id_, k])
+                                scr_add_objective_map_to_list(obj_cristallo_viola.x, obj_cristallo_viola.y, j, quest_id_, global.quest_marker_sub[quest_id_][k])
                         }
                     }
                     if (quest_id_ == (62 << 0))
                     {
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
                             if instance_exists(obj_tower_radio_1)
-                                scr_add_objective_map_to_list(obj_tower_radio_1.x, obj_tower_radio_1.y, j, quest_id_, global.quest_marker_sub[quest_id_, k])
+                                scr_add_objective_map_to_list(obj_tower_radio_1.x, obj_tower_radio_1.y, j, quest_id_, global.quest_marker_sub[quest_id_][k])
                         }
                     }
                     if (quest_id_ == (170 << 0))
                     {
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
                             if instance_exists(obj_radio_tower_building)
                                 scr_add_objective_map_to_list(obj_radio_tower_building.x, obj_radio_tower_building.y, j, quest_id_, 10)
@@ -1496,7 +1495,7 @@ switch state
                     }
                     if (quest_id_ == (28 << 0))
                     {
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
                             if instance_exists(obj_quest_document_village_chest_spawner)
                             {
@@ -1510,7 +1509,7 @@ switch state
                     }
                     if (quest_id_ == (66 << 0))
                     {
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
                             if instance_exists(obj_quest_laboratory_1)
                             {
@@ -1524,7 +1523,7 @@ switch state
                     }
                     if (quest_id_ == (172 << 0))
                     {
-                        if (global.save_quest_amount_now[j, k] < global.quest_amount_max[quest_id_, k])
+                        if (global.save_quest_amount_now[j][k] < global.quest_amount_max[quest_id_][k])
                         {
                             if instance_exists(obj_chest_grigoriy_ring)
                                 scr_add_objective_map_to_list(obj_chest_grigoriy_ring.x, obj_chest_grigoriy_ring.y, j, quest_id_, 10)
@@ -1544,7 +1543,7 @@ switch state
                     if (my_id == (1 << 0))
                     {
                         var pp = (0 << 0)
-                        o = 4
+                        o = 22
                         var prima_volta_fatta = global.az_done[pp]
                         if (prima_volta_fatta == 1)
                             add = 1
@@ -1779,7 +1778,7 @@ switch state
         for (i = 0; i < array_length_2d(global.d_npc_map, area); i++)
         {
             _list_amount_messi[i] = 0
-            repeat global.d_npc_map[area, i]
+            repeat global.d_npc_map[area][i]
                 ds_list_add(_list, i)
         }
         var _messi = 0
@@ -1841,7 +1840,7 @@ switch state
         }
         for (i = 0; i < _amount; i++)
         {
-            var _id_group = global.d_npc_id[ds_list_find_value(global.list_dynamic_npc, i)]
+            var _id_group = array_get(global.d_npc_id, ds_list_find_value(global.list_dynamic_npc, i))
             var _create_x = ds_list_find_value(global.list_dynamic_npc_x, i)
             var _create_y = ds_list_find_value(global.list_dynamic_npc_y, i)
             _pos_trovata = 0
@@ -1947,6 +1946,12 @@ switch state
         break
 }
 
+tempo_generazione[state] = (current_time - tempo_start)
+if (state == (17 << 0))
+{
+    var _timer = round(tempo_generazione[(17 << 0)])
+    ga_addDesignEvent("Map_gen:Time", _timer)
+}
 switch state
 {
     case (0 << 0):

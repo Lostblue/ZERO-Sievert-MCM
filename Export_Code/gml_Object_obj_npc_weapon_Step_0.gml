@@ -8,8 +8,8 @@ if instance_exists(obj_controller)
         {
             if (mod_id[(3 << 0)] != -1)
             {
-                var bx = arma_mod_x[follow_id.arma_now, (3 << 0)]
-                var by = arma_mod_y[follow_id.arma_now, (3 << 0)]
+                var bx = arma_mod_x[follow_id.arma_now][(3 << 0)]
+                var by = arma_mod_y[follow_id.arma_now][(3 << 0)]
                 var bl = mod_barrel_length[mod_id[(3 << 0)]]
                 brake_x = ((bx + bl) - 1)
                 brake_y = by

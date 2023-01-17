@@ -1,4 +1,4 @@
-var arr_x, arr_y, arr_rel;
+var arr_x;
 if instance_exists(obj_player)
 {
     var camx = camera_get_view_x(view_camera[0])

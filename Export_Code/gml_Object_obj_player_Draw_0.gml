@@ -17,14 +17,14 @@ if (item_categoria[arma_now] == (0 << 0))
 draw_sprite_ext(s_shadow, 0, x, (y + 8), 1, 1, 0, c_black, 0.5)
 if (hit_shader == 1)
     shader_set(shd_flash_hit)
-if (state == 22)
+if (state == gml_Script_scr_player_state_move)
 {
     scr_draw_laser((7 << 0))
     scr_draw_laser((8 << 0))
     scr_draw_laser((9 << 0))
     scr_draw_laser((10 << 0))
 }
-if (state != 67)
+if (state != gml_Script_scr_player_weapon_look)
 {
     if (x > mouse_x)
     {

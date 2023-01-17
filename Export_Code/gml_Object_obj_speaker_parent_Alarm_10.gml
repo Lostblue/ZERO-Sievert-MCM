@@ -32,11 +32,11 @@ if (is_a_quest_giver[speaker_id] == 1)
         var n_quest_trader = array_length_2d(speaker_quest, speaker_id)
         for (i = 0; i < n_quest_trader; i++)
         {
-            var get_quest_id = speaker_quest[speaker_id, i]
+            var get_quest_id = speaker_quest[speaker_id][i]
             if (global.livello_now >= global.quest_liv_min[get_quest_id])
             {
-                repeat speaker_quest_chance[speaker_id, i]
-                    ds_list_add(list_quest_possibili, speaker_quest[speaker_id, i])
+                repeat speaker_quest_chance[speaker_id][i]
+                    ds_list_add(list_quest_possibili, speaker_quest[speaker_id][i])
             }
         }
         repeat (1000)

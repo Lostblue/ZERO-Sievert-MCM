@@ -136,14 +136,30 @@ if instance_exists(object_id)
                                 if (object_id.created_from_player == 1)
                                     kk = global.sk_k[(36 << 0)]
                                 destroy_consumable = 1
-                                var ani = instance_create_depth(obj_player.x, obj_player.y, ((-y) - 2), obj_arms_player_parent)
-                                ani.item_id = quale_item
-                                ani.sprite_index = consumable_animation[quale_item]
-                                ani.image_index = 0
-                                ani.r_energy = (consumable_energy[quale_item] * kk)
-                                ani.r_thirst = (consumable_thirst[quale_item] * kk)
-                                ani.r_fatigue = (consumable_fatigue[quale_item] * kk)
-                                ani.r_radiation = (consumable_radiation[quale_item] * kk)
+                                var _play_animation = 1
+                                if (room == r_hub)
+                                {
+                                    if (global.bunker_animation == 0)
+                                    {
+                                        _play_animation = 0
+                                        obj_player.energy += (consumable_energy[quale_item] * kk)
+                                        obj_player.thirst += (consumable_thirst[quale_item] * kk)
+                                        obj_player.fatigue += (consumable_fatigue[quale_item] * kk)
+                                        obj_player.radiation_accumulata += (consumable_radiation[quale_item] * kk)
+                                        scr_draw_text_with_box("Item consumed")
+                                    }
+                                }
+                                if (_play_animation == 1)
+                                {
+                                    var ani = instance_create_depth(obj_player.x, obj_player.y, ((-y) - 2), obj_arms_player_parent)
+                                    ani.item_id = quale_item
+                                    ani.sprite_index = consumable_animation[quale_item]
+                                    ani.image_index = 0
+                                    ani.r_energy = (consumable_energy[quale_item] * kk)
+                                    ani.r_thirst = (consumable_thirst[quale_item] * kk)
+                                    ani.r_fatigue = (consumable_fatigue[quale_item] * kk)
+                                    ani.r_radiation = (consumable_radiation[quale_item] * kk)
+                                }
                                 break
                             case (2 << 0):
                                 ani = instance_create_depth(obj_player.x, obj_player.y, ((-y) - 2), obj_arms_player_parent)
@@ -167,7 +183,7 @@ if instance_exists(object_id)
                                         var caliber_found = 0
                                         for (i = 0; i < how_many_caliber; i++)
                                         {
-                                            if (arma_caliber[obj_player.weapon_slot[(1 << 0)]] == repair_caliber[quale_item_, i])
+                                            if (arma_caliber[obj_player.weapon_slot[(1 << 0)]] == repair_caliber[quale_item_][i])
                                                 caliber_found = 1
                                         }
                                         if (caliber_found == 1)
@@ -381,6 +397,21 @@ if instance_exists(object_id)
                                 break
                         }
 
+                        if (quale_item == (663 << 0))
+                        {
+                            if (room == r_hub)
+                            {
+                                destroy_consumable = 1
+                                global.luci_natale_built = 1
+                                ini_open(global.save_general)
+                                ini_write_real("Christman", "lights built", 1)
+                                ini_close()
+                                var lay_id = layer_get_id("Natale_luci")
+                                layer_set_visible(lay_id, 1)
+                            }
+                            else
+                                scr_draw_text_with_box("You can use this item only in the bunker")
+                        }
                         if (destroy_consumable == 1)
                         {
                             with (object_id)

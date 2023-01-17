@@ -9,6 +9,13 @@ if (room == room1)
     meteo_fog_prima = global.meteo_fog
     global.meteo_rain = ds_list_find_value(list1, 0)
     global.meteo_fog = ds_list_find_value(list2, 0)
+    if (global.state_emission_now != (0 << 0))
+    {
+        global.meteo_rain = (0 << 0)
+        global.meteo_fog = (4 << 0)
+    }
+    if (global.state_emission_now == (22 << 0) || global.emission_done == 1)
+        global.meteo_rain = (12 << 0)
     global.meteo_dark = meteo_dark[global.meteo_rain]
     var _mettere_rad = 0
     var _rad_amount = 0

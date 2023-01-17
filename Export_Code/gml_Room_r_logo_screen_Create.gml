@@ -5,7 +5,7 @@ if (_active == 1)
 {
     ga_setEnabledInfoLog(1)
     ga_setEnabledVerboseLog(1)
-    ga_configureBuild("0.26.2")
+    ga_configureBuild("0.28.0")
     var array = ga_array("gems", "gold")
     ga_configureAvailableResourceCurrencies(array)
     array = ga_array("gems", "gold")

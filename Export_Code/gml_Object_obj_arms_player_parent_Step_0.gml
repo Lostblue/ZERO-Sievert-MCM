@@ -6,7 +6,7 @@ if mouse_check_button_pressed(mb_left)
 {
     obj_player.draw_weapon = 1
     obj_player.shoot_stop_ani = 1
-    obj_player.state = 22
+    obj_player.state = gml_Script_scr_player_state_move
     obj_player.bleed = player_bleed
     var o = obj_controller
     if (o.item_categoria[item_id] == (3 << 0))

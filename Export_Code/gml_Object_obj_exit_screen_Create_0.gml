@@ -47,7 +47,7 @@ if (number_of_items > 0)
         {
             for (var j = 0; j < (10 << 0); j++)
             {
-                var _id = ini_read_real("Inventory", ((("mod_" + string(j)) + "_") + string(i)), arma_mod_id[temp_item_id, j])
+                var _id = ini_read_real("Inventory", ((("mod_" + string(j)) + "_") + string(i)), arma_mod_id[temp_item_id][j])
                 if (_id != -1)
                 {
                     var _value_mod = (item_value[_id] * 0.2)

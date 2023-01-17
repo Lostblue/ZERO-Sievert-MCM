@@ -14,13 +14,13 @@ switch global.status_state_now[oo]
     case (1 << 0):
         break
     case (2 << 0):
-        global.sk_k[(6 << 0)] += global.status_f1[oo, (2 << 0)]
+        global.sk_k[(6 << 0)] += global.status_f1[oo][(2 << 0)]
         break
     case (3 << 0):
-        global.sk_k[(6 << 0)] += global.status_f1[oo, (3 << 0)]
+        global.sk_k[(6 << 0)] += global.status_f1[oo][(3 << 0)]
         break
     case (4 << 0):
-        global.sk_k[(6 << 0)] += global.status_f1[oo, (4 << 0)]
+        global.sk_k[(6 << 0)] += global.status_f1[oo][(4 << 0)]
         break
     default:
 
@@ -30,18 +30,18 @@ oo = (1 << 0)
 switch global.status_state_now[oo]
 {
     case (0 << 0):
-        global.sk_k[(1 << 0)] += global.status_f1[oo, (0 << 0)]
+        global.sk_k[(1 << 0)] += global.status_f1[oo][(0 << 0)]
         break
     case (1 << 0):
         break
     case (2 << 0):
-        global.sk_k[(1 << 0)] += global.status_f1[oo, (2 << 0)]
+        global.sk_k[(1 << 0)] += global.status_f1[oo][(2 << 0)]
         break
     case (3 << 0):
-        global.sk_k[(1 << 0)] += global.status_f1[oo, (3 << 0)]
+        global.sk_k[(1 << 0)] += global.status_f1[oo][(3 << 0)]
         break
     case (4 << 0):
-        global.sk_k[(1 << 0)] += global.status_f1[oo, (4 << 0)]
+        global.sk_k[(1 << 0)] += global.status_f1[oo][(4 << 0)]
         break
 }
 
@@ -49,18 +49,18 @@ oo = (2 << 0)
 switch global.status_state_now[oo]
 {
     case (0 << 0):
-        global.sk_k[(1 << 0)] += global.status_f1[oo, (0 << 0)]
+        global.sk_k[(1 << 0)] += global.status_f1[oo][(0 << 0)]
         break
     case (1 << 0):
         break
     case (2 << 0):
-        global.sk_k[(1 << 0)] += global.status_f1[oo, (2 << 0)]
+        global.sk_k[(1 << 0)] += global.status_f1[oo][(2 << 0)]
         break
     case (3 << 0):
-        global.sk_k[(1 << 0)] += global.status_f1[oo, (3 << 0)]
+        global.sk_k[(1 << 0)] += global.status_f1[oo][(3 << 0)]
         break
     case (4 << 0):
-        global.sk_k[(1 << 0)] += global.status_f1[oo, (4 << 0)]
+        global.sk_k[(1 << 0)] += global.status_f1[oo][(4 << 0)]
         break
 }
 
@@ -115,7 +115,7 @@ switch global.status_state_now[oo]
 
 if instance_exists(obj_player)
 {
-    if (obj_player.state != 23)
+    if (obj_player.state != gml_Script_scr_player_state_inventory)
     {
         obj_player.check_max_weight += 1
         if (obj_player.check_max_weight >= obj_player.check_max_weight_max)

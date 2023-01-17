@@ -1,7 +1,113 @@
+var camx = camera_get_view_x(view_camera[0])
+var camy = camera_get_view_y(view_camera[0])
+if (room != r_menu)
+{
+    if instance_exists(obj_player)
+    {
+        if (obj_player.state == gml_Script_scr_player_state_inventory)
+        {
+            if scr_mouse_inside((camx + global.show_overlay_peso_x), (camy + global.show_overlay_peso_y), global.show_overlay_peso_w, global.show_overlay_peso_h)
+            {
+                if instance_exists(obj_item)
+                {
+                    var _list_id = ds_list_create()
+                    var _list_x = ds_list_create()
+                    var _list_y = ds_list_create()
+                    var _list_peso = ds_list_create()
+                    var _list_xx = ds_list_create()
+                    var _list_yy = ds_list_create()
+                    with (obj_item)
+                    {
+                        ds_list_add(_list_id, my_id)
+                        ds_list_add(_list_x, x)
+                        ds_list_add(_list_y, y)
+                        var _stack = qnt
+                        ds_list_add(_list_peso, (item_weight[my_id] * _stack))
+                        ds_list_add(_list_xx, caselle_x)
+                        ds_list_add(_list_yy, caselle_y)
+                    }
+                    for (var i = 0; i < ds_list_size(_list_id); i++)
+                    {
+                        var _peso = ds_list_find_value(_list_peso, i)
+                        _peso = clamp(_peso, global.show_overlay_peso_min, global.show_overlay_peso_max)
+                        var _div = (_peso / global.show_overlay_peso_max)
+                        var _step = ((global.show_overlay_peso_max - global.show_overlay_peso_min) / global.show_overlay_col_number)
+                        var _col = c_white
+                        var _a = global.show_overlay_peso_min
+                        if (_peso >= 0)
+                            _col = merge_color(global.show_overlay_col[0], global.show_overlay_col[1], (_peso / (_a + _step)))
+                        if (_peso >= (_a + _step))
+                            _col = merge_color(global.show_overlay_col[1], global.show_overlay_col[2], ((_peso - _step) / (_a + (_step * 2))))
+                        if (_peso >= (_a + (_step * 2)))
+                            _col = merge_color(global.show_overlay_col[2], global.show_overlay_col[3], ((_peso - (_step * 2)) / (_a + (_step * 3))))
+                        if (_peso >= (_a + (_step * 3)))
+                            _col = merge_color(global.show_overlay_col[3], global.show_overlay_col[4], ((_peso - (_step * 3)) / (_a + (_step * 4))))
+                        if (_peso >= (_a + (_step * 4)))
+                            _col = global.show_overlay_col[4]
+                        var _xx = ds_list_find_value(_list_xx, i)
+                        var _yy = ds_list_find_value(_list_yy, i)
+                        var _x = ds_list_find_value(_list_x, i)
+                        var _y = ds_list_find_value(_list_y, i)
+                        draw_sprite_ext(s_16x16, 0, (_x - camx), (_y - camy), _xx, _yy, 0, _col, 0.6)
+                    }
+                }
+            }
+            if (room == r_hub)
+            {
+                if scr_mouse_inside((camx + global.show_overlay_soldi_x), (camy + global.show_overlay_soldi_y), global.show_overlay_soldi_w, global.show_overlay_soldi_h)
+                {
+                    if instance_exists(obj_item)
+                    {
+                        _list_id = ds_list_create()
+                        _list_x = ds_list_create()
+                        _list_y = ds_list_create()
+                        var _list_soldi = ds_list_create()
+                        _list_xx = ds_list_create()
+                        _list_yy = ds_list_create()
+                        with (obj_item)
+                        {
+                            ds_list_add(_list_id, my_id)
+                            ds_list_add(_list_x, x)
+                            ds_list_add(_list_y, y)
+                            _stack = qnt
+                            ds_list_add(_list_soldi, (item_value[my_id] * _stack))
+                            ds_list_add(_list_xx, caselle_x)
+                            ds_list_add(_list_yy, caselle_y)
+                        }
+                        for (i = 0; i < ds_list_size(_list_id); i++)
+                        {
+                            var _soldi = ds_list_find_value(_list_soldi, i)
+                            _soldi = clamp(_soldi, global.show_overlay_soldi_min, global.show_overlay_soldi_max)
+                            _div = (_soldi / global.show_overlay_soldi_max)
+                            _step = ((global.show_overlay_soldi_max - global.show_overlay_soldi_min) / global.show_overlay_col_number)
+                            _a = global.show_overlay_soldi_min
+                            _col = c_white
+                            if (_soldi >= 0)
+                                _col = merge_color(global.show_overlay_col[4], global.show_overlay_col[3], (_soldi / (_a + _step)))
+                            if (_soldi >= (_a + _step))
+                                _col = merge_color(global.show_overlay_col[3], global.show_overlay_col[2], ((_soldi - _step) / (_a + (_step * 2))))
+                            if (_soldi >= (_a + (_step * 2)))
+                                _col = merge_color(global.show_overlay_col[2], global.show_overlay_col[1], ((_soldi - (_step * 2)) / (_a + (_step * 3))))
+                            if (_soldi >= (_a + (_step * 3)))
+                                _col = merge_color(global.show_overlay_col[1], global.show_overlay_col[0], ((_soldi - (_step * 3)) / (_a + (_step * 4))))
+                            if (_soldi >= (_a + (_step * 4)))
+                                _col = global.show_overlay_col[0]
+                            _xx = ds_list_find_value(_list_xx, i)
+                            _yy = ds_list_find_value(_list_yy, i)
+                            _x = ds_list_find_value(_list_x, i)
+                            _y = ds_list_find_value(_list_y, i)
+                            draw_sprite_ext(s_16x16, 0, (_x - camx), (_y - camy), _xx, _yy, 0, _col, 0.5)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 var go = 0
 if (room != r_menu)
 {
-    if ((obj_player.state == 23 || obj_player.state == 39 || obj_player.state == 48 || obj_player.state == 53 || obj_player.state == 65) && (!keyboard_check_direct(vk_control)))
+    if ((obj_player.state == gml_Script_scr_player_state_inventory || obj_player.state == gml_Script_scr_player_state_craft || obj_player.state == gml_Script_scr_player_show_quest || obj_player.state == gml_Script_scr_player_state_mod || obj_player.state == gml_Script_scr_player_state_item_spawn) && (!keyboard_check_direct(vk_control)))
     {
         if (show_item_stat == 1 && obj_mouse.dragging == 0 && instance_position(mouse_x, mouse_y, obj_item))
         {
@@ -29,8 +135,8 @@ if (go == 1)
 {
     if ((!instance_exists(obj_inspect)) && instance_exists(id_instance))
     {
-        var camx = camera_get_view_x(view_camera[0])
-        var camy = camera_get_view_y(view_camera[0])
+        camx = camera_get_view_x(view_camera[0])
+        camy = camera_get_view_y(view_camera[0])
         var view_w = camera_get_view_width(view_camera[0])
         var view_h = camera_get_view_height(view_camera[0])
         var bb_w = 264
@@ -54,7 +160,7 @@ if (go == 1)
         if (id_instance.item_necessary == 1)
         {
             scr_draw_box(s_box_testo1, left_x, (top_y + bb_h), bb_w, bb_h_necessary, 0.95)
-            for (var i = 0; i < _size; i++)
+            for (i = 0; i < _size; i++)
             {
                 var _scopo = ds_list_find_value(_list_scopo, i)
                 var _pre_text = ""
@@ -369,7 +475,7 @@ if (go == 1)
             var how_many_caliber = array_length_2d(repair_caliber, item_id)
             for (i = 0; i < how_many_caliber; i++)
             {
-                _caliber_id = repair_caliber[item_id, i]
+                _caliber_id = repair_caliber[item_id][i]
                 draw_text((stat_startx + off_n_v), ((stat_starty + slot_offset) + (10 * i)), caliber_name[_caliber_id])
             }
         }
@@ -566,18 +672,18 @@ if (go == 1)
                 u++
                 slot_offset = (offset_amount * u)
                 var _n_foregrip = "no"
-                if (mod_handguard_slot[item_id, 0] == 1)
+                if (mod_handguard_slot[item_id][0] == 1)
                     _n_foregrip = "yes"
                 draw_text(stat_startx, (stat_starty + slot_offset), "FOREGRIP")
                 draw_text((stat_startx + off), (stat_starty + slot_offset), _n_foregrip)
                 u++
                 slot_offset = (offset_amount * u)
                 var _n_attachment = 0
-                if (mod_handguard_slot[item_id, 1] == 1)
+                if (mod_handguard_slot[item_id][1] == 1)
                     _n_attachment++
-                if (mod_handguard_slot[item_id, 2] == 1)
+                if (mod_handguard_slot[item_id][2] == 1)
                     _n_attachment++
-                if (mod_handguard_slot[item_id, 3] == 1)
+                if (mod_handguard_slot[item_id][3] == 1)
                     _n_attachment++
                 draw_text(stat_startx, (stat_starty + slot_offset), "ATTACHMENTS")
                 draw_text((stat_startx + off), (stat_starty + slot_offset), string(_n_attachment))
@@ -602,7 +708,7 @@ if (go == 1)
             {
                 for (i = 0; i < array_length_2d(mod_weapon_id, item_id); i++)
                 {
-                    _name = item_name[mod_weapon_id[item_id, i]]
+                    _name = item_name[mod_weapon_id[item_id][i]]
                     _text = ((_text + _name) + ", ")
                 }
             }

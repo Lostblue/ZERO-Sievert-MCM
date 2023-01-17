@@ -78,105 +78,105 @@ a++
 bullet_hit_near[a] = 161
 a = (0 << 0)
 var i = 0
-global.bullet_impact[a, i] = 0
+global.bullet_impact[a][i] = 0
 a = (1 << 0)
 i = 0
-global.bullet_impact[a, i] = 199
+global.bullet_impact[a][i] = 199
 i++
-global.bullet_impact[a, i] = 200
+global.bullet_impact[a][i] = 200
 i++
-global.bullet_impact[a, i] = 201
+global.bullet_impact[a][i] = 201
 i++
-global.bullet_impact[a, i] = 202
+global.bullet_impact[a][i] = 202
 i++
-global.bullet_impact[a, i] = 203
+global.bullet_impact[a][i] = 203
 i++
-global.bullet_impact[a, i] = 204
+global.bullet_impact[a][i] = 204
 i++
-global.bullet_impact[a, i] = 205
+global.bullet_impact[a][i] = 205
 i++
-global.bullet_impact[a, i] = 206
+global.bullet_impact[a][i] = 206
 i++
 a = (4 << 0)
 i = 0
-global.bullet_impact[a, i] = 207
+global.bullet_impact[a][i] = 207
 i++
-global.bullet_impact[a, i] = 208
+global.bullet_impact[a][i] = 208
 i++
-global.bullet_impact[a, i] = 209
+global.bullet_impact[a][i] = 209
 i++
-global.bullet_impact[a, i] = 210
+global.bullet_impact[a][i] = 210
 a = (2 << 0)
 i = 0
-global.bullet_impact[a, i] = 211
+global.bullet_impact[a][i] = 211
 i++
-global.bullet_impact[a, i] = 212
+global.bullet_impact[a][i] = 212
 i++
-global.bullet_impact[a, i] = 213
+global.bullet_impact[a][i] = 213
 i++
-global.bullet_impact[a, i] = 214
+global.bullet_impact[a][i] = 214
 i++
-global.bullet_impact[a, i] = 215
+global.bullet_impact[a][i] = 215
 i++
-global.bullet_impact[a, i] = 216
+global.bullet_impact[a][i] = 216
 i++
-global.bullet_impact[a, i] = 217
+global.bullet_impact[a][i] = 217
 i++
-global.bullet_impact[a, i] = 218
+global.bullet_impact[a][i] = 218
 i++
 a = (5 << 0)
 i = 0
-global.bullet_impact[a, i] = 190
+global.bullet_impact[a][i] = 190
 i++
-global.bullet_impact[a, i] = 191
+global.bullet_impact[a][i] = 191
 i++
-global.bullet_impact[a, i] = 192
+global.bullet_impact[a][i] = 192
 i++
-global.bullet_impact[a, i] = 193
+global.bullet_impact[a][i] = 193
 i++
-global.bullet_impact[a, i] = 194
+global.bullet_impact[a][i] = 194
 i++
-global.bullet_impact[a, i] = 195
+global.bullet_impact[a][i] = 195
 i++
-global.bullet_impact[a, i] = 196
+global.bullet_impact[a][i] = 196
 i++
-global.bullet_impact[a, i] = 197
+global.bullet_impact[a][i] = 197
 i++
 a = (3 << 0)
 i = 0
-global.bullet_impact[a, i] = 174
+global.bullet_impact[a][i] = 174
 i++
-global.bullet_impact[a, i] = 175
+global.bullet_impact[a][i] = 175
 i++
-global.bullet_impact[a, i] = 176
+global.bullet_impact[a][i] = 176
 i++
-global.bullet_impact[a, i] = 177
+global.bullet_impact[a][i] = 177
 i++
 a = (6 << 0)
 i = 0
-global.bullet_impact[a, i] = 190
+global.bullet_impact[a][i] = 190
 i++
-global.bullet_impact[a, i] = 191
+global.bullet_impact[a][i] = 191
 i++
-global.bullet_impact[a, i] = 192
+global.bullet_impact[a][i] = 192
 i++
-global.bullet_impact[a, i] = 193
+global.bullet_impact[a][i] = 193
 i++
-global.bullet_impact[a, i] = 194
+global.bullet_impact[a][i] = 194
 i++
-global.bullet_impact[a, i] = 195
+global.bullet_impact[a][i] = 195
 i++
-global.bullet_impact[a, i] = 196
+global.bullet_impact[a][i] = 196
 i++
-global.bullet_impact[a, i] = 197
+global.bullet_impact[a][i] = 197
 i++
-global.bullet_impact[a, i] = 174
+global.bullet_impact[a][i] = 174
 i++
-global.bullet_impact[a, i] = 175
+global.bullet_impact[a][i] = 175
 i++
-global.bullet_impact[a, i] = 176
+global.bullet_impact[a][i] = 176
 i++
-global.bullet_impact[a, i] = 177
+global.bullet_impact[a][i] = 177
 i++
 grid_footstep = ds_grid_create(32, 64)
 for (var xx = 0; xx < 32; xx++)

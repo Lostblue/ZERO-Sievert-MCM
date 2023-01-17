@@ -144,7 +144,7 @@ if instance_exists(obj_player)
             }
         }
     }
-    if (obj_player.state == 23)
+    if (obj_player.state == gml_Script_scr_player_state_inventory)
     {
         if (obj_player.looting == 0 && obj_player.trading == 0 && obj_player.looting_player_stash == 1)
         {

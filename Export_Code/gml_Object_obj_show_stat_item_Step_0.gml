@@ -1,4 +1,6 @@
 depth = -10500
+show_item_stat_max = ceil((global.hud_item_overlay * 60))
+show_item_stat_max = clamp(show_item_stat_max, 1, 60)
 if (room != r_menu)
 {
     if instance_exists(obj_player)
@@ -8,7 +10,7 @@ if (room != r_menu)
             x = obj_player.x
             y = obj_player.y
         }
-        if (obj_player.state == 23 || obj_player.state == 39 || obj_player.state == 48 || obj_player.state == 53 || obj_player.state == 65)
+        if (obj_player.state == gml_Script_scr_player_state_inventory || obj_player.state == gml_Script_scr_player_state_craft || obj_player.state == gml_Script_scr_player_show_quest || obj_player.state == gml_Script_scr_player_state_mod || obj_player.state == gml_Script_scr_player_state_item_spawn)
         {
             if (mouse_x == prev_mouse_x && mouse_y == prev_mouse_y)
             {

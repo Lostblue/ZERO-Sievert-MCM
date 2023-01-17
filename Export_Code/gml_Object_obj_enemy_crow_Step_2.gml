@@ -1,19 +1,19 @@
-if (state == (67 << 0))
+if (state == (68 << 0))
 {
     sprite_index = s_crow_idle2
     image_speed = 0.5
 }
-else if (state == (70 << 0))
+else if (state == (71 << 0))
 {
     sprite_index = s_crow_fly
     image_speed = 2
 }
-else if (state == (71 << 0))
+else if (state == (72 << 0))
 {
     sprite_index = s_crow_eat
     image_speed = 0.5
 }
-else if (state == (72 << 0))
+else if (state == (73 << 0))
 {
     sprite_index = s_crow_fly
     image_speed = 2

@@ -5,7 +5,7 @@ if (counter >= counter_max)
     if (o.item_categoria[item_id] != (2 << 0))
     {
         obj_player.draw_weapon = 1
-        obj_player.state = 22
+        obj_player.state = gml_Script_scr_player_state_move
         obj_player.energy += r_energy
         obj_player.thirst += r_thirst
         obj_player.fatigue += r_fatigue

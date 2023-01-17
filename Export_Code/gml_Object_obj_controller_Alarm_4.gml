@@ -50,8 +50,42 @@ if (!keyboard_check_pressed(vk_escape))
         }
         if instance_exists(obj_player)
         {
-            if (obj_player.state == 49)
+            if (obj_player.state == gml_Script_scr_player_state_dead)
                 instance_deactivate_object(obj_npc_parent)
+        }
+    }
+    if (room == r_hub)
+    {
+        if instance_exists(obj_camera)
+        {
+            if (obj_camera.follow != (3 << 0))
+            {
+                instance_deactivate_object(obj_solid)
+                instance_deactivate_object(obj_light)
+                if (!instance_exists(obj_mouse))
+                    instance_activate_object(obj_mouse)
+                if (!instance_exists(obj_sound_controller))
+                    instance_activate_object(obj_sound_controller)
+                if (!instance_exists(obj_light_controller))
+                    instance_activate_object(obj_light_controller)
+                if (!instance_exists(obj_meteo_controller))
+                    instance_activate_object(obj_meteo_controller)
+                if (!instance_exists(obj_minimap))
+                    instance_activate_object(obj_minimap)
+                if (!instance_exists(obj_surface_aim))
+                    instance_activate_object(obj_surface_aim)
+                if (!instance_exists(obj_shader_controller))
+                    instance_activate_object(obj_shader_controller)
+                if (!instance_exists(obj_object_shadow))
+                    instance_activate_object(obj_object_shadow)
+                if (!instance_exists(obj_show_stat_item))
+                    instance_activate_object(obj_show_stat_item)
+                if (!instance_exists(obj_camera))
+                    instance_activate_object(obj_camera)
+                if (!instance_exists(obj_player_weapon))
+                    instance_activate_object(obj_player_weapon)
+                instance_activate_region((x - 480), (y - 270), 960, 540, true)
+            }
         }
     }
 }

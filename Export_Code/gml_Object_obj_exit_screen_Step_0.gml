@@ -1,4 +1,4 @@
-var _list_temp_name, _list_temp_quest_id, _list_temp_quest_premio;
+var _list_temp_name;
 a += a_plus
 a = clamp(a, 0, 1)
 if (a >= 1)
@@ -82,42 +82,42 @@ if scr_mouse_inside(((camx + button_next_x) - (button_next_w / 2)), ((camy + but
                     {
                         for (var i = 0; i < array_length_2d(global.quest_type, quest_id_); i++)
                         {
-                            if (global.quest_type[quest_id_, i] == (18 << 0))
+                            if (global.quest_type[quest_id_][i] == (18 << 0))
                             {
-                                var _map_id = global.quest_survive_map[quest_id_, i]
+                                var _map_id = global.quest_survive_map[quest_id_][i]
                                 if (_map_id == obj_map_generator.area || _map_id == -1)
                                 {
-                                    var _now = global.save_quest_amount_now[j, i]
+                                    var _now = global.save_quest_amount_now[j][i]
                                     ini_write_real("Quest", ((string(j) + "_amount_now_") + string(i)), (_now + 1))
                                 }
                             }
-                            if (global.quest_type[quest_id_, i] == (8 << 0))
+                            if (global.quest_type[quest_id_][i] == (8 << 0))
                             {
-                                _map_id = global.quest_survive_map[quest_id_, i]
+                                _map_id = global.quest_survive_map[quest_id_][i]
                                 if (_map_id == obj_map_generator.area || _map_id == -1)
                                 {
                                     var _exp_made = global.esperienza_survive
-                                    if (global.save_quest_amount_now[j, i] < global.quest_amount_max[quest_id_, i])
+                                    if (global.save_quest_amount_now[j][i] < global.quest_amount_max[quest_id_][i])
                                     {
-                                        if (_exp_made >= global.quest_survive_min_exp[quest_id_, i])
+                                        if (_exp_made >= global.quest_survive_min_exp[quest_id_][i])
                                         {
-                                            _now = global.save_quest_amount_now[j, i]
+                                            _now = global.save_quest_amount_now[j][i]
                                             ini_write_real("Quest", ((string(j) + "_amount_now_") + string(i)), (_now + 1))
                                         }
                                     }
                                 }
                             }
-                            if (global.quest_type[quest_id_, i] == (9 << 0))
+                            if (global.quest_type[quest_id_][i] == (9 << 0))
                             {
-                                _map_id = global.quest_survive_map[quest_id_, i]
+                                _map_id = global.quest_survive_map[quest_id_][i]
                                 if (_map_id == obj_map_generator.area || _map_id == -1)
                                 {
                                     var _roubles_made = round((global.tot_inv_value_then - global.tot_inv_value_now))
-                                    if (global.save_quest_amount_now[j, i] < global.quest_amount_max[quest_id_, i])
+                                    if (global.save_quest_amount_now[j][i] < global.quest_amount_max[quest_id_][i])
                                     {
-                                        if (_roubles_made >= global.quest_survive_min_roubles[quest_id_, i])
+                                        if (_roubles_made >= global.quest_survive_min_roubles[quest_id_][i])
                                         {
-                                            _now = global.save_quest_amount_now[j, i]
+                                            _now = global.save_quest_amount_now[j][i]
                                             ini_write_real("Quest", ((string(j) + "_amount_now_") + string(i)), (_now + 1))
                                         }
                                     }

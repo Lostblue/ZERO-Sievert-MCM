@@ -1,7 +1,7 @@
-target = 72
+target = 90
 target_relation = (2 << 0)
-search_target_id = 72
-state = (22 << 0)
+search_target_id = 90
+state = (23 << 0)
 enemy_seen = 1
 last_seen_x = obj_player.x
 last_seen_y = obj_player.y

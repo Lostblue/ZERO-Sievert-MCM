@@ -41,8 +41,8 @@ if (crea == 0)
             var lista_scegli = ds_list_create()
             for (var i = 0; i < array_length_2d(chest_item, tipo); i++)
             {
-                if (chest_item_rare[tipo, i] == rar)
-                    ds_list_add(lista_scegli, chest_item[tipo, i])
+                if (chest_item_rare[tipo][i] == rar)
+                    ds_list_add(lista_scegli, chest_item[tipo][i])
             }
             if (ds_list_size(lista_scegli) > 0)
             {
@@ -177,30 +177,30 @@ if (crea == 0)
                                         {
                                             if (chest_from_enemy[tipo] == 0)
                                             {
-                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((0 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item, (0 << 0)])
-                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((1 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item, (1 << 0)])
-                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((3 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item, (3 << 0)])
-                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((2 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item, (2 << 0)])
-                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((5 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item, (5 << 0)])
-                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((6 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item, (6 << 0)])
-                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((4 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item, (4 << 0)])
-                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((7 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item, (7 << 0)])
-                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((8 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item, (8 << 0)])
-                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((9 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item, (9 << 0)])
-                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((10 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item, (10 << 0)])
+                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((0 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item][(0 << 0)])
+                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((1 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item][(1 << 0)])
+                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((3 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item][(3 << 0)])
+                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((2 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item][(2 << 0)])
+                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((5 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item][(5 << 0)])
+                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((6 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item][(6 << 0)])
+                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((4 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item][(4 << 0)])
+                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((7 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item][(7 << 0)])
+                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((8 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item][(8 << 0)])
+                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((9 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item][(9 << 0)])
+                                                ini_write_real(("chest_" + string(id)), (((("mod_" + string((10 << 0))) + "_") + "_N_") + string(quanti_item_effettivi)), arma_mod_id[id_item][(10 << 0)])
                                             }
                                             else
                                             {
-                                                for (var m = 0; m < (11 << 0); m++)
+                                                for (var m = 0; m < 11; m++)
                                                 {
                                                     ini_write_real(("chest_" + string(id)), (((("mod_" + string(m)) + "_") + "_N_") + string(quanti_item_effettivi)), mod_id[m])
                                                     if (mod_id[m] == -1)
                                                     {
-                                                        if (arma_mod_moddable[id_item, m] == 1)
+                                                        if (arma_mod_moddable[id_item][m] == 1)
                                                         {
-                                                            if (arma_mod_nec[id_item, m] == 1)
+                                                            if (arma_mod_nec[id_item][m] == 1)
                                                             {
-                                                                mod_id[m] = arma_mod_id[id_item, m]
+                                                                mod_id[m] = arma_mod_id[id_item][m]
                                                                 ini_write_real(("chest_" + string(id)), (((("mod_" + string(m)) + "_") + "_N_") + string(quanti_item_effettivi)), mod_id[m])
                                                             }
                                                         }

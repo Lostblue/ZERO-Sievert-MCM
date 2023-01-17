@@ -6,19 +6,19 @@ for (var j = 0; j < 30; j++)
     {
         for (var i = 0; i < array_length_2d(global.quest_type, quest_id_); i++)
         {
-            switch global.quest_type[quest_id_, i]
+            switch global.quest_type[quest_id_][i]
             {
                 case (1 << 0):
-                    global.save_quest_amount_now[j, i] = 0
+                    global.save_quest_amount_now[j][i] = 0
                     break
                 case (2 << 0):
-                    global.save_quest_amount_now[j, i] = 0
+                    global.save_quest_amount_now[j][i] = 0
                     break
                 case (4 << 0):
-                    global.save_quest_amount_now[j, i] = 0
+                    global.save_quest_amount_now[j][i] = 0
                     break
                 case (5 << 0):
-                    global.save_quest_amount_now[j, i] = 0
+                    global.save_quest_amount_now[j][i] = 0
                     break
             }
 
@@ -40,33 +40,33 @@ if (number_of_items > 0)
             {
                 for (var k = 0; k < array_length_2d(global.quest_type, quest_id_); k++)
                 {
-                    switch global.quest_type[quest_id_, k]
+                    switch global.quest_type[quest_id_][k]
                     {
                         case (1 << 0):
-                            if (temp_item_id == global.quest_collect_item[quest_id_, k])
+                            if (temp_item_id == global.quest_collect_item[quest_id_][k])
                             {
                                 repeat temp_item_qnt
-                                    global.save_quest_amount_now[j, k] += 1
+                                    global.save_quest_amount_now[j][k] += 1
                             }
                             break
                         case (2 << 0):
-                            if (temp_item_id == global.quest_collect_item[quest_id_, k])
+                            if (temp_item_id == global.quest_collect_item[quest_id_][k])
                             {
                                 repeat temp_item_qnt
-                                    global.save_quest_amount_now[j, k] += 1
+                                    global.save_quest_amount_now[j][k] += 1
                             }
                             break
                         case (4 << 0):
-                            if (temp_item_id == global.quest_collect_item[quest_id_, k])
+                            if (temp_item_id == global.quest_collect_item[quest_id_][k])
                             {
-                                global.save_quest_amount_now[j, k] = 1
+                                global.save_quest_amount_now[j][k] = 1
                                 global.save_quest_status[j] = global.quest_stage_completed[quest_id_]
                             }
                             break
                         case (5 << 0):
-                            if (temp_item_id == global.quest_collect_item[quest_id_, k])
+                            if (temp_item_id == global.quest_collect_item[quest_id_][k])
                             {
-                                global.save_quest_amount_now[j, k] = 1
+                                global.save_quest_amount_now[j][k] = 1
                                 global.save_quest_status[j] = global.quest_stage_completed[quest_id_]
                             }
                             break
@@ -93,29 +93,29 @@ for (k = 0; k < global.storage_slot_unlocked; k++)
             {
                 for (var p = 0; p < array_length_2d(global.quest_type, quest_id_); p++)
                 {
-                    switch global.quest_type[quest_id_, p]
+                    switch global.quest_type[quest_id_][p]
                     {
                         case (1 << 0):
-                            if (temp_item_id == global.quest_collect_item[quest_id_, p])
+                            if (temp_item_id == global.quest_collect_item[quest_id_][p])
                             {
                                 repeat temp_item_qnt
-                                    global.save_quest_amount_now[j, p] += 1
+                                    global.save_quest_amount_now[j][p] += 1
                             }
                             break
                         case (2 << 0):
-                            if (temp_item_id == global.quest_collect_item[quest_id_, p])
+                            if (temp_item_id == global.quest_collect_item[quest_id_][p])
                             {
                                 repeat temp_item_qnt
-                                    global.save_quest_amount_now[j, p] += 1
+                                    global.save_quest_amount_now[j][p] += 1
                             }
                             break
                         case (4 << 0):
-                            if (temp_item_id == global.quest_collect_item[quest_id_, p])
-                                global.save_quest_amount_now[j, p] = 1
+                            if (temp_item_id == global.quest_collect_item[quest_id_][p])
+                                global.save_quest_amount_now[j][p] = 1
                             break
                         case (5 << 0):
-                            if (temp_item_id == global.quest_collect_item[quest_id_, p])
-                                global.save_quest_amount_now[j, p] = 1
+                            if (temp_item_id == global.quest_collect_item[quest_id_][p])
+                                global.save_quest_amount_now[j][p] = 1
                             break
                     }
 
@@ -136,7 +136,7 @@ for (j = 0; j < 30; j++)
             {
                 if (global.az_done[(1 << 0)] == 1)
                 {
-                    global.save_quest_amount_now[j, 0] = 1
+                    global.save_quest_amount_now[j][0] = 1
                     global.save_quest_status[j] = global.quest_stage_completed[quest_id_]
                 }
             }
@@ -152,12 +152,12 @@ for (j = 0; j < 30; j++)
         var _obj_fatti = 0
         for (k = 0; k < _quanti_obj; k++)
         {
-            if (global.save_quest_amount_now[j, k] >= global.quest_amount_max[quest_id_, k])
+            if (global.save_quest_amount_now[j][k] >= global.quest_amount_max[quest_id_][k])
             {
                 _obj_fatti += 1
-                if (global.save_sub_quest_notifica[j, k] == 0)
+                if (global.save_sub_quest_notifica[j][k] == 0)
                 {
-                    global.save_sub_quest_notifica[j, k] = 1
+                    global.save_sub_quest_notifica[j][k] = 1
                     var _q_name = global.quest_name[quest_id_]
                     var _t = (("Sub-Task: - " + _q_name) + " - completed")
                     scr_draw_text_with_box(_t)
@@ -165,7 +165,7 @@ for (j = 0; j < 30; j++)
             }
             else
             {
-                global.save_sub_quest_notifica[j, k] = 0
+                global.save_sub_quest_notifica[j][k] = 0
                 global.save_quest_notifica[j] = 0
             }
         }

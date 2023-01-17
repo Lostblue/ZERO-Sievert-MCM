@@ -466,4 +466,32 @@ if (mode == (1 << 0))
             }
         }
     }
+    if instance_exists(obj_solid)
+    {
+        with (obj_solid)
+        {
+            if (object_index == obj_solid)
+            {
+                t = (((("instance_create_depth( x + " + string(x)) + " , y + ") + string(y)) + " , 0, obj_solid )")
+                show_debug_message(t)
+            }
+        }
+    }
+    oo = obj_editor
+    if instance_exists(obj_npc_parent)
+    {
+        with (obj_npc_parent)
+        {
+            ll = array_length_1d(oo.npc_my_id)
+            for (i = 0; i < ll; i++)
+            {
+                if (npc_id == oo.npc_my_id[i])
+                {
+                    obj_ = object_get_name(object_index)
+                    t = (((((("instance_create_depth( x + " + string(x)) + " , y + ") + string(y)) + " , 0,") + obj_) + " )")
+                    show_debug_message(t)
+                }
+            }
+        }
+    }
 }

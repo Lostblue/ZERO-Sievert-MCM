@@ -14,5 +14,5 @@ audio_emitter_gain(my_emitter, 0)
 audio_play_sound_on(my_emitter, snd_anomaly_fire_2, true, 1)
 var _rad = obj_rad_25
 if scr_chance(25)
-    _rad = 580
+    _rad = 603
 instance_create_depth(x, y, 0, _rad)

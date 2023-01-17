@@ -1,4 +1,3 @@
-var _dis;
 alarm[7] = 3600
 if (room == room1)
 {

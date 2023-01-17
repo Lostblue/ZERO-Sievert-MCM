@@ -31,7 +31,7 @@ if (is_trader == 1)
         quanti_item_effettivi = 0
         randomize()
         for (i = 0; i < quanti_item; i++)
-            loot[i] = trader_item[trader_id, i]
+            loot[i] = trader_item[trader_id][i]
         grid_w = 8
         grid_h = 11
         grid_item = ds_grid_create(grid_w, grid_h)
@@ -73,8 +73,8 @@ if (is_trader == 1)
                                 }
                                 lootx[i] = (xx * 16)
                                 looty[i] = (yy * 16)
-                                loot_qnt[i] = trader_qnt[trader_id, i]
-                                loot_livello_min[i] = trader_liv[trader_id, i]
+                                loot_qnt[i] = trader_qnt[trader_id][i]
+                                loot_livello_min[i] = trader_liv[trader_id][i]
                                 placed = 1
                                 var trader_name_ = trader_name[trader_id]
                                 ini_write_real(trader_name_, ("item_" + string(i)), id_item)

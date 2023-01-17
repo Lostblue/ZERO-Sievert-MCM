@@ -1,4 +1,4 @@
-var temp_, _array_quest, _faction;
+var _faction;
 display_set_gui_size(480, 270)
 draw_set_font(font0)
 if instance_exists(obj_player)
@@ -9,7 +9,7 @@ if instance_exists(obj_player)
         show_debug_overlay(1)
     else
         show_debug_overlay(0)
-    if (obj_player.state == 22 || obj_player.state == 24 || obj_player.state == 51)
+    if (obj_player.state == gml_Script_scr_player_state_move || obj_player.state == gml_Script_scr_player_state_medication || obj_player.state == gml_Script_scr_player_consumable_animation)
     {
         if (global.debug_hide_hud == 0)
         {
@@ -25,7 +25,7 @@ if instance_exists(obj_player)
                 draw_sprite_ext(s_hud_bleed, 0, 0, 0, 1, 1, 0, c_white, _alpha)
         }
     }
-    if (obj_player.state == 22 || obj_player.state == 23 || obj_player.state == 24 || obj_player.state == 51)
+    if (obj_player.state == gml_Script_scr_player_state_move || obj_player.state == gml_Script_scr_player_state_inventory || obj_player.state == gml_Script_scr_player_state_medication || obj_player.state == gml_Script_scr_player_consumable_animation)
     {
         if (global.aiming == 0 && global.debug_hide_hud == 0)
         {
@@ -89,46 +89,49 @@ if instance_exists(obj_player)
                     var xx = ((global.status_x + (global.status_w * i)) + (global.status_off * i))
                     if scr_mouse_inside((xx + camx), (global.status_y + camy), 16, 16)
                     {
-                        var w_ = 80
-                        var h_ = 12
-                        var t_name = global.status_des[oo, global.status_state_now[oo]]
-                        var t1 = ""
-                        if (oo == (0 << 0))
+                        if (!mouse_check_button(mb_right))
                         {
-                            t1 = (string((global.status_f1[(0 << 0), global.status_state_now[oo]] * 100)) + "% stamina regeneration")
-                            var t_amount = obj_player.fatigue
+                            var w_ = 80
+                            var h_ = 12
+                            var t_name = global.status_des[oo][global.status_state_now[oo]]
+                            var t1 = ""
+                            if (oo == (0 << 0))
+                            {
+                                t1 = (string((global.status_f1[(0 << 0)][global.status_state_now[oo]] * 100)) + "% stamina regeneration")
+                                var t_amount = obj_player.fatigue
+                            }
+                            if (oo == (1 << 0))
+                            {
+                                t1 = (string(global.status_f1[(1 << 0)][global.status_state_now[oo]]) + "kg max weight")
+                                t_amount = obj_player.energy
+                            }
+                            if (oo == (2 << 0))
+                            {
+                                t1 = (string(global.status_f1[(2 << 0)][global.status_state_now[oo]]) + "kg max weight")
+                                t_amount = obj_player.thirst
+                            }
+                            if (oo == (3 << 0))
+                            {
+                                t1 = ""
+                                t_amount = obj_player.radiation_accumulata
+                            }
+                            if (oo != (3 << 0))
+                                t_amount = round(t_amount)
+                            var t_value_max = ((string(t_amount) + "/") + string(global.status_value_max[oo]))
+                            var t_ = ((t_name + " ") + t_value_max)
+                            if (t1 != "")
+                                h_ = 24
+                            var off_h = 2
+                            var off_w = 2
+                            var t_w_s = string_width(t_)
+                            var t_w_e = string_width(t1)
+                            w_ = ((off_w * 2) + max(t_w_s, t_w_e))
+                            draw_set_font(font_quest)
+                            scr_draw_box(s_box_testo_pop_up, ((xx + 8) - (w_ / 2)), (global.status_y + 18), w_, h_, 1)
+                            draw_text_ext((xx + 8), ((global.status_y + 17) + 1), t_, 10, w_)
+                            draw_set_font(font0)
+                            draw_text_ext((xx + 8), ((global.status_y + 29) + 1), t1, 10, w_)
                         }
-                        if (oo == (1 << 0))
-                        {
-                            t1 = (string(global.status_f1[(1 << 0), global.status_state_now[oo]]) + "kg max weight")
-                            t_amount = obj_player.energy
-                        }
-                        if (oo == (2 << 0))
-                        {
-                            t1 = (string(global.status_f1[(2 << 0), global.status_state_now[oo]]) + "kg max weight")
-                            t_amount = obj_player.thirst
-                        }
-                        if (oo == (3 << 0))
-                        {
-                            t1 = ""
-                            t_amount = obj_player.radiation_accumulata
-                        }
-                        if (oo != (3 << 0))
-                            t_amount = round(t_amount)
-                        var t_value_max = ((string(t_amount) + "/") + string(global.status_value_max[oo]))
-                        var t_ = ((t_name + " ") + t_value_max)
-                        if (t1 != "")
-                            h_ = 24
-                        var off_h = 2
-                        var off_w = 2
-                        var t_w_s = string_width(t_)
-                        var t_w_e = string_width(t1)
-                        w_ = ((off_w * 2) + max(t_w_s, t_w_e))
-                        draw_set_font(font_quest)
-                        scr_draw_box(s_box_testo_pop_up, ((xx + 8) - (w_ / 2)), (global.status_y + 18), w_, h_, 1)
-                        draw_text_ext((xx + 8), ((global.status_y + 17) + 1), t_, 10, w_)
-                        draw_set_font(font0)
-                        draw_text_ext((xx + 8), ((global.status_y + 29) + 1), t1, 10, w_)
                     }
                 }
             }
@@ -196,7 +199,7 @@ if instance_exists(obj_player)
             }
         }
     }
-    if (obj_player.state == 23)
+    if (obj_player.state == gml_Script_scr_player_state_inventory)
     {
         if (obj_player.trading == 0)
         {
@@ -369,9 +372,10 @@ if instance_exists(obj_player)
             var coll = c_white
             with (obj_mouse.item_id_dragged)
             {
-                if place_meeting((camx + obj_mouse.check_positionx[obj_mouse.min_distance_id]), (camy + obj_mouse.check_positiony[obj_mouse.min_distance_id]), obj_item)
+                var prov_h_me = get_offset_rotation_heigth(0)
+                if place_meeting((camx + obj_mouse.check_positionx[obj_mouse.min_distance_id]), ((camy + obj_mouse.check_positiony[obj_mouse.min_distance_id]) + prov_h_me), obj_item)
                 {
-                    var iip = instance_place((camx + obj_mouse.check_positionx[obj_mouse.min_distance_id]), (camy + obj_mouse.check_positiony[obj_mouse.min_distance_id]), obj_item)
+                    var iip = instance_place((camx + obj_mouse.check_positionx[obj_mouse.min_distance_id]), ((camy + obj_mouse.check_positiony[obj_mouse.min_distance_id]) + prov_h_me), obj_item)
                     var sopra_id = iip.my_id
                     if (my_id == sopra_id)
                     {
@@ -395,7 +399,7 @@ if instance_exists(obj_player)
             }
         }
     }
-    if (obj_player.state == 39)
+    if (obj_player.state == gml_Script_scr_player_state_craft)
     {
         draw_sprite(s_hud_craft_2, 0, 0, 0)
         draw_set_font(font_quest)
@@ -435,7 +439,23 @@ if instance_exists(obj_player)
         draw_set_halign(fa_center)
         draw_set_valign(fa_middle)
         if (global.craft_selected != -1)
-            draw_text(cx, (cy - 25), (("Cost: " + string(global.craft_cost[global.craft_selected])) + " Roubles"))
+        {
+            var _skill_req = global.craft_req_skill_id[global.craft_selected]
+            var _skill_lvl = global.craft_req_skill_lvl[global.craft_selected]
+            var _skill_mod = global.craft_req_module_id[global.craft_selected]
+            var _skill_mod_lvl = global.craft_req_module_lvl[global.craft_selected]
+            var _t_skill = ""
+            if (_skill_req != 0)
+                _t_skill = (((global.sk_name[_skill_req] + " lvl ") + string(_skill_lvl)) + " ; ")
+            var _t_module = ""
+            if (_skill_mod != -1)
+                _t_module = ((global.base_name[_skill_mod] + " lvl ") + string(_skill_mod_lvl))
+            if (_t_skill != "" || _t_module != "")
+            {
+                draw_text(cx, (cy - 37), "Requirment:")
+                draw_text(cx, (cy - 25), (_t_skill + _t_module))
+            }
+        }
         if (global.craft_selected != -1)
         {
             if (global.craft_state != (5 << 0) && global.craft_state != (4 << 0))
@@ -451,7 +471,7 @@ if instance_exists(obj_player)
             }
         }
     }
-    if (obj_player.state == 53)
+    if (obj_player.state == gml_Script_scr_player_state_mod)
     {
         draw_sprite(s_hud_mod, 0, 0, 0)
         draw_set_font(font_quest)
@@ -597,7 +617,7 @@ if instance_exists(obj_player)
             draw_text_ext(x1, y1, _t, 12, 140)
         }
     }
-    if (obj_player.state == 52)
+    if (obj_player.state == gml_Script_scr_player_state_sleep)
     {
         if (!instance_exists(obj_sleep_fade))
         {
@@ -649,12 +669,12 @@ if instance_exists(obj_player)
             scr_draw_text_outlined(240, 163, _tt, c_white, c_black, 1, 1)
         }
     }
-    if (obj_player.state == 40 || obj_player.state == 43 || obj_player.state == 45 || obj_player.state == 47 || obj_player.state == 48 || obj_player.state == 42 || obj_player.state == 41 || obj_player.state == 44 || obj_player.state == 46)
+    if (obj_player.state == gml_Script_scr_player_talk || obj_player.state == gml_Script_scr_player_ask || obj_player.state == gml_Script_scr_player_show_answer || obj_player.state == gml_Script_scr_player_quest_list || obj_player.state == gml_Script_scr_player_show_quest || obj_player.state == gml_Script_scr_player_talk_document || obj_player.state == gml_Script_scr_player_repair_equipment || obj_player.state == gml_Script_scr_player_heal_me || obj_player.state == gml_Script_scr_player_join_faction || obj_player.state == gml_Script_scr_player_show_answer_custom || obj_player.state == gml_Script_scr_player_refill)
     {
         var _sub_image_dialogo = 0
-        if (obj_player.state == 48)
+        if (obj_player.state == gml_Script_scr_player_show_quest)
             _sub_image_dialogo = 1
-        if (obj_player.state == 43)
+        if (obj_player.state == gml_Script_scr_player_ask)
             _sub_image_dialogo = 2
         draw_sprite(s_hud_dialogo, _sub_image_dialogo, 0, 0)
         obj_mouse.image_index = 4
@@ -670,7 +690,7 @@ if instance_exists(obj_player)
         var c_hover = 0x91F2FF
         var c_not_hover = c_white
         draw_set_halign(fa_left)
-        if (obj_player.state == 40)
+        if (obj_player.state == gml_Script_scr_player_talk)
         {
             draw_set_halign(fa_left)
             draw_set_valign(fa_top)
@@ -684,10 +704,10 @@ if instance_exists(obj_player)
                     var c_text = c_hover
                 else
                     c_text = c_not_hover
-                draw_text_color(start_text_x, (start_text_y + (i * 12)), ("- " + speak_nearest.text[speaker_id_, i]), c_text, c_text, c_text, c_text, 1)
+                draw_text_color(start_text_x, (start_text_y + (i * 12)), ("- " + speak_nearest.text[speaker_id_][i]), c_text, c_text, c_text, c_text, 1)
             }
         }
-        if (obj_player.state == 43)
+        if (obj_player.state == gml_Script_scr_player_ask)
         {
             draw_set_halign(fa_left)
             draw_set_valign(fa_top)
@@ -701,10 +721,10 @@ if instance_exists(obj_player)
                 if (i == 0)
                     draw_text_color(start_text_x, (start_text_y + (i * 12)), "- Back", c_text, c_text, c_text, c_text, 1)
                 else
-                    draw_text_color(start_text_x, (start_text_y + (i * 12)), ("- " + speak_nearest.question[speaker_id_, (i - 1)]), c_text, c_text, c_text, c_text, 1)
+                    draw_text_color(start_text_x, (start_text_y + (i * 12)), ("- " + speak_nearest.question[speaker_id_][(i - 1)]), c_text, c_text, c_text, c_text, 1)
             }
         }
-        if (obj_player.state == 42)
+        if (obj_player.state == gml_Script_scr_player_talk_document)
         {
             if (global.ho_documenti == 0)
             {
@@ -732,7 +752,7 @@ if instance_exists(obj_player)
                 draw_text_color(start_text_x, (start_text_y + 12), "- Ok, take this", c_text, c_text, c_text, c_text, 1)
             }
         }
-        if (obj_player.state == 45)
+        if (obj_player.state == gml_Script_scr_player_show_answer)
         {
             draw_set_halign(fa_left)
             draw_set_valign(fa_top)
@@ -742,9 +762,21 @@ if instance_exists(obj_player)
             else
                 c_text = c_not_hover
             draw_text_color(start_text_x, start_text_y, "- Back", c_text, c_text, c_text, c_text, 1)
-            scr_barra_testo_draw(0, speak_nearest.answer[speaker_id_, global.which_question])
+            scr_barra_testo_draw(0, speak_nearest.answer[speaker_id_][global.which_question])
         }
-        if (obj_player.state == 47)
+        if (obj_player.state == gml_Script_scr_player_show_answer_custom)
+        {
+            draw_set_halign(fa_left)
+            draw_set_valign(fa_top)
+            quanti_text = array_length_2d(speak_nearest.question, speaker_id_)
+            if scr_mouse_inside((camx + start_text_x), (camy + start_text_y), 96, 12)
+                c_text = c_hover
+            else
+                c_text = c_not_hover
+            draw_text_color(start_text_x, start_text_y, "- Back", c_text, c_text, c_text, c_text, 1)
+            scr_barra_testo_draw(0, global.text_custom_question)
+        }
+        if (obj_player.state == gml_Script_scr_player_quest_list)
         {
             draw_set_halign(fa_left)
             draw_set_valign(fa_top)
@@ -792,7 +824,7 @@ if instance_exists(obj_player)
                 draw_text(220, 72, "I have nothing for you")
             }
         }
-        if (obj_player.state == 48)
+        if (obj_player.state == gml_Script_scr_player_show_quest)
         {
             draw_set_halign(fa_left)
             draw_set_valign(fa_top)
@@ -813,7 +845,7 @@ if instance_exists(obj_player)
             draw_text_color((talk_quest_text_x + (talk_quest_text_w / 2)), talk_quest_text_y, "TEXT", _c2, _c2, _c2, _c2, 1)
             draw_set_halign(fa_left)
             if (global.talk_sub_state_show_quest == 0)
-                scr_barra_testo_draw(0, global.quest_text[global.which_quest_is_shown, 0])
+                scr_barra_testo_draw(0, global.quest_text[global.which_quest_is_shown][0])
             if (global.talk_sub_state_show_quest == 1)
             {
                 var _total_text = ""
@@ -821,89 +853,89 @@ if instance_exists(obj_player)
                 for (i = 0; i < array_length_2d(global.quest_type, quest_id_); i++)
                 {
                     var _custom_text = 0
-                    var _pre_text = ("- " + global.quest_text_obj[quest_id_, i])
-                    var _amount_max = (string(global.quest_amount_max[quest_id_, i]) + " ")
+                    var _pre_text = ("- " + global.quest_text_obj[quest_id_][i])
+                    var _amount_max = (string(global.quest_amount_max[quest_id_][i]) + " ")
                     var _text_obj = ""
                     var _text_map = ""
-                    if (global.quest_text_obj[quest_id_, i] == "")
+                    if (global.quest_text_obj[quest_id_][i] == "")
                     {
-                        if (global.quest_type[quest_id_, i] == (0 << 0))
+                        if (global.quest_type[quest_id_][i] == (0 << 0))
                         {
                             _text_map = ""
                             var _text_obj_to_kill = ""
                             _pre_text = "Eliminate "
                             _custom_text = 1
-                            var _map_id = global.quest_kill_map[quest_id_, i]
+                            var _map_id = global.quest_kill_map[quest_id_][i]
                             if (_map_id != -1)
                                 _text_map = (("in the " + map_nome[_map_id]) + " ")
                             else
                                 _text_map = "in any map"
-                            if (global.quest_kill_faction[quest_id_, i] == -1)
+                            if (global.quest_kill_faction[quest_id_][i] == -1)
                             {
-                                var _array_npc = global.quest_kill_arr_obj[quest_id_, i]
+                                var _array_npc = global.quest_kill_arr_obj[quest_id_][i]
                                 _npc_id = _array_npc[0]
                                 _text_obj_to_kill = (npc_name[_npc_id] + " ")
                             }
                             else
                             {
-                                var _name_faction = global.quest_kill_faction[quest_id_, i]
+                                var _name_faction = global.quest_kill_faction[quest_id_][i]
                                 _text_obj_to_kill = (_name_faction + " ")
                             }
                             _text_obj = (((_pre_text + _amount_max) + _text_obj_to_kill) + _text_map)
                         }
-                        if (global.quest_type[quest_id_, i] == (6 << 0))
+                        if (global.quest_type[quest_id_][i] == (6 << 0))
                         {
                             _text_map = ""
                             _text_obj_to_kill = ""
                             _pre_text = "Eliminate the target "
                             _custom_text = 1
-                            _text_map = (("in the " + map_nome[global.quest_contract_map[quest_id_, i]]) + " ")
+                            _text_map = (("in the " + map_nome[global.quest_contract_map[quest_id_][i]]) + " ")
                             _text_obj = (_pre_text + _text_map)
                         }
-                        if (global.quest_type[quest_id_, i] == (1 << 0))
+                        if (global.quest_type[quest_id_][i] == (1 << 0))
                         {
                             _custom_text = 1
                             _pre_text = "Collect "
-                            var _text_obj_to_collect = (item_name[global.quest_collect_item[quest_id_, i]] + " ")
+                            var _text_obj_to_collect = (item_name[global.quest_collect_item[quest_id_][i]] + " ")
                             _text_obj = ((_pre_text + _amount_max) + _text_obj_to_collect)
                         }
-                        if (global.quest_type[quest_id_, i] == (1 << 0))
+                        if (global.quest_type[quest_id_][i] == (1 << 0))
                         {
                             _custom_text = 1
                             _pre_text = "Collect "
-                            _text_obj_to_collect = (item_name[global.quest_collect_item[quest_id_, i]] + " ")
+                            _text_obj_to_collect = (item_name[global.quest_collect_item[quest_id_][i]] + " ")
                             _text_obj = ((_pre_text + _amount_max) + _text_obj_to_collect)
                         }
-                        if (global.quest_type[quest_id_, i] == (18 << 0))
+                        if (global.quest_type[quest_id_][i] == (18 << 0))
                         {
                             _custom_text = 1
                             _pre_text = "Survive "
-                            if (global.quest_survive_map[quest_id_, i] != -1)
-                                _text_map = (("in the " + map_nome[global.quest_survive_map[quest_id_, i]]) + " ")
+                            if (global.quest_survive_map[quest_id_][i] != -1)
+                                _text_map = (("in the " + map_nome[global.quest_survive_map[quest_id_][i]]) + " ")
                             else
                                 _text_map = "in any map"
                             _text_obj = (((_pre_text + _amount_max) + "times ") + _text_map)
                         }
-                        if (global.quest_type[quest_id_, i] == (8 << 0))
+                        if (global.quest_type[quest_id_][i] == (8 << 0))
                         {
                             _custom_text = 1
                             _pre_text = "Survive "
-                            if (global.quest_survive_map[quest_id_, i] != -1)
-                                _text_map = (("in the " + map_nome[global.quest_survive_map[quest_id_, i]]) + " ")
+                            if (global.quest_survive_map[quest_id_][i] != -1)
+                                _text_map = (("in the " + map_nome[global.quest_survive_map[quest_id_][i]]) + " ")
                             else
                                 _text_map = "in any map"
-                            var _exp_min_amount = ((" with at least " + string(global.quest_survive_min_exp[quest_id_, i])) + " exp made")
+                            var _exp_min_amount = ((" with at least " + string(global.quest_survive_min_exp[quest_id_][i])) + " exp made")
                             _text_obj = ((((_pre_text + _amount_max) + "times ") + _text_map) + _exp_min_amount)
                         }
-                        if (global.quest_type[quest_id_, i] == (9 << 0))
+                        if (global.quest_type[quest_id_][i] == (9 << 0))
                         {
                             _custom_text = 1
                             _pre_text = "Survive "
-                            if (global.quest_survive_map[quest_id_, i] != -1)
-                                _text_map = (("in the " + map_nome[global.quest_survive_map[quest_id_, i]]) + " ")
+                            if (global.quest_survive_map[quest_id_][i] != -1)
+                                _text_map = (("in the " + map_nome[global.quest_survive_map[quest_id_][i]]) + " ")
                             else
                                 _text_map = "in any map"
-                            _exp_min_amount = ((" with at least " + string(global.quest_survive_min_roubles[quest_id_, i])) + " roubles made")
+                            _exp_min_amount = ((" with at least " + string(global.quest_survive_min_roubles[quest_id_][i])) + " roubles made")
                             _text_obj = ((((_pre_text + _amount_max) + "times ") + _text_map) + _exp_min_amount)
                         }
                     }
@@ -911,7 +943,7 @@ if instance_exists(obj_player)
                     if (_custom_text == 1)
                         tt = (("- " + _text_obj) + ". ")
                     else
-                        tt = (("- " + global.quest_text_obj[quest_id_, i]) + ". ")
+                        tt = (("- " + global.quest_text_obj[quest_id_][i]) + ". ")
                     tt = (tt + "\n")
                     _total_text = (_total_text + tt)
                 }
@@ -943,7 +975,7 @@ if instance_exists(obj_player)
             draw_set_valign(fa_top)
             draw_text(31, 146, "Choose an item as reward")
         }
-        if (obj_player.state == 41)
+        if (obj_player.state == gml_Script_scr_player_repair_equipment)
         {
             draw_set_halign(fa_left)
             draw_set_valign(fa_top)
@@ -970,7 +1002,7 @@ if instance_exists(obj_player)
             draw_text_color(start_text_x, (start_text_y + 12), t_, c_text, c_text, c_text, c_text, 1)
         }
         draw_sprite(s_mouse, 4, (mouse_x - camx), (mouse_y - camy))
-        if (obj_player.state == 44)
+        if (obj_player.state == gml_Script_scr_player_heal_me)
         {
             draw_set_halign(fa_left)
             draw_set_valign(fa_top)
@@ -1003,7 +1035,6 @@ if instance_exists(obj_player)
             draw_text_color(start_text_x, (start_text_y + 24), t_, c_text, c_text, c_text, c_text, 1)
             p_hp = obj_player.hp
             p_hp_max = obj_player.hp_max
-            p_wound = obj_player.wound
             var p_rad = obj_player.radiation_accumulata
             money_wound = floor((p_rad * global.heal_rad_k))
             t_ = (("- Heal radiation for " + string(money_wound)) + " Roubles")
@@ -1015,7 +1046,7 @@ if instance_exists(obj_player)
             draw_text_color(start_text_x, (start_text_y + 36), t_, c_text, c_text, c_text, c_text, 1)
             draw_sprite(s_mouse, 4, (mouse_x - camx), (mouse_y - camy))
         }
-        if (obj_player.state == 46)
+        if (obj_player.state == gml_Script_scr_player_join_faction)
         {
             draw_set_halign(fa_left)
             draw_set_valign(fa_top)
@@ -1051,8 +1082,70 @@ if instance_exists(obj_player)
             var _t_sure = "Are you sure?\nBeing part of one faction will give you access to unique equipment but will change your relationship with the others.\nIt is a permanent choice so think carefully"
             draw_text_ext(240, 32, (_t_sure + _faction_text_sure), 12, 215)
         }
+        if (obj_player.state == gml_Script_scr_player_refill)
+        {
+            draw_set_halign(fa_left)
+            draw_set_valign(fa_top)
+            if scr_mouse_inside((camx + start_text_x), (camy + start_text_y), 96, 12)
+                c_text = c_hover
+            else
+                c_text = c_not_hover
+            draw_text_color(start_text_x, start_text_y, "- Back", c_text, c_text, c_text, c_text, 1)
+            var _hunger = obj_player.energy
+            var _hunger_max = obj_player.energy_max
+            var _money = floor(((_hunger_max - _hunger) * 30))
+            t_ = (("- Refill hunger for " + string(_money)) + " Roubles")
+            t_len = string_width(t_)
+            if scr_mouse_inside((camx + start_text_x), ((camy + start_text_y) + 12), t_len, 12)
+                c_text = c_hover
+            else
+                c_text = c_not_hover
+            draw_text_color(start_text_x, (start_text_y + 12), t_, c_text, c_text, c_text, c_text, 1)
+            var _thirst = obj_player.thirst
+            var _thirst_max = obj_player.thirst_max
+            _money = floor(((_thirst_max - _thirst) * 40))
+            t_ = (("- Quench thirst for " + string(_money)) + " Roubles")
+            t_len = string_width(t_)
+            if scr_mouse_inside((camx + start_text_x), ((camy + start_text_y) + 24), t_len, 12)
+                c_text = c_hover
+            else
+                c_text = c_not_hover
+            draw_text_color(start_text_x, (start_text_y + 24), t_, c_text, c_text, c_text, c_text, 1)
+            draw_sprite(s_mouse, 4, (mouse_x - camx), (mouse_y - camy))
+        }
     }
-    if (obj_player.state == 59)
+    if (obj_player.state == gml_Script_scr_player_show_text_custom)
+    {
+        scr_draw_box(s_box_testo1, global.dialogue_type_text_box_startx, global.dialogue_type_text_box_starty, global.dialogue_type_text_box_w, global.dialogue_type_text_box_h, 1)
+        draw_set_font(font_quest)
+        draw_set_halign(fa_center)
+        draw_set_valign(fa_top)
+        _w = (global.dialogue_type_text_box_w - 20)
+        _y = (global.dialogue_type_text_box_starty + 10)
+        draw_text_ext(240, _y, global.text_custom_question, 12, _w)
+        draw_set_font(font_quest)
+        draw_set_halign(fa_center)
+        draw_set_valign(fa_middle)
+        var a = global.text_custom_index
+        for (i = 0; i < array_length_2d(global.dialogue_type_text_x, global.text_custom_index); i++)
+        {
+            var _bw = global.dialogue_type_text_w[a][i]
+            var _bh = global.dialogue_type_text_h[a][i]
+            var _sx = (global.dialogue_type_text_x[a][i] - (_bw / 2))
+            var _sy = (global.dialogue_type_text_y[a][i] - (_bh / 2))
+            var _c_rettangolo = c_black
+            var _c_text = c_white
+            if (global.dialogue_type_text_hover[a] == i)
+            {
+                _c_rettangolo = 9564927
+                _c_text = 0
+            }
+            draw_rectangle_color(_sx, _sy, (_sx + _bw), (_sy + _bh), _c_rettangolo, _c_rettangolo, _c_rettangolo, _c_rettangolo, 0)
+            draw_text_color(global.dialogue_type_text_x[a][i], global.dialogue_type_text_y[a][i], global.dialogue_type_text_text[a][i], _c_text, _c_text, _c_text, _c_text, 1)
+        }
+        draw_sprite(s_mouse, 4, (mouse_x - camx), (mouse_y - camy))
+    }
+    if (obj_player.state == gml_Script_scr_player_new_game)
     {
         var c = c_black
         draw_rectangle_color(0, 0, 480, 40, c, c, c, c, 0)
@@ -1079,7 +1172,7 @@ if instance_exists(obj_player)
     {
         if (instance_exists(obj_player) && instance_exists(obj_map_generator))
         {
-            if (obj_player.state == 22)
+            if (obj_player.state == gml_Script_scr_player_state_move)
             {
                 if (obj_player.y < obj_map_generator.map_height)
                 {
@@ -1108,7 +1201,7 @@ if instance_exists(obj_player)
             }
         }
     }
-    if (obj_player.state == 28)
+    if (obj_player.state == gml_Script_scr_player_map)
     {
         xx = 222.5
         yy = 126.5
@@ -1163,8 +1256,8 @@ if instance_exists(obj_player)
                     {
                         for (i = 0; i < ds_list_size(global.list_intresting_id); i++)
                         {
-                            var im_index = obj_controller.marker_index[ds_list_find_value(global.list_intresting_id, i)]
-                            cc = obj_controller.marker_color[ds_list_find_value(global.list_intresting_id, i)]
+                            var im_index = array_get(obj_controller.marker_index, ds_list_find_value(global.list_intresting_id, i))
+                            cc = array_get(obj_controller.marker_color, ds_list_find_value(global.list_intresting_id, i))
                             draw_sprite_ext(s_marker_cerchio, im_index, ds_list_find_value(global.list_intresting_x, i), ds_list_find_value(global.list_intresting_y, i), 1, 1, 0, cc, 1)
                         }
                     }
@@ -1347,7 +1440,7 @@ if instance_exists(obj_player)
                                                 instance_destroy()
                                         }
                                         dd = instance_create_depth(mouse_x, (mouse_y - 18), -9999, obj_draw_quest_name_minimap)
-                                        dd.t = obj_controller.marker_text[ds_list_find_value(global.list_intresting_id, i)]
+                                        dd.t = array_get(obj_controller.marker_text, ds_list_find_value(global.list_intresting_id, i))
                                     }
                                 }
                             }
@@ -1368,7 +1461,7 @@ if instance_exists(obj_player)
     }
     else
         pda_loading_map_now = 0
-    if (obj_player.state == 29)
+    if (obj_player.state == gml_Script_scr_player_state_pda)
     {
         draw_sprite(s_hud_pda2, 0, 0, 0)
         if (pda_loading_now < pda_loading_max)
@@ -1478,7 +1571,7 @@ if instance_exists(obj_player)
     }
     else
         pda_loading_now = 0
-    if (obj_player.state == 30)
+    if (obj_player.state == gml_Script_scr_player_state_quest)
     {
         xx = 222.5
         yy = 126.5
@@ -1579,97 +1672,97 @@ if instance_exists(obj_player)
                     draw_text_color((pda_quest_text_x + (pda_quest_text_w / 2)), (pda_quest_text_y + 2), "TEXT", _c2, _c2, _c2, _c2, 1)
                     draw_set_halign(fa_left)
                     if (global.sub_state_show_quest == 1)
-                        scr_barra_testo_draw(1, global.quest_text[global.save_quest_id[pda_quest_showed], 0])
+                        scr_barra_testo_draw(1, global.quest_text[global.save_quest_id[pda_quest_showed]][0])
                     if (global.sub_state_show_quest == 0)
                     {
                         _total_text = ""
                         for (i = 0; i < array_length_2d(global.quest_type, quest_id_); i++)
                         {
                             _custom_text = 0
-                            _pre_text = ("- " + global.quest_text_obj[quest_id_, i])
-                            _amount_max = (string(global.quest_amount_max[quest_id_, i]) + " ")
+                            _pre_text = ("- " + global.quest_text_obj[quest_id_][i])
+                            _amount_max = (string(global.quest_amount_max[quest_id_][i]) + " ")
                             _text_obj = ""
-                            var _text_progress = ((string(global.save_quest_amount_now[pda_quest_showed, i]) + "/") + string(_amount_max))
+                            var _text_progress = ((string(global.save_quest_amount_now[pda_quest_showed][i]) + "/") + string(_amount_max))
                             _text_map = ""
-                            if (global.quest_text_obj[quest_id_, i] == "")
+                            if (global.quest_text_obj[quest_id_][i] == "")
                             {
-                                if (global.quest_type[quest_id_, i] == (0 << 0))
+                                if (global.quest_type[quest_id_][i] == (0 << 0))
                                 {
                                     _text_map = ""
                                     _text_obj_to_kill = ""
                                     _pre_text = "Eliminate "
                                     _custom_text = 1
-                                    _map_id = global.quest_kill_map[quest_id_, i]
+                                    _map_id = global.quest_kill_map[quest_id_][i]
                                     if (_map_id != -1)
                                         _text_map = (("in the " + map_nome[_map_id]) + " ")
                                     else
                                         _text_map = "in any map"
-                                    if (global.quest_kill_faction[quest_id_, i] == -1)
+                                    if (global.quest_kill_faction[quest_id_][i] == -1)
                                     {
-                                        _array_npc = global.quest_kill_arr_obj[quest_id_, i]
+                                        _array_npc = global.quest_kill_arr_obj[quest_id_][i]
                                         _npc_id = _array_npc[0]
                                         _text_obj_to_kill = (npc_name[_npc_id] + " ")
                                     }
                                     else
                                     {
-                                        _name_faction = global.quest_kill_faction[quest_id_, i]
+                                        _name_faction = global.quest_kill_faction[quest_id_][i]
                                         _text_obj_to_kill = (_name_faction + " ")
                                     }
                                     _text_obj = (((_pre_text + _amount_max) + _text_obj_to_kill) + _text_map)
                                 }
-                                if (global.quest_type[quest_id_, i] == (6 << 0))
+                                if (global.quest_type[quest_id_][i] == (6 << 0))
                                 {
                                     _text_map = ""
                                     _text_obj_to_kill = ""
                                     _pre_text = "Eliminate the target "
                                     _custom_text = 1
-                                    _text_map = (("in the " + map_nome[global.quest_contract_map[quest_id_, i]]) + " ")
+                                    _text_map = (("in the " + map_nome[global.quest_contract_map[quest_id_][i]]) + " ")
                                     _text_obj = (_pre_text + _text_map)
                                 }
-                                if (global.quest_type[quest_id_, i] == (1 << 0))
+                                if (global.quest_type[quest_id_][i] == (1 << 0))
                                 {
                                     _custom_text = 1
                                     _pre_text = "Collect "
-                                    _text_obj_to_collect = (item_name[global.quest_collect_item[quest_id_, i]] + " ")
+                                    _text_obj_to_collect = (item_name[global.quest_collect_item[quest_id_][i]] + " ")
                                     _text_obj = ((_pre_text + _amount_max) + _text_obj_to_collect)
                                 }
-                                if (global.quest_type[quest_id_, i] == (1 << 0))
+                                if (global.quest_type[quest_id_][i] == (1 << 0))
                                 {
                                     _custom_text = 1
                                     _pre_text = "Collect "
-                                    _text_obj_to_collect = (item_name[global.quest_collect_item[quest_id_, i]] + " ")
+                                    _text_obj_to_collect = (item_name[global.quest_collect_item[quest_id_][i]] + " ")
                                     _text_obj = ((_pre_text + _amount_max) + _text_obj_to_collect)
                                 }
-                                if (global.quest_type[quest_id_, i] == (18 << 0))
+                                if (global.quest_type[quest_id_][i] == (18 << 0))
                                 {
                                     _custom_text = 1
                                     _pre_text = "Survive "
-                                    if (global.quest_survive_map[quest_id_, i] != -1)
-                                        _text_map = (("in the " + map_nome[global.quest_survive_map[quest_id_, i]]) + " ")
+                                    if (global.quest_survive_map[quest_id_][i] != -1)
+                                        _text_map = (("in the " + map_nome[global.quest_survive_map[quest_id_][i]]) + " ")
                                     else
                                         _text_map = "in any map"
                                     _text_obj = (((_pre_text + _amount_max) + "times ") + _text_map)
                                 }
-                                if (global.quest_type[quest_id_, i] == (8 << 0))
+                                if (global.quest_type[quest_id_][i] == (8 << 0))
                                 {
                                     _custom_text = 1
                                     _pre_text = "Survive "
-                                    if (global.quest_survive_map[quest_id_, i] != -1)
-                                        _text_map = (("in the " + map_nome[global.quest_survive_map[quest_id_, i]]) + " ")
+                                    if (global.quest_survive_map[quest_id_][i] != -1)
+                                        _text_map = (("in the " + map_nome[global.quest_survive_map[quest_id_][i]]) + " ")
                                     else
                                         _text_map = "in any map"
-                                    _exp_min_amount = ((" with at least " + string(global.quest_survive_min_exp[quest_id_, i])) + " exp made")
+                                    _exp_min_amount = ((" with at least " + string(global.quest_survive_min_exp[quest_id_][i])) + " exp made")
                                     _text_obj = ((((_pre_text + _amount_max) + "times ") + _text_map) + _exp_min_amount)
                                 }
-                                if (global.quest_type[quest_id_, i] == (9 << 0))
+                                if (global.quest_type[quest_id_][i] == (9 << 0))
                                 {
                                     _custom_text = 1
                                     _pre_text = "Survive "
-                                    if (global.quest_survive_map[quest_id_, i] != -1)
-                                        _text_map = (("in the " + map_nome[global.quest_survive_map[quest_id_, i]]) + " ")
+                                    if (global.quest_survive_map[quest_id_][i] != -1)
+                                        _text_map = (("in the " + map_nome[global.quest_survive_map[quest_id_][i]]) + " ")
                                     else
                                         _text_map = "in any map"
-                                    _exp_min_amount = ((" with at least " + string(global.quest_survive_min_roubles[quest_id_, i])) + " roubles made")
+                                    _exp_min_amount = ((" with at least " + string(global.quest_survive_min_roubles[quest_id_][i])) + " roubles made")
                                     _text_obj = ((((_pre_text + _amount_max) + "times ") + _text_map) + _exp_min_amount)
                                 }
                             }
@@ -1677,7 +1770,7 @@ if instance_exists(obj_player)
                             if (_custom_text == 1)
                                 tt = ((("- " + _text_obj) + ". ") + _text_progress)
                             else
-                                tt = ((("- " + global.quest_text_obj[quest_id_, i]) + ". ") + _text_progress)
+                                tt = ((("- " + global.quest_text_obj[quest_id_][i]) + ". ") + _text_progress)
                             tt = (tt + "\n")
                             _total_text = (_total_text + tt)
                         }
@@ -1692,7 +1785,7 @@ if instance_exists(obj_player)
     }
     else
         pda_loading_quest_now = 0
-    if (obj_player.state == 31)
+    if (obj_player.state == gml_Script_scr_player_state_stat)
     {
         draw_sprite(s_hud_pda2, 0, 0, 0)
         if (pda_loading_stat_now < pda_loading_stat_max)
@@ -1763,7 +1856,7 @@ if instance_exists(obj_player)
             draw_sprite(testo_cursore_sprite[2], 0, testo_cursore_x[2], testo_cursore_y[2])
         }
     }
-    if (obj_player.state == 32)
+    if (obj_player.state == gml_Script_scr_player_state_faction)
     {
         draw_sprite(s_hud_pda2, 0, 0, 0)
         scr_draw_geiger_counter()
@@ -1796,13 +1889,13 @@ if instance_exists(obj_player)
             draw_sprite(s_hud_rep_bar, 0, _qx, (_ty + (_h * i)))
             _name = global.faction_name[_faction[i]]
             draw_text(_tx, (_ty + (_h * i)), _name)
-            var _rep_value = ds_grid_get(global.grid_faction, (0 << 0), _faction[i])
+            var _rep_value = ds_grid_get(global.grid_faction, (0 << 0), array_get(_faction, i))
             draw_text(((_qx + _qw) + 4), (_ty + (_h * i)), string(_rep_value))
             _x = ((_rep_value * (_qw - 2)) / 120)
             draw_sprite_part(s_hud_rep_bar, 1, 1, 0, _x, _qh, (_qx + 1), (_ty + (_h * i)))
         }
     }
-    if (obj_player.state == 34)
+    if (obj_player.state == gml_Script_scr_player_state_skill_tree)
     {
         draw_sprite(s_hud_pda2, 0, 0, 0)
         if (pda_loading_skill_tree_now < pda_loading_skill_tree_max)
@@ -1834,7 +1927,7 @@ if instance_exists(obj_player)
                 var id_ = global.skill_id[i]
                 for (j = 0; j < array_length_2d(global.skill_required, id_); j++)
                 {
-                    var skill_prima = global.skill_required[id_, j]
+                    var skill_prima = global.skill_required[id_][j]
                     if (skill_prima != (0 << 0))
                         draw_line_width_color((global.skill_x[id_] + 7), (global.skill_y[id_] + 7), (global.skill_x[skill_prima] + 7), (global.skill_y[skill_prima] + 7), 2, c_white, c_white)
                 }
@@ -1877,7 +1970,7 @@ if instance_exists(obj_player)
                     {
                         for (j = 0; j < array_length_2d(global.skill_required, global.skill_hover); j++)
                         {
-                            skill_prima = global.skill_required[global.skill_hover, j]
+                            skill_prima = global.skill_required[global.skill_hover][j]
                             if (skill_prima != (0 << 0))
                                 draw_sprite_ext(s_skill_vuoto, 0, global.skill_x[skill_prima], global.skill_y[skill_prima], 1, 1, 0, c_red, 1)
                         }
@@ -1908,7 +2001,7 @@ if instance_exists(obj_player)
             }
         }
     }
-    if (obj_player.state == 33)
+    if (obj_player.state == gml_Script_scr_player_state_skill2)
     {
         draw_sprite(s_hud_pda2, 0, 0, 0)
         if (pda_loading_skill_tree_now >= pda_loading_skill_tree_max)
@@ -1947,7 +2040,7 @@ if instance_exists(obj_player)
                     {
                         draw_set_halign(fa_center)
                         draw_set_valign(fa_top)
-                        var ss_id = global.sk_upgrade[global.sk_selected, i]
+                        var ss_id = global.sk_upgrade[global.sk_selected][i]
                         cc = 0x91F2FF
                         draw_text_color((des_x + (global.sk_des_w / 2)), (yy + (hh * i)), global.sk_name[ss_id], cc, cc, cc, cc, 1)
                         draw_set_halign(fa_center)
@@ -1986,7 +2079,7 @@ if instance_exists(obj_player)
             }
         }
     }
-    if (obj_player.state == 35)
+    if (obj_player.state == gml_Script_scr_player_state_base)
     {
         draw_sprite(s_hud_pda2, 0, 0, 0)
         draw_sprite(s_pda_base_layout_2, 0, 0, 0)
@@ -2152,7 +2245,7 @@ if instance_exists(obj_player)
         }
         scr_draw_geiger_counter()
     }
-    if (obj_player.state == 25)
+    if (obj_player.state == gml_Script_scr_player_state_choose_map)
     {
         camx = camera_get_view_x(view_camera[0])
         camy = camera_get_view_y(view_camera[0])
@@ -2187,7 +2280,7 @@ if instance_exists(obj_player)
         }
         draw_sprite(s_mouse, 4, (mouse_x - camx), (mouse_y - camy))
     }
-    if (obj_player.state == 22)
+    if (obj_player.state == gml_Script_scr_player_state_move)
     {
         if (global.change_ammo_now == 1)
         {
@@ -2209,7 +2302,7 @@ if instance_exists(obj_player)
                         cc = 0x91F2FF
                     }
                     var key_name = scr_key_map(global.kb_now[(23 << 0)])
-                    var _ammo_name = item_name[ds_list_find_value(global.list_ammo_id, i)]
+                    var _ammo_name = array_get(item_name, ds_list_find_value(global.list_ammo_id, i))
                     var _ammo_qnt = ds_list_find_value(global.list_ammo_qnt, i)
                     _t = (((((("[" + key_name) + "] ") + _ammo_name) + " (") + string(_ammo_qnt)) + ")")
                     scr_draw_text_outlined(xx, ((yy - (8 * i)) + 5), _t, cc, c_black, 1, 1)
@@ -2226,7 +2319,7 @@ if instance_exists(obj_player)
         }
     }
     var _offset_jam = 0
-    if (obj_player.state == 22)
+    if (obj_player.state == gml_Script_scr_player_state_move)
     {
         if (obj_player.jammed_slot[obj_player.weapon_slot_now] == 1)
         {
@@ -2243,7 +2336,7 @@ if instance_exists(obj_player)
             }
         }
     }
-    if (obj_player.state == 22)
+    if (obj_player.state == gml_Script_scr_player_state_move)
     {
         var _can_draw = 1
         if instance_exists(obj_npc_draw_text)
@@ -2275,7 +2368,7 @@ if instance_exists(obj_player)
                         cc = 0x91F2FF
                     }
                     key_name = scr_key_map(global.kb_now[(6 << 0)])
-                    tt = p_int_text[ds_list_find_value(global.list_interact, i)]
+                    tt = array_get(p_int_text, ds_list_find_value(global.list_interact, i))
                     if (ds_list_find_value(global.list_interact, i) == (5 << 0))
                     {
                         if (room == room1)
@@ -2284,13 +2377,22 @@ if instance_exists(obj_player)
                                 tt = "Exit"
                         }
                     }
+                    if (ds_list_find_value(global.list_interact, i) == (1 << 0))
+                    {
+                        var _chest_id = ds_list_find_value(global.list_interact_id, i)
+                        if instance_exists(_chest_id)
+                        {
+                            if (_chest_id.already_looted == 1)
+                                cc = 7105644
+                        }
+                    }
                     scr_draw_text_outlined(xx, ((yy - (8 * i)) + 5), ((("[" + key_name) + "] ") + tt), cc, c_black, 1, 1)
                     if (subi == 1)
                     {
                         if (ds_list_size(global.list_interact) > 1)
                         {
                             _t_len = string_width(((("[" + key_name) + "] ") + tt))
-                            draw_sprite_ext(s_hud_selector, 0, ((xx - (_t_len / 2)) - 5), ((yy + 5) - (8 * i)), 1, 1, 0, cc, 1)
+                            draw_sprite_ext(s_hud_selector, 0, ((xx - (_t_len / 2)) - 5), ((yy + 5) - (8 * i)), 1, 1, 0, 0x91F2FF, 1)
                         }
                     }
                 }
@@ -2304,7 +2406,7 @@ if instance_exists(obj_player)
             _show_debug = 0
         if instance_exists(obj_player)
         {
-            if (room == room1 && obj_player.state == 50)
+            if (room == room1 && obj_player.state == gml_Script_scr_player_state_start)
                 _show_debug = 0
         }
         if (_show_debug == 1)
@@ -2328,7 +2430,7 @@ if instance_exists(obj_player)
             for (i = 0; i < array_length_1d(d_k); i++)
             {
                 draw_text((box_x + 10), ((box_y + 3) + (i * hh)), d_k[i])
-                draw_text((box_x + 70), ((box_y + 3) + (i * hh)), d_t[i])
+                draw_text((box_x + 90), ((box_y + 3) + (i * hh)), d_t[i])
             }
         }
         if keyboard_check_direct(vk_f2)
@@ -2366,7 +2468,7 @@ if instance_exists(obj_player)
             }
         }
     }
-    if (obj_player.state == 65)
+    if (obj_player.state == gml_Script_scr_player_state_item_spawn)
     {
         draw_sprite(s_hud_item_spawn, 0, 0, 0)
         draw_set_font(font0)
@@ -2390,7 +2492,7 @@ if instance_exists(obj_player)
     var collisione = 0
     with (obj_player)
     {
-        if (state != 50)
+        if (state != gml_Script_scr_player_state_start)
         {
             if place_meeting(x, y, obj_solid)
                 collisione = 1
@@ -2398,10 +2500,34 @@ if instance_exists(obj_player)
     }
     if (collisione == 1)
     {
-        t_ = "You are stuck, hold CTRL and press arrow key UP/DOWN/RIGHT/LEFT to move in that direction"
+        t_ = "You are stuck, hold CTRL and press WASD to move in that direction"
         draw_set_font(font_quest)
         draw_set_halign(fa_center)
         draw_set_valign(fa_top)
         scr_draw_text_outlined(240, 230, t_, c_white, c_black, 1, 1)
+    }
+    if (global.general_debug == 1)
+    {
+        if keyboard_check(vk_numpad1)
+        {
+            if (room == room1)
+            {
+                if instance_exists(obj_map_generator)
+                {
+                    o = obj_map_generator
+                    _sx = 10
+                    _sy = 50
+                    draw_set_font(font0)
+                    draw_set_halign(fa_left)
+                    draw_set_valign(fa_top)
+                    for (i = 0; i < (19 << 0); i++)
+                    {
+                        _t = string((o.tempo_generazione[i] / 1000))
+                        _tt = ((_t + "   : ") + o.tempo_gen_name[i])
+                        draw_text(_sx, (_sy + (i * 10)), string(_tt))
+                    }
+                }
+            }
+        }
     }
 }

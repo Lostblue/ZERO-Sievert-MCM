@@ -31,3 +31,12 @@ else
     }
 }
 shader_reset()
+if (room == test_room)
+{
+    var _name_node_now = global.node_name[tree_id[node_running_now]]
+    draw_text(x, (y - 16), _name_node_now)
+    draw_text(x, (y - 26), ("ammo : " + string(ammo_now)))
+    draw_text(x, (y - 36), ("reload : " + string(reloading)))
+    draw_text(x, (y - 48), ((("cover x : " + string(round(last_cover_pos_x))) + "  :  ") + string(move_point_x)))
+    draw_text(x, (y - 58), ((("cover y : " + string(round(last_cover_pos_y))) + "  :  ") + string(move_point_y)))
+}

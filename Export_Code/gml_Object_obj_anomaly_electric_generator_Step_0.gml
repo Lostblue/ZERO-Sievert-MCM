@@ -51,7 +51,7 @@ if scr_chance(normal_spark)
 {
     if scr_chance(70)
     {
-        var cc = choose(359, 358)
+        var cc = choose(372, 371)
         scr_sound_at_position(cc, false, 380, 96)
     }
     dis_ = (irandom(96) + 32)

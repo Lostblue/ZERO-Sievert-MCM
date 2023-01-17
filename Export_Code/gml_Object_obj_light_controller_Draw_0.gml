@@ -50,7 +50,7 @@ if (!surface_exists(surface_light))
             if (obj_player.headset_now != (0 << 0))
             {
                 var _headset_id = obj_player.headset_now
-                o = 72
+                o = 90
                 if (o.headset_type[_headset_id] == (1 << 0))
                 {
                     var _c_nvg = 16777215
@@ -77,13 +77,13 @@ if (!surface_exists(surface_light))
     {
         for (var i = (7 << 0); i <= (10 << 0); i++)
         {
-            if (torch_have[weapon_slot_now, i] == 1)
+            if (torch_have[weapon_slot_now][i] == 1)
             {
-                if (torch_on[weapon_slot_now, i] == 1)
+                if (torch_on[weapon_slot_now][i] == 1)
                 {
-                    var _x = torch_x[weapon_slot_now, i]
-                    var _y = torch_y[weapon_slot_now, i]
-                    var _id_torch = torch_id[weapon_slot_now, i]
+                    var _x = torch_x[weapon_slot_now][i]
+                    var _y = torch_y[weapon_slot_now][i]
+                    var _id_torch = torch_id[weapon_slot_now][i]
                     var _scale = mod_torch_scale[_id_torch]
                     var _angle = weapon_pointing_direction
                     draw_sprite_ext(mod_torch_png[_id_torch], 0, ((x + _x) - camx), ((y + _y) - camy), _scale, _scale, _angle, c_black, mod_torch_alpha_togliere[_id_torch])
@@ -126,13 +126,13 @@ if (!surface_exists(surface_light))
         {
             for (i = (7 << 0); i <= (10 << 0); i++)
             {
-                if (torch_have[weapon_slot_now, i] == 1)
+                if (torch_have[weapon_slot_now][i] == 1)
                 {
-                    if (torch_on[weapon_slot_now, i] == 1)
+                    if (torch_on[weapon_slot_now][i] == 1)
                     {
-                        _x = torch_x[weapon_slot_now, i]
-                        _y = torch_y[weapon_slot_now, i]
-                        _id_torch = torch_id[weapon_slot_now, i]
+                        _x = torch_x[weapon_slot_now][i]
+                        _y = torch_y[weapon_slot_now][i]
+                        _id_torch = torch_id[weapon_slot_now][i]
                         _scale = mod_torch_scale[_id_torch]
                         _angle = weapon_pointing_direction
                         _c = mod_torch_col[_id_torch]

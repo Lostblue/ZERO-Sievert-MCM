@@ -1,4 +1,4 @@
-if (state == (64 << 0))
+if (state == (65 << 0))
 {
     sprite_index = s_rabbit_idle2
     image_speed = 0.5

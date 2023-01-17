@@ -18,7 +18,7 @@ if (room != r_menu)
                     for (var i = 0; i < array_length_1d(mod_id); i++)
                     {
                         var get_id_mod_installed = mod_id[i]
-                        if (arma_mod_nec[my_id, i] == 1)
+                        if (arma_mod_nec[my_id][i] == 1)
                         {
                             if (get_id_mod_installed == -1)
                                 cc = c_red
@@ -31,16 +31,16 @@ if (room != r_menu)
                     {
                         if (mod_weapon_all[id_drag] == 1)
                         {
-                            if (arma_mod_moddable[my_id, (2 << 0)] == 0)
+                            if (arma_mod_moddable[my_id][(2 << 0)] == 0)
                             {
                                 if (mod_type[id_drag] == (7 << 0))
                                 {
-                                    if (arma_mod_moddable[my_id, (7 << 0)] == 1)
+                                    if (arma_mod_moddable[my_id][(7 << 0)] == 1)
                                         cc = 0x41E142
                                 }
                                 if (mod_type[id_drag] == (10 << 0) || mod_type[id_drag] == (6 << 0))
                                 {
-                                    if (arma_mod_moddable[my_id, (7 << 0)] == 1 || arma_mod_moddable[my_id, (8 << 0)] == 1 || arma_mod_moddable[my_id, (9 << 0)] == 1 || arma_mod_moddable[my_id, (10 << 0)] == 1)
+                                    if (arma_mod_moddable[my_id][(7 << 0)] == 1 || arma_mod_moddable[my_id][(8 << 0)] == 1 || arma_mod_moddable[my_id][(9 << 0)] == 1 || arma_mod_moddable[my_id][(10 << 0)] == 1)
                                         cc = 0x41E142
                                 }
                             }
@@ -48,7 +48,7 @@ if (room != r_menu)
                                 cc = 0x41E142
                             if (mod_type[id_drag] == (8 << 0))
                             {
-                                if (arma_mod_moddable[my_id, (6 << 0)] == 1)
+                                if (arma_mod_moddable[my_id][(6 << 0)] == 1)
                                     cc = 0x41E142
                             }
                         }
@@ -56,7 +56,7 @@ if (room != r_menu)
                         {
                             for (i = 0; i < array_length_2d(mod_weapon_id, id_drag); i++)
                             {
-                                if (mod_weapon_id[id_drag, i] == my_id)
+                                if (mod_weapon_id[id_drag][i] == my_id)
                                     cc = 0x41E142
                             }
                         }
@@ -121,7 +121,7 @@ if (room != r_menu)
                 for (i = 0; i < array_length_1d(mod_id); i++)
                 {
                     get_id_mod_installed = mod_id[i]
-                    if (arma_mod_nec[my_id, i] == 1)
+                    if (arma_mod_nec[my_id][i] == 1)
                     {
                         if (get_id_mod_installed == -1)
                             _c = c_red
@@ -164,14 +164,31 @@ if (room != r_menu)
                             draw_sprite_ext(s_16x16, 0, ((x - camx) + (xx * 16)), (((y - camy) + (yy * 16)) - prov_h_me), 1, 1, 0, c_yellow, 0.2)
                     }
                 }
-                if ((y - camy) <= 160)
+                if ((y - camy) > 160)
                 {
-                    if (is_craftable == 0)
+                    if (global.craft_selected != -1)
                     {
-                        for (xx = 0; xx < caselle_x; xx++)
+                        var n_item = array_length_2d(global.craft_req, global.craft_selected)
+                        for (i = 0; i < n_item; i++)
                         {
-                            for (yy = 0; yy < caselle_y; yy++)
-                                draw_sprite_ext(s_16x16, 0, ((x - camx) + (xx * 16)), (((y - camy) + (yy * 16)) - prov_h_me), 1, 1, 0, c_red, 0.2)
+                            var item_id_to_check = global.craft_req[global.craft_selected][i]
+                            if (my_id == item_id_to_check)
+                            {
+                                var qnt_che_ho = ds_grid_get(global.grid_check_n_item_requiered, i, 0)
+                                var _cc = c_white
+                                if (qnt_che_ho >= global.craft_req_n[global.craft_selected][i])
+                                    _cc = c_lime
+                                else
+                                    _cc = c_red
+                                if (_cc != c_white)
+                                {
+                                    for (xx = 0; xx < caselle_x; xx++)
+                                    {
+                                        for (yy = 0; yy < caselle_y; yy++)
+                                            draw_sprite_ext(s_16x16, 0, ((x - camx) + (xx * 16)), ((y - camy) + (yy * 16)), 1, 1, 0, _cc, 0.2)
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -179,7 +196,7 @@ if (room != r_menu)
             }
             else if (room == r_hub)
             {
-                if (obj_player.state == 53)
+                if (obj_player.state == gml_Script_scr_player_state_mod)
                 {
                     if surface_exists(surface_item)
                     {
@@ -211,7 +228,7 @@ if (room != r_menu)
             yy = (((-camy) + y) + (((caselle_y - 1) / 2) * 16))
             draw_sprite(s_hud_item_svela, ii, xx, yy)
         }
-        if (obj_player.state == 48)
+        if (obj_player.state == gml_Script_scr_player_show_quest)
         {
             if (my_id == global.quest_item_scelto_id)
             {
@@ -227,7 +244,7 @@ if (room != r_menu)
                 draw_line_width_color(x1, y1, x1, y2, 1, c, c)
             }
         }
-        if (obj_player.state == 23 || obj_player.state == 48)
+        if (obj_player.state == gml_Script_scr_player_state_inventory || obj_player.state == gml_Script_scr_player_show_quest)
         {
             if (qnt > 1 && visto == 1 && show_qnt == 1)
             {
@@ -252,7 +269,7 @@ if (room != r_menu)
         }
         if (show_qnt == 1)
         {
-            if (obj_player.state == 39)
+            if (obj_player.state == gml_Script_scr_player_state_craft)
             {
                 draw_set_font(font0)
                 draw_set_halign(fa_right)
@@ -260,7 +277,7 @@ if (room != r_menu)
                 if ((y - camy) <= 160)
                 {
                     if (is_craftable == 0)
-                        draw_sprite_ext(sprite_index, 0, (x - camx), (y - camy), 1, 1, 0, c_red, 0.5)
+                        draw_sprite_ext(sprite_index, 0, (x - camx), (y - camy), 1, 1, 0, c_black, 0.65)
                     draw_set_color(c_black)
                     draw_text(((x - camx) + (caselle_x * 16)), ((((y - camy) + (caselle_y * 16)) + 4) + 1), string(qnt))
                     draw_set_color(c_white)
@@ -268,14 +285,14 @@ if (room != r_menu)
                 }
                 else if (global.craft_selected != -1)
                 {
-                    var n_item = array_length_2d(global.craft_req, global.craft_selected)
+                    n_item = array_length_2d(global.craft_req, global.craft_selected)
                     for (i = 0; i < n_item; i++)
                     {
-                        var item_id_to_check = global.craft_req[global.craft_selected, i]
+                        item_id_to_check = global.craft_req[global.craft_selected][i]
                         if (my_id == item_id_to_check)
                         {
-                            var qnt_che_ho = ds_grid_get(global.grid_check_n_item_requiered, i, 0)
-                            var tt = ((string(qnt_che_ho) + "/") + string(global.craft_req_n[global.craft_selected, i]))
+                            qnt_che_ho = ds_grid_get(global.grid_check_n_item_requiered, i, 0)
+                            var tt = ((string(qnt_che_ho) + "/") + string(global.craft_req_n[global.craft_selected][i]))
                             draw_set_color(c_black)
                             draw_text(((x - camx) + (caselle_x * 16)), ((((y - camy) + (caselle_y * 16)) + 4) + 1), tt)
                             _c = c_white

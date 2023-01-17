@@ -12,6 +12,7 @@ switch state
             state = (19 << 0)
             audio_master_gain(global.volume_master)
             obj_meteo_controller.alarm[0] = obj_meteo_controller.change_meteo_time
+            obj_meteo_controller.alarm[2] = global.emission_min_timer
         }
         break
     case (19 << 0):

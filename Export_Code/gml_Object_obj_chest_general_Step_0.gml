@@ -18,7 +18,7 @@ if (chest_from_enemy[tipo] == 1)
                             var xx = (x + lengthdir_x(range, dir))
                             var yy = (y + lengthdir_y(range, dir))
                             var cc = instance_create_depth(xx, yy, 0, obj_enemy_crow)
-                            cc.state = (72 << 0)
+                            cc.state = (73 << 0)
                             cc.move_point_x = (x + choose(-7, 7))
                             cc.move_point_y = (y + choose(-3, 3))
                         }

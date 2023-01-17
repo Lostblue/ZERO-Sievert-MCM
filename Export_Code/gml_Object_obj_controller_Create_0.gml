@@ -45,6 +45,7 @@ global.which_quest_is_shown = -1
 global.quest_item_scelto_id = -1
 global.quest_item_scelto_qnt = 0
 global.quest_index_del_npc = -1
+global.text_custom_question = ""
 global.grid_move = mp_grid_create(0, 0, grid_move_w, grid_move_h, 16, 16)
 grid_motion = ds_grid_create(grid_move_w, grid_move_h)
 ds_grid_clear(grid_motion, 0)
@@ -66,7 +67,7 @@ can_pause_timer = 0
 ca_pause_timer_max = 2
 global.heal_hp_k = 50
 global.heal_wound_k = 80
-global.heal_rad_k = 2600
+global.heal_rad_k = 2000
 timer_disattiva = 0
 timer_disattiva_max = 15
 global.airdrop_created = 0
@@ -175,6 +176,26 @@ a = (21 << 0)
 p_int_id[a] = a
 p_int_obj_id[a] = -4
 p_int_text[a] = "Read"
+a = (22 << 0)
+p_int_id[a] = a
+p_int_obj_id[a] = -4
+p_int_text[a] = "Switch ON/OFF"
+a = (23 << 0)
+p_int_id[a] = a
+p_int_obj_id[a] = -4
+p_int_text[a] = "Change color 1"
+a = (24 << 0)
+p_int_id[a] = a
+p_int_obj_id[a] = -4
+p_int_text[a] = "Change color 2"
+a = (25 << 0)
+p_int_id[a] = a
+p_int_obj_id[a] = -4
+p_int_text[a] = "Change mode"
+a = (26 << 0)
+p_int_id[a] = a
+p_int_obj_id[a] = -4
+p_int_text[a] = "Change timer"
 global.list_ammo_id = ds_list_create()
 global.list_ammo_qnt = ds_list_create()
 global.change_ammo_now = 0
@@ -341,83 +362,83 @@ global.status_off = 2
 a = (0 << 0)
 global.status_id[a] = a
 global.status_name[a] = "Fatigue"
-global.status_sprite[a] = 1340
+global.status_sprite[a] = 1347
 global.status_state_now[a] = (1 << 0)
-global.status_state[a, 0] = 65
-global.status_state[a, 1] = 10
-global.status_state[a, 2] = -20
-global.status_state[a, 3] = -40
+global.status_state[a][0] = 65
+global.status_state[a][1] = 10
+global.status_state[a][2] = -20
+global.status_state[a][3] = -40
 global.status_value_max[a] = 100
-global.status_des[a, (0 << 0)] = "Well rested"
-global.status_des[a, (1 << 0)] = "Not tired"
-global.status_des[a, (2 << 0)] = "Sleepy"
-global.status_des[a, (3 << 0)] = "Tired"
-global.status_des[a, (4 << 0)] = "Very tired"
-global.status_f1[a, (0 << 0)] = 0.25
-global.status_f1[a, (1 << 0)] = 0
-global.status_f1[a, (2 << 0)] = -0.15
-global.status_f1[a, (3 << 0)] = -0.3
-global.status_f1[a, (4 << 0)] = -0.6
+global.status_des[a][(0 << 0)] = "Well rested"
+global.status_des[a][(1 << 0)] = "Not tired"
+global.status_des[a][(2 << 0)] = "Sleepy"
+global.status_des[a][(3 << 0)] = "Tired"
+global.status_des[a][(4 << 0)] = "Very tired"
+global.status_f1[a][(0 << 0)] = 0.25
+global.status_f1[a][(1 << 0)] = 0
+global.status_f1[a][(2 << 0)] = -0.15
+global.status_f1[a][(3 << 0)] = -0.3
+global.status_f1[a][(4 << 0)] = -0.6
 a = (1 << 0)
 global.status_id[a] = a
 global.status_name[a] = "Hunger"
-global.status_sprite[a] = 1341
+global.status_sprite[a] = 1348
 global.status_state_now[a] = (1 << 0)
-global.status_state[a, 0] = 85
-global.status_state[a, 1] = 65
-global.status_state[a, 2] = 45
-global.status_state[a, 3] = 20
+global.status_state[a][0] = 85
+global.status_state[a][1] = 65
+global.status_state[a][2] = 45
+global.status_state[a][3] = 20
 global.status_value_max[a] = 100
-global.status_des[a, (0 << 0)] = "Full"
-global.status_des[a, (1 << 0)] = "Not hungry"
-global.status_des[a, (2 << 0)] = "Slightly hungry"
-global.status_des[a, (3 << 0)] = "Hungry"
-global.status_des[a, (4 << 0)] = "Starving"
-global.status_f1[a, (0 << 0)] = 1
-global.status_f1[a, (1 << 0)] = 0
-global.status_f1[a, (2 << 0)] = -1
-global.status_f1[a, (3 << 0)] = -3
-global.status_f1[a, (4 << 0)] = -10
+global.status_des[a][(0 << 0)] = "Full"
+global.status_des[a][(1 << 0)] = "Not hungry"
+global.status_des[a][(2 << 0)] = "Slightly hungry"
+global.status_des[a][(3 << 0)] = "Hungry"
+global.status_des[a][(4 << 0)] = "Starving"
+global.status_f1[a][(0 << 0)] = 1
+global.status_f1[a][(1 << 0)] = 0
+global.status_f1[a][(2 << 0)] = -1
+global.status_f1[a][(3 << 0)] = -3
+global.status_f1[a][(4 << 0)] = -10
 a = (2 << 0)
 global.status_id[a] = a
 global.status_name[a] = "Thirst"
-global.status_sprite[a] = 1342
+global.status_sprite[a] = 1349
 global.status_state_now[a] = (1 << 0)
-global.status_state[a, 0] = 85
-global.status_state[a, 1] = 60
-global.status_state[a, 2] = 35
-global.status_state[a, 3] = 15
+global.status_state[a][0] = 85
+global.status_state[a][1] = 60
+global.status_state[a][2] = 35
+global.status_state[a][3] = 15
 global.status_value_max[a] = 100
-global.status_des[a, (0 << 0)] = "Well hydrated"
-global.status_des[a, (1 << 0)] = "Not thirsty"
-global.status_des[a, (2 << 0)] = "Slightly thirsty"
-global.status_des[a, (3 << 0)] = "Thirsty"
-global.status_des[a, (4 << 0)] = "Dehydrated"
-global.status_f1[a, (0 << 0)] = 0.5
-global.status_f1[a, (1 << 0)] = 0
-global.status_f1[a, (2 << 0)] = -0.5
-global.status_f1[a, (3 << 0)] = -2
-global.status_f1[a, (4 << 0)] = -5
+global.status_des[a][(0 << 0)] = "Well hydrated"
+global.status_des[a][(1 << 0)] = "Not thirsty"
+global.status_des[a][(2 << 0)] = "Slightly thirsty"
+global.status_des[a][(3 << 0)] = "Thirsty"
+global.status_des[a][(4 << 0)] = "Dehydrated"
+global.status_f1[a][(0 << 0)] = 0.5
+global.status_f1[a][(1 << 0)] = 0
+global.status_f1[a][(2 << 0)] = -0.5
+global.status_f1[a][(3 << 0)] = -2
+global.status_f1[a][(4 << 0)] = -5
 a = (3 << 0)
 global.status_id[a] = a
 global.status_name[a] = "Radiation"
-global.status_sprite[a] = 1343
+global.status_sprite[a] = 1350
 global.status_state_now[a] = (0 << 0)
-global.status_state[a, 0] = 0.4
-global.status_state[a, 1] = 2
-global.status_state[a, 2] = 5
-global.status_state[a, 3] = 10
+global.status_state[a][0] = 0.4
+global.status_state[a][1] = 2
+global.status_state[a][2] = 5
+global.status_state[a][3] = 10
 global.status_value_max[a] = 15
-global.status_des[a, (0 << 0)] = "Not irradiated"
-global.status_des[a, (1 << 0)] = "Slightly irradiated"
-global.status_des[a, (2 << 0)] = "Irradiated"
-global.status_des[a, (3 << 0)] = "Dangerously irradiated"
-global.status_des[a, (4 << 0)] = "Fatal irradiated"
-global.status_f1[a, (0 << 0)] = 0
-global.status_f1[a, (1 << 0)] = 0
-global.status_f1[a, (2 << 0)] = -0.1
-global.status_f1[a, (3 << 0)] = -0.25
-global.status_f1[a, (4 << 0)] = -0.5
+global.status_des[a][(0 << 0)] = "Not irradiated"
+global.status_des[a][(1 << 0)] = "Slightly irradiated"
+global.status_des[a][(2 << 0)] = "Irradiated"
+global.status_des[a][(3 << 0)] = "Dangerously irradiated"
+global.status_des[a][(4 << 0)] = "Fatal irradiated"
+global.status_f1[a][(0 << 0)] = 0
+global.status_f1[a][(1 << 0)] = 0
+global.status_f1[a][(2 << 0)] = -0.1
+global.status_f1[a][(3 << 0)] = -0.25
+global.status_f1[a][(4 << 0)] = -0.5
 pda_loading_max = 0
 pda_loading_now = 0
 pda_loading_map_max = 0
@@ -478,42 +499,42 @@ pda_faction_y = 96
 a = (0 << 0)
 pda_icon_id[a] = a
 pda_icon_name[a] = "MAP"
-pda_icon_sprite[a] = 1270
+pda_icon_sprite[a] = 1277
 pda_icon_state[a] = 0
 pda_icon_x[a] = (((sx + (ww2 * 0)) + (ww2 / 2)) - (icone_w / 2))
 pda_icon_y[a] = sy
 a = (1 << 0)
 pda_icon_id[a] = a
 pda_icon_name[a] = "QUEST"
-pda_icon_sprite[a] = 1271
+pda_icon_sprite[a] = 1278
 pda_icon_state[a] = 0
 pda_icon_x[a] = (((sx + (ww2 * 1)) + (ww2 / 2)) - (icone_w / 2))
 pda_icon_y[a] = sy
 a = (2 << 0)
 pda_icon_id[a] = a
 pda_icon_name[a] = "STAT"
-pda_icon_sprite[a] = 1272
+pda_icon_sprite[a] = 1279
 pda_icon_state[a] = 0
 pda_icon_x[a] = (((sx + (ww2 * 2)) + (ww2 / 2)) - (icone_w / 2))
 pda_icon_y[a] = sy
 a = (3 << 0)
 pda_icon_id[a] = a
 pda_icon_name[a] = "RELATIONS"
-pda_icon_sprite[a] = 1276
+pda_icon_sprite[a] = 1283
 pda_icon_state[a] = 0
 pda_icon_x[a] = (((sx + (ww2 * 5)) + (ww2 / 2)) - (icone_w / 2))
 pda_icon_y[a] = sy
 a = (4 << 0)
 pda_icon_id[a] = a
 pda_icon_name[a] = "SKILL TREE"
-pda_icon_sprite[a] = 1273
+pda_icon_sprite[a] = 1280
 pda_icon_state[a] = 0
 pda_icon_x[a] = (((sx + (ww2 * 3)) + (ww2 / 2)) - (icone_w / 2))
 pda_icon_y[a] = sy
 a = (5 << 0)
 pda_icon_id[a] = a
 pda_icon_name[a] = "BASE"
-pda_icon_sprite[a] = 1275
+pda_icon_sprite[a] = 1282
 pda_icon_state[a] = 0
 pda_icon_x[a] = (((sx + (ww2 * 4)) + (ww2 / 2)) - (icone_w / 2))
 pda_icon_y[a] = sy
@@ -588,6 +609,11 @@ b_craft[i] = (7 << 0)
 b_craft_x[i] = button_craft_startx
 b_craft_y[i] = ((button_craft_starty + (button_height * i)) + (button_spaziatura * i))
 b_text[i] = "Modules Tier 2"
+i = (8 << 0)
+b_craft[i] = (8 << 0)
+b_craft_x[i] = button_craft_startx
+b_craft_y[i] = ((button_craft_starty + (button_height * i)) + (button_spaziatura * i))
+b_text[i] = "Extra"
 a = (0 << 0)
 tut_x[a] = 678
 tut_y[a] = 1226
@@ -708,7 +734,7 @@ b_mod_text[i] = "Attachment 4"
 b_mod_cliccabile[i] = 1
 surface_testo = -4
 testo_barra_sprite[0] = s_hud_testo_barra
-testo_cursore_sprite[0] = 1323
+testo_cursore_sprite[0] = 1330
 testo_barra_h[0] = sprite_get_height(testo_barra_sprite[0])
 testo_surface_w[0] = 215
 testo_surface_h[0] = 144
@@ -721,7 +747,7 @@ testo_start_x[0] = 220
 testo_start_y[0] = 84
 testo_cursore_off[0] = 5
 testo_barra_sprite[1] = s_hud_testo_barra_pda
-testo_cursore_sprite[1] = 1324
+testo_cursore_sprite[1] = 1331
 testo_barra_h[1] = sprite_get_height(testo_barra_sprite[1])
 testo_surface_w[1] = 196
 testo_surface_h[1] = 120
@@ -735,7 +761,7 @@ testo_start_y[1] = 71
 testo_cursore_off[1] = 5
 i = 2
 testo_barra_sprite[i] = s_hud_testo_barra_pda
-testo_cursore_sprite[i] = 1324
+testo_cursore_sprite[i] = 1331
 testo_barra_h[i] = sprite_get_height(testo_barra_sprite[i])
 testo_surface_w[i] = 176
 testo_surface_h[i] = 112
@@ -751,69 +777,69 @@ prev_player_x = 0
 prev_player_y = 0
 encounter_distance = 0
 a = (1 << 0)
-en_chance[(0 << 0), a] = 100
-en_chance[(1 << 0), a] = 10
-en_chance[(2 << 0), a] = 15
-en_chance[(3 << 0), a] = 10
-en_chance[(4 << 0), a] = 20
-en_chance[(5 << 0), a] = 20
-en_chance[(6 << 0), a] = 5
-en_chance[(7 << 0), a] = 0
-en_chance[(8 << 0), a] = 0
-en_chance[(9 << 0), a] = 15
-en_chance[(10 << 0), a] = 15
-en_chance[(11 << 0), a] = 0
-en_chance[(12 << 0), a] = 0
-en_chance[(13 << 0), a] = 50
-en_chance[(14 << 0), a] = 3
+en_chance[(0 << 0)][a] = 100
+en_chance[(1 << 0)][a] = 10
+en_chance[(2 << 0)][a] = 15
+en_chance[(3 << 0)][a] = 10
+en_chance[(4 << 0)][a] = 20
+en_chance[(5 << 0)][a] = 20
+en_chance[(6 << 0)][a] = 5
+en_chance[(7 << 0)][a] = 0
+en_chance[(8 << 0)][a] = 0
+en_chance[(9 << 0)][a] = 15
+en_chance[(10 << 0)][a] = 15
+en_chance[(11 << 0)][a] = 0
+en_chance[(12 << 0)][a] = 0
+en_chance[(13 << 0)][a] = 50
+en_chance[(14 << 0)][a] = 3
 a = (2 << 0)
-en_chance[(0 << 0), a] = 60
-en_chance[(1 << 0), a] = 10
-en_chance[(2 << 0), a] = 15
-en_chance[(3 << 0), a] = 10
-en_chance[(4 << 0), a] = 20
-en_chance[(5 << 0), a] = 20
-en_chance[(6 << 0), a] = 5
-en_chance[(7 << 0), a] = 0
-en_chance[(8 << 0), a] = 0
-en_chance[(9 << 0), a] = 15
-en_chance[(10 << 0), a] = 15
-en_chance[(11 << 0), a] = 0
-en_chance[(12 << 0), a] = 20
-en_chance[(13 << 0), a] = 50
-en_chance[(14 << 0), a] = 3
+en_chance[(0 << 0)][a] = 60
+en_chance[(1 << 0)][a] = 10
+en_chance[(2 << 0)][a] = 15
+en_chance[(3 << 0)][a] = 10
+en_chance[(4 << 0)][a] = 20
+en_chance[(5 << 0)][a] = 20
+en_chance[(6 << 0)][a] = 5
+en_chance[(7 << 0)][a] = 0
+en_chance[(8 << 0)][a] = 0
+en_chance[(9 << 0)][a] = 15
+en_chance[(10 << 0)][a] = 15
+en_chance[(11 << 0)][a] = 0
+en_chance[(12 << 0)][a] = 20
+en_chance[(13 << 0)][a] = 50
+en_chance[(14 << 0)][a] = 3
 a = (3 << 0)
-en_chance[(0 << 0), a] = 60
-en_chance[(1 << 0), a] = 10
-en_chance[(2 << 0), a] = 15
-en_chance[(3 << 0), a] = 10
-en_chance[(4 << 0), a] = 20
-en_chance[(5 << 0), a] = 20
-en_chance[(6 << 0), a] = 5
-en_chance[(7 << 0), a] = 0
-en_chance[(8 << 0), a] = 5
-en_chance[(9 << 0), a] = 15
-en_chance[(10 << 0), a] = 15
-en_chance[(11 << 0), a] = 0
-en_chance[(12 << 0), a] = 0
-en_chance[(13 << 0), a] = 50
-en_chance[(14 << 0), a] = 3
+en_chance[(0 << 0)][a] = 60
+en_chance[(1 << 0)][a] = 10
+en_chance[(2 << 0)][a] = 15
+en_chance[(3 << 0)][a] = 10
+en_chance[(4 << 0)][a] = 20
+en_chance[(5 << 0)][a] = 20
+en_chance[(6 << 0)][a] = 5
+en_chance[(7 << 0)][a] = 0
+en_chance[(8 << 0)][a] = 5
+en_chance[(9 << 0)][a] = 15
+en_chance[(10 << 0)][a] = 15
+en_chance[(11 << 0)][a] = 0
+en_chance[(12 << 0)][a] = 0
+en_chance[(13 << 0)][a] = 50
+en_chance[(14 << 0)][a] = 3
 a = (4 << 0)
-en_chance[(0 << 0), a] = 100
-en_chance[(1 << 0), a] = 10
-en_chance[(2 << 0), a] = 15
-en_chance[(3 << 0), a] = 10
-en_chance[(4 << 0), a] = 20
-en_chance[(5 << 0), a] = 20
-en_chance[(6 << 0), a] = 5
-en_chance[(7 << 0), a] = 0
-en_chance[(8 << 0), a] = 15
-en_chance[(9 << 0), a] = 0
-en_chance[(10 << 0), a] = 20
-en_chance[(11 << 0), a] = 0
-en_chance[(12 << 0), a] = 0
-en_chance[(13 << 0), a] = 50
-en_chance[(14 << 0), a] = 3
+en_chance[(0 << 0)][a] = 100
+en_chance[(1 << 0)][a] = 10
+en_chance[(2 << 0)][a] = 15
+en_chance[(3 << 0)][a] = 10
+en_chance[(4 << 0)][a] = 20
+en_chance[(5 << 0)][a] = 20
+en_chance[(6 << 0)][a] = 5
+en_chance[(7 << 0)][a] = 0
+en_chance[(8 << 0)][a] = 15
+en_chance[(9 << 0)][a] = 0
+en_chance[(10 << 0)][a] = 20
+en_chance[(11 << 0)][a] = 0
+en_chance[(12 << 0)][a] = 0
+en_chance[(13 << 0)][a] = 50
+en_chance[(14 << 0)][a] = 3
 a = (0 << 0)
 en_id[a] = a
 en_counter_max[a] = 1
@@ -900,7 +926,7 @@ global.sub_ai_stop[a] = 1
 a = (9 << 0)
 global.sub_ai_peso[a] = 7
 global.sub_ai_stop[a] = 1
-a = (29 << 0)
+a = (32 << 0)
 global.sub_ai_peso[a] = 5
 global.sub_ai_stop[a] = 1
 a = (10 << 0)
@@ -960,6 +986,9 @@ global.sub_ai_stop[a] = 0
 a = (21 << 0)
 global.sub_ai_peso[a] = 20
 global.sub_ai_stop[a] = 0
+a = (29 << 0)
+global.sub_ai_peso[a] = 30
+global.sub_ai_stop[a] = 0
 global.faction_min = 30
 global.faction_max = 70
 global.faction_joined_min = 100
@@ -1003,6 +1032,8 @@ for (var xx = 0; xx < 10; xx++)
 }
 ds_grid_set(global.grid_faction, (0 << 0), (1 << 0), 50)
 ds_grid_set(global.grid_faction, (0 << 0), (2 << 0), 50)
+if (global.az_done[(13 << 0)] == 1)
+    ds_grid_set(global.grid_faction, (0 << 0), (2 << 0), 0)
 ds_grid_set(global.grid_faction, (0 << 0), (3 << 0), 50)
 ds_grid_set(global.grid_faction, (0 << 0), (4 << 0), 50)
 ds_grid_set(global.grid_faction, (0 << 0), (5 << 0), 0)
@@ -1040,99 +1071,99 @@ global.list_dynamic_npc_x = ds_list_create()
 global.list_dynamic_npc_y = ds_list_create()
 a = (0 << 0)
 global.d_npc_id[a] = a
-global.d_npc_object[a] = 684
+global.d_npc_object[a] = 710
 global.d_npc_amount[a] = 3
 global.d_npc_unique[a] = 0
 a = (1 << 0)
 global.d_npc_id[a] = a
-global.d_npc_object[a] = 690
+global.d_npc_object[a] = 716
 global.d_npc_amount[a] = 3
 global.d_npc_unique[a] = 0
 a = (2 << 0)
 global.d_npc_id[a] = a
-global.d_npc_object[a] = 700
+global.d_npc_object[a] = 726
 global.d_npc_amount[a] = 1
 global.d_npc_unique[a] = 0
 a = (3 << 0)
 global.d_npc_id[a] = a
-global.d_npc_object[a] = 701
+global.d_npc_object[a] = 727
 global.d_npc_amount[a] = 1
 global.d_npc_unique[a] = 0
 a = (4 << 0)
 global.d_npc_id[a] = a
-global.d_npc_object[a] = 180
+global.d_npc_object[a] = 201
 global.d_npc_amount[a] = 3
 global.d_npc_unique[a] = 0
 a = (5 << 0)
 global.d_npc_id[a] = a
-global.d_npc_object[a] = 186
+global.d_npc_object[a] = 207
 global.d_npc_amount[a] = 5
 global.d_npc_unique[a] = 0
 a = (6 << 0)
 global.d_npc_id[a] = a
-global.d_npc_object[a] = 198
+global.d_npc_object[a] = 219
 global.d_npc_amount[a] = 2
 global.d_npc_unique[a] = 0
 a = (7 << 0)
 global.d_npc_id[a] = a
-global.d_npc_object[a] = 187
+global.d_npc_object[a] = 208
 global.d_npc_amount[a] = 3
 global.d_npc_unique[a] = 0
 a = (8 << 0)
 global.d_npc_id[a] = a
-global.d_npc_object[a] = 685
+global.d_npc_object[a] = 711
 global.d_npc_amount[a] = 1
 global.d_npc_unique[a] = 1
 a = (1 << 0)
-global.d_npc_map[a, (0 << 0)] = 1
-global.d_npc_map[a, (1 << 0)] = 0
-global.d_npc_map[a, (2 << 0)] = 6
-global.d_npc_map[a, (3 << 0)] = 1
-global.d_npc_map[a, (4 << 0)] = 2
-global.d_npc_map[a, (5 << 0)] = 1
-global.d_npc_map[a, (6 << 0)] = 1
-global.d_npc_map[a, (7 << 0)] = 1
-global.d_npc_map[a, (8 << 0)] = 0
+global.d_npc_map[a][(0 << 0)] = 1
+global.d_npc_map[a][(1 << 0)] = 0
+global.d_npc_map[a][(2 << 0)] = 6
+global.d_npc_map[a][(3 << 0)] = 1
+global.d_npc_map[a][(4 << 0)] = 2
+global.d_npc_map[a][(5 << 0)] = 1
+global.d_npc_map[a][(6 << 0)] = 1
+global.d_npc_map[a][(7 << 0)] = 1
+global.d_npc_map[a][(8 << 0)] = 0
 a = (2 << 0)
-global.d_npc_map[a, (0 << 0)] = 2
-global.d_npc_map[a, (1 << 0)] = 2
-global.d_npc_map[a, (2 << 0)] = 4
-global.d_npc_map[a, (3 << 0)] = 2
-global.d_npc_map[a, (4 << 0)] = 1
-global.d_npc_map[a, (5 << 0)] = 0
-global.d_npc_map[a, (6 << 0)] = 0
-global.d_npc_map[a, (7 << 0)] = 0
-global.d_npc_map[a, (8 << 0)] = 1
+global.d_npc_map[a][(0 << 0)] = 2
+global.d_npc_map[a][(1 << 0)] = 2
+global.d_npc_map[a][(2 << 0)] = 4
+global.d_npc_map[a][(3 << 0)] = 2
+global.d_npc_map[a][(4 << 0)] = 1
+global.d_npc_map[a][(5 << 0)] = 0
+global.d_npc_map[a][(6 << 0)] = 0
+global.d_npc_map[a][(7 << 0)] = 0
+global.d_npc_map[a][(8 << 0)] = 1
 a = (3 << 0)
-global.d_npc_map[a, (0 << 0)] = 2
-global.d_npc_map[a, (1 << 0)] = 3
-global.d_npc_map[a, (2 << 0)] = 2
-global.d_npc_map[a, (3 << 0)] = 4
-global.d_npc_map[a, (4 << 0)] = 1
-global.d_npc_map[a, (5 << 0)] = 0
-global.d_npc_map[a, (6 << 0)] = 0
-global.d_npc_map[a, (7 << 0)] = 0
-global.d_npc_map[a, (8 << 0)] = 0
+global.d_npc_map[a][(0 << 0)] = 2
+global.d_npc_map[a][(1 << 0)] = 3
+global.d_npc_map[a][(2 << 0)] = 2
+global.d_npc_map[a][(3 << 0)] = 4
+global.d_npc_map[a][(4 << 0)] = 1
+global.d_npc_map[a][(5 << 0)] = 0
+global.d_npc_map[a][(6 << 0)] = 0
+global.d_npc_map[a][(7 << 0)] = 0
+global.d_npc_map[a][(8 << 0)] = 0
 a = (4 << 0)
-global.d_npc_map[a, (0 << 0)] = 1
-global.d_npc_map[a, (1 << 0)] = 1
-global.d_npc_map[a, (2 << 0)] = 0
-global.d_npc_map[a, (3 << 0)] = 6
-global.d_npc_map[a, (4 << 0)] = 1
-global.d_npc_map[a, (5 << 0)] = 0
-global.d_npc_map[a, (6 << 0)] = 0
-global.d_npc_map[a, (7 << 0)] = 4
-global.d_npc_map[a, (8 << 0)] = 0
+global.d_npc_map[a][(0 << 0)] = 1
+global.d_npc_map[a][(1 << 0)] = 1
+global.d_npc_map[a][(2 << 0)] = 0
+global.d_npc_map[a][(3 << 0)] = 6
+global.d_npc_map[a][(4 << 0)] = 1
+global.d_npc_map[a][(5 << 0)] = 0
+global.d_npc_map[a][(6 << 0)] = 0
+global.d_npc_map[a][(7 << 0)] = 4
+global.d_npc_map[a][(8 << 0)] = 0
 a = (6 << 0)
-global.d_npc_map[a, (0 << 0)] = 2
-global.d_npc_map[a, (1 << 0)] = 2
-global.d_npc_map[a, (2 << 0)] = 2
-global.d_npc_map[a, (3 << 0)] = 5
-global.d_npc_map[a, (4 << 0)] = 1
-global.d_npc_map[a, (5 << 0)] = 0
-global.d_npc_map[a, (6 << 0)] = 0
-global.d_npc_map[a, (7 << 0)] = 0
-global.d_npc_map[a, (8 << 0)] = 0
+global.d_npc_map[a][(0 << 0)] = 2
+global.d_npc_map[a][(1 << 0)] = 2
+global.d_npc_map[a][(2 << 0)] = 2
+global.d_npc_map[a][(3 << 0)] = 5
+global.d_npc_map[a][(4 << 0)] = 1
+global.d_npc_map[a][(5 << 0)] = 0
+global.d_npc_map[a][(6 << 0)] = 0
+global.d_npc_map[a][(7 << 0)] = 0
+global.d_npc_map[a][(8 << 0)] = 0
 global.list_n_id = 0
 global.list_n_npc_id = 0
 global.list_n_hp = 0
@@ -1148,27 +1179,27 @@ global.list_n_y[0] = 0
 global.list_n_power[0] = 0
 global.list_n_follow_path[0] = 0
 a = (0 << 0)
-global.spmall_obj[a] = 181
+global.spmall_obj[a] = 202
 global.spmall_amount[a] = (2 + irandom(1))
 global.spmall_chance[a] = 2
 global.spmall_only_begin[a] = 0
 a = (1 << 0)
-global.spmall_obj[a] = 701
+global.spmall_obj[a] = 727
 global.spmall_amount[a] = 1
 global.spmall_chance[a] = 14
 global.spmall_only_begin[a] = 0
 a = (2 << 0)
-global.spmall_obj[a] = 188
+global.spmall_obj[a] = 209
 global.spmall_amount[a] = (2 + irandom(1))
 global.spmall_chance[a] = 3
 global.spmall_only_begin[a] = 1
 a = (3 << 0)
-global.spmall_obj[a] = 189
+global.spmall_obj[a] = 210
 global.spmall_amount[a] = 1
 global.spmall_chance[a] = 1
 global.spmall_only_begin[a] = 1
 a = (4 << 0)
-global.spmall_obj[a] = 190
+global.spmall_obj[a] = 211
 global.spmall_amount[a] = 1
 global.spmall_chance[a] = 1
 global.spmall_only_begin[a] = 1
@@ -1324,8 +1355,8 @@ for (i = 0; i < 30; i++)
     global.save_quest_giver[i] = 0
     for (var j = 0; j < 7; j++)
     {
-        global.save_quest_amount_now[i, j] = 0
-        global.save_sub_quest_notifica[i, j] = 0
+        global.save_quest_amount_now[i][j] = 0
+        global.save_sub_quest_notifica[i][j] = 0
     }
 }
 scr_load_quest()
@@ -1460,8 +1491,14 @@ a++
 d_k[a] = "ctrl + F10"
 d_t[a] = "Manually move camera"
 a++
-d_k[a] = "T + arrow right or arrow left "
+d_k[a] = "T + arrow right/left "
 d_t[a] = "Increase/decrease time by 1 hour"
+a++
+d_k[a] = "Hold Numpad 1"
+d_t[a] = "Show map gen timers"
+a++
+d_k[a] = "CTRL + ALT + E"
+d_t[a] = "Start emission"
 global.item_spawn_tx = 56
 global.item_spawn_ty = 16
 global.item_spawn_tw = 80
@@ -1516,48 +1553,48 @@ for (i = 0; i < array_length_1d(item_id); i++)
         {
             if (arma_moddable[i] == 1)
             {
-                item_spawn_id[(0 << 0), a0] = i
+                item_spawn_id[(0 << 0)][a0] = i
                 a0++
             }
         }
         if (item_categoria[i] == (1 << 0))
         {
-            item_spawn_id[(1 << 0), a1] = i
+            item_spawn_id[(1 << 0)][a1] = i
             a1++
         }
         if (item_categoria[i] == (17 << 0))
         {
-            item_spawn_id[(2 << 0), a2] = i
+            item_spawn_id[(2 << 0)][a2] = i
             a2++
         }
         if (item_categoria[i] == (2 << 0) || item_categoria[i] == (9 << 0))
         {
-            item_spawn_id[(3 << 0), a3] = i
+            item_spawn_id[(3 << 0)][a3] = i
             a3++
         }
         if (item_categoria[i] == (3 << 0) || item_categoria[i] == (8 << 0) || item_categoria[i] == (7 << 0))
         {
-            item_spawn_id[(4 << 0), a4] = i
+            item_spawn_id[(4 << 0)][a4] = i
             a4++
         }
         if (item_categoria[i] == (4 << 0))
         {
-            item_spawn_id[(5 << 0), a5] = i
+            item_spawn_id[(5 << 0)][a5] = i
             a5++
         }
         if (item_categoria[i] == (6 << 0) || item_categoria[i] == (5 << 0) || item_categoria[i] == (18 << 0))
         {
-            item_spawn_id[(6 << 0), a6] = i
+            item_spawn_id[(6 << 0)][a6] = i
             a6++
         }
         if (item_categoria[i] == (12 << 0) || item_categoria[i] == (13 << 0) || item_categoria[i] == (16 << 0))
         {
-            item_spawn_id[(7 << 0), a7] = i
+            item_spawn_id[(7 << 0)][a7] = i
             a7++
         }
         if (item_categoria[i] == (15 << 0))
         {
-            item_spawn_id[(8 << 0), a8] = i
+            item_spawn_id[(8 << 0)][a8] = i
             a8++
         }
     }
@@ -1571,7 +1608,7 @@ for (i = 0; i < array_length_1d(global.item_spawn_name); i++)
     ds_grid_clear(_grid, 0)
     for (j = 0; j < array_length_2d(item_spawn_id, i); j++)
     {
-        var _id = item_spawn_id[i, j]
+        var _id = item_spawn_id[i][j]
         var necessario_w = (sprite_get_width(item_sprite_inv[_id]) div 16)
         var necessario_h = (sprite_get_height(item_sprite_inv[_id]) div 16)
         var placed = 0
@@ -1604,9 +1641,9 @@ for (i = 0; i < array_length_1d(global.item_spawn_name); i++)
                                 for (iy = 0; iy < necessario_h; iy++)
                                     ds_grid_set(_grid, (xx + ix), (yy + iy), 1)
                             }
-                            item_spawn_x[i, j] = xx
-                            item_spawn_y[i, j] = yy
-                            item_spawn_pa[i, j] = _page
+                            item_spawn_x[i][j] = xx
+                            item_spawn_y[i][j] = yy
+                            item_spawn_pa[i][j] = _page
                         }
                     }
                 }
@@ -1617,5 +1654,21 @@ for (i = 0; i < array_length_1d(global.item_spawn_name); i++)
             _page++
             ds_grid_clear(_grid, 0)
         }
+    }
+}
+ini_open(global.save_general)
+global.luci_natale_built = ini_read_real("Christman", "lights built", 0)
+global.luci_natale_on = ini_read_real("Christman", "lights on", 1)
+global.luci_natale_mode = ini_read_real("Christman", "lights mode", (0 << 0))
+global.luci_natale_colore_1 = ini_read_real("Christman", "lights color 1", 0)
+global.luci_natale_colore_2 = ini_read_real("Christman", "lights color 2", 0)
+global.luci_natale_timer = ini_read_real("Christman", "lights timer", 2)
+ini_close()
+if (global.luci_natale_built == 1)
+{
+    if (room == r_hub)
+    {
+        var lay_id = layer_get_id("Natale_luci")
+        layer_set_visible(lay_id, 1)
     }
 }

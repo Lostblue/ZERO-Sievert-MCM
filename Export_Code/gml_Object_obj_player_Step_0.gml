@@ -2,10 +2,6 @@ depth = ((-y) - 8)
 audio_listener_position(x, y, 0)
 audio_emitter_position(emitter_shoot, x, y, 0)
 audio_emitter_position(emitter_walk, x, y, 0)
-dkey = keyboard_check(global.kb_now[(2 << 0)])
-wkey = keyboard_check(global.kb_now[(0 << 0)])
-skey = keyboard_check(global.kb_now[(1 << 0)])
-akey = keyboard_check(global.kb_now[(3 << 0)])
 if (!instance_exists(obj_player_weapon))
     instance_create_depth(x, y, 0, obj_player_weapon)
 if (global.armor_equipped == 1)
@@ -22,9 +18,9 @@ else
 }
 if (arma_moddable[arma_now] == 1)
 {
-    if (mod_id[weapon_slot_now, (4 << 0)] != -1)
+    if (mod_id[weapon_slot_now][(4 << 0)] != -1)
     {
-        var get_id_magazine = mod_id[weapon_slot_now, (4 << 0)]
+        var get_id_magazine = mod_id[weapon_slot_now][(4 << 0)]
         ammo_slot_max[weapon_slot_now] = mod_magazine_size[get_id_magazine]
     }
 }
@@ -66,9 +62,9 @@ if (arma_now != (2 << 0) && item_categoria[arma_now] == (0 << 0))
             k = (9 << 0)
         if (i == 10)
             k = (10 << 0)
-        if (mod_id[weapon_slot_now, k] != -1)
+        if (mod_id[weapon_slot_now][k] != -1)
         {
-            var get_id_ = mod_id[weapon_slot_now, k]
+            var get_id_ = mod_id[weapon_slot_now][k]
             somma_recoil += mod_recoil[get_id_]
             somma_ergo += mod_ergo[get_id_]
             somma_acc += mod_acc[get_id_]
@@ -108,7 +104,7 @@ if (headset_now == (0 << 0))
     }
     global.night_vision = 0
 }
-if (state != 22)
+if (state != gml_Script_scr_player_state_move)
     global.change_ammo_now = 0
 if (room == room1)
 {
@@ -119,15 +115,6 @@ if (room == room1)
 }
 if (!instance_exists(obj_exit_screen))
 {
-    stamina_max_total = (((class_stamina[player_class] + global.sk_k[(0 << 0)]) + global.sk_k[(39 << 0)]) + global.injector_factor[(4 << 0)])
-    stamina += ((stamina_recovery * global.sk_k[(6 << 0)]) + global.injector_factor[(5 << 0)])
-    if (state != 50)
-        fatigue -= fatigue_k_sveglio
-    fatigue = clamp(fatigue, fatigue_max, fatigue_start)
-    if (fatigue < 0)
-        stamina_max = (stamina_max_total + fatigue)
-    else
-        stamina_max = stamina_max_total
     if (global.sk_lvl[(21 << 0)] >= 0)
     {
         if (energy >= 50 && thirst >= 50)
@@ -136,6 +123,15 @@ if (!instance_exists(obj_exit_screen))
             global.sk_k[(39 << 0)] = (15 + (2 * global.sk_lvl[(21 << 0)]))
         }
     }
+    stamina_max_total = (((class_stamina[player_class] + global.sk_k[(0 << 0)]) + global.sk_k[(39 << 0)]) + global.injector_factor[(4 << 0)])
+    stamina += ((stamina_recovery * global.sk_k[(6 << 0)]) + global.injector_factor[(5 << 0)])
+    if (state != gml_Script_scr_player_state_start)
+        fatigue -= fatigue_k_sveglio
+    fatigue = clamp(fatigue, fatigue_max, fatigue_start)
+    if (fatigue < 0)
+        stamina_max = (stamina_max_total + fatigue)
+    else
+        stamina_max = stamina_max_total
     stamina_max = clamp(stamina_max, 0, stamina_max_total)
     stamina = clamp(stamina, 0, stamina_max)
     wound = clamp(wound, 0, 40)
@@ -218,7 +214,7 @@ if (!instance_exists(obj_exit_screen))
     radiation_accumulata += radiation_
     radiation_accumulata -= global.injector_factor[(7 << 0)]
     radiation_accumulata = clamp(radiation_accumulata, 0, global.status_value_max[(3 << 0)])
-    if (room != r_hub && state != 50)
+    if (room != r_hub && state != gml_Script_scr_player_state_start)
     {
         energy -= ((energy_decay * global.sk_k[(52 << 0)]) - global.injector_factor[(10 << 0)])
         thirst -= ((thirst_decay * global.sk_k[(53 << 0)]) - global.injector_factor[(12 << 0)])
@@ -233,14 +229,31 @@ if (!instance_exists(obj_exit_screen))
     }
     if (hp < 20)
     {
-        if (state != 49)
+        if (state != gml_Script_scr_player_state_dead)
         {
             if (!audio_is_playing(snd_heart))
                 audio_play_sound(snd_heart, 2, false)
         }
     }
+    if (global.is_emission_now == 1)
+    {
+        var _found = 0
+        for (i = 0; i < 18; i += 6)
+        {
+            if (_found == 0)
+            {
+                if place_meeting((x - i), y, obj_solid)
+                {
+                    emission_riparato = 1
+                    _found = 1
+                }
+            }
+        }
+        if (_found == 0)
+            emission_riparato = 0
+    }
 }
-if (state != 22)
+if (state != gml_Script_scr_player_state_move)
 {
     obj_player.shooting = 1
     obj_player.alarm[1] = 10
@@ -253,7 +266,7 @@ if (global.general_debug == 1)
 }
 if (hp <= 0)
 {
-    if (state != 49)
+    if (state != gml_Script_scr_player_state_dead)
     {
         hp = -100
         if instance_exists(obj_item)
@@ -263,7 +276,7 @@ if (hp <= 0)
         }
         global.aiming = 0
         obj_mouse.visible = true
-        state = 49
+        state = gml_Script_scr_player_state_dead
         weapon_pointing_direction = 0
         var camx = camera_get_view_x(view_camera[0])
         var camy = camera_get_view_y(view_camera[0])
@@ -291,7 +304,7 @@ if (global.general_debug == 1)
         y = mouse_y
     }
     if (keyboard_check_pressed(vk_f5) && keyboard_check(vk_control))
-        state = 65
+        state = gml_Script_scr_player_state_item_spawn
     if (keyboard_check_pressed(vk_f6) && keyboard_check(vk_control))
     {
         if (room == room1)
@@ -327,14 +340,14 @@ if (global.general_debug == 1)
     }
     if (keyboard_check_pressed(vk_f10) && keyboard_check(vk_control))
     {
-        if (state != 50)
+        if (state != gml_Script_scr_player_state_start)
         {
-            state = 50
+            state = gml_Script_scr_player_state_start
             visible = false
         }
         else
         {
-            state = 22
+            state = gml_Script_scr_player_state_move
             visible = true
         }
     }
@@ -345,6 +358,16 @@ if (global.general_debug == 1)
         else
             global.show_surf_radiation = 0
     }
+    if (keyboard_check(vk_alt) && keyboard_check(vk_control) && keyboard_check_pressed(ord("E")))
+    {
+        if (room == room1)
+        {
+            if (global.state_emission_now == (0 << 0))
+            {
+                obj_meteo_controller.alarm[1] = 1
+                obj_meteo_controller.alarm[0] = 2
+                scr_draw_text_with_box("Emission started")
+            }
+        }
+    }
 }
-if (keyboard_check_pressed(vk_f8) && keyboard_check(ord("B")))
-    bleed += 1
