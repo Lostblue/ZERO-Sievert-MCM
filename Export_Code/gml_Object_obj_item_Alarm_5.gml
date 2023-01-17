@@ -17,7 +17,7 @@ if (room == r_menu)
 }
 if (room == r_hub)
 {
-    if (obj_player.state == 48)
+    if (obj_player.state == 50)
     {
         if (arma_moddable[my_id] == 1)
         {

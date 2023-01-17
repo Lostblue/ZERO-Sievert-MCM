@@ -381,6 +381,21 @@ if instance_exists(object_id)
                                 break
                         }
 
+                        if (quale_item == (663 << 0))
+                        {
+                            if (room == r_hub)
+                            {
+                                destroy_consumable = 1
+                                global.luci_natale_built = 1
+                                ini_open(global.save_general)
+                                ini_write_real("Christman", "lights built", 1)
+                                ini_close()
+                                var lay_id = layer_get_id("Natale_luci")
+                                layer_set_visible(lay_id, 1)
+                            }
+                            else
+                                scr_draw_text_with_box("You can use this item only in the bunker")
+                        }
                         if (destroy_consumable == 1)
                         {
                             with (object_id)

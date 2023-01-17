@@ -18,27 +18,18 @@ if (_can_run == 0)
 if (_can_move == 0)
     can_walk = 0
 var walk_k = 1
+var run_k = 1
 if (global.player_weight > global.max_weight)
 {
-    can_run = 0
-    if (room == r_hub)
-        can_run = 1
+    walk_k = 0.3
+    run_k = 0.4
 }
-if (global.player_weight > global.max_weight)
-{
-    walk_k = 0.5
-    if (room == r_hub)
-        walk_k = 1
-}
-if (global.player_weight > (global.max_weight + 5))
+if (global.player_weight > (global.max_weight + 3))
 {
     can_walk = 0
     walk_k = 0
-    if (room == r_hub)
-    {
-        walk_k = 1
-        can_walk = 1
-    }
+    can_run = 0
+    run_k = 0
 }
 if (stamina <= 0)
     can_run = 0
@@ -48,20 +39,16 @@ if (can_run_after_exit_building == 0)
     can_run = 0
 spd_walk = ((class_speed[player_class] * ((100 + backpack_movement_speed[backpack_now]) / 100)) * _speed_multiplier)
 spd_run = ((class_sprint[player_class] * ((100 + backpack_movement_speed[backpack_now]) / 100)) * _speed_multiplier)
-if (room == r_hub)
-    spd_run = (1.7 * ((100 + backpack_movement_speed[backpack_now]) / 100))
 if shift_key
 {
     if (can_run == 1)
     {
         if (akey || skey || dkey || wkey)
         {
-            current_spd = ((spd_run * global.sk_k[(5 << 0)]) + (global.general_debug * 4))
+            current_spd = (((spd_run * global.sk_k[(5 << 0)]) + (global.general_debug * 4)) * run_k)
             image_speed_move_current = image_speed_run
             walk_time++
             if (global.player_weight < global.sk_k[(2 << 0)])
-                stamina += stamina_run_drain
-            if (room == r_hub)
                 stamina += stamina_run_drain
         }
     }

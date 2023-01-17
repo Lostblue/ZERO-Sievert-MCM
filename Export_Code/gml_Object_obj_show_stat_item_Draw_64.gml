@@ -1,7 +1,7 @@
 var go = 0
 if (room != r_menu)
 {
-    if ((obj_player.state == 23 || obj_player.state == 39 || obj_player.state == 48 || obj_player.state == 53 || obj_player.state == 65) && (!keyboard_check_direct(vk_control)))
+    if ((obj_player.state == 23 || obj_player.state == 39 || obj_player.state == 50 || obj_player.state == 55 || obj_player.state == 67) && (!keyboard_check_direct(vk_control)))
     {
         if (show_item_stat == 1 && obj_mouse.dragging == 0 && instance_position(mouse_x, mouse_y, obj_item))
         {

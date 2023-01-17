@@ -179,7 +179,7 @@ if (room != r_menu)
             }
             else if (room == r_hub)
             {
-                if (obj_player.state == 53)
+                if (obj_player.state == 55)
                 {
                     if surface_exists(surface_item)
                     {
@@ -211,7 +211,7 @@ if (room != r_menu)
             yy = (((-camy) + y) + (((caselle_y - 1) / 2) * 16))
             draw_sprite(s_hud_item_svela, ii, xx, yy)
         }
-        if (obj_player.state == 48)
+        if (obj_player.state == 50)
         {
             if (my_id == global.quest_item_scelto_id)
             {
@@ -227,7 +227,7 @@ if (room != r_menu)
                 draw_line_width_color(x1, y1, x1, y2, 1, c, c)
             }
         }
-        if (obj_player.state == 23 || obj_player.state == 48)
+        if (obj_player.state == 23 || obj_player.state == 50)
         {
             if (qnt > 1 && visto == 1 && show_qnt == 1)
             {

@@ -7,3 +7,4 @@ sprite_index = npc_sprite_idle[npc_id]
 arma_now = npc_arma[npc_id]
 ammo_magazine = arma_magazine[arma_now]
 ammo_now = arma_magazine[arma_now]
+scr_chance(global.sk_k[(72 << 0)], 1)

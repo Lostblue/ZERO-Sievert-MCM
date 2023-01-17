@@ -87,7 +87,7 @@ if mouse_check_button_pressed(mb_left)
                         }
                     }
                     ds_grid_destroy(grid_item_)
-                    state = 48
+                    state = 50
                 }
             }
         }

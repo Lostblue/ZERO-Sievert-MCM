@@ -6,6 +6,32 @@ state = (0 << 0)
 finish = 0
 time_beetween_generation = 30
 alarm[2] = time_beetween_generation
+tempo_start = current_time
+for (var i = 0; i < (19 << 0); i++)
+{
+    tempo_generazione[i] = 0
+    tempo_gen_assoluto[i] = 0
+}
+tempo_gen_name[(0 << 0)] = "terrain_floor"
+tempo_gen_name[(1 << 0)] = "terrain_railroad_strada "
+tempo_gen_name[(2 << 0)] = "terrain_floor2 "
+tempo_gen_name[(3 << 0)] = "autotiling_road_railroad "
+tempo_gen_name[(4 << 0)] = "fermata_treno "
+tempo_gen_name[(5 << 0)] = "dalla_griglia_map_alla_griglia_tile "
+tempo_gen_name[(6 << 0)] = "terrain_water "
+tempo_gen_name[(7 << 0)] = "autotiling_terrain "
+tempo_gen_name[(8 << 0)] = "create_solid "
+tempo_gen_name[(9 << 0)] = "place_building "
+tempo_gen_name[(10 << 0)] = "place_map_obj "
+tempo_gen_name[(11 << 0)] = "place_decoration "
+tempo_gen_name[(12 << 0)] = "aggiustamenti "
+tempo_gen_name[(13 << 0)] = "place_grass "
+tempo_gen_name[(14 << 0)] = "finish "
+tempo_gen_name[(15 << 0)] = "dynamic_npc "
+tempo_gen_name[(16 << 0)] = "dynamic_npc_path "
+tempo_gen_name[(17 << 0)] = "finish_2 "
+tempo_gen_name[(18 << 0)] = "wait_player_input "
+tempo_gen_name[(19 << 0)] = "can_play "
 debug = 0
 if (debug == 0)
     instance_create_depth(x, y, -9999, obj_loading_map)
@@ -19,7 +45,7 @@ if (area == (6 << 0))
 room_width = area_width[area]
 map_height = area_height[area]
 room_height = ((area_height[area] + 3600) + _extra)
-for (var i = 0; i < (19 << 0); i++)
+for (i = 0; i < (19 << 0); i++)
     bug_map[i] = 0
 bug_found = 0
 grid_map_w = (room_width div 32)

@@ -1,4 +1,4 @@
-if (obj_player.state != 50)
+if (obj_player.state != 52)
 {
     if (follow_id.draw_weapon == 1)
     {
@@ -167,7 +167,7 @@ if (obj_player.state != 50)
                 rx = ((lengthdir_x((-ox), image_angle) - lengthdir_y((-oy), image_angle)) * 0.4)
                 ry = ((lengthdir_y((-ox), image_angle) + lengthdir_x((-oy), image_angle)) * 0.4)
             }
-            if (op.state == 67)
+            if (op.state == 69)
             {
                 rx = ((lengthdir_x((-ox), image_angle) - lengthdir_y((-oy), image_angle)) * 0.4)
                 ry = ((lengthdir_y((-ox), image_angle) + lengthdir_x((-oy), image_angle)) * 0.4)

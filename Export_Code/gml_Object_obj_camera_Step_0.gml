@@ -6,7 +6,7 @@ if (instance_exists(obj_player) && instance_exists(obj_mouse))
     {
         if (follow == (1 << 0))
         {
-            if (global.shake == 0 && (obj_player.state == 22 || obj_player.state == 51))
+            if (global.shake == 0 && (obj_player.state == 22 || obj_player.state == 53))
             {
                 view_w = camera_get_view_width(view_camera[0])
                 view_h = camera_get_view_height(view_camera[0])
@@ -174,7 +174,7 @@ if (instance_exists(obj_player) && instance_exists(obj_mouse))
         {
             if instance_exists(obj_player)
             {
-                if (global.general_debug == 1 && obj_player.state == 50)
+                if (global.general_debug == 1 && obj_player.state == 52)
                 {
                     camera_set_view_size(view_camera[0], view_w, view_h)
                     camera_set_view_pos(view_camera[0], (obj_player.x - 240), (obj_player.y - 135))

@@ -10,3 +10,4 @@ red_blood = 0
 prob_attack1 = 5
 dmg_attack1 = 2
 instance_create_depth(x, y, 0, obj_light_wraith_electricity)
+scr_chance(global.sk_k[(72 << 0)], 1)

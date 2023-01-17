@@ -96,79 +96,79 @@ if (other.can_be_damaged == 1)
                         var _id = other.object_index
                         switch _id
                         {
-                            case 180:
-                                global.stat_amount[(9 << 0)] += 1
-                                break
                             case 181:
                                 global.stat_amount[(9 << 0)] += 1
                                 break
                             case 182:
                                 global.stat_amount[(9 << 0)] += 1
                                 break
-                            case 684:
+                            case 183:
+                                global.stat_amount[(9 << 0)] += 1
+                                break
+                            case 686:
                                 global.stat_amount[(10 << 0)] += 1
                                 break
-                            case 690:
+                            case 692:
                                 global.stat_amount[(11 << 0)] += 1
                                 break
-                            case 691:
+                            case 693:
                                 global.stat_amount[(11 << 0)] += 1
                                 break
-                            case 694:
-                                global.stat_amount[(12 << 0)] += 1
-                                break
-                            case 695:
+                            case 696:
                                 global.stat_amount[(12 << 0)] += 1
                                 break
                             case 697:
-                                global.stat_amount[(13 << 0)] += 1
+                                global.stat_amount[(12 << 0)] += 1
                                 break
                             case 699:
-                                global.stat_amount[(13 << 0)] += 1
-                                break
-                            case 700:
                                 global.stat_amount[(13 << 0)] += 1
                                 break
                             case 701:
                                 global.stat_amount[(13 << 0)] += 1
                                 break
-                            case 183:
+                            case 702:
+                                global.stat_amount[(13 << 0)] += 1
+                                break
+                            case 703:
+                                global.stat_amount[(13 << 0)] += 1
+                                break
+                            case 184:
                                 global.stat_amount[(14 << 0)] += 1
                                 ga_addDesignEvent("UniqueNPC:Lazar", 1)
                                 break
-                            case 685:
+                            case 687:
                                 global.stat_amount[(15 << 0)] += 1
                                 ga_addDesignEvent("UniqueNPC:Arman", 1)
                                 break
-                            case 686:
+                            case 688:
                                 global.stat_amount[(16 << 0)] += 1
                                 ga_addDesignEvent("UniqueNPC:Kibba", 1)
                                 break
-                            case 186:
+                            case 187:
                                 global.stat_amount[(19 << 0)] += 1
-                                break
-                            case 198:
-                                global.stat_amount[(20 << 0)] += 1
                                 break
                             case 199:
                                 global.stat_amount[(20 << 0)] += 1
                                 break
-                            case 187:
-                                global.stat_amount[(21 << 0)] += 1
+                            case 200:
+                                global.stat_amount[(20 << 0)] += 1
                                 break
                             case 188:
-                                global.stat_amount[(23 << 0)] += 1
-                                break
-                            case 200:
-                                global.stat_amount[(22 << 0)] += 1
-                                break
-                            case 192:
-                                global.stat_amount[(25 << 0)] += 1
+                                global.stat_amount[(21 << 0)] += 1
                                 break
                             case 189:
+                                global.stat_amount[(23 << 0)] += 1
+                                break
+                            case 201:
+                                global.stat_amount[(22 << 0)] += 1
+                                break
+                            case 193:
+                                global.stat_amount[(25 << 0)] += 1
+                                break
+                            case 190:
                                 global.stat_amount[(24 << 0)] += 1
                                 break
-                            case 194:
+                            case 195:
                                 global.stat_amount[(18 << 0)] += 1
                                 break
                         }

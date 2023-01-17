@@ -19,23 +19,23 @@ if instance_exists(arms)
             {
                 switch arms
                 {
-                    case 828:
+                    case 835:
                         if scr_chance(20)
                             _patrol = 1
                         break
-                    case 829:
+                    case 836:
                         if scr_chance(60)
                             _patrol = 1
                         break
-                    case 830:
+                    case 837:
                         if scr_chance(75)
                             _patrol = 1
                         break
-                    case 831:
+                    case 838:
                         if scr_chance(0.1)
                             _patrol = 1
                         break
-                    case 832:
+                    case 839:
                         break
                 }
 

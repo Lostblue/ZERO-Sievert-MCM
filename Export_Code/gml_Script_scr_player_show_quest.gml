@@ -6,7 +6,7 @@ var speaker_id_ = global.speaker_nearest.npc_speaker_id[speak_nearest.npc_id]
 var nearest_npc_id_ = speak_nearest.npc_id
 if keyboard_check_pressed(vk_escape)
 {
-    state = 47
+    state = 49
     global.quest_item_scelto_id = -1
     with (obj_item)
         instance_destroy()
@@ -18,7 +18,7 @@ if mouse_check_button_pressed(mb_left)
 {
     if scr_mouse_inside((camx + 24), (camy + 72), 96, 12)
     {
-        state = 47
+        state = 49
         global.quest_item_scelto_id = -1
         with (obj_item)
             instance_destroy()
@@ -104,7 +104,7 @@ if mouse_check_button_pressed(mb_left)
                                     global.save_quest_amount_now[i, m] = 0
                                     show_debug_message(string(m))
                                 }
-                                obj_player.state = 47
+                                obj_player.state = 49
                                 if instance_exists(obj_item)
                                 {
                                     with (obj_item)

@@ -8,7 +8,7 @@ if (room != r_menu)
             x = obj_player.x
             y = obj_player.y
         }
-        if (obj_player.state == 23 || obj_player.state == 39 || obj_player.state == 48 || obj_player.state == 53 || obj_player.state == 65)
+        if (obj_player.state == 23 || obj_player.state == 39 || obj_player.state == 50 || obj_player.state == 55 || obj_player.state == 67)
         {
             if (mouse_x == prev_mouse_x && mouse_y == prev_mouse_y)
             {

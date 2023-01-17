@@ -8,10 +8,10 @@ if (target != noone)
         move_point_y = target.y
     }
     if scr_chance(prob_disappear)
-        state = 126
+        state = 128
     if scr_chance(prob_attack1)
     {
-        state = 128
+        state = 130
         if (x > target.x)
             image_xscale = -1
         else

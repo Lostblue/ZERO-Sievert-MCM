@@ -280,10 +280,7 @@ if (npc_trader_id[npc_id] != (0 << 0))
     {
         quanti_item = array_length_2d(trader_item, npc_trader_id[npc_id])
         quanti_item_effettivi = 0
-        if (room == r_hub)
-            money_trader = ini_read_real("traders", "money", global.trader_money_all)
-        else
-            money_trader = ini_read_real(name_, "money", 0)
+        money_trader = ini_read_real(name_, "money", 0)
         for (var i = 0; i < quanti_item; i++)
         {
             loot[i] = ini_read_real(name_, ("item_" + string(i)), 0)

@@ -13,7 +13,7 @@ if (image_index >= (sprite_get_number(sprite_disappear) - 1))
     }
     x = xx
     y = yy
-    state = 127
+    state = 129
     if (target != noone)
     {
         if (x > target.x)

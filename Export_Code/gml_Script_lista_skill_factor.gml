@@ -140,6 +140,12 @@ global.sk_k[(69 << 0)] = 0
 global.sk_na[(69 << 0)] = "ammo_built"
 global.sk_k[(70 << 0)] = 0
 global.sk_na[(70 << 0)] = "ammo_built_tier2"
+global.sk_k[(71 << 0)] = 1
+global.sk_na[(71 << 0)] = "eficiency_injector"
+ini_open(global.save_general)
+global.livello_now = ini_read_real("Exp", "Livello", 1)
+global.sk_k[(72 << 0)] = (10 * global.livello_now)
+global.sk_na[(72 << 0)] = "mutator_odds"
 global.sk_k[(0 << 0)] += (2 * floor(global.sk_lvl[(0 << 0)]))
 if (global.sk_lvl[(1 << 0)] >= 0)
 {
@@ -232,8 +238,10 @@ if (global.sk_lvl[(20 << 0)] >= 0)
 {
     global.sk_k[(35 << 0)] = 1
     global.sk_k[(37 << 0)] = 0.75
-    global.sk_k[(36 << 0)] += (0.3 + (0.05 * global.sk_lvl[(20 << 0)]))
+    global.sk_k[(36 << 0)] += (0.4 + (0.06 * global.sk_lvl[(20 << 0)]))
 }
+if (global.sk_lvl[(18 << 0)] >= 0)
+    global.sk_k[(71 << 0)] += (0.15 + (0.03 * global.sk_lvl[(18 << 0)]))
 for (var i = 0; i < array_length_1d(global.sl_id); i++)
 {
     var bid = global.sl_base_id[i]

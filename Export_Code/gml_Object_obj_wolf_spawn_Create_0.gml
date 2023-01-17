@@ -1,4 +1,6 @@
-repeat (4 + irandom(3))
+repeat (4 + irandom(5))
     instance_create_depth(x, y, (-y), obj_enemy_wolf_brown)
-if scr_chance(50)
+if scr_chance(40)
     instance_create_depth(x, y, 0, obj_enemy_human_bandit_novice)
+if scr_chance(40)
+    instance_create_depth(x, y, 0, obj_enemy_human_bandit_regular)

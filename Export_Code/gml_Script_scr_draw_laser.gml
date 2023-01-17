@@ -13,7 +13,7 @@ if (laser_on[weapon_slot_now, mod_pos_] == 1)
     var xp = start_x
     var yp = start_y
     var collision = position_meeting(temp_x, temp_y, obj_solid)
-    while ((!collision) && distance_to_point(temp_x, temp_y) < 320)
+    while ((!collision) && distance_to_point(temp_x, temp_y) < 420)
     {
         xp = temp_x
         yp = temp_y

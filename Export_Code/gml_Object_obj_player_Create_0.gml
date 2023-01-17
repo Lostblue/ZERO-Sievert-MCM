@@ -334,34 +334,34 @@ if (room != room_tutorial)
             var necessario_w = (sprite_get_width(item_sprite_inv[id_item]) div 16)
             var necessario_h = (sprite_get_height(item_sprite_inv[id_item]) div 16)
             for (var yy = 0; yy < grid_h; yy++)
+        {
+            for (var xx = 0; xx < grid_w; xx++)
             {
-                for (var xx = 0; xx < grid_w; xx++)
+                if (ds_grid_get(grid_item_, xx, yy) == 0)
                 {
-                    if (ds_grid_get(grid_item_, xx, yy) == 0)
+                    if (placed == 0)
                     {
-                        if (placed == 0)
-                        {
-                            var can_place = 1
+                        var can_place = 1
                             if ((xx + necessario_w) > grid_w)
-                                can_place = 0
+                            can_place = 0
                             if ((yy + necessario_h) > grid_h)
-                                can_place = 0
+                            can_place = 0
                             for (var ix = 0; ix < necessario_w; ix++)
+                        {
+                            for (var iy = 0; iy < necessario_h; iy++)
                             {
-                                for (var iy = 0; iy < necessario_h; iy++)
-                                {
-                                    if (ds_grid_get(grid_item_, (xx + ix), (yy + iy)) == 1)
-                                        can_place = 0
+                                if (ds_grid_get(grid_item_, (xx + ix), (yy + iy)) == 1)
+                                    can_place = 0
                                 }
-                            }
-                            if (can_place == 1)
+                        }
+                        if (can_place == 1)
+                        {
+                            for (ix = 0; ix < necessario_w; ix++)
                             {
-                                for (ix = 0; ix < necessario_w; ix++)
-                                {
-                                    for (iy = 0; iy < necessario_h; iy++)
-                                        ds_grid_set(grid_item_, (xx + ix), (yy + iy), 1)
+                                for (iy = 0; iy < necessario_h; iy++)
+                                    ds_grid_set(grid_item_, (xx + ix), (yy + iy), 1)
                                 }
-                                ini_write_real("Inventory", ("Item_id_" + string(n_items)), id_item)
+                            ini_write_real("Inventory", ("Item_id_" + string(n_items)), id_item)
                                 ini_write_real("Inventory", ("Item_qnt_" + string(n_items)), global.arr_trait_item_qnt[t_id, i])
                                 ini_write_real("Inventory", ("Item_x_" + string(n_items)), ((xx * 16) + 41))
                                 ini_write_real("Inventory", ("Item_y_" + string(n_items)), ((yy * 16) + 63))
@@ -369,47 +369,47 @@ if (room != room_tutorial)
                                 ini_write_real("Inventory", ("rotation" + string(n_items)), 0)
                                 ini_write_real("Inventory", "Number of items", n_items)
                                 if (item_categoria[id_item] == (5 << 0))
-                                {
-                                    ini_write_real("Inventory", ("Item_x_" + string(n_items)), 248)
+                            {
+                                ini_write_real("Inventory", ("Item_x_" + string(n_items)), 248)
                                     ini_write_real("Inventory", ("Item_y_" + string(n_items)), 119)
-                                    global.max_weight = (obj_player.base_weight + backpack_weight[id_item])
+                                    global.max_weight = (obj_player.base_weight + backpack_weight[id_item] + 4)
                                     global.backpack_equipped = 1
                                     backpack_now = id_item
                                 }
-                                n_items++
+                            n_items++
                                 placed = 1
                             }
-                        }
                     }
                 }
             }
         }
-        ds_grid_destroy(grid_item_)
+    }
+    ds_grid_destroy(grid_item_)
         global.numero_di_item = ini_read_real("Inventory", "Number of items", n_items)
     }
-    ini_close()
+ini_close()
     ini_open(global.save_inventory)
     if (new_game == 0)
-    {
-        var number_of_items = ini_read_real("Inventory", "Number of items", 0)
+{
+    var number_of_items = ini_read_real("Inventory", "Number of items", 0)
         if (number_of_items > 0)
+    {
+        for (i = 1; i <= number_of_items; i++)
         {
-            for (i = 1; i <= number_of_items; i++)
-            {
-                var temp_item_id = ini_read_real("Inventory", ("Item_id_" + string(i)), 0)
+            var temp_item_id = ini_read_real("Inventory", ("Item_id_" + string(i)), 0)
                 var temp_item_qnt = ini_read_real("Inventory", ("Item_qnt_" + string(i)), 0)
                 var temp_item_x = ini_read_real("Inventory", ("Item_x_" + string(i)), 0)
                 var temp_item_y = ini_read_real("Inventory", ("Item_y_" + string(i)), 0)
                 if (item_categoria[temp_item_id] == (0 << 0))
-                {
-                    var quante_ammo = ini_read_real("Inventory", ("item_ammo" + string(i)), arma_magazine[temp_item_id])
+            {
+                var quante_ammo = ini_read_real("Inventory", ("item_ammo" + string(i)), arma_magazine[temp_item_id])
                     var _ammo_id = ini_read_real("Inventory", ("item_ammo_id" + string(i)), arma_ammo[temp_item_id])
                 }
-                var _aggiungere_peso = 1
+            var _aggiungere_peso = 1
                 var toll = 2
                 if (temp_item_x >= (200 - toll) && temp_item_x <= (280 + toll) && temp_item_y >= (31 - toll) && temp_item_y <= (63 + toll))
-                {
-                    weapon_slot[(1 << 0)] = temp_item_id
+            {
+                weapon_slot[(1 << 0)] = temp_item_id
                     ammo_slot[(1 << 0)] = quante_ammo
                     ammo_slot_max[(1 << 0)] = arma_magazine[temp_item_id]
                     durability_slot[(1 << 0)] = ini_read_real("Inventory", ("durability" + string(i)), 0)
@@ -417,9 +417,9 @@ if (room != room_tutorial)
                     ammo_id_now[(1 << 0)] = _ammo_id
                     _aggiungere_peso = 0
                 }
-                if (temp_item_x >= (200 - toll) && temp_item_x <= (280 + toll) && temp_item_y >= (76 - toll) && temp_item_y <= (108 + toll))
-                {
-                    weapon_slot[(2 << 0)] = temp_item_id
+            if (temp_item_x >= (200 - toll) && temp_item_x <= (280 + toll) && temp_item_y >= (76 - toll) && temp_item_y <= (108 + toll))
+            {
+                weapon_slot[(2 << 0)] = temp_item_id
                     ammo_slot[(2 << 0)] = quante_ammo
                     ammo_slot_max[(2 << 0)] = arma_magazine[temp_item_id]
                     durability_slot[(2 << 0)] = ini_read_real("Inventory", ("durability" + string(i)), 0)
@@ -427,30 +427,30 @@ if (room != room_tutorial)
                     ammo_id_now[(2 << 0)] = _ammo_id
                     _aggiungere_peso = 0
                 }
-                if (temp_item_x >= (248 - toll) && temp_item_x <= (280 + toll) && temp_item_y >= (119 - toll) && temp_item_y <= (151 - toll))
-                {
-                    global.max_weight = (obj_player.base_weight + backpack_weight[temp_item_id])
+            if (temp_item_x >= (248 - toll) && temp_item_x <= (280 + toll) && temp_item_y >= (119 - toll) && temp_item_y <= (151 - toll))
+            {
+                global.max_weight = (obj_player.base_weight + backpack_weight[temp_item_id])
                     global.backpack_equipped = 1
                     backpack_now = temp_item_id
                 }
-                if (temp_item_x >= (200 - toll) && temp_item_x <= (232 + toll) && temp_item_y >= (119 - toll) && temp_item_y <= (151 - toll))
-                {
-                    global.armor_equipped = 1
+            if (temp_item_x >= (200 - toll) && temp_item_x <= (232 + toll) && temp_item_y >= (119 - toll) && temp_item_y <= (151 - toll))
+            {
+                global.armor_equipped = 1
                     armor_now = temp_item_id
                     durability_slot[(11 << 0)] = ini_read_real("Inventory", ("durability" + string(i)), 0)
                 }
-                if (temp_item_x >= (224 - toll) && temp_item_x <= (256 + toll) && temp_item_y >= (162 - toll) && temp_item_y <= (194 - toll))
-                    headset_now = temp_item_id
+            if (temp_item_x >= (224 - toll) && temp_item_x <= (256 + toll) && temp_item_y >= (162 - toll) && temp_item_y <= (194 - toll))
+                headset_now = temp_item_id
                 if (_aggiungere_peso == 1)
-                    global.player_weight += (item_weight[temp_item_id] * temp_item_qnt)
+                global.player_weight += (item_weight[temp_item_id] * temp_item_qnt)
             }
-        }
     }
-    ini_close()
+}
+ini_close()
     arma_now = weapon_slot[(1 << 0)]
     if (new_game == 1)
-    {
-        ini_open(global.save_inventory)
+{
+    ini_open(global.save_inventory)
         t_id = ini_read_real("trait", "id", 0)
         ini_close()
         global.sk_lvl[(0 << 0)] = global.trait_cardio[t_id]

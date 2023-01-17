@@ -196,7 +196,7 @@ global.esperienza_survive = 0
 global.esperienza_kill = 0
 global.esperienza_loot = 0
 global.esperienza_factor_survive = 1
-global.esperienza_factor_death = 0.25
+global.esperienza_factor_death = 0.1
 global.esperienza_da_looting = 3
 var i = 7
 global.esperienza_livello[0] = 0
@@ -1577,44 +1577,44 @@ for (i = 0; i < array_length_1d(global.item_spawn_name); i++)
         var placed = 0
         for (yy = 0; yy < _grid_h; yy++)
         {
-            for (xx = 0; xx < _grid_w; xx++)
+    for (xx = 0; xx < _grid_w; xx++)
+    {
+        if (ds_grid_get(_grid, xx, yy) == 0)
+        {
+            if (placed == 0)
             {
-                if (ds_grid_get(_grid, xx, yy) == 0)
-                {
-                    if (placed == 0)
-                    {
-                        var can_place = 1
+                var can_place = 1
                         if ((xx + necessario_w) > _grid_w)
-                            can_place = 0
+                    can_place = 0
                         if ((yy + necessario_h) > _grid_h)
-                            can_place = 0
+                    can_place = 0
                         for (var ix = 0; ix < necessario_w; ix++)
-                        {
-                            for (var iy = 0; iy < necessario_h; iy++)
-                            {
-                                if (ds_grid_get(_grid, (xx + ix), (yy + iy)) == 1)
-                                    can_place = 0
+                {
+                    for (var iy = 0; iy < necessario_h; iy++)
+                    {
+                        if (ds_grid_get(_grid, (xx + ix), (yy + iy)) == 1)
+                            can_place = 0
                             }
-                        }
-                        if (can_place == 1)
-                        {
-                            placed = 1
+                }
+                if (can_place == 1)
+                {
+                    placed = 1
                             for (ix = 0; ix < necessario_w; ix++)
-                            {
-                                for (iy = 0; iy < necessario_h; iy++)
-                                    ds_grid_set(_grid, (xx + ix), (yy + iy), 1)
+                    {
+                        for (iy = 0; iy < necessario_h; iy++)
+                            ds_grid_set(_grid, (xx + ix), (yy + iy), 1)
                             }
-                            item_spawn_x[i, j] = xx
+                    item_spawn_x[i, j] = xx
                             item_spawn_y[i, j] = yy
                             item_spawn_pa[i, j] = _page
                         }
-                    }
-                }
             }
         }
-        if (placed == 0)
-        {
-            _page++
+    }
+}
+if (placed == 0)
+{
+    _page++
             ds_grid_clear(_grid, 0)
         }
     }

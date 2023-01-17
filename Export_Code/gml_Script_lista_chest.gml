@@ -98,7 +98,7 @@ chest_item[a, i] = (269 << 0)
 chest_item_rare[a, i] = 1
 i++
 chest_item[a, i] = (226 << 0)
-chest_item_rare[a, i] = 10
+chest_item_rare[a, i] = 1
 i++
 chest_item[a, i] = (227 << 0)
 chest_item_rare[a, i] = 1
@@ -213,7 +213,7 @@ chest_name[a] = "electronic box"
 chest_sprite[a] = 1211
 chest_decay_item[a] = 1
 chest_quanti_item_max[a] = 9
-chest_quanti_item_min[a] = 7
+chest_quanti_item_min[a] = 6
 chest_is_drop[a] = 0
 chest_from_enemy[a] = 0
 chest_sound_type[a] = (4 << 0)
@@ -229,7 +229,7 @@ chest_item[a, i] = (305 << 0)
 chest_item_rare[a, i] = 40
 i++
 chest_item[a, i] = (307 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (306 << 0)
 chest_item_rare[a, i] = 12
@@ -241,13 +241,13 @@ chest_item[a, i] = (315 << 0)
 chest_item_rare[a, i] = 40
 i++
 chest_item[a, i] = (308 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 8
 i++
 chest_item[a, i] = (309 << 0)
 chest_item_rare[a, i] = 40
 i++
 chest_item[a, i] = (310 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 10
 i++
 chest_item[a, i] = (311 << 0)
 chest_item_rare[a, i] = 60
@@ -256,10 +256,10 @@ chest_item[a, i] = (312 << 0)
 chest_item_rare[a, i] = 25
 i++
 chest_item[a, i] = (316 << 0)
-chest_item_rare[a, i] = 5
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (314 << 0)
-chest_item_rare[a, i] = 5
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (317 << 0)
 chest_item_rare[a, i] = 40
@@ -277,10 +277,10 @@ chest_item[a, i] = (321 << 0)
 chest_item_rare[a, i] = 60
 i++
 chest_item[a, i] = (325 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 8
 i++
 chest_item[a, i] = (326 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 2
 i++
 chest_item[a, i] = (327 << 0)
 chest_item_rare[a, i] = 40
@@ -369,16 +369,16 @@ chest_item[a, i] = (292 << 0)
 chest_item_rare[a, i] = 40
 i++
 chest_item[a, i] = (582 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 20
 i++
 chest_item[a, i] = (269 << 0)
 chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (244 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (243 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (270 << 0)
 chest_item_rare[a, i] = 25
@@ -387,10 +387,10 @@ chest_item[a, i] = (577 << 0)
 chest_item_rare[a, i] = 40
 i++
 chest_item[a, i] = (245 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (248 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (272 << 0)
 chest_item_rare[a, i] = 25
@@ -411,13 +411,13 @@ chest_item[a, i] = (333 << 0)
 chest_item_rare[a, i] = 60
 i++
 chest_item[a, i] = (226 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 1
 i++
 chest_item[a, i] = (231 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 10
 i++
 chest_item[a, i] = (229 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 20
 i++
 chest_item[a, i] = (530 << 0)
 chest_item_rare[a, i] = 5
@@ -508,7 +508,7 @@ chest_item[a, i] = (269 << 0)
 chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (582 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 30
 i++
 chest_item[a, i] = (271 << 0)
 chest_item_rare[a, i] = 25
@@ -523,10 +523,10 @@ chest_item[a, i] = (275 << 0)
 chest_item_rare[a, i] = 25
 i++
 chest_item[a, i] = (279 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 25
 i++
 chest_item[a, i] = (280 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 8
 a = (9 << 0)
 chest_id[a] = a
 chest_name[a] = "Safe"
@@ -584,22 +584,22 @@ chest_chance_epic[a] = 12
 chest_chance_legendary[a] = 1
 i = 0
 chest_item[a, i] = (229 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 20
 i++
 chest_item[a, i] = (231 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 6
 i++
 chest_item[a, i] = (610 << 0)
 chest_item_rare[a, i] = 25
 i++
 chest_item[a, i] = (226 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (232 << 0)
 chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (230 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (437 << 0)
 chest_item_rare[a, i] = 25
@@ -647,22 +647,22 @@ chest_item[a, i] = (577 << 0)
 chest_item_rare[a, i] = 60
 i++
 chest_item[a, i] = (245 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (580 << 0)
 chest_item_rare[a, i] = 60
 i++
 chest_item[a, i] = (249 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 20
 i++
 chest_item[a, i] = (270 << 0)
 chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (248 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 6
 i++
 chest_item[a, i] = (247 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 6
 i++
 chest_item[a, i] = (273 << 0)
 chest_item_rare[a, i] = 12
@@ -680,13 +680,13 @@ chest_item[a, i] = (269 << 0)
 chest_item_rare[a, i] = 25
 i++
 chest_item[a, i] = (582 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 30
 i++
 chest_item[a, i] = (272 << 0)
 chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (246 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 5
 i++
 chest_item[a, i] = (243 << 0)
 chest_item_rare[a, i] = 12
@@ -873,7 +873,7 @@ chest_chance_epic[a] = 8
 chest_chance_legendary[a] = 3
 i = 0
 chest_item[a, i] = (582 << 0)
-chest_item_rare[a, i] = 60
+chest_item_rare[a, i] = 40
 i++
 chest_item[a, i] = (583 << 0)
 chest_item_rare[a, i] = 40
@@ -891,7 +891,7 @@ chest_item[a, i] = (578 << 0)
 chest_item_rare[a, i] = 40
 i++
 chest_item[a, i] = (269 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (245 << 0)
 chest_item_rare[a, i] = 25
@@ -994,7 +994,7 @@ chest_item[a, i] = (492 << 0)
 chest_item_rare[a, i] = 60
 i++
 chest_item[a, i] = (231 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 6
 i++
 chest_item[a, i] = (610 << 0)
 chest_item_rare[a, i] = 25
@@ -1003,28 +1003,28 @@ chest_item[a, i] = (437 << 0)
 chest_item_rare[a, i] = 25
 i++
 chest_item[a, i] = (609 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 15
 i++
 chest_item[a, i] = (437 << 0)
 chest_item_rare[a, i] = 40
 i++
 chest_item[a, i] = (226 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 6
 i++
 chest_item[a, i] = (227 << 0)
 chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (228 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (229 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 20
 i++
 chest_item[a, i] = (230 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (232 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (448 << 0)
 chest_item_rare[a, i] = 5
@@ -1036,25 +1036,25 @@ chest_item[a, i] = (341 << 0)
 chest_item_rare[a, i] = 25
 i++
 chest_item[a, i] = (431 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 4
 i++
 chest_item[a, i] = (432 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (433 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (434 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (435 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (436 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (611 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 3
 i++
 a = (20 << 0)
 chest_id[a] = a
@@ -2859,7 +2859,7 @@ chest_chance_epic[a] = 10
 chest_chance_legendary[a] = 1
 i = 0
 chest_item[a, i] = (269 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 20
 i++
 chest_item[a, i] = (244 << 0)
 chest_item_rare[a, i] = 40
@@ -2874,10 +2874,10 @@ chest_item[a, i] = (577 << 0)
 chest_item_rare[a, i] = 60
 i++
 chest_item[a, i] = (245 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 13
 i++
 chest_item[a, i] = (248 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 13
 i++
 chest_item[a, i] = (272 << 0)
 chest_item_rare[a, i] = 40
@@ -2901,16 +2901,16 @@ chest_item[a, i] = (333 << 0)
 chest_item_rare[a, i] = 60
 i++
 chest_item[a, i] = (226 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 10
 i++
 chest_item[a, i] = (227 << 0)
 chest_item_rare[a, i] = 25
 i++
 chest_item[a, i] = (228 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (229 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 20
 i++
 chest_item[a, i] = (304 << 0)
 chest_item_rare[a, i] = 40
@@ -2951,43 +2951,43 @@ chest_chance_epic[a] = 6
 chest_chance_legendary[a] = 0.75
 i = 0
 chest_item[a, i] = (229 << 0)
-chest_item_rare[a, i] = 60
+chest_item_rare[a, i] = 30
 i++
 chest_item[a, i] = (609 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 15
 i++
 chest_item[a, i] = (231 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 10
 i++
 chest_item[a, i] = (226 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 6
 i++
 chest_item[a, i] = (227 << 0)
 chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (228 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (233 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 6
 i++
 chest_item[a, i] = (234 << 0)
 chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (230 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (232 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (243 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 20
 i++
 chest_item[a, i] = (244 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 12
 i++
 chest_item[a, i] = (245 << 0)
-chest_item_rare[a, i] = 60
+chest_item_rare[a, i] = 30
 i++
 chest_item[a, i] = (275 << 0)
 chest_item_rare[a, i] = 25
@@ -3014,7 +3014,7 @@ chest_item[a, i] = (276 << 0)
 chest_item_rare[a, i] = 25
 i++
 chest_item[a, i] = (269 << 0)
-chest_item_rare[a, i] = 60
+chest_item_rare[a, i] = 30
 i++
 chest_item[a, i] = (215 << 0)
 chest_item_rare[a, i] = 60
@@ -3343,6 +3343,21 @@ chest_chance_rare[a] = 20
 chest_chance_epic[a] = 10
 chest_chance_legendary[a] = 1
 scr_chest_loot_human_general_1(1)
+a = (101 << 0)
+chest_id[a] = a
+chest_name[a] = "Expert Bandit"
+chest_sprite[a] = 30
+chest_decay_item[a] = 0
+chest_quanti_item_max[a] = 12
+chest_quanti_item_min[a] = 8
+chest_is_drop[a] = 1
+chest_from_enemy[a] = 1
+chest_sound_type[a] = (1 << 0)
+chest_chance_uncommon[a] = 45
+chest_chance_rare[a] = 20
+chest_chance_epic[a] = 13
+chest_chance_legendary[a] = 2
+scr_chest_loot_human_general_1(1)
 a = (25 << 0)
 chest_id[a] = a
 chest_name[a] = "Lazar"
@@ -3374,10 +3389,10 @@ chest_chance_epic[a] = 7
 chest_chance_legendary[a] = 1
 i = 0
 chest_item[a, i] = (229 << 0)
-chest_item_rare[a, i] = 60
+chest_item_rare[a, i] = 30
 i++
 chest_item[a, i] = (609 << 0)
-chest_item_rare[a, i] = 60
+chest_item_rare[a, i] = 20
 i++
 chest_item[a, i] = (610 << 0)
 chest_item_rare[a, i] = 60
@@ -3386,28 +3401,28 @@ chest_item[a, i] = (437 << 0)
 chest_item_rare[a, i] = 60
 i++
 chest_item[a, i] = (226 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 10
 i++
 chest_item[a, i] = (550 << 0)
 chest_item_rare[a, i] = 40
 i++
 chest_item[a, i] = (246 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 30
 i++
 chest_item[a, i] = (233 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 6
 i++
 chest_item[a, i] = (550 << 0)
 chest_item_rare[a, i] = 25
 i++
 chest_item[a, i] = (432 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (433 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (611 << 0)
-chest_item_rare[a, i] = 12
+chest_item_rare[a, i] = 3
 i++
 chest_item[a, i] = (448 << 0)
 chest_item_rare[a, i] = 5
@@ -3434,10 +3449,10 @@ chest_chance_epic[a] = 7
 chest_chance_legendary[a] = 2
 i = 0
 chest_item[a, i] = (229 << 0)
-chest_item_rare[a, i] = 60
+chest_item_rare[a, i] = 30
 i++
 chest_item[a, i] = (231 << 0)
-chest_item_rare[a, i] = 60
+chest_item_rare[a, i] = 25
 i++
 chest_item[a, i] = (270 << 0)
 chest_item_rare[a, i] = 60
@@ -3446,22 +3461,22 @@ chest_item[a, i] = (541 << 0)
 chest_item_rare[a, i] = 60
 i++
 chest_item[a, i] = (226 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 10
 i++
 chest_item[a, i] = (232 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 20
 i++
 chest_item[a, i] = (541 << 0)
 chest_item_rare[a, i] = 40
 i++
 chest_item[a, i] = (246 << 0)
-chest_item_rare[a, i] = 40
+chest_item_rare[a, i] = 30
 i++
 chest_item[a, i] = (233 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 6
 i++
 chest_item[a, i] = (431 << 0)
-chest_item_rare[a, i] = 25
+chest_item_rare[a, i] = 10
 i++
 chest_item[a, i] = (234 << 0)
 chest_item_rare[a, i] = 12
@@ -3839,7 +3854,7 @@ chest_item[a, i] = (388 << 0)
 chest_item_rare[a, i] = 60
 i++
 chest_item[a, i] = (226 << 0)
-chest_item_rare[a, i] = 60
+chest_item_rare[a, i] = 2
 a = (50 << 0)
 chest_id[a] = a
 chest_name[a] = "Devourer"

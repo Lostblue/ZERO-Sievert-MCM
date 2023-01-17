@@ -130,7 +130,7 @@ switch state
             {
                 with (obj_npc_draw_text)
                 {
-                    if (global.t_npc_text_next_id[text_id] == 714 || global.t_npc_text_next_id[text_id] == 715)
+                    if (global.t_npc_text_next_id[text_id] == 717 || global.t_npc_text_next_id[text_id] == 718)
                         point_player = 1
                 }
             }
@@ -1718,19 +1718,19 @@ if (hp <= 0)
         case obj_enemy_wolf_brown:
             sound_ = 281
             break
-        case 198:
-            sound_ = 309
-            break
         case 199:
             sound_ = 309
             break
-        case 187:
+        case 200:
+            sound_ = 309
+            break
+        case 188:
             sound_ = 320
             break
-        case 200:
+        case 201:
             sound_ = 303
             break
-        case 189:
+        case 190:
             sound_ = 295
             break
     }

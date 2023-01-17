@@ -17,7 +17,7 @@ if (uscito == 0)
                             with (obj_light_torch)
                                 instance_destroy()
                         }
-                        obj_player.state = 50
+                        obj_player.state = 52
                         var eend = instance_create_depth(x, y, -9999, obj_exit_screen)
                         eend.survived = 1
                         eend.factor_survived = 1

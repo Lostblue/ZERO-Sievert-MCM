@@ -254,7 +254,13 @@ if instance_exists(obj_player)
             reset_restok_trader = 0
             ini_open(global.save_general)
             global.trader_money_all = (global.trader_money_all_max * global.sk_k[(22 << 0)])
+            global.trader_money_barman = (global.trader_money_all_max * global.sk_k[(22 << 0)])
+            global.trader_money_doctor = (global.trader_money_all_max * global.sk_k[(22 << 0)])
+            global.trader_money_artemovich = (global.trader_money_all_max * global.sk_k[(22 << 0)])
             ini_write_real("traders", "money", global.trader_money_all)
+            ini_write_real("General Artemovich_trader", "money", global.trader_money_artemovich)
+            ini_write_real("Barman_trader", "money", global.trader_money_barman)
+            ini_write_real("The Doctor_trader", "money", global.trader_money_doctor)
             var quanti_npc = array_length_1d(npc_name)
             for (i = 0; i < quanti_npc; i++)
             {

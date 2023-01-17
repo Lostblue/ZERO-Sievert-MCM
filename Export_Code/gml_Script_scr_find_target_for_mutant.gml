@@ -42,7 +42,7 @@ with (obj_npc_parent)
 alert_distance = (npc_alert_visual_distance[npc_id] * global.sk_k[(10 << 0)])
 if instance_exists(obj_player)
 {
-    if (obj_player.state != 50)
+    if (obj_player.state != 52)
     {
         if (distance_to_object(obj_player) <= d)
         {

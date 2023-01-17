@@ -9,7 +9,7 @@ if instance_exists(obj_player)
         show_debug_overlay(1)
     else
         show_debug_overlay(0)
-    if (obj_player.state == 22 || obj_player.state == 24 || obj_player.state == 51)
+    if (obj_player.state == 22 || obj_player.state == 24 || obj_player.state == 53)
     {
         if (global.debug_hide_hud == 0)
         {
@@ -25,7 +25,7 @@ if instance_exists(obj_player)
                 draw_sprite_ext(s_hud_bleed, 0, 0, 0, 1, 1, 0, c_white, _alpha)
         }
     }
-    if (obj_player.state == 22 || obj_player.state == 23 || obj_player.state == 24 || obj_player.state == 51)
+    if (obj_player.state == 22 || obj_player.state == 23 || obj_player.state == 24 || obj_player.state == 53)
     {
         if (global.aiming == 0 && global.debug_hide_hud == 0)
         {
@@ -451,7 +451,7 @@ if instance_exists(obj_player)
             }
         }
     }
-    if (obj_player.state == 53)
+    if (obj_player.state == 55)
     {
         draw_sprite(s_hud_mod, 0, 0, 0)
         draw_set_font(font_quest)
@@ -597,7 +597,7 @@ if instance_exists(obj_player)
             draw_text_ext(x1, y1, _t, 12, 140)
         }
     }
-    if (obj_player.state == 52)
+    if (obj_player.state == 54)
     {
         if (!instance_exists(obj_sleep_fade))
         {
@@ -649,10 +649,10 @@ if instance_exists(obj_player)
             scr_draw_text_outlined(240, 163, _tt, c_white, c_black, 1, 1)
         }
     }
-    if (obj_player.state == 40 || obj_player.state == 43 || obj_player.state == 45 || obj_player.state == 47 || obj_player.state == 48 || obj_player.state == 42 || obj_player.state == 41 || obj_player.state == 44 || obj_player.state == 46)
+    if (obj_player.state == 40 || obj_player.state == 43 || obj_player.state == 45 || obj_player.state == 49 || obj_player.state == 50 || obj_player.state == 42 || obj_player.state == 41 || obj_player.state == 44 || obj_player.state == 48 || obj_player.state == 46)
     {
         var _sub_image_dialogo = 0
-        if (obj_player.state == 48)
+        if (obj_player.state == 50)
             _sub_image_dialogo = 1
         if (obj_player.state == 43)
             _sub_image_dialogo = 2
@@ -744,7 +744,19 @@ if instance_exists(obj_player)
             draw_text_color(start_text_x, start_text_y, "- Back", c_text, c_text, c_text, c_text, 1)
             scr_barra_testo_draw(0, speak_nearest.answer[speaker_id_, global.which_question])
         }
-        if (obj_player.state == 47)
+        if (obj_player.state == 46)
+        {
+            draw_set_halign(fa_left)
+            draw_set_valign(fa_top)
+            quanti_text = array_length_2d(speak_nearest.question, speaker_id_)
+            if scr_mouse_inside((camx + start_text_x), (camy + start_text_y), 96, 12)
+                c_text = c_hover
+            else
+                c_text = c_not_hover
+            draw_text_color(start_text_x, start_text_y, "- Back", c_text, c_text, c_text, c_text, 1)
+            scr_barra_testo_draw(0, global.text_custom_question)
+        }
+        if (obj_player.state == 49)
         {
             draw_set_halign(fa_left)
             draw_set_valign(fa_top)
@@ -792,7 +804,7 @@ if instance_exists(obj_player)
                 draw_text(220, 72, "I have nothing for you")
             }
         }
-        if (obj_player.state == 48)
+        if (obj_player.state == 50)
         {
             draw_set_halign(fa_left)
             draw_set_valign(fa_top)
@@ -1015,7 +1027,7 @@ if instance_exists(obj_player)
             draw_text_color(start_text_x, (start_text_y + 36), t_, c_text, c_text, c_text, c_text, 1)
             draw_sprite(s_mouse, 4, (mouse_x - camx), (mouse_y - camy))
         }
-        if (obj_player.state == 46)
+        if (obj_player.state == 48)
         {
             draw_set_halign(fa_left)
             draw_set_valign(fa_top)
@@ -1052,7 +1064,38 @@ if instance_exists(obj_player)
             draw_text_ext(240, 32, (_t_sure + _faction_text_sure), 12, 215)
         }
     }
-    if (obj_player.state == 59)
+    if (obj_player.state == 47)
+    {
+        scr_draw_box(s_box_testo1, global.dialogue_type_text_box_startx, global.dialogue_type_text_box_starty, global.dialogue_type_text_box_w, global.dialogue_type_text_box_h, 1)
+        draw_set_font(font_quest)
+        draw_set_halign(fa_center)
+        draw_set_valign(fa_top)
+        _w = (global.dialogue_type_text_box_w - 20)
+        _y = (global.dialogue_type_text_box_starty + 10)
+        draw_text_ext(240, _y, global.text_custom_question, 12, _w)
+        draw_set_font(font_quest)
+        draw_set_halign(fa_center)
+        draw_set_valign(fa_middle)
+        var a = global.text_custom_index
+        for (i = 0; i < array_length_2d(global.dialogue_type_text_x, global.text_custom_index); i++)
+        {
+            var _bw = global.dialogue_type_text_w[a, i]
+            var _bh = global.dialogue_type_text_h[a, i]
+            var _sx = (global.dialogue_type_text_x[a, i] - (_bw / 2))
+            var _sy = (global.dialogue_type_text_y[a, i] - (_bh / 2))
+            var _c_rettangolo = c_black
+            var _c_text = c_white
+            if (global.dialogue_type_text_hover[a] == i)
+            {
+                _c_rettangolo = 9564927
+                _c_text = 0
+            }
+            draw_rectangle_color(_sx, _sy, (_sx + _bw), (_sy + _bh), _c_rettangolo, _c_rettangolo, _c_rettangolo, _c_rettangolo, 0)
+            draw_text_color(global.dialogue_type_text_x[a, i], global.dialogue_type_text_y[a, i], global.dialogue_type_text_text[a, i], _c_text, _c_text, _c_text, _c_text, 1)
+        }
+        draw_sprite(s_mouse, 4, (mouse_x - camx), (mouse_y - camy))
+    }
+    if (obj_player.state == 61)
     {
         var c = c_black
         draw_rectangle_color(0, 0, 480, 40, c, c, c, c, 0)
@@ -2304,7 +2347,7 @@ if instance_exists(obj_player)
             _show_debug = 0
         if instance_exists(obj_player)
         {
-            if (room == room1 && obj_player.state == 50)
+            if (room == room1 && obj_player.state == 52)
                 _show_debug = 0
         }
         if (_show_debug == 1)
@@ -2366,7 +2409,7 @@ if instance_exists(obj_player)
             }
         }
     }
-    if (obj_player.state == 65)
+    if (obj_player.state == 67)
     {
         draw_sprite(s_hud_item_spawn, 0, 0, 0)
         draw_set_font(font0)
@@ -2390,7 +2433,7 @@ if instance_exists(obj_player)
     var collisione = 0
     with (obj_player)
     {
-        if (state != 50)
+        if (state != 52)
         {
             if place_meeting(x, y, obj_solid)
                 collisione = 1
@@ -2403,5 +2446,29 @@ if instance_exists(obj_player)
         draw_set_halign(fa_center)
         draw_set_valign(fa_top)
         scr_draw_text_outlined(240, 230, t_, c_white, c_black, 1, 1)
+    }
+    if (global.general_debug == 1)
+    {
+        if keyboard_check(vk_numpad1)
+        {
+            if (room == room1)
+            {
+                if instance_exists(obj_map_generator)
+                {
+                    o = obj_map_generator
+                    _sx = 10
+                    _sy = 50
+                    draw_set_font(font0)
+                    draw_set_halign(fa_left)
+                    draw_set_valign(fa_top)
+                    for (i = 0; i < (19 << 0); i++)
+                    {
+                        _t = string((o.tempo_generazione[i] / 1000))
+                        _tt = ((_t + "   : ") + o.tempo_gen_name[i])
+                        draw_text(_sx, (_sy + (i * 10)), string(_tt))
+                    }
+                }
+            }
+        }
     }
 }

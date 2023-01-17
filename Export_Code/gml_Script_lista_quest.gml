@@ -1,5 +1,6 @@
 thank_for_help = "Thank you for your help"
 quest_completed = "Quest completed! Return to gain your reward!"
+var money_reward_factor = 0.5
 global.list_q_weapon_dur = ds_list_create()
 global.list_q_weapon_x = ds_list_create()
 global.list_q_weapon_y = ds_list_create()
@@ -7,23 +8,23 @@ global.list_quest_before_map_npc_name = ds_list_create()
 global.list_quest_before_map_quest_id = ds_list_create()
 global.list_quest_before_map_quest_premio = ds_list_create()
 var j = 0
-rew_money[j] = 1500
+rew_money[j] = floor((1500 * money_reward_factor))
 rew_exp[j] = 35
 rew_rep[j] = 3
 j++
-rew_money[j] = 2500
+rew_money[j] = floor((2500 * money_reward_factor))
 rew_exp[j] = 50
 rew_rep[j] = 4
 j++
-rew_money[j] = 3500
+rew_money[j] = floor((3500 * money_reward_factor))
 rew_exp[j] = 65
 rew_rep[j] = 5
 j++
-rew_money[j] = 4500
+rew_money[j] = floor((4500 * money_reward_factor))
 rew_exp[j] = 80
 rew_rep[j] = 6
 j++
-rew_money[j] = 6000
+rew_money[j] = floor((6000 * money_reward_factor))
 rew_exp[j] = 100
 rew_rep[j] = 7
 var a = (1 << 0)
@@ -800,11 +801,11 @@ global.quest_name[a] = "Kill Lazar"
 global.quest_type[a] = (0 << 0)
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
-global.quest_obj_to_kill[a, 0] = 183
+global.quest_obj_to_kill[a, 0] = 184
 global.quest_stage_completed[a] = 2
 global.quest_amount_now[a] = 0
 global.quest_amount_max[a] = 1
-global.quest_reward[a] = 6500
+global.quest_reward[a] = floor((6500 * money_reward_factor))
 global.quest_exp[a] = 50
 global.quest_liv_min[a] = 1
 global.quest_rep[a] = rew_rep[1]
@@ -921,7 +922,7 @@ global.quest_text[a, 0] = "We lost contact with a convoy carrying supplies for t
 global.quest_text[a, 1] = "Find 5 blue cigarette"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_approach(a, 0, 844, 80, (1 << 0))
+scr_quest_create_approach(a, 0, 851, 80, (1 << 0))
 global.quest_marker[a, 0] = 1
 global.quest_marker_sub[a, 0] = 13
 global.quest_text_obj[a, 0] = "Find the lost convoy"
@@ -1122,7 +1123,7 @@ global.quest_text[a, 0] = "Very interesting. From the flash drives you brought m
 global.quest_text[a, 1] = "Find 2 cooking pot"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_approach(a, 0, 845, 96, (3 << 0))
+scr_quest_create_approach(a, 0, 852, 96, (3 << 0))
 global.quest_text_obj[a, 0] = "Investigate the port area of the industrial map"
 a = (19 << 0)
 i = 0
@@ -1200,7 +1201,7 @@ global.quest_text[a, 0] = "One of our hunters and my personal friend was on a sp
 global.quest_text[a, 1] = "Find the missing Hunter"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_approach(a, 0, 838, 16, (2 << 0))
+scr_quest_create_approach(a, 0, 845, 16, (2 << 0))
 global.quest_marker[a, 0] = 1
 global.quest_marker_sub[a, 0] = 0
 global.quest_text_obj[a, 0] = "Find the missing Hunter"
@@ -1256,7 +1257,7 @@ global.quest_text[a, 0] = "Hey Hunter!\nI finished analyzing the documents. Ther
 global.quest_text[a, 1] = "Find the missing group"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_approach(a, 0, 839, 16, (4 << 0))
+scr_quest_create_approach(a, 0, 846, 16, (4 << 0))
 global.quest_marker[a, 0] = 1
 global.quest_marker_sub[a, 0] = 11
 global.quest_text_obj[a, 0] = "Find the missing group"
@@ -1276,7 +1277,7 @@ global.quest_text[a, 0] = "Damn it!\nA few reports have come in from scouts sayi
 global.quest_text[a, 1] = "Kill the monster"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_contract(a, 0, 189, (4 << 0))
+scr_quest_create_contract(a, 0, 190, (4 << 0))
 a = (27 << 0)
 i = 0
 global.quest_id[a] = a
@@ -1284,7 +1285,7 @@ global.quest_name[a] = "Stylish one"
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
 global.quest_stage_completed[a] = 2
-global.quest_reward[a] = 10000
+global.quest_reward[a] = floor((10000 * money_reward_factor))
 global.quest_exp[a] = 250
 global.quest_rep[a] = rew_rep[0]
 global.quest_liv_min[a] = 1
@@ -1319,7 +1320,7 @@ global.quest_name[a] = "The old man"
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
 global.quest_stage_completed[a] = 2
-global.quest_reward[a] = 15000
+global.quest_reward[a] = floor((15000 * money_reward_factor))
 global.quest_exp[a] = rew_exp[4]
 global.quest_rep[a] = rew_rep[0]
 global.quest_liv_min[a] = 1
@@ -1328,7 +1329,7 @@ global.quest_text[a, 0] = "This is more of a personal favour than a real job.\nA
 global.quest_text[a, 1] = "Kill Igor"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_contract(a, 0, 704, (1 << 0))
+scr_quest_create_contract(a, 0, 706, (1 << 0))
 global.quest_text_obj[a, 0] = "Eliminate Igor"
 a = (30 << 0)
 i = 0
@@ -1346,7 +1347,7 @@ global.quest_text[a, 0] = "Since you were successful with the last mission, I wa
 global.quest_text[a, 1] = "Approach the sawmill"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_approach(a, 0, 840, 460, (1 << 0))
+scr_quest_create_approach(a, 0, 847, 460, (1 << 0))
 global.quest_text_obj[a, 0] = "Find the sawmill"
 a = (31 << 0)
 i = 0
@@ -1355,7 +1356,7 @@ global.quest_name[a] = "Sawmill p.2"
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
 global.quest_stage_completed[a] = 2
-global.quest_reward[a] = 3500
+global.quest_reward[a] = floor((3500 * money_reward_factor))
 global.quest_exp[a] = 110
 global.quest_rep[a] = rew_rep[1]
 global.quest_liv_min[a] = 1
@@ -1452,7 +1453,7 @@ global.quest_text[a, 0] = "We believe that there is a Ghoul's lair hidden somewh
 global.quest_text[a, 1] = "Find the Ghoul's lair in the forest"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_approach(a, 0, 841, 64, (1 << 0))
+scr_quest_create_approach(a, 0, 848, 64, (1 << 0))
 global.quest_text_obj[a, 0] = "Find the Ghoul's lair"
 a = (37 << 0)
 i = 0
@@ -1470,7 +1471,7 @@ global.quest_text[a, 0] = "Bad news, Hunter.\nWe sent a team to destroy the Ghou
 global.quest_text[a, 1] = "Destroy the ghoul's lair"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_interact_with_obj(a, 0, 848, 32, (365 << 0), "Place dynamite", (28 << 0), (29 << 0))
+scr_quest_create_interact_with_obj(a, 0, 855, 32, (365 << 0), "Place dynamite", (28 << 0), (29 << 0))
 global.quest_text_obj[a, 0] = "Destroy the Ghoul's lair"
 global.quest_marker[a, 0] = 1
 global.quest_marker_sub[a, 0] = 3
@@ -1515,7 +1516,7 @@ global.quest_name[a] = "Cleaning p.2"
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
 global.quest_stage_completed[a] = 2
-global.quest_reward[a] = 6500
+global.quest_reward[a] = floor((6500 * money_reward_factor))
 global.quest_exp[a] = 150
 global.quest_liv_min[a] = 1
 global.quest_rep[a] = rew_rep[1]
@@ -1541,7 +1542,7 @@ global.quest_text[a, 0] = "We have noticed that there is a fair amount of trucks
 global.quest_text[a, 1] = "Find and mark a working truck"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_place_marker(a, 0, 608, (2 << 0))
+scr_quest_create_place_marker(a, 0, 609, (2 << 0))
 global.quest_marker[a, 0] = 1
 global.quest_marker_sub[a, 0] = 13
 global.quest_text_obj[a, 0] = "Find and mark a working truck"
@@ -1579,7 +1580,7 @@ global.quest_text[a, 0] = "Hey Hunter!\nWe know that in the makeshift camp there
 global.quest_text[a, 1] = "Find the motel"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_approach(a, 0, 842, 64, (2 << 0))
+scr_quest_create_approach(a, 0, 849, 64, (2 << 0))
 global.quest_text_obj[a, 0] = "Find the entrance of the Motel"
 a = (44 << 0)
 i = 0
@@ -1588,7 +1589,7 @@ global.quest_name[a] = "Motel p.2"
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
 global.quest_stage_completed[a] = 2
-global.quest_reward[a] = 3500
+global.quest_reward[a] = floor((3500 * money_reward_factor))
 global.quest_exp[a] = 200
 global.quest_liv_min[a] = 1
 global.quest_rep[a] = rew_rep[1]
@@ -1597,7 +1598,7 @@ global.quest_text[a, 0] = "Well Hunter, like you said the motel entrance is bloc
 global.quest_text[a, 1] = "Motel infestation"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_contract(a, 0, 191, (2 << 0))
+scr_quest_create_contract(a, 0, 192, (2 << 0))
 global.quest_marker[a, 0] = 1
 global.quest_marker_sub[a, 0] = 3
 global.quest_text_obj[a, 0] = "Eliminate the infestation"
@@ -1607,7 +1608,8 @@ global.quest_id[a] = a
 global.quest_name[a] = "Weird phenomena p.1"
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
-global.quest_reward[a] = 3000
+global.quest_stage_completed[a] = 2
+global.quest_reward[a] = floor((3000 * money_reward_factor))
 global.quest_exp[a] = 50
 global.quest_rep[a] = rew_rep[1]
 global.quest_liv_min[a] = 1
@@ -1648,7 +1650,7 @@ global.quest_name[a] = "Clear the Swamp"
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
 global.quest_stage_completed[a] = 2
-global.quest_reward[a] = 6000
+global.quest_reward[a] = floor((6000 * money_reward_factor))
 global.quest_exp[a] = 220
 global.quest_rep[a] = rew_rep[1]
 global.quest_liv_min[a] = 1
@@ -1670,7 +1672,7 @@ global.quest_name[a] = "Inspect the village"
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
 global.quest_stage_completed[a] = 2
-global.quest_reward[a] = 6000
+global.quest_reward[a] = floor((6000 * money_reward_factor))
 global.quest_exp[a] = 220
 global.quest_rep[a] = rew_rep[1]
 global.quest_liv_min[a] = 1
@@ -1865,7 +1867,7 @@ global.quest_text[a, 0] = "It is time to repair the radio tower in the makeshift
 global.quest_text[a, 1] = "Locate the radio tower"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_approach(a, 0, 843, 40, (2 << 0))
+scr_quest_create_approach(a, 0, 850, 40, (2 << 0))
 global.quest_text_obj[a, 0] = "Locate the radio tower"
 a = (60 << 0)
 i = 0
@@ -1913,7 +1915,7 @@ global.quest_name[a] = "Fix the radio tower"
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
 global.quest_stage_completed[a] = 2
-global.quest_reward[a] = 3000
+global.quest_reward[a] = floor((3000 * money_reward_factor))
 global.quest_exp[a] = 50
 global.quest_rep[a] = rew_rep[1]
 global.quest_liv_min[a] = 1
@@ -1922,7 +1924,7 @@ global.quest_text[a, 0] = "Looks like those anomalies are still in the radio sta
 global.quest_text[a, 1] = "Fix the radio tower"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_interact_with_obj(a, 0, 622, 16, (300 << 0), "Fix", (20 << 0), -1)
+scr_quest_create_interact_with_obj(a, 0, 623, 16, (300 << 0), "Fix", (20 << 0), -1)
 global.quest_text_obj[a, 0] = "Fix the radio tower"
 global.quest_marker[a, 0] = 1
 global.quest_marker_sub[a, 0] = 3
@@ -2034,7 +2036,7 @@ global.quest_name[a] = "Laboratory p.3"
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
 global.quest_stage_completed[a] = 2
-global.quest_reward[a] = 10000
+global.quest_reward[a] = floor((10000 * money_reward_factor))
 global.quest_exp[a] = 300
 global.quest_rep[a] = rew_rep[1]
 global.quest_liv_min[a] = 1
@@ -2052,7 +2054,7 @@ global.quest_name[a] = "Eyes everywhere"
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
 global.quest_stage_completed[a] = 2
-global.quest_reward[a] = 7500
+global.quest_reward[a] = floor((7500 * money_reward_factor))
 global.quest_exp[a] = 100
 global.quest_rep[a] = rew_rep[1]
 global.quest_liv_min[a] = 1
@@ -2061,7 +2063,7 @@ global.quest_text[a, 0] = "So you want to do some missions for crimson Corporati
 global.quest_text[a, 1] = "Place the CCTV camera"
 global.quest_text[a, 2] = quest_completed
 global.quest_text[a, 3] = thank_for_help
-scr_quest_create_interact_with_obj(a, 0, 847, 10, (367 << 0), "Place camera", (30 << 0), -1)
+scr_quest_create_interact_with_obj(a, 0, 854, 10, (367 << 0), "Place camera", (30 << 0), -1)
 global.quest_text_obj[a, 0] = "Place the CCTV camera"
 a = (70 << 0)
 i = 0
@@ -2070,7 +2072,7 @@ global.quest_name[a] = "Cleanup"
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
 global.quest_stage_completed[a] = 2
-global.quest_reward[a] = 10000
+global.quest_reward[a] = floor((10000 * money_reward_factor))
 global.quest_exp[a] = 125
 global.quest_rep[a] = rew_rep[1]
 global.quest_liv_min[a] = 1
@@ -2109,7 +2111,7 @@ global.quest_name[a] = "Meat for Igor"
 global.quest_is_unique[a] = 1
 global.quest_unique_done[a] = 0
 global.quest_stage_completed[a] = 2
-global.quest_reward[a] = 2500
+global.quest_reward[a] = floor((2500 * money_reward_factor))
 global.quest_exp[a] = 40
 global.quest_rep[a] = rew_rep[1]
 global.quest_liv_min[a] = 1

@@ -3,7 +3,7 @@ var camy = camera_get_view_y(view_camera[0])
 var draw_normal = 1
 if instance_exists(obj_player)
 {
-    if (obj_player.state != 50 && obj_player.state != 49)
+    if (obj_player.state != 52 && obj_player.state != 51)
     {
         if (room == room1)
         {
@@ -21,7 +21,7 @@ if instance_exists(obj_player)
             radiation_amount = clamp(radiation_amount, 0, radiation_)
             var amount = (radiation_amount / 600)
             amount = clamp(amount, 0, 1)
-            if (amount > 0 && global.night_vision == 0 && obj_player.state != 50)
+            if (amount > 0 && global.night_vision == 0 && obj_player.state != 52)
             {
                 draw_normal = 0
                 application_surface_draw_enable(false)

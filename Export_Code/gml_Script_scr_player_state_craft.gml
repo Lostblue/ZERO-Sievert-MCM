@@ -367,6 +367,15 @@ if (global.craft_state != (5 << 0) && global.craft_selected != -1)
                 if (ho_la_qnt_necessaria == 1 && (ho_spazio_per_item == 1 || global.craft_state == (4 << 0)))
                 {
                     audio_play_sound(snd_crafting, 10, false)
+                    if (global.craft_type[global.craft_selected] == (8 << 0))
+                    {
+                        if (global.craft_get[global.craft_selected] == (663 << 0))
+                            ga_addDesignEvent("Craft:Lights_kit", 1)
+                        if (global.craft_get[global.craft_selected] == (662 << 0))
+                            ga_addDesignEvent("Craft:Santa_weapon", 1)
+                        if (global.craft_get[global.craft_selected] == (540 << 0))
+                            ga_addDesignEvent("Craft:Santa_armor", 1)
+                    }
                     for (var j = 0; j < n_item_to_check; j++)
                         arr_craft_qnt_rimanete[j] = global.craft_req_n[global.craft_selected, j]
                     ini_open(global.save_player_chest)
@@ -576,7 +585,7 @@ if mouse_left
             global.instance_id_modding_file_x = temp_x
             global.instance_id_modding_file_y = temp_y
             global.instance_id_modding_file_inv = temp_inv
-            state = 53
+            state = 55
             o.button_mod_selected = -1
         }
     }

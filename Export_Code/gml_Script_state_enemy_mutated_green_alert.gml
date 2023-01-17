@@ -18,7 +18,7 @@ if (target != noone)
     }
     range_ = 64
     if scr_chance(npc_prob_attack[npc_id])
-        state = 121
+        state = 123
     mp_potential_step_object(move_point_x, move_point_y, npc_spd_alerted[npc_id], obj_solid)
 }
 else

@@ -23,7 +23,7 @@ if (state == 22)
         }
     }
     ini_close()
-    global.max_weight = obj_player.base_weight
+    global.max_weight = (obj_player.base_weight + 4)
     if (global.backpack_equipped == 1)
         global.max_weight += backpack_weight[backpack_now]
     global.max_weight += (global.sk_k[(1 << 0)] + global.injector_factor[(6 << 0)])

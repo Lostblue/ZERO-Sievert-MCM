@@ -121,7 +121,7 @@ if (!instance_exists(obj_exit_screen))
 {
     stamina_max_total = (((class_stamina[player_class] + global.sk_k[(0 << 0)]) + global.sk_k[(39 << 0)]) + global.injector_factor[(4 << 0)])
     stamina += ((stamina_recovery * global.sk_k[(6 << 0)]) + global.injector_factor[(5 << 0)])
-    if (state != 50)
+    if (state != 52)
         fatigue -= fatigue_k_sveglio
     fatigue = clamp(fatigue, fatigue_max, fatigue_start)
     if (fatigue < 0)
@@ -218,7 +218,7 @@ if (!instance_exists(obj_exit_screen))
     radiation_accumulata += radiation_
     radiation_accumulata -= global.injector_factor[(7 << 0)]
     radiation_accumulata = clamp(radiation_accumulata, 0, global.status_value_max[(3 << 0)])
-    if (room != r_hub && state != 50)
+    if (room != r_hub && state != 52)
     {
         energy -= ((energy_decay * global.sk_k[(52 << 0)]) - global.injector_factor[(10 << 0)])
         thirst -= ((thirst_decay * global.sk_k[(53 << 0)]) - global.injector_factor[(12 << 0)])
@@ -233,7 +233,7 @@ if (!instance_exists(obj_exit_screen))
     }
     if (hp < 20)
     {
-        if (state != 49)
+        if (state != 51)
         {
             if (!audio_is_playing(snd_heart))
                 audio_play_sound(snd_heart, 2, false)
@@ -253,7 +253,7 @@ if (global.general_debug == 1)
 }
 if (hp <= 0)
 {
-    if (state != 49)
+    if (state != 51)
     {
         hp = -100
         if instance_exists(obj_item)
@@ -263,7 +263,7 @@ if (hp <= 0)
         }
         global.aiming = 0
         obj_mouse.visible = true
-        state = 49
+        state = 51
         weapon_pointing_direction = 0
         var camx = camera_get_view_x(view_camera[0])
         var camy = camera_get_view_y(view_camera[0])
@@ -291,7 +291,7 @@ if (global.general_debug == 1)
         y = mouse_y
     }
     if (keyboard_check_pressed(vk_f5) && keyboard_check(vk_control))
-        state = 65
+        state = 67
     if (keyboard_check_pressed(vk_f6) && keyboard_check(vk_control))
     {
         if (room == room1)
@@ -327,9 +327,9 @@ if (global.general_debug == 1)
     }
     if (keyboard_check_pressed(vk_f10) && keyboard_check(vk_control))
     {
-        if (state != 50)
+        if (state != 52)
         {
-            state = 50
+            state = 52
             visible = false
         }
         else

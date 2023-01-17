@@ -1,7 +1,7 @@
 switch light_id
 {
     case (13 << 0):
-        light_sprite = 221
+        light_sprite = 222
         scale_start = 1
         alpha_togliere = 0.25
         alpha_mettere = 0
@@ -10,7 +10,7 @@ switch light_id
         flickering_range = 0
         break
     case (11 << 0):
-        light_sprite = 219
+        light_sprite = 220
         scale_start = 0.75
         alpha_togliere = 0.2
         alpha_mettere = 0.5
@@ -19,7 +19,7 @@ switch light_id
         flickering_range = 0
         break
     case (17 << 0):
-        light_sprite = 222
+        light_sprite = 223
         scale_start = 0.5
         alpha_togliere = 0.2
         alpha_mettere = 0.5
@@ -28,7 +28,7 @@ switch light_id
         flickering_range = 0
         break
     case (18 << 0):
-        light_sprite = 216
+        light_sprite = 217
         scale_start = 2
         alpha_togliere = 0.2
         alpha_mettere = 0.5
@@ -37,7 +37,7 @@ switch light_id
         flickering_range = 0
         break
     case (16 << 0):
-        light_sprite = 219
+        light_sprite = 220
         scale_start = 0.75
         alpha_togliere = 0.2
         alpha_mettere = 0.5
@@ -46,7 +46,7 @@ switch light_id
         flickering_range = 0
         break
     case (12 << 0):
-        light_sprite = 219
+        light_sprite = 220
         scale_start = 0.75
         alpha_togliere = 0.2
         alpha_mettere = 0.5
@@ -55,7 +55,7 @@ switch light_id
         flickering_range = 0
         break
     case (0 << 0):
-        light_sprite = 212
+        light_sprite = 213
         scale_start = 1
         alpha_togliere = 0.5
         alpha_mettere = 0.5
@@ -64,7 +64,7 @@ switch light_id
         flickering_range = 0.1
         break
     case (1 << 0):
-        light_sprite = 212
+        light_sprite = 213
         scale_start = 0.4
         alpha_togliere = 0.3
         alpha_mettere = 0.5
@@ -72,21 +72,21 @@ switch light_id
         alarm[1] = 4
         break
     case (2 << 0):
-        light_sprite = 217
+        light_sprite = 218
         scale_start = 0.25
         alpha_togliere = 0.3
         alpha_mettere = 0.9
         light_color = 6997759
         break
     case (3 << 0):
-        light_sprite = 212
+        light_sprite = 213
         scale_start = 1
         alpha_togliere = 0.3
         alpha_mettere = 0.2
         light_color = 7844583
         break
     case (5 << 0):
-        light_sprite = 212
+        light_sprite = 213
         scale_start = 0.5
         alpha_togliere = 0.4
         alpha_mettere = 0.9
@@ -95,7 +95,7 @@ switch light_id
         flickering_range = 0.1
         break
     case (6 << 0):
-        light_sprite = 212
+        light_sprite = 213
         scale_start = 1
         alpha_togliere = 0.4
         alpha_mettere = 0.7
@@ -104,7 +104,7 @@ switch light_id
         flickering_range = 0.15
         break
     case (7 << 0):
-        light_sprite = 212
+        light_sprite = 213
         scale_start = 0.5
         alpha_togliere = 0.4
         alpha_mettere = 0.9
@@ -113,7 +113,7 @@ switch light_id
         flickering_range = 0.1
         break
     case (8 << 0):
-        light_sprite = 212
+        light_sprite = 213
         scale_start = 0.5
         alpha_togliere = 0.4
         alpha_mettere = 0.9
@@ -122,7 +122,7 @@ switch light_id
         flickering_range = 0.1
         break
     case (9 << 0):
-        light_sprite = 212
+        light_sprite = 213
         scale_start = 0.2
         alpha_togliere = 0.3
         alpha_mettere = 0.4
@@ -131,7 +131,7 @@ switch light_id
         flickering_range = 0
         break
     case (10 << 0):
-        light_sprite = 220
+        light_sprite = 221
         scale_start = 1
         alpha_togliere = 0.8
         alpha_mettere = 0.1
@@ -140,7 +140,7 @@ switch light_id
         flickering_range = 0
         break
     case (14 << 0):
-        light_sprite = 212
+        light_sprite = 213
         scale_start = 2
         alpha_togliere = 0.8
         alpha_mettere = 0.7
@@ -149,7 +149,7 @@ switch light_id
         flickering_range = 0
         break
     case (15 << 0):
-        light_sprite = 212
+        light_sprite = 213
         scale_start = 1
         alpha_togliere = 0.9
         alpha_mettere = 0.2
@@ -158,7 +158,7 @@ switch light_id
         flickering_range = 0
         break
     case (19 << 0):
-        light_sprite = 218
+        light_sprite = 219
         scale_start = 1
         alpha_togliere = 1
         alpha_mettere = 0
@@ -166,12 +166,19 @@ switch light_id
         only_day = 1
         break
     case (20 << 0):
-        light_sprite = 216
+        light_sprite = 217
         scale_start = 1
         alpha_togliere = 1
         alpha_mettere = 1
         light_color = 0
         only_day = 1
+        break
+    case (21 << 0):
+        light_sprite = 217
+        scale_start = 1
+        alpha_togliere = 0.8
+        alpha_mettere = 1
+        light_color = 65535
         break
 }
 

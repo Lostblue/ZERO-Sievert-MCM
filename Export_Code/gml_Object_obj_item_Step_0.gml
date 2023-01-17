@@ -17,7 +17,7 @@ if (room != r_menu)
 {
     if instance_exists(obj_player)
     {
-        if (obj_player.state != 53)
+        if (obj_player.state != 55)
         {
             if (obj_mouse.dragging == 1)
             {

@@ -19,11 +19,11 @@ if instance_exists(arms)
             {
                 switch arms
                 {
-                    case 828:
+                    case 835:
                         if scr_chance(5)
                             patrol = 1
                         break
-                    case 829:
+                    case 836:
                         if (room == r_hub)
                         {
                             if (distance_to_object(obj_bancone_hub) < 16)
@@ -42,7 +42,7 @@ if instance_exists(arms)
                         else if scr_chance(2)
                             patrol = 1
                         break
-                    case 830:
+                    case 837:
                         if (room == r_hub)
                         {
                             if (distance_to_object(obj_bancone_hub) < 16)
@@ -61,11 +61,11 @@ if instance_exists(arms)
                         else if scr_chance(2)
                             patrol = 1
                         break
-                    case 831:
+                    case 838:
                         if scr_chance(0.1)
                             patrol = 1
                         break
-                    case 832:
+                    case 839:
                         break
                 }
 
@@ -93,7 +93,7 @@ if (target != -4)
             draw_weapon = 1
             break
         case (0 << 0):
-            if (arms != 831 && arms != 832)
+            if (arms != 838 && arms != 839)
             {
                 hspd = 0
                 vspd = 0

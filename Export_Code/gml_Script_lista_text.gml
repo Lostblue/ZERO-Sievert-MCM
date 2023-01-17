@@ -1,5 +1,34 @@
-var arr_nomi, arr_cognomi, pquestion, panswer;
+var _bbox_w, _bbox_h, arr_nomi, arr_cognomi, pquestion, panswer;
+global.text_custom_index = -1
+global.dialogue_type_text_box_w = 400
+global.dialogue_type_text_box_h = 250
+global.dialogue_type_text_box_startx = (240 - (global.dialogue_type_text_box_w / 2))
+global.dialogue_type_text_box_starty = (135 - (global.dialogue_type_text_box_h / 2))
+_bbox_w[0] = 48
+_bbox_h[0] = 16
+_bbox_w[1] = 64
+_bbox_h[1] = 16
+_bbox_w[2] = 80
+_bbox_h[2] = 16
+_bbox_w[3] = 96
+_bbox_h[3] = 16
+_bbox_w[4] = 128
+_bbox_h[4] = 16
+var a = (11 << 0)
+global.dialogue_type_text_hover[a] = -1
 var k = 0
+global.dialogue_type_text_x[a, k] = 240
+global.dialogue_type_text_y[a, k] = 210
+global.dialogue_type_text_w[a, k] = _bbox_w[4]
+global.dialogue_type_text_h[a, k] = _bbox_h[4]
+global.dialogue_type_text_text[a, k] = "I accept"
+k++
+global.dialogue_type_text_x[a, k] = 240
+global.dialogue_type_text_y[a, k] = 230
+global.dialogue_type_text_w[a, k] = _bbox_w[4]
+global.dialogue_type_text_h[a, k] = _bbox_h[4]
+global.dialogue_type_text_text[a, k] = "I have to think about it"
+k = 0
 arr_nomi[k] = "Toma"
 k++
 arr_nomi[k] = "Gedeon"
@@ -69,16 +98,30 @@ is_a_trader[i] = 0
 is_a_quest_giver[i] = 1
 speaker_name[i] = "General Artemovich"
 speaker_sprite_idle[i] = 60
-speaker_sprite_move[i] = 1926
+speaker_sprite_move[i] = 1930
 speaker_move[i] = 0
 speaker_faction[i] = (2 << 0)
 speaker_quest_max[i] = 7
 text_hello[i] = "Priviet comrade! How can I help you?"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
-text[i, 2] = "Task"
-text[i, 3] = "Trade"
-text[i, 4] = "Join Green Army"
+var u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
+text[i, u] = "Task"
+dia_type[i, u] = (2 << 0)
+u++
+text[i, u] = "Join Green Army"
+dia_type[i, u] = (4 << 0)
+if (global.az_done[(12 << 0)] == 1 && global.az_done[(13 << 0)] == 0)
+{
+    u++
+    text[i, u] = "I have a proposal for you"
+    dia_type[i, u] = (11 << 0)
+    dia_type_answer[i, u] = "So you want a Crimson Corporation trader to come to the bunker?\nWhat a nerve! As much as I hate this proposal I think we could come to a compromise.\nI bet Shepard is leveraging the political value of this proposal. What a fool! I don't give a damn about what happens in the outside world; I have my orders straight.\n\nI will accept your proposal on one condition: you will forever be an enemy of the Green Army, you can still have access to our trader, and I will still give you missions to do but don't expect any more help from my soldiers out there.\nIf you accept, the next time you come to the bunker there will be a Crimson Corporation trader in the civilian dormitory area."
+}
 var pp = 0
 question[i, pp] = "Who are you and why are you here?"
 answer[i, pp] = "My name is Viktor Artemovich, I'm the general of the Green Army.\nAfter the nuclear disaster we were sent here to protect the citizens and maintain control. What we could not know is that a few days after the disaster a barrier formed on the perimeter of the Zone, preventing anyone from entering or leaving. We tried with every means at our disposal to create radio communication but without success.\nNo one knows what goes on in here."
@@ -93,16 +136,22 @@ j = 0
 is_a_trader[i] = 1
 is_a_quest_giver[i] = 0
 speaker_name[i] = "Alexei Andreevich"
-speaker_sprite_idle[i] = 1926
-speaker_sprite_move[i] = 1926
+speaker_sprite_idle[i] = 1930
+speaker_sprite_move[i] = 1930
 speaker_move[i] = 0
 speaker_faction[i] = (2 << 0)
 speaker_quest_max[i] = 0
 text_hello[i] = "Priviet comrade! Do you wanna buy something?"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
-text[i, 2] = "Task"
-text[i, 3] = "Trade"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
+text[i, u] = "Trade"
+dia_type[i, u] = (3 << 0)
+u++
 speaker_quest[i, j] = (105 << 0)
 speaker_quest_chance[i, j] = 50
 j++
@@ -157,7 +206,7 @@ is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_name[i] = "Henry Davies"
 speaker_sprite_idle[i] = 56
-speaker_sprite_move[i] = 1926
+speaker_sprite_move[i] = 1930
 speaker_move[i] = 0
 speaker_faction[i] = (3 << 0)
 speaker_quest_max[i] = 2
@@ -168,10 +217,19 @@ speaker_quest[i, j] = (106 << 0)
 speaker_quest_chance[i, j] = 1
 speaker_quest[i, j] = (110 << 0)
 text_hello[i] = "How can I help you?"
-text[i, 0] = "Bye"
-text[i, 1] = "Tell me more about your faction"
-text[i, 2] = "Task"
-text[i, 3] = "I've found some documents"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Tell me more about your faction"
+dia_type[i, u] = (1 << 0)
+u++
+text[i, u] = "Task"
+dia_type[i, u] = (2 << 0)
+u++
+text[i, u] = "I've found some documents"
+dia_type[i, u] = (2 << 0)
+u++
 pp = 0
 question[i, pp] = "Who are you?"
 answer[i, pp] = "My name is Henry Davies and I was in charge of the lab in Zakov."
@@ -189,8 +247,8 @@ j = 0
 is_a_trader[i] = 1
 is_a_quest_giver[i] = 0
 speaker_name[i] = "Riley Evans"
-speaker_sprite_idle[i] = 1926
-speaker_sprite_move[i] = 1926
+speaker_sprite_idle[i] = 1930
+speaker_sprite_move[i] = 1930
 speaker_move[i] = 0
 speaker_faction[i] = (3 << 0)
 speaker_quest_max[i] = 2
@@ -201,17 +259,42 @@ speaker_quest[i, j] = (106 << 0)
 speaker_quest_chance[i, j] = 1
 speaker_quest[i, j] = (110 << 0)
 text_hello[i] = "Do you wanna buy something?"
-text[i, 0] = "Bye"
-text[i, 1] = "Tell me something"
-text[i, 2] = "Task"
-text[i, 3] = "Trade"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Trade"
+dia_type[i, u] = (3 << 0)
+i = (31 << 0)
+j = 0
+is_a_trader[i] = 1
+is_a_quest_giver[i] = 0
+speaker_name[i] = "Riley Evans"
+speaker_sprite_idle[i] = 1930
+speaker_sprite_move[i] = 1930
+speaker_move[i] = 0
+speaker_faction[i] = (3 << 0)
+speaker_quest_max[i] = 2
+speaker_quest[i, j] = (105 << 0)
+speaker_quest_chance[i, j] = 1
+j++
+speaker_quest[i, j] = (106 << 0)
+speaker_quest_chance[i, j] = 1
+speaker_quest[i, j] = (110 << 0)
+text_hello[i] = "Do you wanna buy something?"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Trade"
+dia_type[i, u] = (3 << 0)
 i = (5 << 0)
 j = 0
 is_a_trader[i] = 1
 is_a_quest_giver[i] = 1
 speaker_name[i] = "Barman"
-speaker_sprite_idle[i] = 1926
-speaker_sprite_move[i] = 1926
+speaker_sprite_idle[i] = 1930
+speaker_sprite_move[i] = 1930
 speaker_move[i] = 0
 speaker_faction[i] = (1 << 0)
 speaker_quest_max[i] = 15
@@ -219,10 +302,19 @@ speaker_quest[i, j] = (2 << 0)
 speaker_quest_chance[i, j] = 1
 j++
 text_hello[i] = "Hello stranger! Are you hungry?"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
-text[i, 2] = "Task"
-text[i, 3] = "Trade"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
+text[i, u] = "Task"
+dia_type[i, u] = (2 << 0)
+u++
+text[i, u] = "Trade"
+dia_type[i, u] = (3 << 0)
+u++
 pp = 0
 question[i, pp] = "What is this place"
 answer[i, pp] = "This is the Zero Sievert, an old bunker built during the Cold war. It's the only safe place in Zakov.\nHere you can find all you need: equipment, supplies, tasks."
@@ -277,12 +369,25 @@ speaker_quest[i, j] = (50 << 0)
 speaker_quest_chance[i, j] = 1
 j++
 text_hello[i] = "Hey comrade! What do you need?"
-text[i, 0] = "Bye"
-text[i, 1] = "Tell me something"
-text[i, 2] = "Task"
-text[i, 3] = "Trade"
-text[i, 4] = "Repair armor"
-text[i, 5] = "Heal me"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Tell me something"
+dia_type[i, u] = (1 << 0)
+u++
+text[i, u] = "Task"
+dia_type[i, u] = (2 << 0)
+u++
+text[i, u] = "Trade"
+dia_type[i, u] = (3 << 0)
+u++
+text[i, u] = "Repair armor"
+dia_type[i, u] = (6 << 0)
+u++
+text[i, u] = "Heal me"
+dia_type[i, u] = (7 << 0)
+u++
 pp = 0
 question[i, pp] = "Who are you?"
 answer[i, pp] = "My name is Viktor Korolev, but everyone calls me The Doctor. I am a doctor and researcher at Zakov hospital, or rather, I was before all this happened.\nAfter the explosion, the local government allowed me to open a division to study the mutations that occurred in the flora and fauna.\nWe have practically infinite funds and I am very excited and happy to work on this project. Maybe I shouldn't be since the explosion caused the death of thousands of people.\nBut what can I do about it? It's a blessing that this happened!"
@@ -336,13 +441,13 @@ text[i, 3] = "Trade"
 pp = 0
 question[i, pp] = "Tell me more about old nuclear power plant"
 answer[i, pp] = "aaa"
-i = (35 << 0)
+i = (36 << 0)
 j = 0
 is_a_trader[i] = 1
 is_a_quest_giver[i] = 0
 speaker_name[i] = "aaaa"
-speaker_sprite_idle[i] = 1926
-speaker_sprite_move[i] = 1926
+speaker_sprite_idle[i] = 1930
+speaker_sprite_move[i] = 1930
 speaker_move[i] = 0
 speaker_faction[i] = (9 << 0)
 speaker_quest_max[i] = 0
@@ -371,11 +476,28 @@ if (already_done == 1)
     j++
 }
 text_hello[i] = "Well well, a hunter. What do you want from the crimson Corporation?"
-text[i, 0] = "Bye"
-text[i, 1] = "Tell me something"
-text[i, 2] = "Task"
-text[i, 3] = "Trade"
-text[i, 4] = "Join Crimson Corporation"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Tell me something"
+dia_type[i, u] = (1 << 0)
+u++
+text[i, u] = "Task"
+dia_type[i, u] = (2 << 0)
+u++
+text[i, u] = "Trade"
+dia_type[i, u] = (3 << 0)
+u++
+text[i, u] = "Join Crimson Corporation"
+dia_type[i, u] = (5 << 0)
+if (global.quest_unique_done[(70 << 0)] == 1 && global.az_done[(12 << 0)] == 0)
+{
+    u++
+    text[i, u] = "Next step"
+    dia_type[i, u] = (10 << 0)
+    dia_type_answer[i, u] = "Now that you have killed several Green Army soldiers you have shown them that you mean business.\nI propose something to you: talk to Artemovich and see the possibility of having a Crimson Corporation trader inside the bunker.\nNo matter how much our factions are fighting, the ZERO Sievert bunker is still a safe zone.\nIt was not decided by my leaders or even the local government, there are international agreements regarding that bunker.\nThe only way for us to access it would be through force but there are too many civilians in the bunker and having dead civilians is not a wise poilitical move.\nSo, talk to Artemovich and find a compromise. Having a trader in the ZERO Sievert would also benefit our pockets."
+}
 pp = 0
 question[i, pp] = "Who are you?"
 answer[i, pp] = "My name is Reynard, I am the commander of the Crimson Corporation forces stationed at Zakov."
@@ -394,22 +516,29 @@ answer[i, pp] = "We are trying to find out what happened.\nThe explosion happene
 pp++
 question[i, pp] = "What is your relationship with the Green Army?"
 answer[i, pp] = "Immediately after the accident we were on good terms, they minded their own business and we minded ours.\nEverything changed when they found out that it was not normal radiation, that we had lied to them.\nSince then this place has been a war zone, no rules, no law.\nBoth the Green Army and the Crimson Corporation want the other out of the way, leaving room to move freely across the land and get to the plant first."
-i = (31 << 0)
+i = (32 << 0)
 j = 0
 is_a_trader[i] = 0
 is_a_quest_giver[i] = 1
 speaker_name[i] = "Igor Kuzmin"
-speaker_sprite_idle[i] = 1926
-speaker_sprite_move[i] = 1926
+speaker_sprite_idle[i] = 1930
+speaker_sprite_move[i] = 1930
 speaker_move[i] = 0
 speaker_faction[i] = (9 << 0)
 speaker_quest_max[i] = 1
 speaker_quest[i, j] = (71 << 0)
 speaker_quest_chance[i, j] = 1
 text_hello[i] = ""
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
-text[i, 2] = "Task"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
+text[i, u] = "Task"
+dia_type[i, u] = (2 << 0)
+u++
 pp = 0
 question[i, pp] = "Who are you?"
 answer[i, pp] = "Who am I? Who are you, coming into my house like that!\nMeh... Sorry I'm not used to visitors.\nMy name is Igor and I'm a hunter, at least I used to be. Oh, not one of those who are called hunters now, I used to hunt animals before the disaster.\nI have my trusty silenced Mosin and a Toz 34 with me.\nOh, don't even think about it. If you want them, you have to kill me."
@@ -419,7 +548,7 @@ answer[i, pp] = "After the disaster those guys came, the ones with the green one
 pp++
 question[i, pp] = "What was this place like before the disaster?"
 answer[i, pp] = "A marvel! There is a village in the middle of the forest, the inhabitants were practically all lumberjacks.\nThen some genius decided to build a fucking sawmill nearby.\nGood for business you might say, but it made enough noise to keep people awake at night.\nWe protested, but you can't do anything against those fucking businessmen.\nAfter the accident at the nuclear plant, some people left with the soldiers, others decided to stay there.\nSome time ago the village was attacked by bandits, I don't know what the villagers did, I only know that no one came to see me anymore..."
-i = (32 << 0)
+i = (33 << 0)
 j = 0
 is_a_trader[i] = 0
 is_a_quest_giver[i] = 1
@@ -430,10 +559,19 @@ speaker_move[i] = 0
 speaker_faction[i] = (9 << 0)
 speaker_quest_max[i] = 1
 text_hello[i] = "Don't look at Mr Junk's treasure!"
-text[i, 0] = "Bye Mr. Junk"
-text[i, 1] = "Tell me something"
-text[i, 2] = "Task"
-text[i, 3] = "Trade"
+u = 0
+text[i, u] = "Bye Mr. Junk"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Tell me something"
+dia_type[i, u] = (1 << 0)
+u++
+text[i, u] = "Task"
+dia_type[i, u] = (2 << 0)
+u++
+text[i, u] = "Trade"
+dia_type[i, u] = (3 << 0)
+u++
 speaker_quest[i, j] = (172 << 0)
 speaker_quest_chance[i, j] = 1
 pp = 0
@@ -456,14 +594,19 @@ j = 0
 is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_name[i] = ""
-speaker_sprite_idle[i] = 1926
-speaker_sprite_move[i] = 1926
+speaker_sprite_idle[i] = 1930
+speaker_sprite_move[i] = 1930
 speaker_move[i] = 0
 speaker_faction[i] = (9 << 0)
 speaker_quest_max[i] = 0
 text_hello[i] = "I bet you have many questions"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
 pp = 0
 question[i, pp] = "Who are you?"
 answer[i, pp] = "My name is not important, I'm just a Hunter like you.\nI have been travelling in these areas for a long time now, thanks to my experiences in the past it is like taking a walk.\nIt is relaxing."
@@ -487,12 +630,17 @@ speaker_move[i] = 1
 speaker_faction[i] = (4 << 0)
 speaker_quest_max[i] = 1
 text_hello[i] = "Are you back to see how the studies are going?"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
 pp = 0
 question[i, pp] = "What did you discover?"
 answer[i, pp] = "Not much... As you can see, this crystal is different from the others, it emits very strong radiation discharges, but thanks to the containment structure we are safe.\nWe have yet to discover the frequency of these discharges, and above all their nature.\nThe radiation is different though, it almost seems to have a hypnotic effect, I've never seen anything like it in my career.\nBefore coming to Zakov I heard rumours of a similar place and crystal in an old nuclear power plant in Ukraine but I don't know anything else.\nNot much information comes from that place. On the other hand, not much information comes out of Zakov either.\nIt's such a waste, who knows what we could discover if we had more resources and proper equipment.\nI'd better shut up, these ideas are not well received and I don't want to be heard by one of those soldiers."
-i = (33 << 0)
+i = (34 << 0)
 j = 0
 is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
@@ -503,8 +651,13 @@ speaker_move[i] = 1
 speaker_faction[i] = (9 << 0)
 speaker_quest_max[i] = 1
 text_hello[i] = "Damn! These poor guys"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
 pp = 0
 question[i, pp] = "What happened?"
 answer[i, pp] = "Recently helicopters have crashed near the swamp, these are the bodies of the crew...\nMy God what happened to them?!?!?\nGo talk to the doctor. Maybe he can tell you more."
@@ -514,14 +667,18 @@ is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_name[i] = "Markus"
 speaker_sprite_idle[i] = 48
-speaker_sprite_move[i] = 1926
+speaker_sprite_move[i] = 1930
 speaker_move[i] = 1
 speaker_faction[i] = (1 << 0)
 speaker_quest_max[i] = 1
 text_hello[i] = "Hey!"
-text[i, 0] = "Bye"
-text[i, 1] = "Tell me something"
-text[i, 2] = "Task"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Tell me something"
+dia_type[i, u] = (1 << 0)
+u++
 var o = 0
 pquestion[o] = "What are you doing out here?"
 panswer[o] = "Nothing in particular, some days I need to get fresh air.\nLiving in the bunker all the time is not easy."
@@ -562,27 +719,36 @@ is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_name[i] = "Markus"
 speaker_sprite_idle[i] = 48
-speaker_sprite_move[i] = 1926
+speaker_sprite_move[i] = 1930
 speaker_move[i] = 1
 speaker_faction[i] = (1 << 0)
 speaker_quest_max[i] = 1
 text_hello[i] = "Hey!"
-text[i, 0] = "Bye"
-text[i, 1] = "Tell me something"
-text[i, 2] = "Task"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Tell me something"
+dia_type[i, u] = (1 << 0)
+u++
 i = (12 << 0)
 j = 0
 is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_name[i] = "The guide"
 speaker_sprite_idle[i] = 114
-speaker_sprite_move[i] = 1926
+speaker_sprite_move[i] = 1930
 speaker_move[i] = 0
 speaker_faction[i] = (1 << 0)
 speaker_quest_max[i] = 0
 text_hello[i] = "Hello comrade, how can I help you?"
-text[i, 0] = "Bye"
-text[i, 1] = "Tell me something"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Tell me something"
+dia_type[i, u] = (1 << 0)
+u++
 pp = 0
 question[i, pp] = "Who are you?"
 answer[i, pp] = "My name is Akim Sokolov, but everyone calls me The Guide.\nBefore the explosion I worked as Zakov's tour guide. I was born in these areas and I know them like the back of my hand. If you need any directions, just ask."
@@ -605,10 +771,19 @@ is_a_quest_giver[i] = 1
 speaker_name[i] = "Conductor"
 speaker_quest_max[i] = 1
 text_hello[i] = "Hello hunter, do you wanna go somewhere?"
-text[i, 0] = "Bye"
-text[i, 1] = "Tell me something"
-text[i, 2] = "Task"
-text[i, 3] = "I want to leave"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Tell me something"
+dia_type[i, u] = (1 << 0)
+u++
+text[i, u] = "Task"
+dia_type[i, u] = (2 << 0)
+u++
+text[i, u] = "I want to leave"
+dia_type[i, u] = (8 << 0)
+u++
 pp = 0
 question[i, pp] = "Who are you?"
 answer[i, pp] = "I was a conductor of Zakov's train station.\nAfter the explosion the green army asked me, or rather ordered me, to stay in Zakov.\nI have been a train conductor for 40 years and given my experience on these railroads they said I would be a useful element."
@@ -621,41 +796,22 @@ answer[i, pp] = "The only way to leave the map is to find an extraction point.\n
 speaker_quest[i, j] = (72 << 0)
 speaker_quest_chance[i, j] = 1
 j++
-already_done = global.quest_unique_done[(72 << 0)]
-if (already_done == 1)
-{
-    speaker_quest[i, j] = (73 << 0)
-    speaker_quest_chance[i, j] = 1
-    j++
-}
-already_done = global.quest_unique_done[(73 << 0)]
-if (already_done == 1)
-{
-    speaker_quest[i, j] = (74 << 0)
-    speaker_quest_chance[i, j] = 1
-    j++
-}
-already_done = global.quest_unique_done[(74 << 0)]
-if (already_done == 1)
-{
-    speaker_quest[i, j] = (75 << 0)
-    speaker_quest_chance[i, j] = 1
-    j++
-}
-already_done = global.quest_unique_done[(75 << 0)]
-if (already_done == 1)
-{
-    speaker_quest[i, j] = (76 << 0)
-    speaker_quest_chance[i, j] = 1
-    j++
-}
-already_done = global.quest_unique_done[(76 << 0)]
-if (already_done == 1)
-{
-    speaker_quest[i, j] = (77 << 0)
-    speaker_quest_chance[i, j] = 1
-    j++
-}
+i = (37 << 0)
+j = 0
+is_a_trader[i] = 0
+is_a_quest_giver[i] = 0
+speaker_faction[i] = (9 << 0)
+speaker_quest_max[i] = 0
+text_hello[i] = "Hey Hunter!"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Tell me something"
+dia_type[i, u] = (1 << 0)
+question[i, pp] = "Who are you?"
+answer[i, pp] = "My name is Sacriel and I recently arrived in the bunker.\nI have yet to settle in properly but be ready, in about a month I will have missions to give you."
+pp++
 i = (17 << 0)
 randomize()
 var nome1 = arr_nomi[irandom((array_length_1d(arr_nomi) - 1))]
@@ -671,8 +827,13 @@ speaker_move[i] = 1
 speaker_faction[i] = (2 << 0)
 speaker_quest_max[i] = 1
 text_hello[i] = "Sorry comrade! I have something else to do"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
 pp = 0
 question[i, pp] = "Are you happy with your work?"
 answer[i, pp] = "Not much. But orders are orders..."
@@ -687,8 +848,13 @@ speaker_move[i] = 0
 speaker_faction[i] = (2 << 0)
 speaker_quest_max[i] = 1
 text_hello[i] = "Once you are ready, turn on the lights"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
 pp = 0
 question[i, pp] = "When do we start?"
 answer[i, pp] = "Once you are ready, turn on the lights."
@@ -700,8 +866,13 @@ is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_quest_max[i] = 0
 text_hello[i] = "Hello comrade!"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
 pp = 0
 question[i, pp] = "What are you doing here?"
 answer[i, pp] = "I'm guarding the front door, can't you tell?"
@@ -713,8 +884,13 @@ is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_quest_max[i] = 0
 text_hello[i] = "Hello comrade!"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
 pp = 0
 question[i, pp] = "What are you doing here?"
 answer[i, pp] = "My brother Vadim and I have been tasked to guard the main door."
@@ -729,8 +905,13 @@ is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_quest_max[i] = 0
 text_hello[i] = "What do you want?"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
 pp = 0
 question[i, pp] = "What are you doing here?"
 answer[i, pp] = "I'm guarding the front door.\nCan't you tell?"
@@ -745,8 +926,13 @@ is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_quest_max[i] = 0
 text_hello[i] = "What do you want?"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
 pp = 0
 question[i, pp] = "Why can't I go through?"
 answer[i, pp] = "This area is reserved for the Green Army, you do not have authorization."
@@ -755,8 +941,13 @@ is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_quest_max[i] = 0
 text_hello[i] = "Don't make a mess"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+u++
 pp = 0
 question[i, pp] = "Why can't I go through?"
 answer[i, pp] = "This area is reserved for the Green Army, you do not have authorization."
@@ -765,9 +956,19 @@ is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_quest_max[i] = 0
 text_hello[i] = "What do you want?"
-text[i, 0] = "Bye"
-text[i, 1] = "I want to know something"
-text[i, 2] = "Pay 5000 roubles to pass"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "I want to know something"
+dia_type[i, u] = (1 << 0)
+if (global.quest_unique_done[(70 << 0)] == 0)
+{
+    u++
+    text[i, u] = "Pay 5000 roubles to pass"
+    dia_type[i, u] = (9 << 0)
+}
+u++
 pp = 0
 question[i, pp] = "Why can't I go through?"
 answer[i, pp] = "This area is restricted, you do not have permission to pass.\nYou have to pay 5000 roubles every time you want to access."
@@ -777,9 +978,16 @@ is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_quest_max[i] = 1
 text_hello[i] = "Hey!"
-text[i, 0] = "Bye"
-text[i, 1] = "Tell me something"
-text[i, 2] = "Task"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Tell me something"
+dia_type[i, u] = (1 << 0)
+u++
+text[i, u] = "Task"
+dia_type[i, u] = (2 << 0)
+u++
 pp = 0
 question[i, pp] = "Tell me more about your faction"
 answer[i, pp] = "answer"
@@ -795,9 +1003,16 @@ is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_quest_max[i] = 1
 text_hello[i] = "Hey!"
-text[i, 0] = "Bye"
-text[i, 1] = "Tell me something"
-text[i, 2] = "Task"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Tell me something"
+dia_type[i, u] = (1 << 0)
+u++
+text[i, u] = "Task"
+dia_type[i, u] = (2 << 0)
+u++
 i = (19 << 0)
 j = 0
 is_a_trader[i] = 0
@@ -822,9 +1037,13 @@ is_a_trader[i] = 0
 is_a_quest_giver[i] = 0
 speaker_quest_max[i] = 1
 text_hello[i] = "Hey!"
-text[i, 0] = "Bye"
-text[i, 1] = "Tell me something"
-text[i, 2] = "Task"
+u = 0
+text[i, u] = "Bye"
+dia_type[i, u] = (0 << 0)
+u++
+text[i, u] = "Tell me something"
+dia_type[i, u] = (1 << 0)
+u++
 pp = 0
 question[i, pp] = "Tell me more about your faction"
 answer[i, pp] = "answer"
@@ -866,7 +1085,7 @@ text[i, 1] = "Tell me something"
 pp = 0
 question[i, pp] = "You're not a man of many words, I see."
 answer[i, pp] = "..."
-i = (34 << 0)
+i = (35 << 0)
 is_a_trader[i] = 1
 is_a_quest_giver[i] = 0
 speaker_quest_max[i] = 0

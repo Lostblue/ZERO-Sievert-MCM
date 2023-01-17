@@ -1739,7 +1739,7 @@ switch state
                     repeat global.spmall_chance[i]
                         ds_list_add(_list_spawn, i)
                 }
-                var _amount_indoor = 20
+                var _amount_indoor = 30
                 repeat _amount_indoor
                 {
                     var _quante_posizioni = array_length_1d(global.mall_spawn_id)

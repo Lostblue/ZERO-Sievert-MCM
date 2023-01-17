@@ -36,7 +36,7 @@ with (obj_item)
     if (position == (10 << 0) || prev_position == (10 << 0))
     {
         global.backpack_equipped = 1
-        global.max_weight = (obj_player.base_weight + backpack_weight[my_id])
+        global.max_weight = ((obj_player.base_weight + backpack_weight[my_id]) + 4)
         obj_player.backpack_now = my_id
     }
     if (position == (11 << 0))
@@ -69,7 +69,7 @@ if (obj_player.trading == 0)
         obj_player.ammo_slot_max[(2 << 0)] = 0
     }
     if (global.backpack_equipped == 0)
-        global.max_weight = obj_player.base_weight
+        global.max_weight = (obj_player.base_weight + 4)
 }
 global.max_weight += (global.sk_k[(1 << 0)] + global.injector_factor[(6 << 0)])
 global.max_weight = clamp(global.max_weight, 1, 9999)

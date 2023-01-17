@@ -18,7 +18,7 @@ if instance_exists(obj_player)
             if (linea_libera_gun_mouse == 0)
                 draw_sprite_ext(s_mouse, 1, x, y, 1, 1, 0, c_red, 1)
         }
-        if (obj_player.state == 49)
+        if (obj_player.state == 51)
             image_index = 4
     }
 }

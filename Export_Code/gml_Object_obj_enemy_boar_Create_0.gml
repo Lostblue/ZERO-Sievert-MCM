@@ -10,3 +10,4 @@ start_frenata_y = 0
 frenata_step = 0
 frenata_step_max = 65
 frenata_dir = 0
+scr_chance(global.sk_k[(72 << 0)], 2)

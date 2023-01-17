@@ -24,7 +24,7 @@ if (state == 22)
     scr_draw_laser((9 << 0))
     scr_draw_laser((10 << 0))
 }
-if (state != 67)
+if (state != 69)
 {
     if (x > mouse_x)
     {

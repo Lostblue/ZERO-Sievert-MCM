@@ -46,4 +46,12 @@ a = (11 << 0)
 global.az_section[a] = ("az_" + string(a))
 global.az_key[a] = ("az_" + string(a))
 global.az_done[a] = 0
+a = (12 << 0)
+global.az_section[a] = ("az_" + string(a))
+global.az_key[a] = ("az_" + string(a))
+global.az_done[a] = 0
+a = (13 << 0)
+global.az_section[a] = ("az_" + string(a))
+global.az_key[a] = ("az_" + string(a))
+global.az_done[a] = 0
 scr_load_unique_action()

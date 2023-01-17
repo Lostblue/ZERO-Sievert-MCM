@@ -424,7 +424,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (0 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 209)
+ds_list_add(b_list[o], 211)
 b_width[o] = 100
 b_height[o] = 100
 var i = 0
@@ -443,12 +443,12 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (0 << 0)
 b_list[o] = ds_list_create()
-var iin = 212
+var iin = 214
 if (room == room1)
 {
     var aa = (11 << 0)
     if (global.az_done[aa] == 1)
-        iin = 213
+        iin = 215
 }
 ds_list_add(b_list[o], iin)
 b_width[o] = 15
@@ -2017,7 +2017,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (0 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 202)
+ds_list_add(b_list[o], 204)
 b_width[o] = 150
 b_height[o] = 100
 i = 0
@@ -2045,7 +2045,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (2 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 201)
+ds_list_add(b_list[o], 203)
 b_width[o] = 150
 b_height[o] = 100
 i = 0
@@ -2964,7 +2964,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 220)
+ds_list_add(b_list[o], 222)
 b_width[o] = 30
 b_height[o] = 30
 i = 0
@@ -3100,7 +3100,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 221, 235, 238, 239, 240)
+ds_list_add(b_list[o], 223, 237, 240, 241, 242)
 b_width[o] = 8
 b_height[o] = 8
 i = 0
@@ -3172,7 +3172,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 216, 217, 218, 219)
+ds_list_add(b_list[o], 218, 219, 220, 221)
 b_width[o] = 15
 b_height[o] = 15
 i = 0
@@ -3222,7 +3222,7 @@ decor_is_building[o] = 1
 decor_specchio[o] = 0
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 231, 232, 233, 234)
+ds_list_add(b_list[o], 233, 234, 235, 236)
 b_width[o] = 30
 b_height[o] = 30
 i = 0
@@ -3257,7 +3257,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 216, 217, 218, 219)
+ds_list_add(b_list[o], 218, 219, 220, 221)
 b_width[o] = 15
 b_height[o] = 15
 i = 0
@@ -3326,7 +3326,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 241, 242, 243, 244)
+ds_list_add(b_list[o], 243, 244, 245, 246)
 b_width[o] = 8
 b_height[o] = 8
 i = 0
@@ -3462,7 +3462,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (0 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 208)
+ds_list_add(b_list[o], 210)
 b_width[o] = 50
 b_height[o] = 50
 i = 0
@@ -3499,7 +3499,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 210, 214, 215)
+ds_list_add(b_list[o], 212, 216, 217)
 b_width[o] = 8
 b_height[o] = 8
 i = 0
@@ -3518,7 +3518,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 211)
+ds_list_add(b_list[o], 213)
 b_width[o] = 8
 b_height[o] = 8
 i = 0
@@ -3582,7 +3582,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 206, 207)
+ds_list_add(b_list[o], 208, 209)
 b_width[o] = 20
 b_height[o] = 30
 i = 0
@@ -3614,7 +3614,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 245, 246, 247)
+ds_list_add(b_list[o], 247, 248, 249)
 b_width[o] = 20
 b_height[o] = 20
 i = 0
@@ -3786,7 +3786,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (0 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 203)
+ds_list_add(b_list[o], 205)
 b_width[o] = 60
 b_height[o] = 60
 i = 0
@@ -3823,7 +3823,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (0 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 205)
+ds_list_add(b_list[o], 207)
 b_width[o] = 40
 b_height[o] = 40
 i = 0
@@ -3842,7 +3842,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 236)
+ds_list_add(b_list[o], 238)
 b_width[o] = 40
 b_height[o] = 40
 i = 0
@@ -3870,7 +3870,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 237)
+ds_list_add(b_list[o], 239)
 b_width[o] = 40
 b_height[o] = 40
 i = 0
@@ -3889,7 +3889,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 222, 223, 224)
+ds_list_add(b_list[o], 224, 225, 226)
 b_width[o] = 8
 b_height[o] = 8
 i = 0
@@ -3925,7 +3925,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 225, 226, 227)
+ds_list_add(b_list[o], 227, 228, 229)
 b_width[o] = 8
 b_height[o] = 8
 i = 0
@@ -3944,7 +3944,7 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-ds_list_add(b_list[o], 230)
+ds_list_add(b_list[o], 232)
 b_width[o] = 15
 b_height[o] = 15
 i = 0
@@ -4017,12 +4017,12 @@ decor_specchio[o] = 0
 b_images[o] = sprite_get_number(decor_sprite[o])
 b_indoor_light[o] = (1 << 0)
 b_list[o] = ds_list_create()
-iin = 228
+iin = 230
 if (room == room1)
 {
     aa = (1 << 0)
     if (global.az_done[aa] == 1)
-        iin = 229
+        iin = 231
 }
 ds_list_add(b_list[o], iin)
 b_width[o] = 8
@@ -4230,85 +4230,85 @@ decor_material[o] = (3 << 0)
 decor_is_building[o] = 0
 decor_specchio[o] = 0
 var k = (0 << 0)
-place_obj[k] = 619
+place_obj[k] = 620
 place_radius[k] = 12
 k = (1 << 0)
-place_obj[k] = 620
+place_obj[k] = 621
 place_radius[k] = 10
 k = (2 << 0)
-place_obj[k] = 655
+place_obj[k] = 656
 place_radius[k] = 6
 k = (3 << 0)
-place_obj[k] = 656
+place_obj[k] = 657
 place_radius[k] = 7
 k = (4 << 0)
-place_obj[k] = 662
+place_obj[k] = 663
 place_radius[k] = 8
 k = (6 << 0)
-place_obj[k] = 660
+place_obj[k] = 661
 place_radius[k] = 7
 k = (5 << 0)
-place_obj[k] = 659
+place_obj[k] = 660
 place_radius[k] = 8
 k = (7 << 0)
-place_obj[k] = 657
-place_radius[k] = 6
-k = (10 << 0)
 place_obj[k] = 658
 place_radius[k] = 6
+k = (10 << 0)
+place_obj[k] = 659
+place_radius[k] = 6
 k = (8 << 0)
-place_obj[k] = 661
+place_obj[k] = 662
 place_radius[k] = 6
 k = (9 << 0)
-place_obj[k] = 657
+place_obj[k] = 658
 place_radius[k] = 4
 k = (18 << 0)
-place_obj[k] = 685
+place_obj[k] = 687
 place_radius[k] = 6
 k = (11 << 0)
-place_obj[k] = 644
+place_obj[k] = 645
 place_radius[k] = 1
 place_radiation[k] = 100
 place_amount[k] = 3
 place_crystal_amount[k] = 0
 place_chance_spawn_scientist[k] = 0
 k = (12 << 0)
-place_obj[k] = 645
+place_obj[k] = 646
 place_radius[k] = 4
 place_radiation[k] = 100
 place_amount[k] = 10
 place_crystal_amount[k] = 2
 place_chance_spawn_scientist[k] = 2
 k = (13 << 0)
-place_obj[k] = 646
+place_obj[k] = 647
 place_radius[k] = 10
 place_radiation[k] = 100
 place_amount[k] = 60
 place_crystal_amount[k] = 4
 place_chance_spawn_scientist[k] = 20
 k = (14 << 0)
-place_obj[k] = 649
+place_obj[k] = 650
 place_radius[k] = 1
 place_radiation[k] = 100
 place_amount[k] = 3
 place_crystal_amount[k] = 0
 place_chance_spawn_scientist[k] = 0
 k = (15 << 0)
-place_obj[k] = 650
+place_obj[k] = 651
 place_radius[k] = 4
 place_radiation[k] = 100
 place_amount[k] = 10
 place_crystal_amount[k] = 2
 place_chance_spawn_scientist[k] = 2
 k = (16 << 0)
-place_obj[k] = 651
+place_obj[k] = 652
 place_radius[k] = 10
 place_radiation[k] = 100
 place_amount[k] = 60
 place_crystal_amount[k] = 4
 place_chance_spawn_scientist[k] = 20
 k = (17 << 0)
-place_obj[k] = 653
+place_obj[k] = 654
 place_radius[k] = 12
 place_radiation[k] = 100
 place_amount[k] = 1
@@ -4321,8 +4321,8 @@ a_amount[z] = 3
 a_crystal_amount[z] = 0
 a_crystal[z] = 137
 a_radiation[z] = 100
-a_obj[z] = 643
-a_obj_anomaly[z] = 647
+a_obj[z] = 644
+a_obj_anomaly[z] = 648
 a_chance_spawn_scientist[z] = 1
 z = (1 << 0)
 a_id[z] = z
@@ -4331,8 +4331,8 @@ a_amount[z] = 10
 a_crystal_amount[z] = 1
 a_crystal[z] = 137
 a_radiation[z] = 100
-a_obj[z] = 643
-a_obj_anomaly[z] = 647
+a_obj[z] = 644
+a_obj_anomaly[z] = 648
 a_chance_spawn_scientist[z] = 2
 z = (2 << 0)
 a_id[z] = z
@@ -4341,8 +4341,8 @@ a_amount[z] = 65
 a_crystal_amount[z] = 3
 a_crystal[z] = 137
 a_radiation[z] = 100
-a_obj[z] = 643
-a_obj_anomaly[z] = 647
+a_obj[z] = 644
+a_obj_anomaly[z] = 648
 a_chance_spawn_scientist[z] = 25
 z = (3 << 0)
 a_id[z] = z
@@ -4351,8 +4351,8 @@ a_amount[z] = 3
 a_crystal_amount[z] = 0
 a_crystal[z] = 138
 a_radiation[z] = 100
-a_obj[z] = 648
-a_obj_anomaly[z] = 647
+a_obj[z] = 649
+a_obj_anomaly[z] = 648
 a_chance_spawn_scientist[z] = 1
 z = (4 << 0)
 a_id[z] = z
@@ -4361,8 +4361,8 @@ a_amount[z] = 10
 a_crystal_amount[z] = 1
 a_crystal[z] = 138
 a_radiation[z] = 100
-a_obj[z] = 648
-a_obj_anomaly[z] = 647
+a_obj[z] = 649
+a_obj_anomaly[z] = 648
 a_chance_spawn_scientist[z] = 2
 z = (5 << 0)
 a_id[z] = z
@@ -4371,8 +4371,8 @@ a_amount[z] = 30
 a_crystal_amount[z] = 3
 a_crystal[z] = 138
 a_radiation[z] = 100
-a_obj[z] = 648
-a_obj_anomaly[z] = 647
+a_obj[z] = 649
+a_obj_anomaly[z] = 648
 a_chance_spawn_scientist[z] = 25
 z = (6 << 0)
 a_id[z] = z
@@ -4381,59 +4381,59 @@ a_amount[z] = 1
 a_crystal_amount[z] = 3
 a_crystal[z] = 139
 a_radiation[z] = 100
-a_obj[z] = 653
-a_obj_anomaly[z] = 654
+a_obj[z] = 654
+a_obj_anomaly[z] = 655
 a_chance_spawn_scientist[z] = 10
 list_building_forest_10x10 = ds_list_create()
-ds_list_add(list_building_forest_10x10, 180, 181, 182, 183, 184)
+ds_list_add(list_building_forest_10x10, 182, 183, 184, 185, 186)
 list_building_forest_15x15 = ds_list_create()
-ds_list_add(list_building_forest_15x15, 187, 188, 189, 190)
+ds_list_add(list_building_forest_15x15, 189, 190, 191, 192)
 list_building_forest_loner_10x10 = ds_list_create()
-ds_list_add(list_building_forest_loner_10x10, 191, 191)
+ds_list_add(list_building_forest_loner_10x10, 193, 193)
 list_building_forest_trader_10x10 = ds_list_create()
-ds_list_add(list_building_forest_trader_10x10, 186)
+ds_list_add(list_building_forest_trader_10x10, 188)
 list_building_forest_green_army_15x15 = ds_list_create()
-ds_list_add(list_building_forest_green_army_15x15, 193, 194)
+ds_list_add(list_building_forest_green_army_15x15, 195, 196)
 list_building_sawmill = ds_list_create()
-ds_list_add(list_building_sawmill, 159)
+ds_list_add(list_building_sawmill, 161)
 list_building_scatola_nera = ds_list_create()
-ds_list_add(list_building_scatola_nera, 166)
+ds_list_add(list_building_scatola_nera, 168)
 list_building_missing_group_1 = ds_list_create()
-ds_list_add(list_building_missing_group_1, 167)
+ds_list_add(list_building_missing_group_1, 169)
 list_building_makeshift_camp_20x20 = ds_list_create()
-ds_list_add(list_building_makeshift_camp_20x20, 195, 196, 198)
+ds_list_add(list_building_makeshift_camp_20x20, 197, 198, 200)
 list_building_makeshift_camp_35x35 = ds_list_create()
-ds_list_add(list_building_makeshift_camp_35x35, 199, 200)
+ds_list_add(list_building_makeshift_camp_35x35, 201, 202)
 list_building_industrial_area_oil = ds_list_create()
-ds_list_add(list_building_industrial_area_oil, 168)
+ds_list_add(list_building_industrial_area_oil, 170)
 list_building_industrial_area_general = ds_list_create()
-ds_list_add(list_building_industrial_area_general, 171, 172, 173)
+ds_list_add(list_building_industrial_area_general, 173, 174, 175)
 list_building_industrial_container = ds_list_create()
-ds_list_add(list_building_industrial_container, 169, 170)
+ds_list_add(list_building_industrial_container, 171, 172)
 list_building_swamp_church = ds_list_create()
-ds_list_add(list_building_swamp_church, 160, 163)
+ds_list_add(list_building_swamp_church, 162, 165)
 list_building_sewer = ds_list_create()
-ds_list_add(list_building_sewer, 152)
+ds_list_add(list_building_sewer, 154)
 list_building_radio_tower_20x20 = ds_list_create()
-ds_list_add(list_building_radio_tower_20x20, 165)
+ds_list_add(list_building_radio_tower_20x20, 167)
 list_building_lair_ghoul_5x5 = ds_list_create()
-ds_list_add(list_building_lair_ghoul_5x5, 153)
+ds_list_add(list_building_lair_ghoul_5x5, 155)
 list_building_motel_40x30 = ds_list_create()
-ds_list_add(list_building_motel_40x30, 155)
+ds_list_add(list_building_motel_40x30, 157)
 list_building_motel_quest_40x30 = ds_list_create()
-ds_list_add(list_building_motel_quest_40x30, 156)
+ds_list_add(list_building_motel_quest_40x30, 158)
 list_building_motel_before_quest_40x30 = ds_list_create()
-ds_list_add(list_building_motel_before_quest_40x30, 157)
+ds_list_add(list_building_motel_before_quest_40x30, 159)
 list_building_village_60x60 = ds_list_create()
-ds_list_add(list_building_village_60x60, 162)
+ds_list_add(list_building_village_60x60, 164)
 list_building_junk_trader_5x5 = ds_list_create()
-ds_list_add(list_building_junk_trader_5x5, 154)
+ds_list_add(list_building_junk_trader_5x5, 156)
 list_building_junk_trader_quest = ds_list_create()
-ds_list_add(list_building_junk_trader_quest, 161)
+ds_list_add(list_building_junk_trader_quest, 163)
 list_building_quest_lost_convoy = ds_list_create()
-ds_list_add(list_building_quest_lost_convoy, 185)
+ds_list_add(list_building_quest_lost_convoy, 187)
 list_building_mall_15x15 = ds_list_create()
-ds_list_add(list_building_mall_15x15, 174, 175, 176, 177, 178, 179)
+ds_list_add(list_building_mall_15x15, 176, 177, 178, 179, 180, 181)
 a = (1 << 0)
 area_name[a] = "The Forest"
 area_description[a] = "Forest located on the edge of the Zone, suitable for anyone who wants to take a 'quiet' walk.\nThis place has not been very affected by radiation, the vegetation is still lush and the fauna has not changed.\nBe careful though, this makes it the perfect place for bandit camps. When the nuclear power plant exploded, most of the wild animals took refuge in this forest. You'd better bring a shotgun with you.\nGood luck!"
@@ -5149,13 +5149,13 @@ area_obj_amount[a, i] = 1
 area_obj_total_amount[a] = 0
 for (ll = 0; ll < array_length_2d(area_obj, a); ll++)
     area_obj_total_amount[a] += area_obj_amount[a, ll]
-area_building_sprite[a, 0] = 1456
+area_building_sprite[a, 0] = 1460
 area_building_amount[a, 0] = 4
-area_building_tileset_wall_shadow[a, 0] = 28
+area_building_tileset_wall_shadow[a, 0] = 29
 area_building_icon[a, 0] = (0 << 0)
-area_building_sprite[a, 1] = 1457
+area_building_sprite[a, 1] = 1461
 area_building_amount[a, 1] = 2
-area_building_tileset_wall_shadow[a, 1] = 28
+area_building_tileset_wall_shadow[a, 1] = 29
 area_building_icon[a, 1] = (0 << 0)
 area_different_building[a] = array_length_2d(area_building_sprite, a)
 area_decor_number[a] = 800
@@ -5228,15 +5228,15 @@ area_obj_amount[a, i] = 1
 area_obj_total_amount[a] = 0
 for (ll = 0; ll < array_length_2d(area_obj, a); ll++)
     area_obj_total_amount[a] += area_obj_amount[a, ll]
-area_building_sprite[a, 0] = 1462
+area_building_sprite[a, 0] = 1466
 area_building_amount[a, 0] = 20
-area_building_sprite_wall[a, 0] = 1470
-area_building_tileset_wall_shadow[a, 0] = 29
+area_building_sprite_wall[a, 0] = 1474
+area_building_tileset_wall_shadow[a, 0] = 30
 area_building_icon[a, 0] = (0 << 0)
-area_building_sprite[a, 1] = 1463
+area_building_sprite[a, 1] = 1467
 area_building_amount[a, 1] = 4
-area_building_sprite_wall[a, 0] = 1470
-area_building_tileset_wall_shadow[a, 1] = 29
+area_building_sprite_wall[a, 0] = 1474
+area_building_tileset_wall_shadow[a, 1] = 30
 area_building_icon[a, 1] = (0 << 0)
 area_different_building[a] = array_length_2d(area_building_list, a)
 area_decor_number[a] = 15000

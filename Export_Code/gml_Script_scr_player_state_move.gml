@@ -65,6 +65,11 @@ if (shoot_input == 1)
     if (shoot_input_delay >= shoot_input_delay_max)
         shoot_input = 0
 }
+if (abs(hspd) > 0 || abs(vspd) > 0)
+{
+    if (shift_key == 1)
+        shoot_input = 0
+}
 if (switching_weapon == 1)
 {
     shoot_input = 0
@@ -188,7 +193,7 @@ if (shoot_input == 1)
 }
 if (room != r_hub)
 {
-    if (arma_now != (2 << 0) && (!shift_key))
+    if (arma_now != (2 << 0))
     {
         if (reloading == 0)
         {
@@ -776,7 +781,7 @@ if (action == 0)
         obj_player_weapon.wl_angle_max = irandom_range(-30, 80)
         obj_player_weapon.wl_off_x_max = irandom_range(-3, 4)
         obj_player_weapon.wl_off_y_max = irandom_range(-3, 4)
-        state = 67
+        state = 69
     }
 }
 if (action == 0)
@@ -1068,7 +1073,7 @@ if instance_exists(obj_cristallo_viola)
             action = 1
             audio_play_sound(snd_cristallo_viola, 10, false)
             scr_draw_npc_text(id, (51 << 0))
-            state = 63
+            state = 65
             obj_camera.follow = (4 << 0)
             hspd = 0
             vsdp = 0
@@ -1141,7 +1146,7 @@ if (room == r_hub)
     if (distance_to_object(obj_table_workbench_hub) < 8)
     {
         ds_list_add(global.list_interact, (7 << 0))
-        ds_list_add(global.list_interact_id, 301)
+        ds_list_add(global.list_interact_id, 302)
         ds_list_add(global.list_interact_task_pos, 0)
     }
 }
@@ -1169,6 +1174,36 @@ if (global.status_state_now[(3 << 0)] == (3 << 0))
     {
         global.save_quest_amount_now[_quest_pos, 0] = 1
         obj_controller.alarm[1] = 1
+    }
+}
+if (room == r_hub)
+{
+    if (global.luci_natale_built == 1)
+    {
+        if instance_exists(obj_terminal_natale_luci)
+        {
+            if (distance_to_object(obj_terminal_natale_luci) < 5)
+            {
+                ds_list_add(global.list_interact, (22 << 0))
+                ds_list_add(global.list_interact_id, -4)
+                ds_list_add(global.list_interact_task_pos, 0)
+                if (global.luci_natale_on == 1)
+                {
+                    ds_list_add(global.list_interact, (25 << 0))
+                    ds_list_add(global.list_interact_id, -4)
+                    ds_list_add(global.list_interact_task_pos, 0)
+                    ds_list_add(global.list_interact, (23 << 0))
+                    ds_list_add(global.list_interact_id, -4)
+                    ds_list_add(global.list_interact_task_pos, 0)
+                    ds_list_add(global.list_interact, (24 << 0))
+                    ds_list_add(global.list_interact_id, -4)
+                    ds_list_add(global.list_interact_task_pos, 0)
+                    ds_list_add(global.list_interact, (26 << 0))
+                    ds_list_add(global.list_interact_id, -4)
+                    ds_list_add(global.list_interact_task_pos, 0)
+                }
+            }
+        }
     }
 }
 if (ds_list_size(global.list_interact) > 0)
@@ -1323,11 +1358,22 @@ if (ds_list_size(global.list_interact) > 0)
                     scr_load_storage()
                     break
                 case (3 << 0):
-                    state = 40
-                    global.speaker_nearest = ds_list_find_value(global.list_interact_id, global.p_int_instance_id)
+                    var _special = 0
+                    var _get_instance_id = ds_list_find_value(global.list_interact_id, global.p_int_instance_id)
+                    var _get_object_index = _get_instance_id.object_index
+                    if (_get_object_index == 710)
+                    {
+                        _special = 1
+                        scr_draw_npc_text(obj_sacriel, (113 << 0))
+                    }
+                    if (_special == 0)
+                    {
+                        state = 40
+                        global.speaker_nearest = ds_list_find_value(global.list_interact_id, global.p_int_instance_id)
+                    }
                     break
                 case (4 << 0):
-                    state = 52
+                    state = 54
                     break
                 case (5 << 0):
                     indoor_id = ds_list_find_value(global.list_interact_id, global.p_int_instance_id)
@@ -1557,6 +1603,77 @@ if (ds_list_size(global.list_interact) > 0)
                     break
                 case (21 << 0):
                     scr_draw_npc_text(id, (34 << 0))
+                    break
+                case (22 << 0):
+                    if (global.luci_natale_on == 1)
+                    {
+                        global.luci_natale_on = 0
+                        scr_draw_text_with_box("Lights OFF")
+                    }
+                    else
+                    {
+                        global.luci_natale_on = 1
+                        scr_draw_text_with_box("Lights ON")
+                    }
+                    with (obj_light_natale_parent)
+                        scale = scale_start
+                    break
+                case (23 << 0):
+                    with (obj_light_natale_1)
+                    {
+                        colore_now += 1
+                        var _max = array_length_1d(colore_luce)
+                        if (colore_now >= (_max - 1))
+                            colore_now = 0
+                        var _colore_now = colore_now
+                        ini_open(global.save_general)
+                        ini_write_real("Christman", "lights color 1", colore_now)
+                        ini_close()
+                    }
+                    scr_draw_text_with_box(("Lights 1 - color " + string(_colore_now)))
+                    break
+                case (24 << 0):
+                    with (obj_light_natale_2)
+                    {
+                        colore_now += 1
+                        _max = array_length_1d(colore_luce)
+                        if (colore_now >= (_max - 1))
+                            colore_now = 0
+                        _colore_now = colore_now
+                        ini_open(global.save_general)
+                        ini_write_real("Christman", "lights color 2", colore_now)
+                        ini_close()
+                    }
+                    scr_draw_text_with_box(("Lights 2 - color " + string(_colore_now)))
+                    break
+                case (25 << 0):
+                    global.luci_natale_mode += 1
+                    if (global.luci_natale_mode > (2 << 0))
+                        global.luci_natale_mode = (0 << 0)
+                    if (global.luci_natale_mode == (2 << 0))
+                    {
+                        with (obj_light_natale_1)
+                            scale = 0
+                        with (obj_light_natale_1)
+                            scale = scale_start
+                    }
+                    ini_open(global.save_general)
+                    ini_write_real("Christman", "lights mode", global.luci_natale_mode)
+                    ini_close()
+                    with (obj_light_natale_parent)
+                        luci_natale_timer_alternato = 0
+                    scr_draw_text_with_box(("Lights mode - " + string(global.luci_natale_mode)))
+                    break
+                case (26 << 0):
+                    global.luci_natale_timer += 1
+                    if (global.luci_natale_timer > 4)
+                        global.luci_natale_timer = 0
+                    with (obj_light_natale_parent)
+                        luci_natale_timer_alternato = 0
+                    ini_open(global.save_general)
+                    ini_write_real("Christman", "lights timer", global.luci_natale_timer)
+                    ini_close()
+                    scr_draw_text_with_box(("Lights timer - " + string(global.luci_natale_timer)))
                     break
             }
 

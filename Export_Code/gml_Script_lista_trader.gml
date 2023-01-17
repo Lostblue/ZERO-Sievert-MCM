@@ -1,12 +1,15 @@
 ini_open(global.save_general)
-global.trader_money_all_max = 15000
+global.trader_money_all_max = 9000
 global.trader_money_all = ini_read_real("traders", "money", global.trader_money_all_max)
+global.trader_money_artemovich = ini_read_real("General Artemovich_trader", "money", global.trader_money_all_max)
+global.trader_money_barman = ini_read_real("Barman_trader", "money", global.trader_money_all_max)
+global.trader_money_doctor = ini_read_real("The Doctor_trader", "money", global.trader_money_all_max)
 ini_close()
 a = (1 << 0)
 id_trader[a] = a
 trader_name[a] = "General Artemovich"
 trader_faction[a] = (2 << 0)
-trader_money[a] = global.trader_money_all
+trader_money[a] = global.trader_money_artemovich
 var i = 0
 trader_item[a, i] = (365 << 0)
 trader_qnt[a, i] = 1
@@ -651,7 +654,7 @@ trader_faction[a] = (3 << 0)
 trader_money[a] = 5000
 i = 0
 trader_item[a, i] = (367 << 0)
-trader_qnt[a, i] = 1
+trader_qnt[a, i] = 10
 trader_liv[a, i] = 1
 trader_page[a, i] = 1
 i++
@@ -833,11 +836,6 @@ trader_liv[a, i] = 1
 trader_page[a, i] = 2
 i++
 trader_item[a, i] = (157 << 0)
-trader_qnt[a, i] = 1
-trader_liv[a, i] = 1
-trader_page[a, i] = 2
-i++
-trader_item[a, i] = (209 << 0)
 trader_qnt[a, i] = 1
 trader_liv[a, i] = 1
 trader_page[a, i] = 2
@@ -1133,7 +1131,7 @@ a = (4 << 0)
 id_trader[a] = a
 trader_name[a] = "Barman"
 trader_faction[a] = (1 << 0)
-trader_money[a] = global.trader_money_all
+trader_money[a] = global.trader_money_barman
 i = 0
 trader_item[a, i] = (222 << 0)
 trader_qnt[a, i] = 20
@@ -1643,7 +1641,7 @@ i++
 scr_assegna_item_a_pagina_trader(a)
 a = (5 << 0)
 id_trader[a] = a
-trader_money[a] = global.trader_money_all
+trader_money[a] = global.trader_money_doctor
 i = 0
 trader_item[a, i] = (231 << 0)
 trader_qnt[a, i] = 5

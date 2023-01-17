@@ -3,6 +3,8 @@ depth = ((-y) - (sprite_get_height(sprite_index) / 2))
 audio_emitter_position(emitter_shoot, x, y, 0)
 audio_emitter_position(emitter_walk, x, y, 0)
 audio_emitter_position(emitter_talk, x, y, 0)
+var camx = camera_get_view_x(view_camera[0])
+var camy = camera_get_view_y(view_camera[0])
 alert_player -= 0.5
 alert_player = clamp(alert_player, 0, alert_player_max)
 if (last_seen_delay == 1)
@@ -258,6 +260,9 @@ switch state
     case (1 << 0):
         target_for_image_scale = obj_player.x
         break
+    case (75 << 0):
+        target_for_image_scale = (x + 1)
+        break
     case (2 << 0):
         if (human_tick >= human_tick_max)
         {
@@ -409,7 +414,7 @@ switch state
             {
                 with (obj_npc_draw_text)
                 {
-                    if (global.t_npc_text_next_id[text_id] == 714 || global.t_npc_text_next_id[text_id] == 715)
+                    if (global.t_npc_text_next_id[text_id] == 717 || global.t_npc_text_next_id[text_id] == 718)
                         point_player = 1
                 }
             }
@@ -571,7 +576,11 @@ switch state
         break
     case (4 << 0):
         scr_enemy_choose_idle_or_move()
-        scr_collision()
+        if (room == r_hub)
+        {
+            if (x > (camx - 240) && x < (camx + 720) && y > (camy - 135) && y < (camy + 405))
+                scr_collision()
+        }
         target_for_image_scale = (x + lengthdir_x(2, weapon_pointing_direction))
         if (x > xprevious)
         {
@@ -586,12 +595,6 @@ switch state
             target_for_image_scale = (x - 2)
             weapon_pointing_direction = 240
         }
-        if scr_chance(0.03)
-            scr_npc_arms((30 << 0), obj_arms_eat)
-        if scr_chance(0.03)
-            scr_npc_arms((29 << 0), obj_arms_smoke)
-        if scr_chance(0.03)
-            scr_npc_arms((31 << 0), obj_arms_drink)
         break
     case (28 << 0):
         scr_enemy_path()
@@ -2669,6 +2672,11 @@ switch state
                 state = (38 << 0)
                 frenata_dir = dir
             }
+            if (point_distance(x, y, target.x, target.y) > 128)
+            {
+                if scr_chance(5)
+                    state = (39 << 0)
+            }
             mp_potential_step_object(move_point_x, move_point_y, npc_spd_alerted[npc_id], obj_solid)
         }
         else
@@ -3050,19 +3058,19 @@ if (hp <= 0)
             case obj_enemy_wolf_brown:
                 sound_ = 281
                 break
-            case 198:
-                sound_ = 309
-                break
             case 199:
                 sound_ = 309
                 break
-            case 187:
+            case 200:
+                sound_ = 309
+                break
+            case 188:
                 sound_ = 320
                 break
-            case 200:
+            case 201:
                 sound_ = 303
                 break
-            case 189:
+            case 190:
                 sound_ = 295
                 break
         }

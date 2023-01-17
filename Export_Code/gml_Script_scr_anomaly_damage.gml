@@ -1,5 +1,5 @@
 var _dam = argument0
-if (obj_player.state != 50)
+if (obj_player.state != 52)
 {
     if (obj_player.armor_now != (0 << 0))
     {
