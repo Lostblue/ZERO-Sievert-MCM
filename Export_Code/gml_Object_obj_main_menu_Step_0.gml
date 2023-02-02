@@ -122,6 +122,12 @@ if (_normal == 1)
                 }
             }
         }
+        if(page_state == (17 << 0))
+        {
+            global.drop_inventory_death = option_var[(17 << 0)][(0 << 0)]
+            global.drop_money_death = option_var[(17 << 0)][(1 << 0)]
+            global.reset_status_death = option_var[(17 << 0)][(2 << 0)]
+        }
         if (page_state == (6 << 0))
         {
             global.erba_dinamica = option_var[(6 << 0)][(1 << 0)]
@@ -398,6 +404,9 @@ if (_normal == 1)
                             page_state = (5 << 0)
                             break
                         case (5 << 0):
+                            page_state = (17 << 0)
+                            break
+                        case (6 << 0):
                             if (room == r_menu)
                                 page_state = (0 << 0)
                             else
@@ -619,6 +628,20 @@ if (_normal == 1)
                             ini_write_real("settings", "fog of war alpha", global.fog_alpha)
                             ini_close()
                             window_set_fullscreen(global.fullscreen)
+                            break
+                    }
+
+                    break
+                case (17 << 0):
+                    switch option_selected
+                    {
+                        case (3 << 0):
+                            page_state = (3 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM", "drop_inventory_death", global.drop_inventory_death)
+                            ini_write_real("MCM", "drop_money_death", global.drop_money_death)
+                            ini_write_real("MCM", "reset_status_death", global.reset_status_death)
+                            ini_close()
                             break
                     }
 
