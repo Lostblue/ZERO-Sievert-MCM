@@ -100,7 +100,7 @@ function lista_text() //gml_Script_lista_text
     is_a_quest_giver[i] = 1
     speaker_name[i] = "General Artemovich"
     speaker_sprite_idle[i] = 60
-    speaker_sprite_move[i] = 1928
+    speaker_sprite_move[i] = 1931
     speaker_move[i] = 0
     speaker_faction[i] = (2 << 0)
     speaker_quest_max[i] = 7
@@ -138,8 +138,8 @@ function lista_text() //gml_Script_lista_text
     is_a_trader[i] = 1
     is_a_quest_giver[i] = 0
     speaker_name[i] = "Alexei Andreevich"
-    speaker_sprite_idle[i] = 1928
-    speaker_sprite_move[i] = 1928
+    speaker_sprite_idle[i] = 1931
+    speaker_sprite_move[i] = 1931
     speaker_move[i] = 0
     speaker_faction[i] = (2 << 0)
     speaker_quest_max[i] = 0
@@ -208,7 +208,7 @@ function lista_text() //gml_Script_lista_text
     is_a_quest_giver[i] = 0
     speaker_name[i] = "Henry Davies"
     speaker_sprite_idle[i] = 56
-    speaker_sprite_move[i] = 1928
+    speaker_sprite_move[i] = 1931
     speaker_move[i] = 0
     speaker_faction[i] = (3 << 0)
     speaker_quest_max[i] = 2
@@ -249,8 +249,8 @@ function lista_text() //gml_Script_lista_text
     is_a_trader[i] = 1
     is_a_quest_giver[i] = 0
     speaker_name[i] = "Riley Evans"
-    speaker_sprite_idle[i] = 1928
-    speaker_sprite_move[i] = 1928
+    speaker_sprite_idle[i] = 1931
+    speaker_sprite_move[i] = 1931
     speaker_move[i] = 0
     speaker_faction[i] = (3 << 0)
     speaker_quest_max[i] = 2
@@ -272,8 +272,8 @@ function lista_text() //gml_Script_lista_text
     is_a_trader[i] = 1
     is_a_quest_giver[i] = 0
     speaker_name[i] = "Riley Evans"
-    speaker_sprite_idle[i] = 1928
-    speaker_sprite_move[i] = 1928
+    speaker_sprite_idle[i] = 1931
+    speaker_sprite_move[i] = 1931
     speaker_move[i] = 0
     speaker_faction[i] = (3 << 0)
     speaker_quest_max[i] = 2
@@ -295,8 +295,8 @@ function lista_text() //gml_Script_lista_text
     is_a_trader[i] = 1
     is_a_quest_giver[i] = 1
     speaker_name[i] = "Barman"
-    speaker_sprite_idle[i] = 1928
-    speaker_sprite_move[i] = 1928
+    speaker_sprite_idle[i] = 1931
+    speaker_sprite_move[i] = 1931
     speaker_move[i] = 0
     speaker_faction[i] = (1 << 0)
     speaker_quest_max[i] = 15
@@ -450,8 +450,8 @@ function lista_text() //gml_Script_lista_text
     is_a_trader[i] = 1
     is_a_quest_giver[i] = 0
     speaker_name[i] = "aaaa"
-    speaker_sprite_idle[i] = 1928
-    speaker_sprite_move[i] = 1928
+    speaker_sprite_idle[i] = 1931
+    speaker_sprite_move[i] = 1931
     speaker_move[i] = 0
     speaker_faction[i] = (9 << 0)
     speaker_quest_max[i] = 0
@@ -525,8 +525,8 @@ function lista_text() //gml_Script_lista_text
     is_a_trader[i] = 0
     is_a_quest_giver[i] = 1
     speaker_name[i] = "Igor Kuzmin"
-    speaker_sprite_idle[i] = 1928
-    speaker_sprite_move[i] = 1928
+    speaker_sprite_idle[i] = 1931
+    speaker_sprite_move[i] = 1931
     speaker_move[i] = 0
     speaker_faction[i] = (9 << 0)
     speaker_quest_max[i] = 1
@@ -598,8 +598,8 @@ function lista_text() //gml_Script_lista_text
     is_a_trader[i] = 0
     is_a_quest_giver[i] = 0
     speaker_name[i] = ""
-    speaker_sprite_idle[i] = 1928
-    speaker_sprite_move[i] = 1928
+    speaker_sprite_idle[i] = 1931
+    speaker_sprite_move[i] = 1931
     speaker_move[i] = 0
     speaker_faction[i] = (9 << 0)
     speaker_quest_max[i] = 0
@@ -671,7 +671,7 @@ function lista_text() //gml_Script_lista_text
     is_a_quest_giver[i] = 0
     speaker_name[i] = "Markus"
     speaker_sprite_idle[i] = 48
-    speaker_sprite_move[i] = 1928
+    speaker_sprite_move[i] = 1931
     speaker_move[i] = 1
     speaker_faction[i] = (1 << 0)
     speaker_quest_max[i] = 1
@@ -723,7 +723,7 @@ function lista_text() //gml_Script_lista_text
     is_a_quest_giver[i] = 0
     speaker_name[i] = "Markus"
     speaker_sprite_idle[i] = 48
-    speaker_sprite_move[i] = 1928
+    speaker_sprite_move[i] = 1931
     speaker_move[i] = 1
     speaker_faction[i] = (1 << 0)
     speaker_quest_max[i] = 1
@@ -741,7 +741,7 @@ function lista_text() //gml_Script_lista_text
     is_a_quest_giver[i] = 0
     speaker_name[i] = "The guide"
     speaker_sprite_idle[i] = 114
-    speaker_sprite_move[i] = 1928
+    speaker_sprite_move[i] = 1931
     speaker_move[i] = 0
     speaker_faction[i] = (1 << 0)
     speaker_quest_max[i] = 0

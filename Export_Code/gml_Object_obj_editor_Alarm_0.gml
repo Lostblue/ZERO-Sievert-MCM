@@ -19,13 +19,13 @@ if (mode == (0 << 0))
             var ss = ""
             switch fence
             {
-                case 1468:
+                case 1471:
                     ss = "s_tileset_fence_wood_big"
                     break
-                case 1470:
+                case 1473:
                     ss = "s_tileset_fence_concrete1"
                     break
-                case 1471:
+                case 1474:
                     ss = "s_tileset_fence_military"
                     break
             }

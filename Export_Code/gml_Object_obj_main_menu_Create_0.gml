@@ -8,7 +8,7 @@ scr_area_data()
 scr_pg_class()
 lista_trait()
 lista_item()
-global.game_version = "v: 0.28.02"
+global.game_version = "v: 0.28.03"
 global.new_version_text = ("ZERO Sievert has been updated to version " + global.game_version)
 global.monitor_width = window_get_width()
 global.monitor_height = window_get_height()
@@ -267,36 +267,30 @@ tut_page_next_y = (tutorial_text_y + 7)
 var t = (0 << 0)
 tut_text_cat[t] = "MOVEMENT"
 i = 0
-tut_image[t][i] = 1878
-i++
-tut_image[t][i] = 1879
-i++
-tut_image[t][i] = 1880
-i++
-t = (1 << 0)
-tut_text_cat[t] = "INVENTORY"
-i = 0
 tut_image[t][i] = 1881
 i++
 tut_image[t][i] = 1882
 i++
 tut_image[t][i] = 1883
 i++
+t = (1 << 0)
+tut_text_cat[t] = "INVENTORY"
+i = 0
 tut_image[t][i] = 1884
 i++
 tut_image[t][i] = 1885
 i++
 tut_image[t][i] = 1886
 i++
+tut_image[t][i] = 1887
+i++
+tut_image[t][i] = 1888
+i++
+tut_image[t][i] = 1889
+i++
 t = (2 << 0)
 tut_text_cat[t] = "DEVICE"
 i = 0
-tut_image[t][i] = 1896
-i++
-tut_image[t][i] = 1897
-i++
-tut_image[t][i] = 1898
-i++
 tut_image[t][i] = 1899
 i++
 tut_image[t][i] = 1900
@@ -311,15 +305,15 @@ tut_image[t][i] = 1904
 i++
 tut_image[t][i] = 1905
 i++
+tut_image[t][i] = 1906
+i++
+tut_image[t][i] = 1907
+i++
+tut_image[t][i] = 1908
+i++
 t = (3 << 0)
 tut_text_cat[t] = "COMBAT"
 i = 0
-tut_image[t][i] = 1887
-i++
-tut_image[t][i] = 1888
-i++
-tut_image[t][i] = 1889
-i++
 tut_image[t][i] = 1890
 i++
 tut_image[t][i] = 1891
@@ -332,25 +326,31 @@ tut_image[t][i] = 1894
 i++
 tut_image[t][i] = 1895
 i++
+tut_image[t][i] = 1896
+i++
+tut_image[t][i] = 1897
+i++
+tut_image[t][i] = 1898
+i++
 t = (5 << 0)
 tut_text_cat[t] = "ITEMS INFO"
 i = 0
-tut_image[t][i] = 1906
-i++
-tut_image[t][i] = 1907
-i++
-tut_image[t][i] = 1908
-i++
 tut_image[t][i] = 1909
 i++
 tut_image[t][i] = 1910
 i++
 tut_image[t][i] = 1911
 i++
+tut_image[t][i] = 1912
+i++
+tut_image[t][i] = 1913
+i++
+tut_image[t][i] = 1914
+i++
 t = (4 << 0)
 tut_text_cat[t] = "PLAYER NEEDS"
 i = 0
-tut_image[t][i] = 1912
+tut_image[t][i] = 1915
 i++
 new_version = 0
 new_version_close_x = 399

@@ -157,6 +157,8 @@ if (!instance_exists(obj_exit_screen))
     hp_max = (hp_max_total - wound)
     hp_max = clamp(hp_max, 0, (hp_max_total - wound))
     hp = clamp(hp, 0, hp_max)
+    if (room == r_hub)
+        hp = clamp(hp, 10, hp_max)
     var difesa_rad = 0
     if (armor_now != -1)
         difesa_rad = armor_radiation[armor_now]
