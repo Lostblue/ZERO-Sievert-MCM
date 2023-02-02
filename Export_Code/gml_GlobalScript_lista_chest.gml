@@ -28,7 +28,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (0 << 0)
     chest_id[a] = a
     chest_name[a] = "Ground"
-    chest_sprite[a] = 1938
+    chest_sprite[a] = 1941
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 0
     chest_quanti_item_min[a] = 0
@@ -40,7 +40,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (1 << 0)
     chest_id[a] = a
     chest_name[a] = "general"
-    chest_sprite[a] = 1937
+    chest_sprite[a] = 1940
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 40
     chest_quanti_item_min[a] = 25
@@ -113,7 +113,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (2 << 0)
     chest_id[a] = a
     chest_name[a] = "Your stash"
-    chest_sprite[a] = 1216
+    chest_sprite[a] = 1219
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 1
     chest_quanti_item_min[a] = 0
@@ -129,7 +129,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (17 << 0)
     chest_id[a] = a
     chest_name[a] = "Tool box"
-    chest_sprite[a] = 1217
+    chest_sprite[a] = 1220
     chest_decay_item[a] = 1
     chest_quanti_item_max[a] = 7
     chest_quanti_item_min[a] = 5
@@ -212,7 +212,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (18 << 0)
     chest_id[a] = a
     chest_name[a] = "electronic box"
-    chest_sprite[a] = 1218
+    chest_sprite[a] = 1221
     chest_decay_item[a] = 1
     chest_quanti_item_max[a] = 9
     chest_quanti_item_min[a] = 7
@@ -289,7 +289,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (7 << 0)
     chest_id[a] = a
     chest_name[a] = "cabinet"
-    chest_sprite[a] = 1224
+    chest_sprite[a] = 1227
     chest_decay_item[a] = 1
     chest_quanti_item_max[a] = 4
     chest_quanti_item_min[a] = 2
@@ -446,7 +446,7 @@ function lista_chest() //gml_Script_lista_chest
     chest_id[a] = a
     chest_name[a] = "Hidden stash"
     chest_decay_item[a] = 0
-    chest_sprite[a] = 1554
+    chest_sprite[a] = 1557
     chest_quanti_item_max[a] = 9
     chest_quanti_item_min[a] = 6
     chest_is_drop[a] = 0
@@ -464,7 +464,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (8 << 0)
     chest_id[a] = a
     chest_name[a] = "Vending machine"
-    chest_sprite[a] = 1561
+    chest_sprite[a] = 1564
     chest_decay_item[a] = 1
     chest_quanti_item_max[a] = 4
     chest_quanti_item_min[a] = 2
@@ -532,7 +532,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (9 << 0)
     chest_id[a] = a
     chest_name[a] = "Safe"
-    chest_sprite[a] = 1229
+    chest_sprite[a] = 1232
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 6
     chest_quanti_item_min[a] = 3
@@ -573,7 +573,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (10 << 0)
     chest_id[a] = a
     chest_name[a] = "Bag"
-    chest_sprite[a] = 1227
+    chest_sprite[a] = 1230
     chest_decay_item[a] = 1
     chest_quanti_item_max[a] = 7
     chest_quanti_item_min[a] = 5
@@ -824,7 +824,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (6 << 0)
     chest_id[a] = a
     chest_name[a] = "PC"
-    chest_sprite[a] = 1228
+    chest_sprite[a] = 1231
     chest_decay_item[a] = 1
     chest_quanti_item_max[a] = 5
     chest_quanti_item_min[a] = 3
@@ -961,7 +961,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (32 << 0)
     chest_id[a] = a
     chest_name[a] = "Items collected by Igor"
-    chest_sprite[a] = 1227
+    chest_sprite[a] = 1230
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 15
     chest_quanti_item_min[a] = 11
@@ -980,7 +980,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (19 << 0)
     chest_id[a] = a
     chest_name[a] = "medication box"
-    chest_sprite[a] = 1226
+    chest_sprite[a] = 1229
     chest_decay_item[a] = 1
     chest_quanti_item_max[a] = 7
     chest_quanti_item_min[a] = 5
@@ -1061,7 +1061,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (20 << 0)
     chest_id[a] = a
     chest_name[a] = "attachment box"
-    chest_sprite[a] = 1221
+    chest_sprite[a] = 1224
     chest_decay_item[a] = 1
     chest_quanti_item_max[a] = 7
     chest_quanti_item_min[a] = 4
@@ -1447,7 +1447,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (21 << 0)
     chest_id[a] = a
     chest_name[a] = "weapon box tier I"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 1
     chest_quanti_item_max[a] = 9
     chest_quanti_item_min[a] = 6
@@ -1563,7 +1563,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (22 << 0)
     chest_id[a] = a
     chest_name[a] = "Weapon box tier II"
-    chest_sprite[a] = 1222
+    chest_sprite[a] = 1225
     chest_decay_item[a] = 1
     chest_quanti_item_max[a] = 16
     chest_quanti_item_min[a] = 11
@@ -1640,7 +1640,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (23 << 0)
     chest_id[a] = a
     chest_name[a] = "Weapon box tier III"
-    chest_sprite[a] = 1223
+    chest_sprite[a] = 1226
     chest_decay_item[a] = 1
     chest_quanti_item_max[a] = 5
     chest_quanti_item_min[a] = 4
@@ -1717,7 +1717,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (94 << 0)
     chest_id[a] = a
     chest_name[a] = "Forge"
-    chest_sprite[a] = 1217
+    chest_sprite[a] = 1220
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = (5 * global.sk_k[(59 << 0)])
     chest_quanti_item_min[a] = (5 * global.sk_k[(59 << 0)])
@@ -1734,7 +1734,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (93 << 0)
     chest_id[a] = a
     chest_name[a] = "Garden"
-    chest_sprite[a] = 1217
+    chest_sprite[a] = 1220
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = (6 * global.sk_k[(60 << 0)])
     chest_quanti_item_min[a] = (6 * global.sk_k[(60 << 0)])
@@ -1754,7 +1754,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (95 << 0)
     chest_id[a] = a
     chest_name[a] = "Ammo"
-    chest_sprite[a] = 1217
+    chest_sprite[a] = 1220
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = (5 * global.sk_k[(62 << 0)])
     chest_quanti_item_min[a] = (5 * global.sk_k[(62 << 0)])
@@ -1771,7 +1771,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (96 << 0)
     chest_id[a] = a
     chest_name[a] = "Scavenger"
-    chest_sprite[a] = 1217
+    chest_sprite[a] = 1220
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = (20 * global.sk_k[(63 << 0)])
     chest_quanti_item_min[a] = (20 * global.sk_k[(63 << 0)])
@@ -1786,7 +1786,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (59 << 0)
     chest_id[a] = a
     chest_name[a] = "Common weapon all"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 40
     chest_quanti_item_min[a] = 38
@@ -1893,7 +1893,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (60 << 0)
     chest_id[a] = a
     chest_name[a] = "pistol"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 40
     chest_quanti_item_min[a] = 38
@@ -1940,7 +1940,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (62 << 0)
     chest_id[a] = a
     chest_name[a] = "smg"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 40
     chest_quanti_item_min[a] = 38
@@ -1974,7 +1974,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (63 << 0)
     chest_id[a] = a
     chest_name[a] = "rifle"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 40
     chest_quanti_item_min[a] = 38
@@ -2015,7 +2015,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (61 << 0)
     chest_id[a] = a
     chest_name[a] = "shotgun"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 40
     chest_quanti_item_min[a] = 38
@@ -2050,7 +2050,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (64 << 0)
     chest_id[a] = a
     chest_name[a] = "sniper"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 40
     chest_quanti_item_min[a] = 38
@@ -2088,7 +2088,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (65 << 0)
     chest_id[a] = a
     chest_name[a] = "ammo"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 90
     chest_quanti_item_min[a] = 85
@@ -2195,7 +2195,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (66 << 0)
     chest_id[a] = a
     chest_name[a] = "Weapon upgrade"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 90
     chest_quanti_item_min[a] = 85
@@ -2320,7 +2320,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (68 << 0)
     chest_id[a] = a
     chest_name[a] = "weapon box mod"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 40
     chest_quanti_item_min[a] = 35
@@ -2418,7 +2418,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (69 << 0)
     chest_id[a] = a
     chest_name[a] = "weapon box mod ak"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 60
     chest_quanti_item_min[a] = 50
@@ -2504,7 +2504,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (72 << 0)
     chest_id[a] = a
     chest_name[a] = "Armor"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 40
     chest_quanti_item_min[a] = 38
@@ -2569,7 +2569,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (70 << 0)
     chest_id[a] = a
     chest_name[a] = "book box"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 30
     chest_quanti_item_min[a] = 28
@@ -2604,7 +2604,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (71 << 0)
     chest_id[a] = a
     chest_name[a] = "Base upgrade box"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 12
     chest_quanti_item_min[a] = 10
@@ -2657,7 +2657,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (67 << 0)
     chest_id[a] = a
     chest_name[a] = "weapon_box_moddable"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 90
     chest_quanti_item_min[a] = 85
@@ -2743,7 +2743,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (73 << 0)
     chest_id[a] = a
     chest_name[a] = "backpack_box"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 90
     chest_quanti_item_min[a] = 85
@@ -2784,7 +2784,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (97 << 0)
     chest_id[a] = a
     chest_name[a] = "quest_item"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 90
     chest_quanti_item_min[a] = 85
@@ -2813,7 +2813,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (74 << 0)
     chest_id[a] = a
     chest_name[a] = "key_box"
-    chest_sprite[a] = 1220
+    chest_sprite[a] = 1223
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 50
     chest_quanti_item_min[a] = 40
@@ -2848,7 +2848,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (5 << 0)
     chest_id[a] = a
     chest_name[a] = "Wood crate"
-    chest_sprite[a] = 1225
+    chest_sprite[a] = 1228
     chest_decay_item[a] = 1
     chest_quanti_item_max[a] = 4
     chest_quanti_item_min[a] = 1
@@ -2940,7 +2940,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (75 << 0)
     chest_id[a] = a
     chest_name[a] = "Air drop"
-    chest_sprite[a] = 1231
+    chest_sprite[a] = 1234
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 55
     chest_quanti_item_min[a] = 52
@@ -3620,7 +3620,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (35 << 0)
     chest_id[a] = a
     chest_name[a] = "Mr. Junk's treasure"
-    chest_sprite[a] = 1551
+    chest_sprite[a] = 1554
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 23
     chest_quanti_item_min[a] = 16
@@ -3743,7 +3743,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (91 << 0)
     chest_id[a] = a
     chest_name[a] = "Grigoriy memorial"
-    chest_sprite[a] = 1237
+    chest_sprite[a] = 1240
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 1
     chest_quanti_item_min[a] = 1
@@ -3845,7 +3845,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (50 << 0)
     chest_id[a] = a
     chest_name[a] = "Devourer"
-    chest_sprite[a] = 1928
+    chest_sprite[a] = 1931
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 2
     chest_quanti_item_min[a] = 1
@@ -4062,7 +4062,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (58 << 0)
     chest_id[a] = a
     chest_name[a] = "Mutated plant"
-    chest_sprite[a] = 1928
+    chest_sprite[a] = 1931
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 5
     chest_quanti_item_min[a] = 3
@@ -4079,7 +4079,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (56 << 0)
     chest_id[a] = a
     chest_name[a] = "Anomaly Electric"
-    chest_sprite[a] = 1928
+    chest_sprite[a] = 1931
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 3
     chest_quanti_item_min[a] = 1
@@ -4096,7 +4096,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (57 << 0)
     chest_id[a] = a
     chest_name[a] = "Anomaly Fire"
-    chest_sprite[a] = 1928
+    chest_sprite[a] = 1931
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 3
     chest_quanti_item_min[a] = 1
@@ -4334,7 +4334,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (85 << 0)
     chest_id[a] = a
     chest_name[a] = "safe"
-    chest_sprite[a] = 1229
+    chest_sprite[a] = 1232
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 1
     chest_quanti_item_min[a] = 1
@@ -4351,7 +4351,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (86 << 0)
     chest_id[a] = a
     chest_name[a] = "strange machinery"
-    chest_sprite[a] = 1928
+    chest_sprite[a] = 1931
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 1
     chest_quanti_item_min[a] = 1
@@ -4368,7 +4368,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (87 << 0)
     chest_id[a] = a
     chest_name[a] = "flight recorder"
-    chest_sprite[a] = 1233
+    chest_sprite[a] = 1236
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 1
     chest_quanti_item_min[a] = 1
@@ -4385,7 +4385,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (90 << 0)
     chest_id[a] = a
     chest_name[a] = "unknown bag"
-    chest_sprite[a] = 1227
+    chest_sprite[a] = 1230
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 1
     chest_quanti_item_min[a] = 1
@@ -4402,7 +4402,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (89 << 0)
     chest_id[a] = a
     chest_name[a] = "secret chest"
-    chest_sprite[a] = 1227
+    chest_sprite[a] = 1230
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 1
     chest_quanti_item_min[a] = 1
@@ -4419,7 +4419,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (92 << 0)
     chest_id[a] = a
     chest_name[a] = "Secret safe"
-    chest_sprite[a] = 1229
+    chest_sprite[a] = 1232
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 1
     chest_quanti_item_min[a] = 1
@@ -4453,7 +4453,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (14 << 0)
     chest_id[a] = a
     chest_name[a] = "fire crystal"
-    chest_sprite[a] = 1234
+    chest_sprite[a] = 1237
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 2
     chest_quanti_item_min[a] = 1
@@ -4470,7 +4470,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (15 << 0)
     chest_id[a] = a
     chest_name[a] = "Chemical crystal"
-    chest_sprite[a] = 1235
+    chest_sprite[a] = 1238
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 2
     chest_quanti_item_min[a] = 1
@@ -4487,7 +4487,7 @@ function lista_chest() //gml_Script_lista_chest
     a = (16 << 0)
     chest_id[a] = a
     chest_name[a] = "Electric crystal"
-    chest_sprite[a] = 1236
+    chest_sprite[a] = 1239
     chest_decay_item[a] = 0
     chest_quanti_item_max[a] = 2
     chest_quanti_item_min[a] = 1
