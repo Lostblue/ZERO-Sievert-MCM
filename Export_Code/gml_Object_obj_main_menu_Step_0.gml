@@ -127,6 +127,19 @@ if (_normal == 1)
             global.drop_inventory_death = option_var[(17 << 0)][(0 << 0)]
             global.drop_money_death = option_var[(17 << 0)][(1 << 0)]
             global.reset_status_death = option_var[(17 << 0)][(2 << 0)]
+            if mouse_check_button_pressed(mb_left)
+            {
+                for (i = 0; i < n_option; i++)
+                {
+                    if (option_type[page_state][i] == (2 << 0))
+                    {
+                        if scr_mouse_inside((camx + on_x), ((camy + starty) + (button_h_sep * i)), on_w, button_h)
+                            option_var[(17 << 0)][i] = 1
+                        if scr_mouse_inside(((camx + on_x) + on_w), ((camy + starty) + (button_h_sep * i)), on_w, button_h)
+                            option_var[(17 << 0)][i] = 0
+                    }
+                }
+            }
         }
         if (page_state == (19 << 0))
         {
