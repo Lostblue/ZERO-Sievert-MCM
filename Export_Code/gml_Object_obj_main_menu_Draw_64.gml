@@ -109,6 +109,18 @@ if (page_state != (11 << 0))
             _t = option_var[page_state][i]
             draw_text_color(((slider_startx + slider_w) + 15), ((camy + option_starty[page_state]) + (but_sep * i)), string(_t), col_text_selected, col_text_selected, col_text_selected, col_text_selected, 1)
         }
+        if (option_type[page_state][i] == (4 << 0))
+        {
+            draw_sprite_ext(s_hud_slider_bar, 0, (camx + slider_startx), ((camy + option_starty[page_state]) + (but_sep * i)), 1, 1, 0, c_hover, 1)
+            var slider_w = sprite_get_width(s_hud_slider_bar)
+            var slider_pointx = ((slider_w * option_var[page_state][i]) / 3)
+            draw_sprite_ext(s_hud_slider_point, 0, ((camx + slider_startx) + slider_pointx), ((camy + option_starty[page_state]) + (but_sep * i)), 1, 1, 0, c_hover, 1)
+            draw_set_font(font0)
+            draw_set_halign(fa_center)
+            draw_set_valign(fa_middle)
+            _t = option_var[page_state][i]
+            draw_text_color(((slider_startx + slider_w) + 15), ((camy + option_starty[page_state]) + (but_sep * i)), string(_t), col_text_selected, col_text_selected, col_text_selected, col_text_selected, 1)
+        }
         if (option_type[page_state][i] == (2 << 0))
         {
             var k = option_var[page_state][i]

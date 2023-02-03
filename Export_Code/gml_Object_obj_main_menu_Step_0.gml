@@ -128,6 +128,56 @@ if (_normal == 1)
             global.drop_money_death = option_var[(17 << 0)][(1 << 0)]
             global.reset_status_death = option_var[(17 << 0)][(2 << 0)]
         }
+        if (page_state == (19 << 0))
+        {
+            global.trader_sell_price = option_var[(19 << 0)][(0 << 0)]
+            global.trader_buy_price = option_var[(19 << 0)][(1 << 0)]
+            global.quest_money_reward = option_var[(19 << 0)][(2 << 0)]
+            global.service_price = option_var[(19 << 0)][(3 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    var s_w = sprite_get_width(s_hud_slider_bar)
+                    if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty), (s_w + (offset_slider * 2)), button_h)
+                    {
+                        option_var[(19 << 0)][(0 << 0)] = (((mouse_x - camx) - slider_startx) / s_w) * 3
+                        option_var[(19 << 0)][(0 << 0)] = clamp(option_var[(19 << 0)][(0 << 0)], 0, 3)
+                    }
+                }
+                if mouse_check_button(mb_left)
+                {
+                    s_w = sprite_get_width(s_hud_slider_bar)
+                    if scr_mouse_inside(((camx + slider_startx) - offset_slider), ((camy + starty) + button_h_sep), (s_w + (offset_slider * 2)), button_h)
+                    {
+                        option_var[(19 << 0)][(1 << 0)] = (((mouse_x - camx) - slider_startx) / s_w) * 3
+                        option_var[(19 << 0)][(1 << 0)] = clamp(option_var[(19 << 0)][(1 << 0)], 0, 3)
+                    }
+                }
+                if mouse_check_button(mb_left)
+                {
+                    s_w = sprite_get_width(s_hud_slider_bar)
+                    if scr_mouse_inside(((camx + slider_startx) - offset_slider), ((camy + starty) + (button_h_sep * 2)), (s_w + (offset_slider * 2)), button_h)
+                    {
+                        option_var[(19 << 0)][(2 << 0)] = (((mouse_x - camx) - slider_startx) / s_w) * 3
+                        option_var[(19 << 0)][(2 << 0)] = clamp(option_var[(19 << 0)][(2 << 0)], 0, 3)
+                    }
+                }
+                if mouse_check_button(mb_left)
+                {
+                    s_w = sprite_get_width(s_hud_slider_bar)
+                    if scr_mouse_inside(((camx + slider_startx) - offset_slider), ((camy + starty) + (button_h_sep * 3)), (s_w + (offset_slider * 2)), button_h)
+                    {
+                        option_var[(19 << 0)][(3 << 0)] = (((mouse_x - camx) - slider_startx) / s_w) * 3
+                        option_var[(19 << 0)][(3 << 0)] = clamp(option_var[(19 << 0)][(3 << 0)], 0, 3)
+                    }
+                }
+            }
+        }
         if (page_state == (6 << 0))
         {
             global.erba_dinamica = option_var[(6 << 0)][(1 << 0)]
@@ -404,7 +454,7 @@ if (_normal == 1)
                             page_state = (5 << 0)
                             break
                         case (5 << 0):
-                            page_state = (17 << 0)
+                            page_state = (18 << 0)
                             break
                         case (6 << 0):
                             if (room == r_menu)
@@ -636,11 +686,40 @@ if (_normal == 1)
                     switch option_selected
                     {
                         case (3 << 0):
-                            page_state = (3 << 0)
+                            page_state = (18 << 0)
                             ini_open("settings.ini")
                             ini_write_real("MCM", "drop_inventory_death", global.drop_inventory_death)
                             ini_write_real("MCM", "drop_money_death", global.drop_money_death)
                             ini_write_real("MCM", "reset_status_death", global.reset_status_death)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (18 << 0):
+                    switch option_selected
+                    {
+                        case (0 << 0):
+                            page_state = (17 << 0)
+                            break
+                        case (1 << 0):
+                            page_state = (19 << 0)
+                            break
+                        case (2 << 0):
+                            page_state = (3 << 0)
+                            break
+                    }
+
+                case (19 << 0):
+                    switch option_selected
+                    {
+                        case (4 << 0):
+                            page_state = (18 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM", "trader_sell_price", global.trader_sell_price)
+                            ini_write_real("MCM", "trader_buy_price", global.trader_buy_price)
+                            ini_write_real("MCM", "quest_money_reward", global.quest_money_reward)
+                            ini_write_real("MCM", "service_price", global.service_price)
                             ini_close()
                             break
                     }

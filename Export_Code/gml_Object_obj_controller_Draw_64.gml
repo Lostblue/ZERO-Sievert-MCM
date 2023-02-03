@@ -963,8 +963,11 @@ if instance_exists(obj_player)
                 c_text = c_hover
             else
                 c_text = c_not_hover
+            ini_open("settings.ini")
+            global.quest_money_reward = ini_read_real("MCM", "quest_money_reward", 1)
+            ini_close()
             draw_text_color(start_text_x, (start_text_y + 24), "- Gain reward", c_text, c_text, c_text, c_text, 1)
-            var reward_amount = round((global.quest_reward[global.which_quest_is_shown] * global.sk_k[(25 << 0)]))
+            var reward_amount = round((global.quest_reward[global.which_quest_is_shown] * global.sk_k[(25 << 0)] * global.quest_money_reward))
             draw_text(start_text_x, (start_text_y - 20), (("Reward: " + string(reward_amount)) + " Roubles"))
             var exp_amount = round((global.quest_exp[global.which_quest_is_shown] * global.sk_k[(25 << 0)]))
             var rep_amount = round(global.quest_rep[global.which_quest_is_shown])
@@ -991,7 +994,10 @@ if instance_exists(obj_player)
                 var dur1 = obj_player.durability_slot[(11 << 0)]
                 var wep_price = obj_player.armor_class[p_wep1]
                 var _k = 380
-                dur_price = round((((1 - (dur1 / 100)) * _k) * power(wep_price, 2.25)))
+                ini_open("settings.ini")
+                global.service_price = ini_read_real("MCM", "service_price", 1)
+                ini_close()
+                dur_price = round((((1 - (dur1 / 100)) * _k) * power(wep_price, 2.25)) * global.service_price)
             }
             t_ = ("- Repair armor for " + string(dur_price))
             var t_len = string_width(t_)
@@ -1010,11 +1016,14 @@ if instance_exists(obj_player)
                 c_text = c_hover
             else
                 c_text = c_not_hover
+            ini_open("settings.ini")
+            global.service_price = ini_read_real("MCM", "service_price", 1)
+            ini_close()
             draw_text_color(start_text_x, start_text_y, "- Back", c_text, c_text, c_text, c_text, 1)
             var p_hp = obj_player.hp
             var p_wound = obj_player.wound
             var p_hp_max = (obj_player.hp_max_total - p_wound)
-            var money_hp = floor(((p_hp_max - p_hp) * global.heal_hp_k))
+            var money_hp = floor(((p_hp_max - p_hp) * global.heal_hp_k * global.service_price))
             t_ = (("- Heal health for " + string(money_hp)) + " Roubles")
             t_len = string_width(t_)
             if scr_mouse_inside((camx + start_text_x), ((camy + start_text_y) + 12), t_len, 12)
@@ -1025,7 +1034,7 @@ if instance_exists(obj_player)
             p_hp = obj_player.hp
             p_hp_max = obj_player.hp_max
             p_wound = obj_player.wound
-            var money_wound = floor((p_wound * global.heal_wound_k))
+            var money_wound = floor((p_wound * global.heal_wound_k * global.service_price))
             t_ = (("- Heal wounds for " + string(money_wound)) + " Roubles")
             t_len = string_width(t_)
             if scr_mouse_inside((camx + start_text_x), ((camy + start_text_y) + 24), t_len, 12)
@@ -1036,7 +1045,7 @@ if instance_exists(obj_player)
             p_hp = obj_player.hp
             p_hp_max = obj_player.hp_max
             var p_rad = obj_player.radiation_accumulata
-            money_wound = floor((p_rad * global.heal_rad_k))
+            money_wound = floor((p_rad * global.heal_rad_k * global.service_price))
             t_ = (("- Heal radiation for " + string(money_wound)) + " Roubles")
             t_len = string_width(t_)
             if scr_mouse_inside((camx + start_text_x), ((camy + start_text_y) + 36), t_len, 12)
@@ -1090,10 +1099,13 @@ if instance_exists(obj_player)
                 c_text = c_hover
             else
                 c_text = c_not_hover
+            ini_open("settings.ini")
+            global.service_price = ini_read_real("MCM", "service_price", 1)
+            ini_close()
             draw_text_color(start_text_x, start_text_y, "- Back", c_text, c_text, c_text, c_text, 1)
             var _hunger = obj_player.energy
             var _hunger_max = obj_player.energy_max
-            var _money = floor(((_hunger_max - _hunger) * 30))
+            var _money = floor(((_hunger_max - _hunger) * 30 * global.service_price))
             t_ = (("- Refill hunger for " + string(_money)) + " Roubles")
             t_len = string_width(t_)
             if scr_mouse_inside((camx + start_text_x), ((camy + start_text_y) + 12), t_len, 12)
@@ -1103,7 +1115,7 @@ if instance_exists(obj_player)
             draw_text_color(start_text_x, (start_text_y + 12), t_, c_text, c_text, c_text, c_text, 1)
             var _thirst = obj_player.thirst
             var _thirst_max = obj_player.thirst_max
-            _money = floor(((_thirst_max - _thirst) * 40))
+            _money = floor(((_thirst_max - _thirst) * 40 * global.service_price))
             t_ = (("- Quench thirst for " + string(_money)) + " Roubles")
             t_len = string_width(t_)
             if scr_mouse_inside((camx + start_text_x), ((camy + start_text_y) + 24), t_len, 12)

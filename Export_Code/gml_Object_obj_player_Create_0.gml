@@ -22,19 +22,16 @@ audio_emitter_falloff(emitter_shoot, 256, 400, 1)
 emitter_walk = audio_emitter_create()
 audio_emitter_falloff(emitter_shoot, 64, 96, 1)
 ini_open(global.save_general)
-var survived_ = ini_read_real("survive", "survive", 1)
+var survived_ = ini_read_real("survive", "survive", "1")
 ini_close()
 if (survived_ == 0)
 {
     ini_open(global.save_hub)
     var money_ = ini_read_real("stats", "money", 0)
     ini_close()
-
-    if(global.drop_inventory_death == 1)
+    if (global.drop_inventory_death == 1)
         file_delete((("save_hub_" + string(global.slot_selected)) + ".ini"))
-    
     scr_save_or_load(0)
-
     if (global.drop_money_death == 0)
     {
         ini_open(global.save_inventory)
@@ -469,23 +466,24 @@ ini_close()
                 global.player_weight += (item_weight[temp_item_id] * temp_item_qnt)
             }
     }
-    if (survived_ == 0 && global.reset_status_death == 1)
-    {
-        ini_write_real("player", "hp", 100)
+}
+if (survived_ == 0 && global.reset_status_death == 1)
+{
+    ini_write_real("player", "hp", 100)
         ini_write_real("player", "energy", 100)
         ini_write_real("player", "thirst", 100)
         ini_write_real("player", "fatigue", 100)
         ini_write_real("player", "radiation", 0)
         ini_write_real("player", "wound", 0)
     }
-    ini_close()
+ini_close()
     ini_open(global.save_general)
     ini_write_real("survive", "survive", 1)
     ini_close()
     arma_now = weapon_slot[(1 << 0)]
     if (new_game == 1)
-    {
-        ini_open(global.save_inventory)
+{
+    ini_open(global.save_inventory)
         t_id = ini_read_real("trait", "id", 0)
         ini_close()
         global.sk_lvl[(0 << 0)] = global.trait_cardio[t_id]

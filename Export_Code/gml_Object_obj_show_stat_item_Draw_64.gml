@@ -207,7 +207,7 @@ if (go == 1)
                     var soldi_2 = 0
                     if (item_categoria[item_id] == (0 << 0))
                         soldi_2 = scr_get_money_weapon(id_instance)
-                    var soldi_tot = (((((soldi_ * id_instance.durability) / 100) + soldi_2) * 0.2) * global.sk_k[(21 << 0)])
+                    var soldi_tot = (((((soldi_ * id_instance.durability) / 100) + soldi_2) * 0.2) * global.sk_k[(21 << 0)] * global.trader_sell_price)
                     soldi_tot = round(soldi_tot)
                     _t_stack = ""
                     if (_qnt > 1)
@@ -235,7 +235,7 @@ if (go == 1)
                 soldi_2 = 0
                 if (item_categoria[item_id] == (0 << 0))
                     soldi_2 = scr_get_money_weapon(id_instance)
-                soldi_tot = (((((soldi_ * id_instance.durability) / 100) + soldi_2) * 0.2) * global.sk_k[(21 << 0)])
+                soldi_tot = (((((soldi_ * id_instance.durability) / 100) + soldi_2) * 0.2) * global.sk_k[(21 << 0)] * global.trader_sell_price)
                 soldi_tot = round(soldi_tot)
                 _t_stack = ""
                 if (_qnt > 1)

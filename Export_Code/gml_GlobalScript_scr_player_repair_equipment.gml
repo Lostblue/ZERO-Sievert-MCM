@@ -19,7 +19,7 @@ function scr_player_repair_equipment() //gml_Script_scr_player_repair_equipment
                 var dur1 = obj_player.durability_slot[(11 << 0)]
                 var wep_price = obj_player.armor_class[p_wep1]
                 var _k = 380
-                var dur_price = round((((1 - (dur1 / 100)) * _k) * power(wep_price, 2.25)))
+                var dur_price = round((((1 - (dur1 / 100)) * _k) * power(wep_price, 2.25) * global.service_price))
                 if (global.player_money >= dur_price)
                 {
                     obj_player.durability_slot[(11 << 0)] = 100
