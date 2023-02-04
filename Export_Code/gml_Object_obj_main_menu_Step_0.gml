@@ -145,6 +145,7 @@ if (_normal == 1)
         {
             global.mutator_mutant = option_var[(20 << 0)][(0 << 0)]
             global.mutator_human = option_var[(20 << 0)][(1 << 0)]
+            global.mutator_boss = option_var[(20 << 0)][(2 << 0)]
             if mouse_check_button_pressed(mb_left)
             {
                 for (i = 0; i < n_option; i++)
@@ -748,18 +749,20 @@ if (_normal == 1)
                 case (20 << 0):
                     switch option_selected
                     {
-                        case (2 << 0):
+                        case (3 << 0):
                             page_state = (21 << 0)
                             ini_open("settings.ini")
                             ini_write_real("MCM", "mutator_mutant", global.mutator_mutant)
                             ini_write_real("MCM", "mutator_human", global.mutator_human)
+                            ini_write_real("MCM", "mutator_boss", global.mutator_boss)
                             ini_close()
                             break
-                        case (3 << 0):
+                        case (4 << 0):
                             page_state = (18 << 0)
                             ini_open("settings.ini")
                             ini_write_real("MCM", "mutator_mutant", global.mutator_mutant)
                             ini_write_real("MCM", "mutator_human", global.mutator_human)
+                            ini_write_real("MCM", "mutator_boss", global.mutator_boss)
                             ini_close()
                             break
                     }

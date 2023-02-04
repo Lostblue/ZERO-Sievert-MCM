@@ -7,7 +7,7 @@ sprite_index = npc_sprite_idle[npc_id]
 arma_now = npc_arma[npc_id]
 ammo_magazine = arma_magazine[arma_now]
 ammo_now = arma_magazine[arma_now]
-if (global.mutator_human == 1)
+if (global.mutator_boss == 1)
 {
     chance = 0
     switch global.mutator_difficulty

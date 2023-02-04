@@ -60,6 +60,7 @@ global.quest_money_reward = ini_read_real("MCM", "quest_money_reward", 1)
 global.mutator_difficulty = ini_read_real("MCM", "mutator_difficulty", 0)
 global.mutator_mutant = ini_read_real("MCM", "mutator_mutant", 0)
 global.mutator_human = ini_read_real("MCM", "mutator_human", 0)
+global.mutator_boss = ini_read_real("MCM", "mutator_boss", 0)
 global.mutator_difficulty = ini_read_real("MCM", "mutator_difficulty", 0)
 ini_close()
 audio_group_set_gain(3, global.volume_radiation, 1)
@@ -650,10 +651,13 @@ option_var[b][(0 << 0)] = global.mutator_mutant
 option_name[b][(1 << 0)] = "MUTATOR HUMAN"
 option_type[b][(1 << 0)] = (2 << 0)
 option_var[b][(1 << 0)] = global.mutator_human
-option_name[b][(2 << 0)] = "MUTATOR DIFFICULTY"
-option_type[b][(2 << 0)] = (0 << 0)
-option_name[b][(3 << 0)] = "BACK"
+option_name[b][(2 << 0)] = "MUTATOR BOSS"
+option_type[b][(2 << 0)] = (2 << 0)
+option_var[b][(2 << 0)] = global.mutator_boss
+option_name[b][(3 << 0)] = "MUTATOR DIFFICULTY"
 option_type[b][(3 << 0)] = (0 << 0)
+option_name[b][(4 << 0)] = "BACK"
+option_type[b][(4 << 0)] = (0 << 0)
 b = (21 << 0)
 option_startx[b] = button_startx
 option_starty[b] = button_starty
