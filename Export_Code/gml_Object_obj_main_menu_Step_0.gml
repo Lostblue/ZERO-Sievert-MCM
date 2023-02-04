@@ -122,7 +122,7 @@ if (_normal == 1)
                 }
             }
         }
-        if(page_state == (17 << 0))
+        if (page_state == (17 << 0))
         {
             global.drop_inventory_death = option_var[(17 << 0)][(0 << 0)]
             global.drop_money_death = option_var[(17 << 0)][(1 << 0)]
@@ -134,9 +134,27 @@ if (_normal == 1)
                     if (option_type[page_state][i] == (2 << 0))
                     {
                         if scr_mouse_inside((camx + on_x), ((camy + starty) + (button_h_sep * i)), on_w, button_h)
-                            option_var[(17 << 0)][i] = 1
+                            option_var[(17 << 0)][i] = true
                         if scr_mouse_inside(((camx + on_x) + on_w), ((camy + starty) + (button_h_sep * i)), on_w, button_h)
-                            option_var[(17 << 0)][i] = 0
+                            option_var[(17 << 0)][i] = false
+                    }
+                }
+            }
+        }
+        if (page_state == (20 << 0))
+        {
+            global.mutator_mutant = option_var[(20 << 0)][(0 << 0)]
+            global.mutator_human = option_var[(20 << 0)][(1 << 0)]
+            if mouse_check_button_pressed(mb_left)
+            {
+                for (i = 0; i < n_option; i++)
+                {
+                    if (option_type[page_state][i] == (2 << 0))
+                    {
+                        if scr_mouse_inside((camx + on_x), ((camy + starty) + (button_h_sep * i)), on_w, button_h)
+                            option_var[(20 << 0)][i] = true
+                        if scr_mouse_inside(((camx + on_x) + on_w), ((camy + starty) + (button_h_sep * i)), on_w, button_h)
+                            option_var[(20 << 0)][i] = false
                     }
                 }
             }
@@ -155,10 +173,10 @@ if (_normal == 1)
             {
                 if mouse_check_button(mb_left)
                 {
-                    var s_w = sprite_get_width(s_hud_slider_bar)
+                    s_w = sprite_get_width(s_hud_slider_bar)
                     if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty), (s_w + (offset_slider * 2)), button_h)
                     {
-                        option_var[(19 << 0)][(0 << 0)] = (((mouse_x - camx) - slider_startx) / s_w) * 3
+                        option_var[(19 << 0)][(0 << 0)] = ((((mouse_x - camx) - slider_startx) / s_w) * 3)
                         option_var[(19 << 0)][(0 << 0)] = clamp(option_var[(19 << 0)][(0 << 0)], 0, 3)
                     }
                 }
@@ -167,7 +185,7 @@ if (_normal == 1)
                     s_w = sprite_get_width(s_hud_slider_bar)
                     if scr_mouse_inside(((camx + slider_startx) - offset_slider), ((camy + starty) + button_h_sep), (s_w + (offset_slider * 2)), button_h)
                     {
-                        option_var[(19 << 0)][(1 << 0)] = (((mouse_x - camx) - slider_startx) / s_w) * 3
+                        option_var[(19 << 0)][(1 << 0)] = ((((mouse_x - camx) - slider_startx) / s_w) * 3)
                         option_var[(19 << 0)][(1 << 0)] = clamp(option_var[(19 << 0)][(1 << 0)], 0, 3)
                     }
                 }
@@ -176,7 +194,7 @@ if (_normal == 1)
                     s_w = sprite_get_width(s_hud_slider_bar)
                     if scr_mouse_inside(((camx + slider_startx) - offset_slider), ((camy + starty) + (button_h_sep * 2)), (s_w + (offset_slider * 2)), button_h)
                     {
-                        option_var[(19 << 0)][(2 << 0)] = (((mouse_x - camx) - slider_startx) / s_w) * 3
+                        option_var[(19 << 0)][(2 << 0)] = ((((mouse_x - camx) - slider_startx) / s_w) * 3)
                         option_var[(19 << 0)][(2 << 0)] = clamp(option_var[(19 << 0)][(2 << 0)], 0, 3)
                     }
                 }
@@ -185,7 +203,7 @@ if (_normal == 1)
                     s_w = sprite_get_width(s_hud_slider_bar)
                     if scr_mouse_inside(((camx + slider_startx) - offset_slider), ((camy + starty) + (button_h_sep * 3)), (s_w + (offset_slider * 2)), button_h)
                     {
-                        option_var[(19 << 0)][(3 << 0)] = (((mouse_x - camx) - slider_startx) / s_w) * 3
+                        option_var[(19 << 0)][(3 << 0)] = ((((mouse_x - camx) - slider_startx) / s_w) * 3)
                         option_var[(19 << 0)][(3 << 0)] = clamp(option_var[(19 << 0)][(3 << 0)], 0, 3)
                     }
                 }
@@ -283,7 +301,7 @@ if (_normal == 1)
             {
                 if instance_exists(obj_main_menu)
                 {
-                    with (obj_main_menu)
+                    with(obj_main_menu)
                         instance_destroy()
                 }
                 audio_resume_all()
@@ -577,7 +595,7 @@ if (_normal == 1)
                         case (0 << 0):
                             if instance_exists(obj_main_menu)
                             {
-                                with (obj_main_menu)
+                                with(obj_main_menu)
                                     instance_destroy()
                             }
                             audio_resume_all()
@@ -719,10 +737,68 @@ if (_normal == 1)
                             page_state = (19 << 0)
                             break
                         case (2 << 0):
+                            page_state = (20 << 0)
+                            break
+                        case (3 << 0):
                             page_state = (3 << 0)
                             break
                     }
 
+                    break
+                case (20 << 0):
+                    switch option_selected
+                    {
+                        case (2 << 0):
+                            page_state = (21 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM", "mutator_mutant", global.mutator_mutant)
+                            ini_write_real("MCM", "mutator_human", global.mutator_human)
+                            ini_close()
+                            break
+                        case (3 << 0):
+                            page_state = (18 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM", "mutator_mutant", global.mutator_mutant)
+                            ini_write_real("MCM", "mutator_human", global.mutator_human)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (21 << 0):
+                    switch option_selected
+                    {
+                        case (0 << 0):
+                            page_state = (20 << 0)
+                            ini_open("settings.ini")
+                            global.mutator_difficulty = 0
+                            ini_write_real("MCM", "mutator_difficulty", global.mutator_difficulty)
+                            ini_close()
+                            break
+                        case (1 << 0):
+                            page_state = (20 << 0)
+                            ini_open("settings.ini")
+                            global.mutator_difficulty = 1
+                            ini_write_real("MCM", "mutator_difficulty", global.mutator_difficulty)
+                            ini_close()
+                            break
+                        case (2 << 0):
+                            page_state = (20 << 0)
+                            ini_open("settings.ini")
+                            global.mutator_difficulty = 2
+                            ini_write_real("MCM", "mutator_difficulty", global.mutator_difficulty)
+                            ini_close()
+                            break
+                        case (3 << 0):
+                            page_state = (20 << 0)
+                            ini_open("settings.ini")
+                            global.mutator_difficulty = 3
+                            ini_write_real("MCM", "mutator_difficulty", global.mutator_difficulty)
+                            ini_close()
+                            break
+                    }
+
+                    break
                 case (19 << 0):
                     switch option_selected
                     {
@@ -894,7 +970,7 @@ if (_normal == 1)
             if (global.trait_hover != -1)
             {
                 global.trait_selected = global.trait_hover
-                with (obj_item)
+                with(obj_item)
                     instance_destroy()
                 var grid_x = 240
                 var grid_y = global.trait_sy
@@ -909,34 +985,34 @@ if (_normal == 1)
                     var necessario_w = (sprite_get_width(item_sprite_inv[id_item]) div 16)
                     var necessario_h = (sprite_get_height(item_sprite_inv[id_item]) div 16)
                     for (var yy = 0; yy < grid_h; yy++)
+                {
+                    for (var xx = 0; xx < grid_w; xx++)
                     {
-                        for (var xx = 0; xx < grid_w; xx++)
+                        if (ds_grid_get(grid_item_, xx, yy) == 0)
                         {
-                            if (ds_grid_get(grid_item_, xx, yy) == 0)
+                            if (placed == 0)
                             {
-                                if (placed == 0)
-                                {
-                                    var can_place = 1
+                                var can_place = 1
                                     if ((xx + necessario_w) > grid_w)
-                                        can_place = 0
+                                    can_place = 0
                                     if ((yy + necessario_h) > grid_h)
-                                        can_place = 0
+                                    can_place = 0
                                     for (var ix = 0; ix < necessario_w; ix++)
+                                {
+                                    for (var iy = 0; iy < necessario_h; iy++)
                                     {
-                                        for (var iy = 0; iy < necessario_h; iy++)
-                                        {
-                                            if (ds_grid_get(grid_item_, (xx + ix), (yy + iy)) == 1)
-                                                can_place = 0
+                                        if (ds_grid_get(grid_item_, (xx + ix), (yy + iy)) == 1)
+                                            can_place = 0
                                         }
-                                    }
-                                    if (can_place == 1)
+                                }
+                                if (can_place == 1)
+                                {
+                                    for (ix = 0; ix < necessario_w; ix++)
                                     {
-                                        for (ix = 0; ix < necessario_w; ix++)
-                                        {
-                                            for (iy = 0; iy < necessario_h; iy++)
-                                                ds_grid_set(grid_item_, (xx + ix), (yy + iy), 1)
+                                        for (iy = 0; iy < necessario_h; iy++)
+                                            ds_grid_set(grid_item_, (xx + ix), (yy + iy), 1)
                                         }
-                                        var objx = ((camx + grid_x) + (xx * 16))
+                                    var objx = ((camx + grid_x) + (xx * 16))
                                         var objy = ((camy + grid_y) + (yy * 16))
                                         var oggetto = instance_create_depth(objx, objy, -8000, obj_item)
                                         oggetto.my_id = id_item
@@ -946,32 +1022,32 @@ if (_normal == 1)
                                         oggetto.sprite_index = item_sprite_inv[id_item]
                                         placed = 1
                                     }
-                                }
                             }
                         }
                     }
                 }
-                ds_grid_destroy(grid_item_)
             }
-        }
-        global.hardcore_hover = -1
+            ds_grid_destroy(grid_item_)
+            }
+    }
+    global.hardcore_hover = -1
         for (i = 0; i < array_length_1d(global.trait_id); i++)
-        {
-            if scr_mouse_inside((camx + global.hardcore_x), (camy + global.hardcore_y), global.hardcore_w, global.hardcore_h)
+    {
+        if scr_mouse_inside((camx + global.hardcore_x), (camy + global.hardcore_y), global.hardcore_w, global.hardcore_h)
                 global.hardcore_hover = 1
         }
-        if mouse_check_button_pressed(mb_left)
+    if mouse_check_button_pressed(mb_left)
         {
-            if (global.hardcore_hover == 1)
-                scr_draw_text_with_box("In Development")
+        if (global.hardcore_hover == 1)
+            scr_draw_text_with_box("In Development")
         }
-        if mouse_check_button_pressed(mb_left)
+    if mouse_check_button_pressed(mb_left)
         {
-            if scr_mouse_inside((camx + global.trait_go_x), (camy + global.trait_go_y), global.trait_go_w, global.trait_go_h)
+        if scr_mouse_inside((camx + global.trait_go_x), (camy + global.trait_go_y), global.trait_go_w, global.trait_go_h)
             {
-                if (global.trait_selected != -1)
-                {
-                    file_delete((("save_" + string(global.slot_selected)) + ".ini"))
+            if (global.trait_selected != -1)
+            {
+                file_delete((("save_" + string(global.slot_selected)) + ".ini"))
                     file_delete((("save_general_" + string(global.slot_selected)) + ".ini"))
                     file_delete((("save_player_chest_" + string(global.slot_selected)) + ".ini"))
                     file_delete((("save_hub_" + string(global.slot_selected)) + ".ini"))
@@ -984,53 +1060,53 @@ if (_normal == 1)
                     ga_addDesignEvent(("StartingEquipment:" + _equipment))
                     room_goto(r_hub)
                 }
-            }
-            if scr_mouse_inside((camx + global.trait_go_x), ((camy + global.trait_go_y) + global.trait_go_h), global.trait_go_w, global.trait_go_h)
+        }
+        if scr_mouse_inside((camx + global.trait_go_x), ((camy + global.trait_go_y) + global.trait_go_h), global.trait_go_w, global.trait_go_h)
             {
-                page_state = (1 << 0)
-                with (obj_item)
+            page_state = (1 << 0)
+                with(obj_item)
                     instance_destroy()
             }
-        }
     }
-    if (page_state == (15 << 0))
-    {
-        if (credits_movement == 1)
-            credits_y -= credits_speed
+}
+if (page_state == (15 << 0))
+{
+    if (credits_movement == 1)
+        credits_y -= credits_speed
         var _reset = 0
         if mouse_wheel_up()
         {
-            credits_y += (credits_jump * 2)
+        credits_y += (credits_jump * 2)
             _reset = 1
         }
-        if mouse_wheel_down()
+    if mouse_wheel_down()
         {
-            credits_y -= (credits_jump * 2)
+        credits_y -= (credits_jump * 2)
             _reset = 1
         }
-        if keyboard_check(vk_up)
+    if keyboard_check(vk_up)
         {
-            credits_y += credits_jump
+        credits_y += credits_jump
             _reset = 1
         }
-        if keyboard_check(vk_down)
+    if keyboard_check(vk_down)
         {
-            credits_y -= credits_jump
+        credits_y -= credits_jump
             _reset = 1
         }
-        credits_y = clamp(credits_y, ((-s_credits_h) + 270), 0)
+    credits_y = clamp(credits_y, ((-s_credits_h) + 270), 0)
         if (_reset == 1)
-        {
-            credits_movement = 0
+    {
+        credits_movement = 0
             alarm[2] = 90
         }
-    }
-    if (page_state_before != page_state)
-        can_slide = 0
+}
+if (page_state_before != page_state)
+    can_slide = 0
     page_state_before = page_state
     if (keyboard_check_pressed(vk_f5) && keyboard_check(vk_control))
-    {
-        global.slot_selected = 1
+{
+    global.slot_selected = 1
         room_goto(test_room)
     }
 }
