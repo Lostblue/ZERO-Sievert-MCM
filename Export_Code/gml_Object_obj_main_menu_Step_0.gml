@@ -210,6 +210,434 @@ if (_normal == 1)
                 }
             }
         }
+        if (page_state == (24 << 0))
+        {
+            global.global_chest_add_max = option_var[(24 << 0)][(0 << 0)]
+            global.global_chest_add_min = option_var[(24 << 0)][(1 << 0)]
+            global.global_npc_add_max = option_var[(24 << 0)][(2 << 0)]
+            global.global_npc_add_min = option_var[(24 << 0)][(3 << 0)]
+            global.global_mutant_add_max = option_var[(24 << 0)][(4 << 0)]
+            global.global_mutant_add_min = option_var[(24 << 0)][(5 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (6 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(24 << 0)][i] = ((mouse_x - camx) - slider_startx) - (s_w / 2)
+                                option_var[(24 << 0)][i] = clamp(option_var[(24 << 0)][i], -20, 20)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (page_state == (35 << 0))
+        {
+            global.chest_loner_max = option_var[(35 << 0)][(0 << 0)]
+            global.chest_loner_min = option_var[(35 << 0)][(1 << 0)]
+            global.chest_hunter_max = option_var[(35 << 0)][(2 << 0)]
+            global.chest_hunter_min = option_var[(35 << 0)][(3 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (5 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(35 << 0)][i] = ((mouse_x - camx) - slider_startx)
+                                option_var[(35 << 0)][i] = clamp(option_var[(35 << 0)][i], 0, 64)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (page_state == (36 << 0))
+        {
+            global.chest_lazar_max = option_var[(36 << 0)][(0 << 0)]
+            global.chest_lazar_min = option_var[(36 << 0)][(1 << 0)]
+            global.chest_arman_max = option_var[(36 << 0)][(2 << 0)]
+            global.chest_arman_min = option_var[(36 << 0)][(3 << 0)]
+            global.chest_kibba_max = option_var[(36 << 0)][(4 << 0)]
+            global.chest_kibba_min = option_var[(36 << 0)][(5 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (5 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(36 << 0)][i] = ((mouse_x - camx) - slider_startx)
+                                option_var[(36 << 0)][i] = clamp(option_var[(36 << 0)][i], 0, 64)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (page_state == (37 << 0))
+        {
+            global.chest_bandit_max = option_var[(37 << 0)][(0 << 0)]
+            global.chest_bandit_min = option_var[(37 << 0)][(1 << 0)]
+            global.chest_ga_max = option_var[(37 << 0)][(2 << 0)]
+            global.chest_ga_min = option_var[(37 << 0)][(3 << 0)]
+            global.chest_cc_max = option_var[(37 << 0)][(4 << 0)]
+            global.chest_cc_min = option_var[(37 << 0)][(5 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (5 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(37 << 0)][i] = ((mouse_x - camx) - slider_startx)
+                                option_var[(37 << 0)][i] = clamp(option_var[(37 << 0)][i], 0, 64)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (page_state == (31 << 0))
+        {
+            global.chest_crow_max = option_var[(31 << 0)][(0 << 0)]
+            global.chest_crow_min = option_var[(31 << 0)][(1 << 0)]
+            global.chest_rabbit_max = option_var[(31 << 0)][(2 << 0)]
+            global.chest_rabbit_min = option_var[(31 << 0)][(3 << 0)]
+            global.chest_wolf_max = option_var[(31 << 0)][(4 << 0)]
+            global.chest_wolf_min = option_var[(31 << 0)][(5 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (5 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(31 << 0)][i] = ((mouse_x - camx) - slider_startx)
+                                option_var[(31 << 0)][i] = clamp(option_var[(31 << 0)][i], 0, 64)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (page_state == (32 << 0))
+        {
+            global.chest_boar_max = option_var[(32 << 0)][(0 << 0)]
+            global.chest_boar_min = option_var[(32 << 0)][(1 << 0)]
+            global.chest_rat_max = option_var[(32 << 0)][(2 << 0)]
+            global.chest_rat_min = option_var[(32 << 0)][(3 << 0)]
+            global.chest_spider_max = option_var[(32 << 0)][(4 << 0)]
+            global.chest_spider_min = option_var[(32 << 0)][(5 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (5 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(32 << 0)][i] = ((mouse_x - camx) - slider_startx)
+                                option_var[(32 << 0)][i] = clamp(option_var[(32 << 0)][i], 0, 64)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (page_state == (38 << 0))
+        {
+            global.chest_ghoul_max = option_var[(38 << 0)][(0 << 0)]
+            global.chest_ghoul_min = option_var[(38 << 0)][(1 << 0)]
+            global.chest_blink_max = option_var[(38 << 0)][(2 << 0)]
+            global.chest_blink_min = option_var[(38 << 0)][(3 << 0)]
+            global.chest_big_max = option_var[(38 << 0)][(4 << 0)]
+            global.chest_big_min = option_var[(38 << 0)][(5 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (5 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(38 << 0)][i] = ((mouse_x - camx) - slider_startx)
+                                option_var[(38 << 0)][i] = clamp(option_var[(38 << 0)][i], 0, 64)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (page_state == (33 << 0))
+        {
+            global.chest_infestation_max = option_var[(33 << 0)][(0 << 0)]
+            global.chest_infestation_min = option_var[(33 << 0)][(1 << 0)]
+            global.chest_anomaly_max = option_var[(33 << 0)][(2 << 0)]
+            global.chest_anomaly_min = option_var[(33 << 0)][(3 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (5 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(33 << 0)][i] = ((mouse_x - camx) - slider_startx)
+                                option_var[(33 << 0)][i] = clamp(option_var[(33 << 0)][i], 0, 64)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (page_state == (25 << 0))
+        {
+            global.chest_toolbox_max = option_var[(25 << 0)][(0 << 0)]
+            global.chest_toolbox_min = option_var[(25 << 0)][(1 << 0)]
+            global.chest_electronic_box_max = option_var[(25 << 0)][(2 << 0)]
+            global.chest_electronic_box_min = option_var[(25 << 0)][(3 << 0)]
+            global.chest_medication_box_max = option_var[(25 << 0)][(4 << 0)]
+            global.chest_medication_box_min = option_var[(25 << 0)][(5 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (5 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(25 << 0)][i] = ((mouse_x - camx) - slider_startx)
+                                option_var[(25 << 0)][i] = clamp(option_var[(25 << 0)][i], 0, 64)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (page_state == (26 << 0))
+        {
+            global.chest_weapon_box_1_max = option_var[(26 << 0)][(0 << 0)]
+            global.chest_weapon_box_1_min = option_var[(26 << 0)][(1 << 0)]
+            global.chest_weapon_box_2_max = option_var[(26 << 0)][(2 << 0)]
+            global.chest_weapon_box_2_min = option_var[(26 << 0)][(3 << 0)]
+            global.chest_attachment_box_max = option_var[(26 << 0)][(4 << 0)]
+            global.chest_attachment_box_min = option_var[(26 << 0)][(5 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (5 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(26 << 0)][i] = ((mouse_x - camx) - slider_startx)
+                                option_var[(26 << 0)][i] = clamp(option_var[(26 << 0)][i], 0, 64)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (page_state == (27 << 0))
+        {
+            global.chest_bag_max = option_var[(27 << 0)][(0 << 0)]
+            global.chest_bag_min = option_var[(27 << 0)][(1 << 0)]
+            global.chest_wood_crate_max = option_var[(27 << 0)][(2 << 0)]
+            global.chest_wood_crate_min = option_var[(27 << 0)][(3 << 0)]
+            global.chest_cabinet_max = option_var[(27 << 0)][(4 << 0)]
+            global.chest_cabinet_min = option_var[(27 << 0)][(5 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (5 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(27 << 0)][i] = ((mouse_x - camx) - slider_startx)
+                                option_var[(27 << 0)][i] = clamp(option_var[(27 << 0)][i], 0, 64)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (page_state == (39 << 0))
+        {
+            global.chest_vending_machine_max = option_var[(39 << 0)][(0 << 0)]
+            global.chest_vending_machine_min = option_var[(39 << 0)][(1 << 0)]
+            global.chest_cash_register_max = option_var[(39 << 0)][(2 << 0)]
+            global.chest_cash_register_min = option_var[(39 << 0)][(3 << 0)]
+            global.chest_safe_max = option_var[(39 << 0)][(4 << 0)]
+            global.chest_safe_min = option_var[(39 << 0)][(5 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (5 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(39 << 0)][i] = ((mouse_x - camx) - slider_startx)
+                                option_var[(39 << 0)][i] = clamp(option_var[(39 << 0)][i], 0, 64)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (page_state == (28 << 0))
+        {
+            global.chest_library_max = option_var[(28 << 0)][(0 << 0)]
+            global.chest_library_min = option_var[(28 << 0)][(1 << 0)]
+            global.chest_super_shelves_max = option_var[(28 << 0)][(2 << 0)]
+            global.chest_super_shelves_min = option_var[(28 << 0)][(3 << 0)]
+            global.chest_igor_loot_max = option_var[(28 << 0)][(4 << 0)]
+            global.chest_igor_loot_min = option_var[(28 << 0)][(5 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (5 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(28 << 0)][i] = ((mouse_x - camx) - slider_startx)
+                                option_var[(28 << 0)][i] = clamp(option_var[(28 << 0)][i], 0, 64)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (page_state == (29 << 0))
+        {
+            global.chest_forge = option_var[(29 << 0)][(0 << 0)]
+            global.chest_ammo_scrap = option_var[(29 << 0)][(1 << 0)]
+            global.chest_scavenger = option_var[(29 << 0)][(2 << 0)]
+            global.chest_garden = option_var[(29 << 0)][(3 << 0)]
+            if mouse_check_button_pressed(mb_left)
+                can_slide = 1
+            if mouse_check_button_released(mb_left)
+                can_slide = 0
+            if (can_slide == 1)
+            {
+                if mouse_check_button(mb_left)
+                {
+                    for (i = 0; i < n_option; i++)
+                    {
+                        if (option_type[page_state][i] == (5 << 0))
+                        {
+                            s_w = sprite_get_width(s_hud_slider_bar)
+                            if scr_mouse_inside(((camx + slider_startx) - offset_slider), (camy + starty) + (button_h_sep * i), (s_w + (offset_slider * 2)), button_h)
+                            {
+                                option_var[(29 << 0)][i] = ((mouse_x - camx) - slider_startx)
+                                option_var[(29 << 0)][i] = clamp(option_var[(29 << 0)][i], 0, 64)
+                            }
+                        }
+                    }
+                }
+            }
+        }
         if (page_state == (6 << 0))
         {
             global.erba_dinamica = option_var[(6 << 0)][(1 << 0)]
@@ -714,6 +1142,325 @@ if (_normal == 1)
                     }
 
                     break
+                case (22 << 0):
+                    switch option_selected
+                    {
+                        case (0 << 0):
+                            page_state = (24 << 0)
+                            break
+                        case (1 << 0):
+                            page_state = (40 << 0)
+                            break
+                        case (2 << 0):
+                            page_state = (30 << 0)
+                            break
+                        case (3 << 0):
+                            page_state = (34 << 0)
+                            break
+                        case (4 << 0):
+                            page_state = (18 << 0)
+                            break
+                    }
+
+                    break
+                case (24 << 0):
+                    switch option_selected
+                    {
+                        case (6 << 0):
+                            page_state = (22 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "global_chest_add_max", global.global_chest_add_max)
+                            ini_write_real("MCM_Chests", "global_chest_add_min", global.global_chest_add_min)
+                            ini_write_real("MCM_Chests", "global_npc_add_max", global.global_npc_add_max)
+                            ini_write_real("MCM_Chests", "global_npc_add_min", global.global_npc_add_min)
+                            ini_write_real("MCM_Chests", "global_mutant_add_max", global.global_mutant_add_max)
+                            ini_write_real("MCM_Chests", "global_mutant_add_min", global.global_mutant_add_min)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (40 << 0):
+                    switch option_selected
+                    {
+                        case (0 << 0):
+                            page_state = (25 << 0)
+                            break
+                        case (1 << 0):
+                            page_state = (26 << 0)
+                            break
+                        case (2 << 0):
+                            page_state = (27 << 0)
+                            break
+                        case (3 << 0):
+                            page_state = (39 << 0)
+                            break
+                        case (4 << 0):
+                            page_state = (28 << 0)
+                            break
+                        case (5 << 0):
+                            page_state = (29 << 0)
+                            break
+                        case (6 << 0):
+                            page_state = (22 << 0)
+                            break
+                    }
+
+                    break
+                case (25 << 0):
+                    switch option_selected
+                    {
+                        case (6 << 0):
+                            page_state = (40 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "chest_toolbox_max", global.chest_toolbox_max)
+                            ini_write_real("MCM_Chests", "chest_toolbox_min", global.chest_toolbox_min)
+                            ini_write_real("MCM_Chests", "chest_electronic_box_max", global.chest_electronic_box_max)
+                            ini_write_real("MCM_Chests", "chest_electronic_box_min", global.chest_electronic_box_min)
+                            ini_write_real("MCM_Chests", "chest_medication_box_max", global.chest_medication_box_max)
+                            ini_write_real("MCM_Chests", "chest_medication_box_min", global.chest_medication_box_min)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (26 << 0):
+                    switch option_selected
+                    {
+                        case (6 << 0):
+                            page_state = (40 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "chest_weapon_box_1_max", global.chest_weapon_box_1_max)
+                            ini_write_real("MCM_Chests", "chest_weapon_box_1_min", global.chest_weapon_box_1_min)
+                            ini_write_real("MCM_Chests", "chest_weapon_box_2_max", global.chest_weapon_box_2_max)
+                            ini_write_real("MCM_Chests", "chest_weapon_box_2_min", global.chest_weapon_box_2_min)
+                            ini_write_real("MCM_Chests", "chest_attachment_box_max", global.chest_attachment_box_max)
+                            ini_write_real("MCM_Chests", "chest_attachment_box_min", global.chest_attachment_box_min)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (27 << 0):
+                    switch option_selected
+                    {
+                        case (6 << 0):
+                            page_state = (40 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "chest_bag_max", global.chest_bag_max)
+                            ini_write_real("MCM_Chests", "chest_bag_min", global.chest_bag_min)
+                            ini_write_real("MCM_Chests", "chest_wood_crate_max", global.chest_wood_crate_max)
+                            ini_write_real("MCM_Chests", "chest_wood_crate_min", global.chest_wood_crate_min)
+                            ini_write_real("MCM_Chests", "chest_cabinet_max", global.chest_cabinet_max)
+                            ini_write_real("MCM_Chests", "chest_cabinet_min", global.chest_cabinet_min)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (39 << 0):
+                    switch option_selected
+                    {
+                        case (6 << 0):
+                            page_state = (40 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "chest_vending_machine_max", global.chest_vending_machine_max)
+                            ini_write_real("MCM_Chests", "chest_vending_machine_min", global.chest_vending_machine_min)
+                            ini_write_real("MCM_Chests", "chest_cash_register_max", global.chest_cash_register_max)
+                            ini_write_real("MCM_Chests", "chest_cash_register_min", global.chest_cash_register_min)
+                            ini_write_real("MCM_Chests", "chest_safe_max", global.chest_safe_max)
+                            ini_write_real("MCM_Chests", "chest_safe_min", global.chest_safe_min)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (28 << 0):
+                    switch option_selected
+                    {
+                        case (6 << 0):
+                            page_state = (40 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "chest_library_max", global.chest_library_max)
+                            ini_write_real("MCM_Chests", "chest_library_min", global.chest_library_min)
+                            ini_write_real("MCM_Chests", "chest_super_shelves_max", global.chest_super_shelves_max)
+                            ini_write_real("MCM_Chests", "chest_super_shelves_min", global.chest_super_shelves_min)
+                            ini_write_real("MCM_Chests", "chest_igor_loot_max", global.chest_igor_loot_max)
+                            ini_write_real("MCM_Chests", "chest_igor_loot_min", global.chest_igor_loot_min)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (29 << 0):
+                    switch option_selected
+                    {
+                        case (4 << 0):
+                            page_state = (40 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "chest_forge", global.chest_forge)
+                            ini_write_real("MCM_Chests", "chest_ammo_scrap", global.chest_ammo_scrap)
+                            ini_write_real("MCM_Chests", "chest_scavenger", global.chest_scavenger)
+                            ini_write_real("MCM_Chests", "chest_garden", global.chest_garden)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (30 << 0):
+                    switch option_selected
+                    {
+                        case (0 << 0):
+                            page_state = (31 << 0)
+                            break
+                        case (1 << 0):
+                            page_state = (32 << 0)
+                            break
+                        case (2 << 0):
+                            page_state = (38 << 0)
+                            break
+                        case (3 << 0):
+                            page_state = (33 << 0)
+                            break
+                        case (4 << 0):
+                            page_state = (22 << 0)
+                            break
+                    }
+
+                    break
+                case (31 << 0):
+                    switch option_selected
+                    {
+                        case (6 << 0):
+                            page_state = (30 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "chest_crow_max", global.chest_crow_max)
+                            ini_write_real("MCM_Chests", "chest_crow_min", global.chest_crow_min)
+                            ini_write_real("MCM_Chests", "chest_rabbit_max", global.chest_rabbit_max)
+                            ini_write_real("MCM_Chests", "chest_rabbit_min", global.chest_rabbit_min)
+                            ini_write_real("MCM_Chests", "chest_wolf_max", global.chest_wolf_max)
+                            ini_write_real("MCM_Chests", "chest_wolf_min", global.chest_wolf_min)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (32 << 0):
+                    switch option_selected
+                    {
+                        case (6 << 0):
+                            page_state = (30 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "chest_boar_max", global.chest_boar_max)
+                            ini_write_real("MCM_Chests", "chest_boar_min", global.chest_boar_min)
+                            ini_write_real("MCM_Chests", "chest_rat_max", global.chest_rat_max)
+                            ini_write_real("MCM_Chests", "chest_rat_min", global.chest_rat_min)
+                            ini_write_real("MCM_Chests", "chest_spider_max", global.chest_spider_max)
+                            ini_write_real("MCM_Chests", "chest_spider_min", global.chest_spider_min)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (38 << 0):
+                    switch option_selected
+                    {
+                        case (6 << 0):
+                            page_state = (30 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "chest_ghoul_max", global.chest_ghoul_max)
+                            ini_write_real("MCM_Chests", "chest_ghoul_min", global.chest_ghoul_min)
+                            ini_write_real("MCM_Chests", "chest_blink_max", global.chest_blink_max)
+                            ini_write_real("MCM_Chests", "chest_blink_min", global.chest_blink_min)
+                            ini_write_real("MCM_Chests", "chest_big_max", global.chest_big_max)
+                            ini_write_real("MCM_Chests", "chest_big_min", global.chest_big_min)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (33 << 0):
+                    switch option_selected
+                    {
+                        case (4 << 0):
+                            page_state = (30 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "chest_infestation_max", global.chest_infestation_max)
+                            ini_write_real("MCM_Chests", "chest_infestation_min", global.chest_infestation_min)
+                            ini_write_real("MCM_Chests", "chest_anomaly_max", global.chest_anomaly_max)
+                            ini_write_real("MCM_Chests", "chest_anomaly_min", global.chest_anomaly_min)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (34 << 0):
+                    switch option_selected
+                    {
+                        case (0 << 0):
+                            page_state = (35 << 0)
+                            break
+                        case (1 << 0):
+                            page_state = (36 << 0)
+                            break
+                        case (2 << 0):
+                            page_state = (37 << 0)
+                            break
+                        case (3 << 0):
+                            page_state = (22 << 0)
+                            break
+                    }
+
+                    break
+                case (35 << 0):
+                    switch option_selected
+                    {
+                        case (4 << 0):
+                            page_state = (34 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "chest_loner_max", global.chest_loner_max)
+                            ini_write_real("MCM_Chests", "chest_loner_min", global.chest_loner_min)
+                            ini_write_real("MCM_Chests", "chest_hunter_max", global.chest_hunter_max)
+                            ini_write_real("MCM_Chests", "chest_hunter_min", global.chest_hunter_min)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (36 << 0):
+                    switch option_selected
+                    {
+                        case (6 << 0):
+                            page_state = (34 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "chest_lazar_max", global.chest_lazar_max)
+                            ini_write_real("MCM_Chests", "chest_lazar_min", global.chest_lazar_min)
+                            ini_write_real("MCM_Chests", "chest_arman_max", global.chest_arman_max)
+                            ini_write_real("MCM_Chests", "chest_arman_min", global.chest_arman_min)
+                            ini_write_real("MCM_Chests", "chest_kibba_max", global.chest_kibba_max)
+                            ini_write_real("MCM_Chests", "chest_kibba_min", global.chest_kibba_min)
+                            ini_close()
+                            break
+                    }
+
+                    break
+                case (37 << 0):
+                    switch option_selected
+                    {
+                        case (6 << 0):
+                            page_state = (34 << 0)
+                            ini_open("settings.ini")
+                            ini_write_real("MCM_Chests", "chest_bandit_max", global.chest_bandit_max)
+                            ini_write_real("MCM_Chests", "chest_bandit_min", global.chest_bandit_min)
+                            ini_write_real("MCM_Chests", "chest_ga_max", global.chest_ga_max)
+                            ini_write_real("MCM_Chests", "chest_ga_min", global.chest_ga_min)
+                            ini_write_real("MCM_Chests", "chest_cc_max", global.chest_cc_max)
+                            ini_write_real("MCM_Chests", "chest_cc_min", global.chest_cc_min)
+                            ini_close()
+                            break
+                    }
+
+                    break
                 case (17 << 0):
                     switch option_selected
                     {
@@ -741,6 +1488,9 @@ if (_normal == 1)
                             page_state = (20 << 0)
                             break
                         case (3 << 0):
+                            page_state = (22 << 0)
+                            break
+                        case (4 << 0):
                             page_state = (3 << 0)
                             break
                     }
