@@ -307,6 +307,21 @@ if (page_state == (8 << 0))
     _c = c_white
     draw_text_ext_color(240, (_y + (_h / 2)), _t, 12, 360, _c, _c, _c, _c, 1)
 }
+if (page_state == (41 << 0))
+{
+    _w = 380
+    _h = 40
+    _y = 200
+    scr_draw_box(s_box_testo1, (240 - (_w / 2)), _y, _w, _h, 1)
+    _t = "Note - due to technical limitation, if you want to futher edit from a preset, you will need to restart the game. Additionnaly, certain change will be applied only on changing level."
+    draw_set_font(font_quest)
+    draw_set_halign(fa_center)
+    draw_set_valign(fa_middle)
+    _c = c_black
+    draw_text_ext_color(240, ((_y + (_h / 2)) + 1), _t, 12, 360, _c, _c, _c, _c, 1)
+    _c = c_white
+    draw_text_ext_color(240, (_y + (_h / 2)), _t, 12, 360, _c, _c, _c, _c, 1)
+}
 if (state_sure == 1)
 {
     _w = 180

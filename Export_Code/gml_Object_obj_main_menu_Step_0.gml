@@ -1479,18 +1479,21 @@ if (_normal == 1)
                     switch option_selected
                     {
                         case (0 << 0):
-                            page_state = (17 << 0)
+                            page_state = (41 << 0)
                             break
                         case (1 << 0):
-                            page_state = (19 << 0)
+                            page_state = (17 << 0)
                             break
                         case (2 << 0):
-                            page_state = (20 << 0)
+                            page_state = (19 << 0)
                             break
                         case (3 << 0):
-                            page_state = (22 << 0)
+                            page_state = (20 << 0)
                             break
                         case (4 << 0):
+                            page_state = (22 << 0)
+                            break
+                        case (5 << 0):
                             page_state = (3 << 0)
                             break
                     }
@@ -1691,6 +1694,480 @@ if (_normal == 1)
                     }
 
                     break
+                case (41 << 0):
+                    switch option_selected
+                    {
+                        case (0 << 0):
+                            page_state = (18 << 0)
+                            global.chest_kibba_min = 13
+                            global.chest_kibba_max = 16
+                            global.chest_arman_min = 15
+                            global.chest_arman_max = 18
+                            global.chest_lazar_min = 10
+                            global.chest_lazar_max = 14
+                            global.chest_anomaly_min = 1
+                            global.chest_anomaly_max = 2
+                            global.chest_infestation_min = 4
+                            global.chest_infestation_max = 5
+                            global.chest_big_min = 5
+                            global.chest_big_max = 8
+                            global.chest_blink_min = 3
+                            global.chest_blink_max = 4
+                            global.chest_ghoul_min = 1
+                            global.chest_ghoul_max = 3
+                            global.chest_wolf_min = 2
+                            global.chest_wolf_max = 3
+                            global.chest_rabbit_min = 1
+                            global.chest_rabbit_max = 3
+                            global.chest_crow_min = 0
+                            global.chest_crow_max = 1
+                            global.chest_garden = 6
+                            global.chest_scavenger = 20
+                            global.chest_ammo_scrap = 5
+                            global.chest_forge = 5
+                            global.chest_safe_min = 3
+                            global.chest_safe_max = 6
+                            global.chest_cash_register_min = 0
+                            global.chest_cash_register_max = 2
+                            global.chest_vending_machine_min = 2
+                            global.chest_vending_machine_max = 4
+                            global.chest_medication_box_min = 5
+                            global.chest_medication_box_max = 7
+                            global.chest_electronic_box_min = 7
+                            global.chest_electronic_box_max = 9
+                            global.chest_toolbox_min = 5
+                            global.chest_toolbox_max = 7
+                            global.global_mutant_add_min = 0
+                            global.global_mutant_add_max = 0
+                            global.global_npc_add_min = 0
+                            global.global_npc_add_max = 0
+                            global.global_chest_add_min = 0
+                            global.global_chest_add_max = 0
+                            global.chest_weapon_box_1_max = 9
+                            global.chest_weapon_box_1_min = 6
+                            global.chest_weapon_box_2_max = 16
+                            global.chest_weapon_box_2_min = 11
+                            global.chest_attachment_box_max = 7
+                            global.chest_attachment_box_min = 4
+                            global.chest_bag_max = 7
+                            global.chest_bag_min = 5
+                            global.chest_wood_crate_max = 4
+                            global.chest_wood_crate_min = 1
+                            global.chest_cabinet_max = 4
+                            global.chest_cabinet_min = 2
+                            global.chest_library_max = 2
+                            global.chest_library_min = 0
+                            global.chest_super_shelves_max = 3
+                            global.chest_super_shelves_min = 1
+                            global.chest_igor_loot_max = 15
+                            global.chest_igor_loot_min = 11
+                            global.chest_boar_max = 5
+                            global.chest_boar_min = 2
+                            global.chest_rat_max = 2
+                            global.chest_rat_min = 0
+                            global.chest_spider_max = 3
+                            global.chest_spider_min = 2
+                            global.chest_loner_max = 5
+                            global.chest_loner_min = 3
+                            global.chest_hunter_max = 12
+                            global.chest_hunter_min = 5
+                            global.chest_bandit_max = 5
+                            global.chest_bandit_min = 3
+                            global.chest_ga_max = 11
+                            global.chest_ga_min = 4
+                            global.chest_cc_max = 12
+                            global.chest_cc_min = 5
+                            global.mutator_difficulty = 0
+                            global.reset_status_death = 0
+                            global.drop_inventory_death = 0
+                            global.trader_sell_price = 1
+                            global.trader_buy_price = 1
+                            global.quest_money_reward = 1
+                            global.service_price = 1
+                            global.drop_money_death = 0
+                            global.mutator_mutant = 0
+                            global.mutator_human = 0
+                            global.mutator_boss = 0
+                            break
+                        case (1 << 0):
+                            page_state = (18 << 0)
+                            global.chest_kibba_min = 13
+                            global.chest_kibba_max = 16
+                            global.chest_arman_min = 15
+                            global.chest_arman_max = 18
+                            global.chest_lazar_min = 10
+                            global.chest_lazar_max = 14
+                            global.chest_anomaly_min = 1
+                            global.chest_anomaly_max = 2
+                            global.chest_infestation_min = 4
+                            global.chest_infestation_max = 5
+                            global.chest_big_min = 5
+                            global.chest_big_max = 8
+                            global.chest_blink_min = 3
+                            global.chest_blink_max = 4
+                            global.chest_ghoul_min = 1
+                            global.chest_ghoul_max = 3
+                            global.chest_wolf_min = 2
+                            global.chest_wolf_max = 3
+                            global.chest_rabbit_min = 1
+                            global.chest_rabbit_max = 3
+                            global.chest_crow_min = 0
+                            global.chest_crow_max = 1
+                            global.chest_garden = 6
+                            global.chest_scavenger = 20
+                            global.chest_ammo_scrap = 5
+                            global.chest_forge = 5
+                            global.chest_safe_min = 3
+                            global.chest_safe_max = 6
+                            global.chest_cash_register_min = 0
+                            global.chest_cash_register_max = 2
+                            global.chest_vending_machine_min = 2
+                            global.chest_vending_machine_max = 4
+                            global.chest_medication_box_min = 5
+                            global.chest_medication_box_max = 7
+                            global.chest_electronic_box_min = 7
+                            global.chest_electronic_box_max = 9
+                            global.chest_toolbox_min = 5
+                            global.chest_toolbox_max = 7
+                            global.global_mutant_add_min = -1
+                            global.global_mutant_add_max = 1
+                            global.global_npc_add_min = -2
+                            global.global_npc_add_max = 2
+                            global.global_chest_add_min = -1
+                            global.global_chest_add_max = 1
+                            global.chest_weapon_box_1_max = 9
+                            global.chest_weapon_box_1_min = 6
+                            global.chest_weapon_box_2_max = 16
+                            global.chest_weapon_box_2_min = 11
+                            global.chest_attachment_box_max = 7
+                            global.chest_attachment_box_min = 4
+                            global.chest_bag_max = 7
+                            global.chest_bag_min = 5
+                            global.chest_wood_crate_max = 4
+                            global.chest_wood_crate_min = 1
+                            global.chest_cabinet_max = 4
+                            global.chest_cabinet_min = 2
+                            global.chest_library_max = 2
+                            global.chest_library_min = 0
+                            global.chest_super_shelves_max = 3
+                            global.chest_super_shelves_min = 1
+                            global.chest_igor_loot_max = 15
+                            global.chest_igor_loot_min = 11
+                            global.chest_boar_max = 5
+                            global.chest_boar_min = 2
+                            global.chest_rat_max = 2
+                            global.chest_rat_min = 0
+                            global.chest_spider_max = 3
+                            global.chest_spider_min = 2
+                            global.chest_loner_max = 5
+                            global.chest_loner_min = 3
+                            global.chest_hunter_max = 12
+                            global.chest_hunter_min = 5
+                            global.chest_bandit_max = 5
+                            global.chest_bandit_min = 3
+                            global.chest_ga_max = 11
+                            global.chest_ga_min = 4
+                            global.chest_cc_max = 12
+                            global.chest_cc_min = 5
+
+                            global.mutator_difficulty = 0
+                            global.reset_status_death = 0
+                            global.drop_inventory_death = 0
+                            global.trader_sell_price = 0.900000
+                            global.trader_buy_price = 1.100000
+                            global.quest_money_reward = 0
+                            global.service_price = 1.500000
+                            global.drop_money_death = 0
+                            global.mutator_mutant = 1
+                            global.mutator_human = 0
+                            global.mutator_boss = 0
+                            break
+                        case (2 << 0):
+                            page_state = (18 << 0)
+                            global.chest_kibba_min = 13
+                            global.chest_kibba_max = 16
+                            global.chest_arman_min = 15
+                            global.chest_arman_max = 18
+                            global.chest_lazar_min = 10
+                            global.chest_lazar_max = 14
+                            global.chest_anomaly_min = 0
+                            global.chest_anomaly_max = 2
+                            global.chest_infestation_min = 2
+                            global.chest_infestation_max = 5
+                            global.chest_big_min = 3
+                            global.chest_big_max = 8
+                            global.chest_blink_min = 1
+                            global.chest_blink_max = 4
+                            global.chest_ghoul_min = 1
+                            global.chest_ghoul_max = 3
+                            global.chest_wolf_min = 1
+                            global.chest_wolf_max = 3
+                            global.chest_rabbit_min = 0
+                            global.chest_rabbit_max = 2
+                            global.chest_crow_min = 0
+                            global.chest_crow_max = 1
+                            global.chest_garden = 5
+                            global.chest_scavenger = 18
+                            global.chest_ammo_scrap = 4
+                            global.chest_forge = 4
+                            global.chest_safe_min = 2
+                            global.chest_safe_max = 5
+                            global.chest_cash_register_min = 0
+                            global.chest_cash_register_max = 2
+                            global.chest_vending_machine_min = 1
+                            global.chest_vending_machine_max = 3
+                            global.chest_medication_box_min = 2
+                            global.chest_medication_box_max = 5
+                            global.chest_electronic_box_min = 5
+                            global.chest_electronic_box_max = 7
+                            global.chest_toolbox_min = 5
+                            global.chest_toolbox_max = 7
+                            global.global_mutant_add_min = 0
+                            global.global_mutant_add_max = 0
+                            global.global_npc_add_min = 0
+                            global.global_npc_add_max = 0
+                            global.global_chest_add_min = 0
+                            global.global_chest_add_max = 0
+                            global.chest_weapon_box_1_max = 8
+                            global.chest_weapon_box_1_min = 5
+                            global.chest_weapon_box_2_max = 15
+                            global.chest_weapon_box_2_min = 10
+                            global.chest_attachment_box_max = 6
+                            global.chest_attachment_box_min = 3
+                            global.chest_bag_max = 6
+                            global.chest_bag_min = 4
+                            global.chest_wood_crate_max = 4
+                            global.chest_wood_crate_min = 0
+                            global.chest_cabinet_max = 4
+                            global.chest_cabinet_min = 0
+                            global.chest_library_max = 1
+                            global.chest_library_min = 0
+                            global.chest_super_shelves_max = 3
+                            global.chest_super_shelves_min = 0
+                            global.chest_igor_loot_max = 15
+                            global.chest_igor_loot_min = 8
+                            global.chest_boar_max = 5
+                            global.chest_boar_min = 1
+                            global.chest_rat_max = 2
+                            global.chest_rat_min = 0
+                            global.chest_spider_max = 3
+                            global.chest_spider_min = 1
+                            global.chest_loner_max = 5
+                            global.chest_loner_min = 2
+                            global.chest_hunter_max = 11
+                            global.chest_hunter_min = 4
+                            global.chest_bandit_max = 4
+                            global.chest_bandit_min = 2
+                            global.chest_ga_max = 10
+                            global.chest_ga_min = 3
+                            global.chest_cc_max = 11
+                            global.chest_cc_min = 4
+
+                            global.mutator_difficulty = 2
+                            global.reset_status_death = 0
+                            global.drop_inventory_death = 0
+                            global.trader_sell_price = 0.800000
+                            global.trader_buy_price = 1.200000
+                            global.quest_money_reward = 0
+                            global.service_price = 2
+                            global.drop_money_death = 0
+                            global.mutator_mutant = 1
+                            global.mutator_human = 0
+                            global.mutator_boss = 1
+                            break
+
+                        case (3 << 0):
+                            page_state = (18 << 0)
+                            global.chest_kibba_min = 10
+                            global.chest_kibba_max = 13
+                            global.chest_arman_min = 10
+                            global.chest_arman_max = 15
+                            global.chest_lazar_min = 7
+                            global.chest_lazar_max = 11
+                            global.chest_anomaly_min = 0
+                            global.chest_anomaly_max = 2
+                            global.chest_infestation_min = 0
+                            global.chest_infestation_max = 3
+                            global.chest_big_min = 3
+                            global.chest_big_max = 6
+                            global.chest_blink_min = 1
+                            global.chest_blink_max = 3
+                            global.chest_ghoul_min = 0
+                            global.chest_ghoul_max = 3
+                            global.chest_wolf_min = 0
+                            global.chest_wolf_max = 2
+                            global.chest_rabbit_min = 0
+                            global.chest_rabbit_max = 1
+                            global.chest_crow_min = 0
+                            global.chest_crow_max = 1
+                            global.chest_garden = 4
+                            global.chest_scavenger = 14
+                            global.chest_ammo_scrap = 3
+                            global.chest_forge = 3
+                            global.chest_safe_min = 1
+                            global.chest_safe_max = 5
+                            global.chest_cash_register_min = 0
+                            global.chest_cash_register_max = 2
+                            global.chest_vending_machine_min = 0
+                            global.chest_vending_machine_max = 4
+                            global.chest_medication_box_min = 1
+                            global.chest_medication_box_max = 4
+                            global.chest_electronic_box_min = 2
+                            global.chest_electronic_box_max = 7
+                            global.chest_toolbox_min = 2
+                            global.chest_toolbox_max = 5
+                            global.global_mutant_add_min = 0
+                            global.global_mutant_add_max = 0
+                            global.global_npc_add_min = 0
+                            global.global_npc_add_max = 0
+                            global.global_chest_add_min = 0
+                            global.global_chest_add_max = 0
+                            global.chest_weapon_box_1_max = 6
+                            global.chest_weapon_box_1_min = 3
+                            global.chest_weapon_box_2_max = 9
+                            global.chest_weapon_box_2_min = 6
+                            global.chest_attachment_box_max = 5
+                            global.chest_attachment_box_min = 1
+                            global.chest_bag_max = 5
+                            global.chest_bag_min = 2
+                            global.chest_wood_crate_max = 3
+                            global.chest_wood_crate_min = 0
+                            global.chest_cabinet_max = 4
+                            global.chest_cabinet_min = 0
+                            global.chest_library_max = 1
+                            global.chest_library_min = 0
+                            global.chest_super_shelves_max = 3
+                            global.chest_super_shelves_min = 0
+                            global.chest_igor_loot_max = 10
+                            global.chest_igor_loot_min = 5
+                            global.chest_boar_max = 4
+                            global.chest_boar_min = 1
+                            global.chest_rat_max = 1
+                            global.chest_rat_min = 0
+                            global.chest_spider_max = 2
+                            global.chest_spider_min = 0
+                            global.chest_loner_max = 4
+                            global.chest_loner_min = 1
+                            global.chest_hunter_max = 9
+                            global.chest_hunter_min = 3
+                            global.chest_bandit_max = 4
+                            global.chest_bandit_min = 1
+                            global.chest_ga_max = 9
+                            global.chest_ga_min = 3
+                            global.chest_cc_max = 10
+                            global.chest_cc_min = 3
+
+                            global.mutator_difficulty = 3
+                            global.reset_status_death = 0
+                            global.drop_inventory_death = 0
+                            global.trader_sell_price = 0.600000
+                            global.trader_buy_price = 1.400000
+                            global.quest_money_reward = 0
+                            global.service_price = 3
+                            global.drop_money_death = 0
+                            global.mutator_mutant = 1
+                            global.mutator_human = 1
+                            global.mutator_boss = 1
+                            break
+
+                        case (4 << 0):
+                            page_state = (18 << 0)
+                            break
+                    }
+                    if(option_selected != (4 << 0))
+                    {
+                        ini_open("settings.ini")
+                        ini_write_real("MCM_Chests", "chest_kibba_min", global.chest_kibba_min)
+                        ini_write_real("MCM_Chests", "chest_kibba_max", global.chest_kibba_max)
+                        ini_write_real("MCM_Chests", "chest_arman_min", global.chest_arman_min)
+                        ini_write_real("MCM_Chests", "chest_arman_max", global.chest_arman_max)
+                        ini_write_real("MCM_Chests", "chest_lazar_min", global.chest_lazar_min)
+                        ini_write_real("MCM_Chests", "chest_lazar_max", global.chest_lazar_max)
+                        ini_write_real("MCM_Chests", "chest_anomaly_min", global.chest_anomaly_min)
+                        ini_write_real("MCM_Chests", "chest_anomaly_max", global.chest_anomaly_max)
+                        ini_write_real("MCM_Chests", "chest_infestation_min", global.chest_infestation_min)
+                        ini_write_real("MCM_Chests", "chest_infestation_max", global.chest_infestation_max)
+                        ini_write_real("MCM_Chests", "chest_big_min", global.chest_big_min)
+                        ini_write_real("MCM_Chests", "chest_big_max", global.chest_big_max)
+                        ini_write_real("MCM_Chests", "chest_blink_min", global.chest_blink_min)
+                        ini_write_real("MCM_Chests", "chest_blink_max", global.chest_blink_max)
+                        ini_write_real("MCM_Chests", "chest_ghoul_min", global.chest_ghoul_min)
+                        ini_write_real("MCM_Chests", "chest_ghoul_max", global.chest_ghoul_max)
+                        ini_write_real("MCM_Chests", "chest_wolf_min", global.chest_wolf_min)
+                        ini_write_real("MCM_Chests", "chest_wolf_max", global.chest_wolf_max)
+                        ini_write_real("MCM_Chests", "chest_rabbit_min", global.chest_rabbit_min)
+                        ini_write_real("MCM_Chests", "chest_rabbit_max", global.chest_rabbit_max)
+                        ini_write_real("MCM_Chests", "chest_crow_min", global.chest_crow_min)
+                        ini_write_real("MCM_Chests", "chest_crow_max", global.chest_crow_max)
+                        ini_write_real("MCM_Chests", "chest_garden", global.chest_garden)
+                        ini_write_real("MCM_Chests", "chest_scavenger", global.chest_scavenger)
+                        ini_write_real("MCM_Chests", "chest_ammo_scrap", global.chest_ammo_scrap)
+                        ini_write_real("MCM_Chests", "chest_forge", global.chest_forge)
+                        ini_write_real("MCM_Chests", "chest_safe_min", global.chest_safe_min)
+                        ini_write_real("MCM_Chests", "chest_safe_max", global.chest_safe_max)
+                        ini_write_real("MCM_Chests", "chest_cash_register_min", global.chest_cash_register_min)
+                        ini_write_real("MCM_Chests", "chest_cash_register_max", global.chest_cash_register_max)
+                        ini_write_real("MCM_Chests", "chest_vending_machine_min", global.chest_vending_machine_min)
+                        ini_write_real("MCM_Chests", "chest_vending_machine_max", global.chest_vending_machine_max)
+                        ini_write_real("MCM_Chests", "chest_medication_box_min", global.chest_medication_box_min)
+                        ini_write_real("MCM_Chests", "chest_medication_box_max", global.chest_medication_box_max)
+                        ini_write_real("MCM_Chests", "chest_electronic_box_min", global.chest_electronic_box_min)
+                        ini_write_real("MCM_Chests", "chest_electronic_box_max", global.chest_electronic_box_max)
+                        ini_write_real("MCM_Chests", "chest_toolbox_min", global.chest_toolbox_min)
+                        ini_write_real("MCM_Chests", "chest_toolbox_max", global.chest_toolbox_max)
+                        ini_write_real("MCM_Chests", "global_mutant_add_min", global.global_mutant_add_min)
+                        ini_write_real("MCM_Chests", "global_mutant_add_max", global.global_mutant_add_max)
+                        ini_write_real("MCM_Chests", "global_npc_add_min", global.global_npc_add_min)
+                        ini_write_real("MCM_Chests", "global_npc_add_max", global.global_npc_add_max)
+                        ini_write_real("MCM_Chests", "global_chest_add_min", global.global_chest_add_min)
+                        ini_write_real("MCM_Chests", "global_chest_add_max", global.global_chest_add_max)
+                        ini_write_real("MCM_Chests", "chest_weapon_box_1_max", global.chest_weapon_box_1_max)
+                        ini_write_real("MCM_Chests", "chest_weapon_box_1_min", global.chest_weapon_box_1_min)
+                        ini_write_real("MCM_Chests", "chest_weapon_box_2_max", global.chest_weapon_box_2_max)
+                        ini_write_real("MCM_Chests", "chest_weapon_box_2_min", global.chest_weapon_box_2_min)
+                        ini_write_real("MCM_Chests", "chest_attachment_box_max", global.chest_attachment_box_max)
+                        ini_write_real("MCM_Chests", "chest_attachment_box_min", global.chest_attachment_box_min)
+                        ini_write_real("MCM_Chests", "chest_bag_max", global.chest_bag_max)
+                        ini_write_real("MCM_Chests", "chest_bag_min", global.chest_bag_min)
+                        ini_write_real("MCM_Chests", "chest_wood_crate_max", global.chest_wood_crate_max)
+                        ini_write_real("MCM_Chests", "chest_wood_crate_min", global.chest_wood_crate_min)
+                        ini_write_real("MCM_Chests", "chest_cabinet_max", global.chest_cabinet_max)
+                        ini_write_real("MCM_Chests", "chest_cabinet_min", global.chest_cabinet_min)
+                        ini_write_real("MCM_Chests", "chest_library_max", global.chest_library_max)
+                        ini_write_real("MCM_Chests", "chest_library_min", global.chest_library_min)
+                        ini_write_real("MCM_Chests", "chest_super_shelves_max", global.chest_super_shelves_max)
+                        ini_write_real("MCM_Chests", "chest_super_shelves_min", global.chest_super_shelves_min)
+                        ini_write_real("MCM_Chests", "chest_igor_loot_max", global.chest_igor_loot_max)
+                        ini_write_real("MCM_Chests", "chest_igor_loot_min", global.chest_igor_loot_min)
+                        ini_write_real("MCM_Chests", "chest_boar_max", global.chest_boar_max)
+                        ini_write_real("MCM_Chests", "chest_boar_min", global.chest_boar_min)
+                        ini_write_real("MCM_Chests", "chest_rat_max", global.chest_rat_max)
+                        ini_write_real("MCM_Chests", "chest_rat_min", global.chest_rat_min)
+                        ini_write_real("MCM_Chests", "chest_spider_max", global.chest_spider_max)
+                        ini_write_real("MCM_Chests", "chest_spider_min", global.chest_spider_min)
+                        ini_write_real("MCM_Chests", "chest_loner_max", global.chest_loner_max)
+                        ini_write_real("MCM_Chests", "chest_loner_min", global.chest_loner_min)
+                        ini_write_real("MCM_Chests", "chest_hunter_max", global.chest_hunter_max)
+                        ini_write_real("MCM_Chests", "chest_hunter_min", global.chest_hunter_min)
+                        ini_write_real("MCM_Chests", "chest_bandit_max", global.chest_bandit_max)
+                        ini_write_real("MCM_Chests", "chest_bandit_min", global.chest_bandit_min)
+                        ini_write_real("MCM_Chests", "chest_ga_max", global.chest_ga_max)
+                        ini_write_real("MCM_Chests", "chest_ga_min", global.chest_ga_min)
+                        ini_write_real("MCM_Chests", "chest_cc_max", global.chest_cc_max)
+                        ini_write_real("MCM_Chests", "chest_cc_min", global.chest_cc_min)
+                        ini_write_real("MCM", "mutator_difficulty", global.mutator_difficulty)
+                        ini_write_real("MCM", "reset_status_death", global.reset_status_death)
+                        ini_write_real("MCM", "drop_inventory_death", global.drop_inventory_death)
+                        ini_write_real("MCM", "trader_sell_price", global.trader_sell_price)
+                        ini_write_real("MCM", "trader_buy_price", global.trader_buy_price)
+                        ini_write_real("MCM", "quest_money_reward", global.quest_money_reward)
+                        ini_write_real("MCM", "service_price", global.service_price)
+                        ini_write_real("MCM", "drop_money_death", global.drop_money_death)
+                        ini_write_real("MCM", "mutator_mutant", global.mutator_mutant)
+                        ini_write_real("MCM", "mutator_human", global.mutator_human)
+                        ini_write_real("MCM", "mutator_boss", global.mutator_boss)
+                        ini_close()
+                    }
             }
 
         }

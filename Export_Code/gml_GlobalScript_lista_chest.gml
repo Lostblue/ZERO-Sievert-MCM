@@ -1449,8 +1449,8 @@ function lista_chest() //gml_Script_lista_chest
     chest_name[a] = "weapon box tier I"
     chest_sprite[a] = 1223
     chest_decay_item[a] = 1
-    chest_quanti_item_max[a] = (clamp(global.global_chest_add_max + global.chest_weapon_box_1_max, 0, 100) * global.sk_k[(59 << 0)])
-    chest_quanti_item_min[a] = (clamp(global.global_chest_add_min + global.chest_weapon_box_1_min, 0, 100) * global.sk_k[(59 << 0)])
+    chest_quanti_item_max[a] = (clamp(global.global_chest_add_max + global.chest_weapon_box_1_max, 0, 100))
+    chest_quanti_item_min[a] = (clamp(global.global_chest_add_min + global.chest_weapon_box_1_min, 0, 100))
     chest_is_drop[a] = 0
     chest_from_enemy[a] = 0
     chest_sound_type[a] = (4 << 0)
@@ -1565,8 +1565,8 @@ function lista_chest() //gml_Script_lista_chest
     chest_name[a] = "Weapon box tier II"
     chest_sprite[a] = 1225
     chest_decay_item[a] = 1
-    chest_quanti_item_max[a] = (clamp(global.global_chest_add_max + global.chest_weapon_box_2_max, 0, 100) * global.sk_k[(59 << 0)])
-    chest_quanti_item_min[a] = (clamp(global.global_chest_add_min + global.chest_weapon_box_2_min, 0, 100) * global.sk_k[(59 << 0)])
+    chest_quanti_item_max[a] = (clamp(global.global_chest_add_max + global.chest_weapon_box_2_max, 0, 100))
+    chest_quanti_item_min[a] = (clamp(global.global_chest_add_min + global.chest_weapon_box_2_min, 0, 100))
     chest_is_drop[a] = 0
     chest_from_enemy[a] = 0
     chest_sound_type[a] = (4 << 0)
