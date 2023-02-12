@@ -109,6 +109,42 @@ if (page_state != (11 << 0))
             _t = option_var[page_state][i]
             draw_text_color(((slider_startx + slider_w) + 15), ((camy + option_starty[page_state]) + (but_sep * i)), string(_t), col_text_selected, col_text_selected, col_text_selected, col_text_selected, 1)
         }
+        if (option_type[page_state][i] == (4 << 0))
+        {
+            draw_sprite_ext(s_hud_slider_bar, 0, (camx + slider_startx), ((camy + option_starty[page_state]) + (but_sep * i)), 1, 1, 0, c_hover, 1)
+            var slider_w = sprite_get_width(s_hud_slider_bar)
+            var slider_pointx = ((slider_w * option_var[page_state][i]) / 3)
+            draw_sprite_ext(s_hud_slider_point, 0, ((camx + slider_startx) + slider_pointx), ((camy + option_starty[page_state]) + (but_sep * i)), 1, 1, 0, c_hover, 1)
+            draw_set_font(font0)
+            draw_set_halign(fa_center)
+            draw_set_valign(fa_middle)
+            _t = option_var[page_state][i]
+            draw_text_color(((slider_startx + slider_w) + 15), ((camy + option_starty[page_state]) + (but_sep * i)), string(_t), col_text_selected, col_text_selected, col_text_selected, col_text_selected, 1)
+        }
+        if (option_type[page_state][i] == (5 << 0))
+        {
+            draw_sprite_ext(s_hud_slider_bar, 0, (camx + slider_startx), ((camy + option_starty[page_state]) + (but_sep * i)), 1, 1, 0, c_hover, 1)
+            var slider_w = sprite_get_width(s_hud_slider_bar)
+            var slider_pointx = option_var[page_state][i]
+            draw_sprite_ext(s_hud_slider_point, 0, ((camx + slider_startx) + slider_pointx), ((camy + option_starty[page_state]) + (but_sep * i)), 1, 1, 0, c_hover, 1)
+            draw_set_font(font0)
+            draw_set_halign(fa_center)
+            draw_set_valign(fa_middle)
+            _t = option_var[page_state][i]
+            draw_text_color(((slider_startx + slider_w) + 15), ((camy + option_starty[page_state]) + (but_sep * i)), string(_t), col_text_selected, col_text_selected, col_text_selected, col_text_selected, 1)
+        }
+        if (option_type[page_state][i] == (6 << 0))
+        {
+            draw_sprite_ext(s_hud_slider_bar, 0, (camx + slider_startx), ((camy + option_starty[page_state]) + (but_sep * i)), 1, 1, 0, c_hover, 1)
+            var slider_w = sprite_get_width(s_hud_slider_bar)
+            var slider_pointx = (option_var[page_state][i] + (slider_w /2))
+            draw_sprite_ext(s_hud_slider_point, 0, ((camx + slider_startx) + slider_pointx), ((camy + option_starty[page_state]) + (but_sep * i)), 1, 1, 0, c_hover, 1)
+            draw_set_font(font0)
+            draw_set_halign(fa_center)
+            draw_set_valign(fa_middle)
+            _t = option_var[page_state][i]
+            draw_text_color(((slider_startx + slider_w) + 15), ((camy + option_starty[page_state]) + (but_sep * i)), string(_t), col_text_selected, col_text_selected, col_text_selected, col_text_selected, 1)
+        }
         if (option_type[page_state][i] == (2 << 0))
         {
             var k = option_var[page_state][i]
@@ -263,6 +299,21 @@ if (page_state == (8 << 0))
     _y = 200
     scr_draw_box(s_box_testo1, (240 - (_w / 2)), _y, _w, _h, 1)
     _t = "Note - when in fullscreen, the game will always scale to the correct resolution for your monitor. Due to pixelart scaling, resolution changes will only take effect in windowed mode."
+    draw_set_font(font_quest)
+    draw_set_halign(fa_center)
+    draw_set_valign(fa_middle)
+    _c = c_black
+    draw_text_ext_color(240, ((_y + (_h / 2)) + 1), _t, 12, 360, _c, _c, _c, _c, 1)
+    _c = c_white
+    draw_text_ext_color(240, (_y + (_h / 2)), _t, 12, 360, _c, _c, _c, _c, 1)
+}
+if (page_state == (41 << 0))
+{
+    _w = 380
+    _h = 40
+    _y = 200
+    scr_draw_box(s_box_testo1, (240 - (_w / 2)), _y, _w, _h, 1)
+    _t = "Note - due to technical limitation, if you want to futher edit from a preset, you will need to restart the game. Additionnaly, certain change will be applied only on changing level."
     draw_set_font(font_quest)
     draw_set_halign(fa_center)
     draw_set_valign(fa_middle)

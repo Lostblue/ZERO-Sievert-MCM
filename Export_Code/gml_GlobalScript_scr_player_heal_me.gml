@@ -22,7 +22,7 @@ function scr_player_heal_me() //gml_Script_scr_player_heal_me
             var p_hp = obj_player.hp
             var p_wound = obj_player.wound
             var p_hp_max = (obj_player.hp_max_total - p_wound)
-            var money_hp = ((p_hp_max - p_hp) * global.heal_hp_k)
+            var money_hp = ((p_hp_max - p_hp) * global.heal_hp_k * global.service_price)
             if (global.player_money >= money_hp)
             {
                 global.player_money -= money_hp
@@ -42,7 +42,7 @@ function scr_player_heal_me() //gml_Script_scr_player_heal_me
             p_hp = obj_player.hp
             p_hp_max = obj_player.hp_max
             p_wound = obj_player.wound
-            var money_wound = (p_wound * global.heal_wound_k)
+            var money_wound = (p_wound * global.heal_wound_k * global.service_price)
             if (global.player_money >= money_wound)
             {
                 global.player_money -= money_wound
@@ -62,7 +62,7 @@ function scr_player_heal_me() //gml_Script_scr_player_heal_me
             p_hp = obj_player.hp
             p_hp_max = (obj_player.hp_max - obj_player.wound)
             var p_rad = obj_player.radiation_accumulata
-            money_wound = (p_rad * global.heal_rad_k)
+            money_wound = (p_rad * global.heal_rad_k * global.service_price)
             if (global.player_money >= money_wound)
             {
                 global.player_money -= money_wound

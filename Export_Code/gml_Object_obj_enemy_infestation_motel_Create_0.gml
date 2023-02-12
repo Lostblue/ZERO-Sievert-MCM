@@ -9,3 +9,4 @@ timer_max = 180
 spawn_amount = 1
 spawn_max = 16
 max_same_time = 8
+scr_chance(0, 1)

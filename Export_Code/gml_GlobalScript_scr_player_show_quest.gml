@@ -207,7 +207,7 @@ function scr_player_show_quest() //gml_Script_scr_player_show_quest
                                 }
                                 var a = instance_create_depth(obj_player.x, obj_player.y, (-y), obj_draw_something)
                                 var rep_reward = round((global.quest_exp[global.which_quest_is_shown] * global.sk_k[(25 << 0)]))
-                                var money_reward = round((global.quest_reward[global.which_quest_is_shown] * global.sk_k[(25 << 0)]))
+                                var money_reward = round((global.quest_reward[global.which_quest_is_shown] * global.sk_k[(25 << 0)] * global.quest_money_reward))
                                 var rep_quest = global.quest_rep[global.which_quest_is_shown]
                                 a.t = (((string(money_reward) + " Roubles / ") + string(rep_reward)) + " Experience")
                                 global.player_money += money_reward
