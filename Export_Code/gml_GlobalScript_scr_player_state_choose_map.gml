@@ -54,7 +54,7 @@ function scr_player_state_choose_map() //gml_Script_scr_player_state_choose_map
                             {
                                 var temp_item_id = ini_read_real("Inventory", ("Item_id_" + string(i)), 0)
                                 var temp_item_qnt = ini_read_real("Inventory", ("Item_qnt_" + string(i)), 0)
-                                var _value = ((item_value[temp_item_id] * temp_item_qnt) * 0.2)
+                                var _value = ((item_value[temp_item_id] * temp_item_qnt) * global.diff_setting[(3 << 0)])
                                 global.tot_inv_value_now += _value
                                 var _value_mods = 0
                                 if (obj_controller.arma_moddable[temp_item_id] == 1)
@@ -64,7 +64,7 @@ function scr_player_state_choose_map() //gml_Script_scr_player_state_choose_map
                                         var _id = ini_read_real("Inventory", ((("mod_" + string(j)) + "_") + string(i)), arma_mod_id[temp_item_id][j])
                                         if (_id != -1)
                                         {
-                                            var _value_mod = (item_value[_id] * 0.2)
+                                            var _value_mod = (item_value[_id] * global.diff_setting[(3 << 0)])
                                             _value_mods += _value_mod
                                         }
                                     }
@@ -121,7 +121,10 @@ function scr_player_state_choose_map() //gml_Script_scr_player_state_choose_map
                             }
                         }
                         ini_close()
-                        scr_save_or_load(1)
+                        ini_open(global.save_general)
+                        var survived_ = ini_write_real("survive", "survive", string(1))
+                        ini_close()
+                        scr_save_or_load(1, 1)
                         scr_create_backup()
                         room_goto(room1)
                     }

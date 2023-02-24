@@ -935,6 +935,17 @@ function scr_player_state_move() //gml_Script_scr_player_state_move
         ds_list_add(global.list_interact_id, indoor_id)
         ds_list_add(global.list_interact_task_pos, 0)
     }
+    if (action == 0)
+    {
+        if global.kb_pressed[(25 << 0)]
+        {
+            if (room == r_hub)
+            {
+                action = 1
+                state = gml_Script_scr_player_state_teleport
+            }
+        }
+    }
     var o = obj_controller
     for (i = 0; i < 30; i++)
     {
@@ -1363,7 +1374,7 @@ function scr_player_state_move() //gml_Script_scr_player_state_move
                         var _special = 0
                         var _get_instance_id = ds_list_find_value(global.list_interact_id, global.p_int_instance_id)
                         var _get_object_index = _get_instance_id.object_index
-                        if (_get_object_index == 734)
+                        if (_get_object_index == 735)
                         {
                             _special = 1
                             scr_draw_npc_text(obj_sacriel, (113 << 0))

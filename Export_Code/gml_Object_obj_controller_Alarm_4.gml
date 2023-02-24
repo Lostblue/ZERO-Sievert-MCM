@@ -62,6 +62,7 @@ if (!keyboard_check_pressed(vk_escape))
             {
                 instance_deactivate_object(obj_solid)
                 instance_deactivate_object(obj_light)
+                instance_activate_region((x - 480), (y - 270), 960, 540, true)
                 if (!instance_exists(obj_mouse))
                     instance_activate_object(obj_mouse)
                 if (!instance_exists(obj_sound_controller))
@@ -84,7 +85,6 @@ if (!keyboard_check_pressed(vk_escape))
                     instance_activate_object(obj_camera)
                 if (!instance_exists(obj_player_weapon))
                     instance_activate_object(obj_player_weapon)
-                instance_activate_region((x - 480), (y - 270), 960, 540, true)
             }
         }
     }

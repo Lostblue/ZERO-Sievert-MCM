@@ -7,7 +7,7 @@ if instance_exists(obj_player)
     var camy = camera_get_view_y(view_camera[0])
     if (room == room1)
     {
-        if (obj_map_generator.state == (19 << 0))
+        if (obj_map_generator.state == (20 << 0))
         {
             var _player_x = obj_player.x
             var _player_y = obj_player.y

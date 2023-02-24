@@ -12,7 +12,7 @@ if (start_checking == 1)
             scale = lerp(0, scale_start, id_linked.image_alpha)
         }
         else
-            light_sprite = 1931
+            light_sprite = 1932
     }
     else
         instance_destroy()

@@ -3,7 +3,10 @@ function scr_level_up_skill(argument0, argument1) //gml_Script_scr_level_up_skil
     var sid = argument0
     var amount = argument1
     if (sid == (0 << 0) || sid == (8 << 0) || sid == (4 << 0) || sid == (12 << 0))
+    {
         amount *= global.sk_k[(49 << 0)]
+        amount *= global.diff_setting[(21 << 0)]
+    }
     var _destroy = 0
     if (global.sk_base[sid] == 1)
     {

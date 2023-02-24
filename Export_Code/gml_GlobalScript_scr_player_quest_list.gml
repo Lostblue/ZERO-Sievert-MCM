@@ -40,7 +40,8 @@ function scr_player_quest_list() //gml_Script_scr_player_quest_list
                             if (global.q_reward_qnt[get_type_reward][i] > 0)
                             {
                                 var id_item = global.q_reward_id[get_type_reward][i]
-                                var item_qnt = global.q_reward_qnt[get_type_reward][i]
+                                var item_qnt = ceil((global.q_reward_qnt[get_type_reward][i] * global.diff_setting[(24 << 0)]))
+                                item_qnt = clamp(item_qnt, 1, 999)
                                 var placed = 0
                                 var necessario_w = (sprite_get_width(item_sprite_inv[id_item]) div 16)
                                 var necessario_h = (sprite_get_height(item_sprite_inv[id_item]) div 16)

@@ -1,4 +1,10 @@
 event_inherited()
+if (hp_set == 0)
+{
+    hp *= global.diff_setting[(26 << 0)]
+    hp = clamp(hp, 1, 99999)
+    hp_set = 1
+}
 linked_weapon_id = instance_create_depth(x, y, 0, obj_npc_weapon)
 linked_weapon_id.follow_id = id
 linked_weapon_id.mod_id[(0 << 0)] = mod_id[(0 << 0)]

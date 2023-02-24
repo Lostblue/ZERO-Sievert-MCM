@@ -142,7 +142,7 @@ if (!instance_exists(obj_exit_screen))
         bleed = 0
     bleed = clamp(bleed, 0, bleed_max)
     hp_regen = global.injector_factor[(1 << 0)]
-    hp_max_total = (((class_hp[player_class] + global.sk_k[(43 << 0)]) + global.sk_k[(38 << 0)]) + global.injector_factor[(0 << 0)])
+    hp_max_total = (((global.diff_setting[(17 << 0)] + global.sk_k[(43 << 0)]) + global.sk_k[(38 << 0)]) + global.injector_factor[(0 << 0)])
     var _bleed_amount = bleed
     if instance_exists(obj_arms_player_parent)
     {
@@ -218,8 +218,8 @@ if (!instance_exists(obj_exit_screen))
     radiation_accumulata = clamp(radiation_accumulata, 0, global.status_value_max[(3 << 0)])
     if (room != r_hub && state != gml_Script_scr_player_state_start)
     {
-        energy -= ((energy_decay * global.sk_k[(52 << 0)]) - global.injector_factor[(10 << 0)])
-        thirst -= ((thirst_decay * global.sk_k[(53 << 0)]) - global.injector_factor[(12 << 0)])
+        energy -= (((energy_decay * global.sk_k[(52 << 0)]) * global.diff_setting[(19 << 0)]) - global.injector_factor[(10 << 0)])
+        thirst -= (((thirst_decay * global.sk_k[(53 << 0)]) * global.diff_setting[(19 << 0)]) - global.injector_factor[(12 << 0)])
     }
     energy = clamp(energy, 0, energy_max)
     thirst = clamp(thirst, 0, thirst_max)

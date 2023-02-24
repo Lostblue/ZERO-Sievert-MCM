@@ -70,9 +70,11 @@ function scr_sistema_equip() //gml_Script_scr_sistema_equip
             obj_player.ammo_slot[(2 << 0)] = 0
             obj_player.ammo_slot_max[(2 << 0)] = 0
         }
-        if (global.backpack_equipped == 0)
-            global.max_weight = obj_player.base_weight
     }
+    if (global.backpack_equipped == 0)
+        global.max_weight = obj_player.base_weight
+    if (global.armor_equipped == 0)
+        obj_player.armor_now = (0 << 0)
     global.max_weight += (global.sk_k[(1 << 0)] + global.injector_factor[(6 << 0)])
     global.max_weight = clamp(global.max_weight, 1, 9999)
     return;

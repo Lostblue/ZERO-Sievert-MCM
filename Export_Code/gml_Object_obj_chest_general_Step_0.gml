@@ -32,7 +32,17 @@ if (room != r_hub && room != room_tutorial)
 {
     if (global.sk_k[(9 << 0)] == 0)
     {
+        var _seen = 1
+        if (global.fog_fow_on == 1)
+        {
+            if (!(point_in_triangle(x, y, obj_player.x, obj_player.y, global.field_of_view_x1, global.field_of_view_y1, global.field_of_view_x2, global.field_of_view_y2)))
+                _seen = 0
+            if (point_distance(x, y, obj_player.x, obj_player.y) <= global.fow_minimun_dis)
+                _seen = 1
+        }
         if collision_line(x, y, obj_player.x, obj_player.y, obj_solid, true, true)
+            _seen = 0
+        if (_seen == 0)
         {
             timer_visible++
             if (timer_visible >= timer_visible_max)

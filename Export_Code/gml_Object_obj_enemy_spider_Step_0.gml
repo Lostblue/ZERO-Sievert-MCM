@@ -3,7 +3,7 @@ if (state == npc_state_alert[npc_id])
 {
     if scr_chance(0.8333333333333334)
     {
-        var sound = choose(299, 300, 301, 302)
+        var sound = choose(300, 301, 302, 303)
         audio_play_sound_on(emitter_talk, sound, false, 5)
     }
 }

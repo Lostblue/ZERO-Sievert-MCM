@@ -1,9 +1,10 @@
 fade_start = 0
 fade_alpha = 0
 fade_amount = 0.03
+global.slot_selected = 1
+gml_Script_fun_difficulty_settings_load()
 lista_item()
-alarm[0] = 1
-alarm[1] = 2
+alarm[2] = 15
 var _n_item = array_length_1d(item_id)
 global.mod_weapons_name[_n_item] = ""
 ini_open("Mod.ini")

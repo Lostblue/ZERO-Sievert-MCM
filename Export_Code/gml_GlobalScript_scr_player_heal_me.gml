@@ -27,6 +27,7 @@ function scr_player_heal_me() //gml_Script_scr_player_heal_me
             {
                 global.player_money -= money_hp
                 obj_player.hp = obj_player.hp_max
+                obj_player.bleed = 0
                 global.trader_money_all += money_hp
                 ini_open(global.save_general)
                 ini_write_real("traders", "money", global.trader_money_all)

@@ -21,27 +21,8 @@ function scr_npc_state_arms(argument0) //gml_Script_scr_npc_state_arms
                 {
                     switch arms
                     {
-                        case 861:
-                            if scr_chance(5)
-                                patrol = 1
-                            break
                         case 862:
-                            if (room == r_hub)
-                            {
-                                if (distance_to_object(obj_bancone_hub) < 16)
-                                {
-                                    if scr_chance(0.7)
-                                    {
-                                        patrol = 1
-                                        my_id_.path_timer = 300
-                                        my_id_.state = (28 << 0)
-                                        my_id_.draw_weapon = 1
-                                    }
-                                }
-                                else if scr_chance(2)
-                                    patrol = 1
-                            }
-                            else if scr_chance(2)
+                            if scr_chance(5)
                                 patrol = 1
                             break
                         case 863:
@@ -64,10 +45,29 @@ function scr_npc_state_arms(argument0) //gml_Script_scr_npc_state_arms
                                 patrol = 1
                             break
                         case 864:
-                            if scr_chance(0.1)
+                            if (room == r_hub)
+                            {
+                                if (distance_to_object(obj_bancone_hub) < 16)
+                                {
+                                    if scr_chance(0.7)
+                                    {
+                                        patrol = 1
+                                        my_id_.path_timer = 300
+                                        my_id_.state = (28 << 0)
+                                        my_id_.draw_weapon = 1
+                                    }
+                                }
+                                else if scr_chance(2)
+                                    patrol = 1
+                            }
+                            else if scr_chance(2)
                                 patrol = 1
                             break
                         case 865:
+                            if scr_chance(0.1)
+                                patrol = 1
+                            break
+                        case 866:
                             break
                     }
 
@@ -95,7 +95,7 @@ function scr_npc_state_arms(argument0) //gml_Script_scr_npc_state_arms
                 draw_weapon = 1
                 break
             case (0 << 0):
-                if (arms != 864 && arms != 865)
+                if (arms != 865 && arms != 866)
                 {
                     hspd = 0
                     vspd = 0

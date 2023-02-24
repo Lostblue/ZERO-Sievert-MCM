@@ -1,7 +1,7 @@
 function lista_trader() //gml_Script_lista_trader
 {
     ini_open(global.save_general)
-    global.trader_money_all_max = 15000
+    global.trader_money_all_max = (15000 * global.diff_setting[(5 << 0)])
     global.trader_money_all = ini_read_real("traders", "money", global.trader_money_all_max)
     ini_close()
     a = (1 << 0)

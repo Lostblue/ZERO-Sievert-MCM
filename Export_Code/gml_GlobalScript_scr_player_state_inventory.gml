@@ -13,7 +13,13 @@ function scr_player_state_inventory() //gml_Script_scr_player_state_inventory
                 var deal_trader = scr_get_money_deal(0)
                 var money_trader_ = global.speaker_nearest.money_trader
                 var deal = (deal_mine - deal_trader)
-                if (deal_mine != 0 || deal_trader != 0)
+                var _can_trade = 0
+                with (obj_item)
+                {
+                    if (position == (14 << 0) || position == (13 << 0))
+                        _can_trade = 1
+                }
+                if (_can_trade == 1)
                 {
                     if (sign(deal) >= 0)
                     {

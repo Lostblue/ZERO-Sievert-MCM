@@ -31,16 +31,16 @@ repeat grass_number
     switch obj_map_generator.area
     {
         case (1 << 0):
-            grass_sprite = choose(1431, 1431, 1433)
+            grass_sprite = choose(1432, 1432, 1434)
             break
         case (2 << 0):
-            grass_sprite = choose(1435, 1435, 1434)
+            grass_sprite = choose(1436, 1436, 1435)
             break
         case (3 << 0):
-            grass_sprite = choose(1435, 1435, 1434)
+            grass_sprite = choose(1436, 1436, 1435)
             break
         case (4 << 0):
-            grass_sprite = choose(1438, 1438, 1437, 1436)
+            grass_sprite = choose(1439, 1439, 1438, 1437)
             break
     }
 

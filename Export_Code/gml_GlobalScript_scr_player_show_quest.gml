@@ -150,6 +150,31 @@ function scr_player_show_quest() //gml_Script_scr_player_show_quest
                             var grid_h = 11
                             var grid_item_ = scr_riempi_inv_ini()
                             var quanti_reward = 1
+                            var _item_id = global.quest_item_scelto_id
+                            var _item_qnt = global.quest_item_scelto_qnt
+                            var _stack = item_stack_max[_item_id]
+                            a_qnt[0] = global.quest_item_scelto_qnt
+                            a_qnt[0] = clamp(a_qnt[0], 1, 999)
+                            if (_item_qnt > _stack)
+                            {
+                                var _quanti_diff_item = ((_item_qnt div _stack) + 1)
+                                _quanti_diff_item = clamp(_quanti_diff_item, 1, 999)
+                                quanti_reward = _quanti_diff_item
+                                for (var b = 0; b < _quanti_diff_item; b++)
+                                {
+                                    a_id[b] = _item_id
+                                    a_x[b] = 0
+                                    a_y[b] = 0
+                                    a_qnt[b] = _stack
+                                    if (b == (_quanti_diff_item - 1))
+                                    {
+                                        var _new_qnt = (_item_qnt - (_stack * (_quanti_diff_item - 1)))
+                                        a_qnt[b] = _new_qnt
+                                        if (_new_qnt <= 0)
+                                            quanti_reward -= 1
+                                    }
+                                }
+                            }
                             for (k = 0; k < quanti_reward; k++)
                             {
                                 var id_item = global.quest_item_scelto_id
@@ -297,14 +322,14 @@ function scr_player_show_quest() //gml_Script_scr_player_show_quest
                                     if (global.which_quest_is_shown == (71 << 0))
                                         scr_draw_npc_text(obj_forest_trader, (74 << 0))
                                 }
-                                for (var p = 0; p < 1; p++)
+                                for (var p = 0; p < quanti_reward; p++)
                                 {
                                     var qnt = global.quest_item_scelto_qnt
                                     ini_open(global.save_inventory)
                                     var number_of_items = ini_read_real("Inventory", "Number of items", 0)
                                     var t = (number_of_items + 1)
                                     ini_write_real("Inventory", ("Item_id_" + string(t)), a_id[p])
-                                    ini_write_real("Inventory", ("Item_qnt_" + string(t)), qnt)
+                                    ini_write_real("Inventory", ("Item_qnt_" + string(t)), a_qnt[p])
                                     ini_write_real("Inventory", ("Item_x_" + string(t)), a_x[p])
                                     ini_write_real("Inventory", ("Item_y_" + string(t)), a_y[p])
                                     ini_write_real("Inventory", ("durability" + string(t)), 100)

@@ -1105,7 +1105,7 @@ if instance_exists(obj_player)
             draw_text_color(start_text_x, start_text_y, "- Back", c_text, c_text, c_text, c_text, 1)
             var _hunger = obj_player.energy
             var _hunger_max = obj_player.energy_max
-            var _money = floor(((_hunger_max - _hunger) * 30 * global.service_price))
+            var _money = floor(((_hunger_max - _hunger) * global.refill_hunger_k))
             t_ = (("- Refill hunger for " + string(_money)) + " Roubles")
             t_len = string_width(t_)
             if scr_mouse_inside((camx + start_text_x), ((camy + start_text_y) + 12), t_len, 12)
@@ -1115,7 +1115,7 @@ if instance_exists(obj_player)
             draw_text_color(start_text_x, (start_text_y + 12), t_, c_text, c_text, c_text, c_text, 1)
             var _thirst = obj_player.thirst
             var _thirst_max = obj_player.thirst_max
-            _money = floor(((_thirst_max - _thirst) * 40 * global.service_price))
+            _money = floor(((_thirst_max - _thirst) * global.refill_thirst_k))
             t_ = (("- Quench thirst for " + string(_money)) + " Roubles")
             t_len = string_width(t_)
             if scr_mouse_inside((camx + start_text_x), ((camy + start_text_y) + 24), t_len, 12)
@@ -1887,8 +1887,8 @@ if instance_exists(obj_player)
         draw_set_halign(fa_center)
         draw_set_valign(fa_top)
         scr_draw_text_outlined(222.5, 45, "RELATIONS (IN DEVELOPMENT)", c_white, c_black, 2, 1)
-        var _tx = 77
-        var _ty = 87
+        _tx = 77
+        _ty = 87
         var _qx = 172
         _h = 20
         var _qw = sprite_get_width(s_hud_rep_bar)
@@ -2532,7 +2532,7 @@ if instance_exists(obj_player)
                     draw_set_font(font0)
                     draw_set_halign(fa_left)
                     draw_set_valign(fa_top)
-                    for (i = 0; i < (19 << 0); i++)
+                    for (i = 0; i < (20 << 0); i++)
                     {
                         _t = string((o.tempo_generazione[i] / 1000))
                         _tt = ((_t + "   : ") + o.tempo_gen_name[i])

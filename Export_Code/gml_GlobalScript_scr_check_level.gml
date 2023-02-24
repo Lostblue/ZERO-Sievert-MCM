@@ -4,6 +4,11 @@ function scr_check_level() //gml_Script_scr_check_level
     if (global.esperienza >= global.esperienza_livello[(global.livello_now + 1)])
     {
         global.livello_now++
+        if (global.livello_now == 3)
+        {
+            gml_Script_fun_ga_diff_setting(3)
+            scr_draw_text_with_box("GA diff settings lvl 3")
+        }
         scr_save_exp()
         if (room == r_hub)
         {

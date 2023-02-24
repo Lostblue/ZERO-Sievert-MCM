@@ -22,7 +22,7 @@ if (crea == 0)
     {
         item_possibili = ds_list_create()
         var n_item = irandom_range(chest_quanti_item_min[tipo], chest_quanti_item_max[tipo])
-        quanti_item = ceil((n_item * global.sk_k[(8 << 0)]))
+        quanti_item = ceil((n_item * (global.sk_k[(8 << 0)] * global.diff_setting[(11 << 0)])))
         quanti_item_effettivi = 0
         if (chest_quanti_item_max[tipo] == 1)
             quanti_item = 1
@@ -52,6 +52,14 @@ if (crea == 0)
             ds_list_destroy(lista_scegli)
         }
         randomize()
+        if (global.diff_setting[(15 << 0)] == 1)
+        {
+            if (armor_drop != (0 << 0))
+            {
+                loot[quanti_item] = armor_drop
+                quanti_item += 1
+            }
+        }
         var k_visto = 0
         var max_dur = 0
         if (create_item_in_chest == 1)
@@ -151,9 +159,13 @@ if (crea == 0)
                                         quantity = (quantity div 2)
                                         if (tipo == (75 << 0))
                                             quantity = ceil((item_stack_max[id_item] * 0.5))
+                                        if (chest_is_drop[tipo] == 1)
+                                            quantity *= global.diff_setting[(16 << 0)]
                                     }
                                     if (id_item == (1 << 0))
                                         quantity = irandom_range(50, 150)
+                                    quantity *= global.diff_setting[(12 << 0)]
+                                    quantity = ceil(quantity)
                                     ini_write_real(("chest_" + string(id)), "first_time", 0)
                                     ini_write_real(("chest_" + string(id)), "chest_x", x)
                                     ini_write_real(("chest_" + string(id)), "chest_y", y)
@@ -163,16 +175,18 @@ if (crea == 0)
                                     ini_write_real(("chest_" + string(id)), ("item_x_N_" + string(quanti_item_effettivi)), (xx * 16))
                                     ini_write_real(("chest_" + string(id)), ("item_y_N_" + string(quanti_item_effettivi)), (yy * 16))
                                     ini_write_real(("chest_" + string(id)), ("visto?_N_" + string(quanti_item_effettivi)), k_visto)
-                                    if (max_dur == 0)
-                                        var dur = irandom_range(20, 35)
-                                    else
-                                        dur = 100
+                                    var dur = 100
                                     if (item_categoria[id_item] == (0 << 0))
                                     {
                                         ini_write_real(("chest_" + string(id)), ("item_ammo_N_" + string(quanti_item_effettivi)), irandom((arma_magazine[id_item] div 2)))
                                         ini_write_real(("chest_" + string(id)), ("item_ammo_id_N_" + string(quanti_item_effettivi)), arma_ammo[id_item])
                                         if (chest_is_drop[tipo] == 1)
                                             ini_write_real(("chest_" + string(id)), ("item_ammo_id_N_" + string(quanti_item_effettivi)), ammo_drop)
+                                        if (max_dur == 0)
+                                        {
+                                            dur = irandom_range(20, 35)
+                                            dur = irandom_range(global.diff_setting[(13 << 0)], global.diff_setting[(14 << 0)])
+                                        }
                                         if (arma_moddable[id_item] == 1)
                                         {
                                             if (chest_from_enemy[tipo] == 0)
@@ -208,6 +222,11 @@ if (crea == 0)
                                                 }
                                             }
                                         }
+                                    }
+                                    if (global.diff_setting[(15 << 0)] == 1)
+                                    {
+                                        if (id_item == armor_drop)
+                                            dur = armor_dur
                                     }
                                     ini_write_real(("chest_" + string(id)), ("durability_N_" + string(quanti_item_effettivi)), dur)
                                     quanti_item_effettivi += 1

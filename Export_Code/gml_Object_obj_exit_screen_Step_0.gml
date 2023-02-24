@@ -221,7 +221,22 @@ if scr_mouse_inside(((camx + button_next_x) - (button_next_w / 2)), ((camy + but
             scr_save_stat()
             audio_stop_all()
             audio_master_gain(global.volume_master)
-            room_goto(r_hub)
+            var _perma_death = global.diff_setting[(36 << 0)]
+            var _goto_hub = 1
+            if (survived == 0)
+            {
+                if (_perma_death == 1)
+                {
+                    _goto_hub = 0
+                    file_delete((("save_" + string(global.slot_selected)) + ".ini"))
+                    file_delete((("save_general_" + string(global.slot_selected)) + ".ini"))
+                    file_delete((("save_player_chest_" + string(global.slot_selected)) + ".ini"))
+                    file_delete((("save_hub_" + string(global.slot_selected)) + ".ini"))
+                    room_goto(r_menu)
+                }
+            }
+            if (_goto_hub == 1)
+                room_goto(r_hub)
         }
     }
     else if mouse_check_button_pressed(mb_left)
@@ -235,3 +250,6 @@ if scr_mouse_inside(((camx + button_next_x) - (button_next_w / 2)), ((camy + but
 }
 else
     button_next_hover = 0
+button_show_diff_hover = 0
+if scr_mouse_inside(((camx + button_show_diff_x) - (button_show_diff_w / 2)), ((camy + button_show_diff_y) - (button_show_diff_h / 2)), button_show_diff_w, button_show_diff_h)
+    button_show_diff_hover = 1

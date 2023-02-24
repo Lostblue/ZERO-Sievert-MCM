@@ -114,22 +114,22 @@ if (other.can_be_damaged == 1)
                             case 717:
                                 global.stat_amount[(11 << 0)] += 1
                                 break
-                            case 720:
-                                global.stat_amount[(12 << 0)] += 1
-                                break
                             case 721:
                                 global.stat_amount[(12 << 0)] += 1
                                 break
-                            case 723:
-                                global.stat_amount[(13 << 0)] += 1
+                            case 722:
+                                global.stat_amount[(12 << 0)] += 1
                                 break
-                            case 725:
+                            case 724:
                                 global.stat_amount[(13 << 0)] += 1
                                 break
                             case 726:
                                 global.stat_amount[(13 << 0)] += 1
                                 break
                             case 727:
+                                global.stat_amount[(13 << 0)] += 1
+                                break
+                            case 728:
                                 global.stat_amount[(13 << 0)] += 1
                                 break
                             case 204:

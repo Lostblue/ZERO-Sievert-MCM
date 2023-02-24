@@ -7,7 +7,7 @@ function scr_enemy_sound_attack() //gml_Script_scr_enemy_sound_attack
     }
     if (object_index == obj_enemy_big)
     {
-        var sound_ = choose(296, 297, 298)
+        var sound_ = choose(297, 298, 299)
         audio_play_sound_on(emitter_talk, sound_, false, 4)
     }
     return;

@@ -21,7 +21,7 @@ function scr_player_refill() //gml_Script_scr_player_refill
         {
             var _hunger = obj_player.energy
             var _hunger_max = obj_player.energy_max
-            var _money = floor(((_hunger_max - _hunger) * 30 * global.service_price))
+            var _money = floor(((_hunger_max - _hunger) * global.refill_hunger_k))
             if (global.player_money >= _money)
             {
                 global.player_money -= _money
@@ -40,7 +40,7 @@ function scr_player_refill() //gml_Script_scr_player_refill
         {
             var _thirst = obj_player.thirst
             var _thirst_max = obj_player.thirst_max
-            _money = floor(((_thirst_max - _thirst) * 40 * global.service_price))
+            _money = floor(((_thirst_max - _thirst) * global.refill_thirst_k))
             if (global.player_money >= _money)
             {
                 global.player_money -= _money

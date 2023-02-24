@@ -100,5 +100,40 @@ if (a >= 1)
             draw_text_color(240, 150, _t, c_white, c_white, c_white, c_white, 1)
         }
     }
+    draw_set_font(font0)
+    draw_set_valign(fa_middle)
+    draw_set_halign(fa_center)
+    var _c = c_white
+    var _c_rect = c_black
+    if (button_show_diff_hover == 1)
+    {
+        _c = 0
+        _c_rect = c_white
+        var _x1 = (button_show_diff_x - (button_show_diff_w / 2))
+        var _y1 = (button_show_diff_y - (button_show_diff_h / 2))
+        var _x2 = (button_show_diff_x + (button_show_diff_w / 2))
+        var _y2 = (button_show_diff_y + (button_show_diff_h / 2))
+        draw_rectangle_color(_x1, _y1, _x2, _y2, _c_rect, _c_rect, _c_rect, _c_rect, 0)
+    }
+    draw_text_color(button_show_diff_x, button_show_diff_y, "Show difficulty settings", _c, _c, _c, _c, 1)
+    if (button_show_diff_hover == 1)
+    {
+        draw_set_valign(fa_top)
+        draw_set_halign(fa_left)
+        var _sx = 5
+        var _sy = -25
+        i = 0
+        var _h = 12
+        var _sep = 22
+        for (i = (3 << 0); i <= (36 << 0); i++)
+        {
+            if (i > _sep)
+            {
+                _sx = 370
+                _sy = ((-_sep) * _h)
+            }
+            draw_text(_sx, (_sy + (i * _h)), ((global.diff_setting_name[i] + ":  ") + string(global.diff_setting[i])))
+        }
+    }
     draw_sprite(s_mouse, 4, (mouse_x - camx), (mouse_y - camy))
 }
