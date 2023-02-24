@@ -20,7 +20,7 @@ ini_open(global.save_general)
 var survived_ = ini_read_real("survive", "survive", string(1))
 ini_close()
 if (survived_ == 0)
-    scr_save_or_load(0)
+    scr_save_or_load(0, 0)
 ini_open(global.save_inventory)
 x = ini_read_real("player", "x", 660)
 y = ini_read_real("player", "y", 1311)
@@ -47,8 +47,8 @@ restore_fatigue = 0.27
 restore_hp = 0.15
 decay_energy = 0.04
 decay_thirst = 0.05
-hp_max_total = 75
-hp_max = ini_read_real("player", "hp_max", 75)
+hp_max_total = global.diff_setting[(17 << 0)]
+hp_max = ini_read_real("player", "hp_max", hp_max_total)
 hp = ini_read_real("player", "hp", hp_max)
 if (hp <= 0)
     hp = hp_max
@@ -62,7 +62,7 @@ energy_decay = 0.0006666666666666666
 thirst_max = 100
 thirst = ini_read_real("player", "thirst", 90)
 thirst_decay = 0.0008833333333333333
-base_weight = 7
+base_weight = global.diff_setting[(18 << 0)]
 bleed = 0
 bleed_max = 3
 bleed_recovery = 0.0003
@@ -402,9 +402,10 @@ if (room != room_tutorial)
                 var temp_item_qnt = ini_read_real("Inventory", ("Item_qnt_" + string(i)), 0)
                 var temp_item_x = ini_read_real("Inventory", ("Item_x_" + string(i)), 0)
                 var temp_item_y = ini_read_real("Inventory", ("Item_y_" + string(i)), 0)
+                var quante_ammo = 0
                 if (item_categoria[temp_item_id] == (0 << 0))
                 {
-                    var quante_ammo = ini_read_real("Inventory", ("item_ammo" + string(i)), arma_magazine[temp_item_id])
+                    quante_ammo = ini_read_real("Inventory", ("item_ammo" + string(i)), arma_magazine[temp_item_id])
                     var _ammo_id = ini_read_real("Inventory", ("item_ammo_id" + string(i)), arma_ammo[temp_item_id])
                 }
                 var _aggiungere_peso = 1

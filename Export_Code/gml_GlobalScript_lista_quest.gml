@@ -923,7 +923,7 @@ function lista_quest() //gml_Script_lista_quest
     global.quest_text[a][1] = "Find 5 blue cigarette"
     global.quest_text[a][2] = quest_completed
     global.quest_text[a][3] = thank_for_help
-    scr_quest_create_approach(a, 0, 877, 80, (1 << 0))
+    scr_quest_create_approach(a, 0, 878, 80, (1 << 0))
     global.quest_marker[a][0] = 1
     global.quest_marker_sub[a][0] = 13
     global.quest_text_obj[a][0] = "Find the lost convoy"
@@ -1124,7 +1124,7 @@ function lista_quest() //gml_Script_lista_quest
     global.quest_text[a][1] = "Find 2 cooking pot"
     global.quest_text[a][2] = quest_completed
     global.quest_text[a][3] = thank_for_help
-    scr_quest_create_approach(a, 0, 878, 96, (3 << 0))
+    scr_quest_create_approach(a, 0, 879, 96, (3 << 0))
     global.quest_text_obj[a][0] = "Investigate the port area of the industrial map"
     a = (19 << 0)
     i = 0
@@ -1202,7 +1202,7 @@ function lista_quest() //gml_Script_lista_quest
     global.quest_text[a][1] = "Find the missing Hunter"
     global.quest_text[a][2] = quest_completed
     global.quest_text[a][3] = thank_for_help
-    scr_quest_create_approach(a, 0, 871, 16, (2 << 0))
+    scr_quest_create_approach(a, 0, 872, 16, (2 << 0))
     global.quest_marker[a][0] = 1
     global.quest_marker_sub[a][0] = 0
     global.quest_text_obj[a][0] = "Find the missing Hunter"
@@ -1258,7 +1258,7 @@ function lista_quest() //gml_Script_lista_quest
     global.quest_text[a][1] = "Find the missing group"
     global.quest_text[a][2] = quest_completed
     global.quest_text[a][3] = thank_for_help
-    scr_quest_create_approach(a, 0, 872, 16, (4 << 0))
+    scr_quest_create_approach(a, 0, 873, 16, (4 << 0))
     global.quest_marker[a][0] = 1
     global.quest_marker_sub[a][0] = 11
     global.quest_text_obj[a][0] = "Find the missing group"
@@ -1330,7 +1330,7 @@ function lista_quest() //gml_Script_lista_quest
     global.quest_text[a][1] = "Kill Igor"
     global.quest_text[a][2] = quest_completed
     global.quest_text[a][3] = thank_for_help
-    scr_quest_create_contract(a, 0, 730, (1 << 0))
+    scr_quest_create_contract(a, 0, 731, (1 << 0))
     global.quest_text_obj[a][0] = "Eliminate Igor"
     a = (30 << 0)
     i = 0
@@ -1348,7 +1348,7 @@ function lista_quest() //gml_Script_lista_quest
     global.quest_text[a][1] = "Approach the sawmill"
     global.quest_text[a][2] = quest_completed
     global.quest_text[a][3] = thank_for_help
-    scr_quest_create_approach(a, 0, 873, 460, (1 << 0))
+    scr_quest_create_approach(a, 0, 874, 460, (1 << 0))
     global.quest_text_obj[a][0] = "Find the sawmill"
     a = (31 << 0)
     i = 0
@@ -1454,7 +1454,7 @@ function lista_quest() //gml_Script_lista_quest
     global.quest_text[a][1] = "Find the Ghoul's lair in the forest"
     global.quest_text[a][2] = quest_completed
     global.quest_text[a][3] = thank_for_help
-    scr_quest_create_approach(a, 0, 874, 64, (1 << 0))
+    scr_quest_create_approach(a, 0, 875, 64, (1 << 0))
     global.quest_text_obj[a][0] = "Find the Ghoul's lair"
     a = (37 << 0)
     i = 0
@@ -1472,7 +1472,7 @@ function lista_quest() //gml_Script_lista_quest
     global.quest_text[a][1] = "Destroy the ghoul's lair"
     global.quest_text[a][2] = quest_completed
     global.quest_text[a][3] = thank_for_help
-    scr_quest_create_interact_with_obj(a, 0, 880, 32, (365 << 0), "Place dynamite", (28 << 0), (29 << 0))
+    scr_quest_create_interact_with_obj(a, 0, 881, 32, (365 << 0), "Place dynamite", (28 << 0), (29 << 0))
     global.quest_text_obj[a][0] = "Destroy the Ghoul's lair"
     global.quest_marker[a][0] = 1
     global.quest_marker_sub[a][0] = 3
@@ -1581,7 +1581,7 @@ function lista_quest() //gml_Script_lista_quest
     global.quest_text[a][1] = "Find the motel"
     global.quest_text[a][2] = quest_completed
     global.quest_text[a][3] = thank_for_help
-    scr_quest_create_approach(a, 0, 875, 64, (2 << 0))
+    scr_quest_create_approach(a, 0, 876, 64, (2 << 0))
     global.quest_text_obj[a][0] = "Find the entrance of the Motel"
     a = (44 << 0)
     i = 0
@@ -1868,7 +1868,7 @@ function lista_quest() //gml_Script_lista_quest
     global.quest_text[a][1] = "Locate the radio tower"
     global.quest_text[a][2] = quest_completed
     global.quest_text[a][3] = thank_for_help
-    scr_quest_create_approach(a, 0, 876, 40, (2 << 0))
+    scr_quest_create_approach(a, 0, 877, 40, (2 << 0))
     global.quest_text_obj[a][0] = "Locate the radio tower"
     a = (60 << 0)
     i = 0
@@ -2064,7 +2064,7 @@ function lista_quest() //gml_Script_lista_quest
     global.quest_text[a][1] = "Place the CCTV camera"
     global.quest_text[a][2] = quest_completed
     global.quest_text[a][3] = thank_for_help
-    scr_quest_create_interact_with_obj(a, 0, 879, 10, (367 << 0), "Place camera", (30 << 0), -1)
+    scr_quest_create_interact_with_obj(a, 0, 880, 10, (367 << 0), "Place camera", (30 << 0), -1)
     global.quest_text_obj[a][0] = "Place the CCTV camera"
     a = (70 << 0)
     i = 0
@@ -2140,6 +2140,11 @@ function lista_quest() //gml_Script_lista_quest
     global.quest_text[a][3] = thank_for_help
     scr_quest_create_collect(a, 0, 1, (539 << 0))
     scr_load_unique_quest()
+    for (i = 0; i < (173 << 0); i++)
+    {
+        global.quest_reward[i] = round((global.quest_reward[i] * global.diff_setting[(23 << 0)]))
+        global.quest_exp[i] = round((global.quest_exp[i] * global.diff_setting[(22 << 0)]))
+    }
     return;
 }
 

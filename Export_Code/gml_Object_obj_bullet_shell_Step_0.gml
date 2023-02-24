@@ -11,10 +11,10 @@ if (y >= stop_y)
                 audio_done = 1
                 if (room == room1)
                 {
-                    var sound_grass = choose(228, 229, 230)
-                    var sound_concrete = choose(219, 220, 221)
-                    var sound_wood = choose(225, 226, 227)
-                    var sound_metal = choose(222, 223, 224)
+                    var sound_grass = choose(229, 230, 231)
+                    var sound_concrete = choose(220, 221, 222)
+                    var sound_wood = choose(226, 227, 228)
+                    var sound_metal = choose(223, 224, 225)
                     var om = obj_map_generator
                     var os = obj_sound_controller
                     var x1 = (x div 16)

@@ -5,7 +5,7 @@ if (obj_player.hp > 0)
         if (shooter_faction != other.faction)
         {
             var player_armor = obj_player.armor_now
-            var danno = damage
+            var danno = (damage * global.diff_setting[(27 << 0)])
             var _armor_id = obj_player.armor_now
             var _dur = obj_player.durability_slot[(11 << 0)]
             var _c = 20
@@ -61,7 +61,7 @@ if (obj_player.hp > 0)
             {
                 if (global.injector_factor[(3 << 0)] == 0)
                 {
-                    if scr_chance(((10 + (danno * 0.6)) * global.sk_k[(44 << 0)]))
+                    if scr_chance(((danno * 0.65) * global.sk_k[(44 << 0)]))
                         other.bleed += 1
                 }
                 part_create_blood((image_angle - 45), (image_angle + 45), (damage div 3))

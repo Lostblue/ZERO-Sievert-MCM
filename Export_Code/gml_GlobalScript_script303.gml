@@ -132,7 +132,7 @@ function script303() //gml_Script_script303
                 {
                     with (obj_npc_draw_text)
                     {
-                        if (global.t_npc_text_next_id[text_id] == 741 || global.t_npc_text_next_id[text_id] == 742)
+                        if (global.t_npc_text_next_id[text_id] == 742 || global.t_npc_text_next_id[text_id] == 743)
                             point_player = 1
                     }
                 }
@@ -1020,7 +1020,7 @@ function script303() //gml_Script_script303
                         var _ret = scr_wolf_decidi_attaccare()
                     if (_next_state == (52 << 0))
                     {
-                        var _sound = choose(283, 284)
+                        var _sound = choose(284, 285)
                         var sound_durata = audio_sound_length(_sound)
                         wolf_ululato_max = (sound_durata * 60)
                         wolf_ululato = 0
@@ -1217,7 +1217,7 @@ function script303() //gml_Script_script303
                     }
                     if (_next_state == (52 << 0))
                     {
-                        _sound = choose(283, 284)
+                        _sound = choose(284, 285)
                         sound_durata = audio_sound_length(_sound)
                         wolf_ululato_max = (sound_durata * 60)
                         wolf_ululato = 0
@@ -1668,7 +1668,7 @@ function script303() //gml_Script_script303
             {
                 if scr_chance(10)
                 {
-                    var ss = choose(310, 311, 312, 313, 314)
+                    var ss = choose(311, 312, 313, 314, 315)
                     if (!audio_is_playing(ss))
                         audio_play_sound(ss, 10, false)
                 }
@@ -1718,22 +1718,22 @@ function script303() //gml_Script_script303
         switch object_index
         {
             case obj_enemy_wolf_brown:
-                sound_ = 281
+                sound_ = 282
                 break
             case 219:
-                sound_ = 309
+                sound_ = 310
                 break
             case 220:
-                sound_ = 309
+                sound_ = 310
                 break
             case 208:
-                sound_ = 320
+                sound_ = 321
                 break
             case 221:
-                sound_ = 303
+                sound_ = 304
                 break
             case 210:
-                sound_ = 295
+                sound_ = 296
                 break
         }
 

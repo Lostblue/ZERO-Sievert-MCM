@@ -21,6 +21,7 @@ survived = 1
 factor_survived = 1
 exp_agg_start = global.esperienza
 global.esperienza_survive += (global.esperienza_loot + global.esperienza_kill)
+global.esperienza_survive *= global.diff_setting[(20 << 0)]
 exp_agg_finish = 0
 exp_numero_max = 0
 exp_numero = 0
@@ -29,6 +30,11 @@ button_next_w = 96
 button_next_h = 24
 button_next_x = 240
 button_next_y = 225
+button_show_diff_x = 240
+button_show_diff_y = 250
+button_show_diff_hover = 0
+button_show_diff_w = 112
+button_show_diff_h = 16
 skip_all = 0
 skip_done = 0
 ini_open(global.save_inventory)
@@ -40,7 +46,7 @@ if (number_of_items > 0)
     {
         var temp_item_id = ini_read_real("Inventory", ("Item_id_" + string(i)), 0)
         var temp_item_qnt = ini_read_real("Inventory", ("Item_qnt_" + string(i)), 0)
-        var _value = ((item_value[temp_item_id] * temp_item_qnt) * 0.2)
+        var _value = ((item_value[temp_item_id] * temp_item_qnt) * global.diff_setting[(3 << 0)])
         global.tot_inv_value_then += _value
         var _value_mods = 0
         if (obj_controller.arma_moddable[temp_item_id] == 1)
@@ -50,7 +56,7 @@ if (number_of_items > 0)
                 var _id = ini_read_real("Inventory", ((("mod_" + string(j)) + "_") + string(i)), arma_mod_id[temp_item_id][j])
                 if (_id != -1)
                 {
-                    var _value_mod = (item_value[_id] * 0.2)
+                    var _value_mod = (item_value[_id] * global.diff_setting[(3 << 0)])
                     _value_mods += _value_mod
                 }
             }

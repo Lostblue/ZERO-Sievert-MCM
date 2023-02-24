@@ -21,23 +21,23 @@ function scr_npc_arms_animation(argument0) //gml_Script_scr_npc_arms_animation
                 {
                     switch arms
                     {
-                        case 861:
+                        case 862:
                             if scr_chance(20)
                                 _patrol = 1
                             break
-                        case 862:
+                        case 863:
                             if scr_chance(60)
                                 _patrol = 1
                             break
-                        case 863:
+                        case 864:
                             if scr_chance(75)
                                 _patrol = 1
                             break
-                        case 864:
+                        case 865:
                             if scr_chance(0.1)
                                 _patrol = 1
                             break
-                        case 865:
+                        case 866:
                             break
                     }
 

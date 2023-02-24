@@ -358,10 +358,11 @@ if (npc_trader_id[npc_id] != (0 << 0))
                                             for (iy = 0; iy < necessario_h; iy++)
                                                 ds_grid_set(grid_item, (xx + ix), (yy + iy), 1)
                                         }
+                                        var _qnt = ((trader_qnt[npc_trader_id[npc_id]][i] * global.sk_k[(23 << 0)]) * global.diff_setting[(4 << 0)])
                                         lootx[i] = (xx * 16)
                                         looty[i] = (yy * 16)
                                         loot_page[i] = _page
-                                        loot_qnt[i] = ceil((trader_qnt[npc_trader_id[npc_id]][i] * global.sk_k[(23 << 0)]))
+                                        loot_qnt[i] = ceil(_qnt)
                                         loot_livello_min[i] = trader_liv[npc_trader_id[npc_id]][i]
                                         placed = 1
                                         _counter[_page] = (_counter[_page] + 1)

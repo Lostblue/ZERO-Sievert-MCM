@@ -6,7 +6,7 @@ if (room == room1)
         {
             if scr_chance(50)
             {
-                var ss = choose(285, 286, 287, 288)
+                var ss = choose(286, 287, 288, 289)
                 audio_play_sound(ss, 3, false)
             }
         }

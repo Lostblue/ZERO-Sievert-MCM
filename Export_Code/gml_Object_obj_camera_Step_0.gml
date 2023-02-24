@@ -60,7 +60,7 @@ if (instance_exists(obj_player) && instance_exists(obj_mouse))
         }
         if (follow == (0 << 0))
         {
-            if (obj_map_generator.state == (0 << 0) || obj_map_generator.state == (1 << 0) || obj_map_generator.state == (2 << 0) || obj_map_generator.state == (3 << 0) || obj_map_generator.state == (4 << 0) || obj_map_generator.state == (5 << 0) || obj_map_generator.state == (6 << 0) || obj_map_generator.state == (7 << 0) || obj_map_generator.state == (8 << 0) || obj_map_generator.state == (9 << 0) || obj_map_generator.state == (10 << 0) || obj_map_generator.state == (11 << 0) || obj_map_generator.state == (12 << 0) || obj_map_generator.state == (13 << 0) || obj_map_generator.state == (14 << 0))
+            if (obj_map_generator.state == (0 << 0) || obj_map_generator.state == (1 << 0) || obj_map_generator.state == (2 << 0) || obj_map_generator.state == (3 << 0) || obj_map_generator.state == (4 << 0) || obj_map_generator.state == (5 << 0) || obj_map_generator.state == (6 << 0) || obj_map_generator.state == (7 << 0) || obj_map_generator.state == (8 << 0) || obj_map_generator.state == (9 << 0) || obj_map_generator.state == (10 << 0) || obj_map_generator.state == (11 << 0) || obj_map_generator.state == (12 << 0) || obj_map_generator.state == (13 << 0) || obj_map_generator.state == (14 << 0) || obj_map_generator.state == (15 << 0))
             {
                 camera_set_view_pos(view_camera[0], 0, 0)
                 camera_set_view_size(view_camera[0], room_width, obj_map_generator.map_height)

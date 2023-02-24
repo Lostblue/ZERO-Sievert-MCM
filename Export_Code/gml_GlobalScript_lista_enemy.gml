@@ -421,8 +421,8 @@ function lista_enemy() //gml_Script_lista_enemy
     npc_esperienza[a] = 35
     npc_faction[a] = (7 << 0)
     npc_chest_dropped[a] = (56 << 0)
-    npc_sprite_idle[a] = 1931
-    npc_sprite_move[a] = 1931
+    npc_sprite_idle[a] = 1932
+    npc_sprite_move[a] = 1932
     npc_sprite_dead[a] = 53
     npc_ims_idle[a] = 0.5
     npc_ims_move[a] = 0
@@ -446,8 +446,8 @@ function lista_enemy() //gml_Script_lista_enemy
     npc_esperienza[a] = 35
     npc_faction[a] = (7 << 0)
     npc_chest_dropped[a] = (57 << 0)
-    npc_sprite_idle[a] = 1931
-    npc_sprite_move[a] = 1931
+    npc_sprite_idle[a] = 1932
+    npc_sprite_move[a] = 1932
     npc_sprite_dead[a] = 54
     npc_ims_idle[a] = 0.5
     npc_ims_move[a] = 0

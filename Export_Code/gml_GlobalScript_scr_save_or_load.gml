@@ -1,5 +1,7 @@
-function scr_save_or_load(argument0) //gml_Script_scr_save_or_load
+function scr_save_or_load(argument0, argument1) //gml_Script_scr_save_or_load
 {
+    if (argument1 == undefined)
+        argument1 = 1
     var save = argument0
     if (save == 1)
     {
@@ -93,28 +95,72 @@ function scr_save_or_load(argument0) //gml_Script_scr_save_or_load
     {
         for (i = 1; i <= number_of_items; i++)
         {
-            ini_write_real("Inventory", ("Item_id_" + string(i)), temp_item_id[i])
-            ini_write_real("Inventory", ("Item_qnt_" + string(i)), temp_item_qnt[i])
-            ini_write_real("Inventory", ("Item_x_" + string(i)), temp_item_x[i])
-            ini_write_real("Inventory", ("Item_y_" + string(i)), temp_item_y[i])
-            ini_write_real("Inventory", ("rotation" + string(i)), temp_rotation[i])
-            ini_write_real("Inventory", ("durability" + string(i)), temp_durability[i])
-            ini_write_real("Inventory", ("item_ammo" + string(i)), temp_ammo[i])
-            ini_write_real("Inventory", ("item_ammo_id" + string(i)), temp_ammo_id[i])
-            ini_write_real("Inventory", ("created_from_player" + string(i)), temp_created_from_player[i])
-            if (arma_moddable[temp_item_id[i]] == 1)
+            var _load = 1
+            var _item_id = temp_item_id[i]
+            var _item_cat = item_categoria[_item_id]
+            if (argument1 == 0)
             {
-                ini_write_real("Inventory", ((("mod_" + string((0 << 0))) + "_") + string(i)), temp_[i][(0 << 0)])
-                ini_write_real("Inventory", ((("mod_" + string((1 << 0))) + "_") + string(i)), temp_[i][(1 << 0)])
-                ini_write_real("Inventory", ((("mod_" + string((3 << 0))) + "_") + string(i)), temp_[i][(3 << 0)])
-                ini_write_real("Inventory", ((("mod_" + string((2 << 0))) + "_") + string(i)), temp_[i][(2 << 0)])
-                ini_write_real("Inventory", ((("mod_" + string((5 << 0))) + "_") + string(i)), temp_[i][(5 << 0)])
-                ini_write_real("Inventory", ((("mod_" + string((6 << 0))) + "_") + string(i)), temp_[i][(6 << 0)])
-                ini_write_real("Inventory", ((("mod_" + string((4 << 0))) + "_") + string(i)), temp_[i][(4 << 0)])
-                ini_write_real("Inventory", ((("mod_" + string((7 << 0))) + "_") + string(i)), temp_[i][(7 << 0)])
-                ini_write_real("Inventory", ((("mod_" + string((8 << 0))) + "_") + string(i)), temp_[i][(8 << 0)])
-                ini_write_real("Inventory", ((("mod_" + string((9 << 0))) + "_") + string(i)), temp_[i][(9 << 0)])
-                ini_write_real("Inventory", ((("mod_" + string((10 << 0))) + "_") + string(i)), temp_[i][(10 << 0)])
+                if (global.diff_setting[(30 << 0)] == 1)
+                {
+                    if (_item_cat == (0 << 0) || _item_cat == (6 << 0) || _item_cat == (18 << 0) || _item_cat == (5 << 0))
+                        _load = 0
+                }
+                if (global.diff_setting[(32 << 0)] == 1)
+                {
+                    if (_item_cat == (2 << 0))
+                        _load = 0
+                }
+                if (global.diff_setting[(31 << 0)] == 1)
+                {
+                    if (_item_cat == (1 << 0))
+                        _load = 0
+                }
+                if (global.diff_setting[(33 << 0)] == 1)
+                {
+                    if (_item_cat == (3 << 0))
+                        _load = 0
+                }
+                if (global.diff_setting[(34 << 0)] == 1)
+                {
+                    if (_item_cat == (16 << 0))
+                        _load = 0
+                }
+                if (global.diff_setting[(35 << 0)] == 1)
+                {
+                    if (_item_cat != (3 << 0) && _item_cat != (6 << 0) && _item_cat != (18 << 0) && _item_cat != (5 << 0) && _item_cat != (2 << 0) && _item_cat != (1 << 0) && _item_cat != (0 << 0) && _item_cat != (16 << 0))
+                        _load = 0
+                }
+            }
+            if (_load == 1)
+            {
+                ini_write_real("Inventory", ("Item_id_" + string(i)), temp_item_id[i])
+                ini_write_real("Inventory", ("Item_qnt_" + string(i)), temp_item_qnt[i])
+                ini_write_real("Inventory", ("Item_x_" + string(i)), temp_item_x[i])
+                ini_write_real("Inventory", ("Item_y_" + string(i)), temp_item_y[i])
+                ini_write_real("Inventory", ("rotation" + string(i)), temp_rotation[i])
+                ini_write_real("Inventory", ("durability" + string(i)), temp_durability[i])
+                ini_write_real("Inventory", ("item_ammo" + string(i)), temp_ammo[i])
+                ini_write_real("Inventory", ("item_ammo_id" + string(i)), temp_ammo_id[i])
+                ini_write_real("Inventory", ("created_from_player" + string(i)), temp_created_from_player[i])
+                if (arma_moddable[temp_item_id[i]] == 1)
+                {
+                    ini_write_real("Inventory", ((("mod_" + string((0 << 0))) + "_") + string(i)), temp_[i][(0 << 0)])
+                    ini_write_real("Inventory", ((("mod_" + string((1 << 0))) + "_") + string(i)), temp_[i][(1 << 0)])
+                    ini_write_real("Inventory", ((("mod_" + string((3 << 0))) + "_") + string(i)), temp_[i][(3 << 0)])
+                    ini_write_real("Inventory", ((("mod_" + string((2 << 0))) + "_") + string(i)), temp_[i][(2 << 0)])
+                    ini_write_real("Inventory", ((("mod_" + string((5 << 0))) + "_") + string(i)), temp_[i][(5 << 0)])
+                    ini_write_real("Inventory", ((("mod_" + string((6 << 0))) + "_") + string(i)), temp_[i][(6 << 0)])
+                    ini_write_real("Inventory", ((("mod_" + string((4 << 0))) + "_") + string(i)), temp_[i][(4 << 0)])
+                    ini_write_real("Inventory", ((("mod_" + string((7 << 0))) + "_") + string(i)), temp_[i][(7 << 0)])
+                    ini_write_real("Inventory", ((("mod_" + string((8 << 0))) + "_") + string(i)), temp_[i][(8 << 0)])
+                    ini_write_real("Inventory", ((("mod_" + string((9 << 0))) + "_") + string(i)), temp_[i][(9 << 0)])
+                    ini_write_real("Inventory", ((("mod_" + string((10 << 0))) + "_") + string(i)), temp_[i][(10 << 0)])
+                }
+            }
+            else
+            {
+                ini_write_real("Inventory", ("Item_id_" + string(i)), (0 << 0))
+                ini_write_real("Inventory", ("Item_qnt_" + string(i)), 0)
             }
         }
     }

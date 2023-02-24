@@ -13,7 +13,7 @@ if (room == r_hub)
             audio_play_sound(snd_bunker_loop1, 2, false)
         if scr_chance(0.5)
         {
-            var drip = choose(252, 253, 254, 255, 256)
+            var drip = choose(253, 254, 255, 256, 257)
             audio_play_sound(drip, 10, false)
         }
     }
@@ -56,7 +56,7 @@ if (room == room1)
                 {
                     if scr_chance(0.05)
                     {
-                        var thunder_ = choose(327, 328, 329, 330)
+                        var thunder_ = choose(328, 329, 330, 331)
                         audio_play_sound(thunder_, 10, false)
                         counter_thunder = 0
                     }
@@ -75,7 +75,7 @@ if (room == room1)
                 {
                     if scr_chance(0.5)
                     {
-                        thunder_ = choose(327, 328, 329, 330)
+                        thunder_ = choose(328, 329, 330, 331)
                         audio_play_sound(thunder_, 10, false)
                         counter_thunder = 0
                     }

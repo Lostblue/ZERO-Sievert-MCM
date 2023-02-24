@@ -1,7 +1,7 @@
 depth = (-y)
 if instance_exists(obj_map_generator)
 {
-    if (obj_map_generator.state == (19 << 0))
+    if (obj_map_generator.state == (20 << 0))
     {
         if (state == (6 << 0))
         {
@@ -59,7 +59,7 @@ if instance_exists(obj_map_generator)
             }
             if keyboard_check_pressed(vk_space)
             {
-                if (obj_map_generator.state == (19 << 0))
+                if (obj_map_generator.state == (20 << 0))
                     skip_go = 1
             }
             if (skip_go == 1)

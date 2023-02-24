@@ -6,14 +6,14 @@ function scr_choose_footstep_sound(argument0) //gml_Script_scr_choose_footstep_s
     var os = obj_sound_controller
     var x1 = (x div 16)
     var y1 = ((y + 8) div 16)
-    var sound_grass = choose(16, 17, 18, 19)
-    var sound_concrete = choose(28, 29, 30, 31)
-    var sound_mud = choose(24, 25, 26, 27)
-    var sound_dirt = choose(20, 21, 22, 23)
-    var sound_wood = choose(32, 33, 34, 35)
-    var sound_metal = choose(36, 37, 38, 39)
-    var sound_dog = choose(7, 8, 9, 10, 11)
-    var sound_big = choose(12, 13, 14, 15)
+    var sound_grass = choose(17, 18, 19, 20)
+    var sound_concrete = choose(29, 30, 31, 32)
+    var sound_mud = choose(25, 26, 27, 28)
+    var sound_dirt = choose(21, 22, 23, 24)
+    var sound_wood = choose(33, 34, 35, 36)
+    var sound_metal = choose(37, 38, 39, 40)
+    var sound_dog = choose(8, 9, 10, 11, 12)
+    var sound_big = choose(13, 14, 15, 16)
     if (room == room1)
     {
         switch f_type
@@ -125,11 +125,11 @@ function scr_choose_footstep_sound(argument0) //gml_Script_scr_choose_footstep_s
         audio_play_sound_on(emitter_walk, sound_, false, 5)
         if (object_index == obj_player)
         {
-            var _sound_equipment = choose(345, 346, 347, 348)
+            var _sound_equipment = choose(346, 347, 348, 349)
             audio_play_sound(_sound_equipment, 11, false)
             if scr_chance(35)
             {
-                var _sound_metal = choose(349, 350, 351, 352)
+                var _sound_metal = choose(350, 351, 352, 353)
                 audio_play_sound(_sound_metal, 11, false)
             }
         }

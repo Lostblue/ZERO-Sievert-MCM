@@ -15,7 +15,7 @@ if (obj_player.hp > 0)
                     other.collision_mutant = other.k_collision_mutant
                     other.alarm[6] = other.alarm_collision_mutant
                     var player_amror = obj_player.armor_now
-                    var danno = ((npc_damage_melee[npc_id] * (1 - armor_pierce[player_amror])) * global.skill_var[(5 << 0)])
+                    var danno = ((npc_damage_melee[npc_id] * (1 - armor_pierce[player_amror])) * global.diff_setting[(29 << 0)])
                     other.hp -= danno
                     if (other.hp <= 0)
                         global.who_killed_player_name = npc_name[npc_id]

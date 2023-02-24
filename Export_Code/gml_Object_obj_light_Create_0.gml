@@ -1,7 +1,7 @@
 light_id = -1
 scale = 0
 scale_start = 0
-light_sprite = 1931
+light_sprite = 1932
 light_color = 16777215
 alpha_togliere = 0
 alpha_mettere = 1

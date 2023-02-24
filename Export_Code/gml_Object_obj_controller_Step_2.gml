@@ -5,7 +5,7 @@ if keyboard_check_pressed(vk_escape)
     {
         if instance_exists(obj_map_generator)
         {
-            if (obj_map_generator.state < (18 << 0))
+            if (obj_map_generator.state < (19 << 0))
                 _can_pause = 0
         }
     }
@@ -17,7 +17,10 @@ if keyboard_check_pressed(vk_escape)
             {
                 scr_save_time()
                 scr_save_player_status()
-                scr_save_or_load(1)
+                scr_save_or_load(1, 1)
+                ini_open(global.save_general)
+                ini_write_real("survive", "survive", string(1))
+                ini_close()
             }
             scr_save_exp()
             scr_save_skill()
@@ -28,6 +31,7 @@ if keyboard_check_pressed(vk_escape)
             instance_deactivate_region(0, 0, room_width, room_height, true, false)
             var camx = camera_get_view_x(view_camera[0])
             var camy = camera_get_view_y(view_camera[0])
+            camera_set_view_pos(view_camera[0], round(camx), round(camy))
             instance_create_depth(x, y, -10000, obj_main_menu)
         }
     }

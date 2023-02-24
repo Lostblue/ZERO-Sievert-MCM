@@ -18,7 +18,7 @@ if (can_draw_surf_floor2 == 1)
                             draw_sprite(s_floor_dirt, 0, newx, newy)
                         else
                         {
-                            var ff = choose(1444, 1442)
+                            var ff = choose(1445, 1443)
                             draw_sprite(ff, 0, newx, newy)
                         }
                         break

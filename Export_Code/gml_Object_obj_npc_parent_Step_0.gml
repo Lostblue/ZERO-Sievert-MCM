@@ -413,7 +413,7 @@ switch state
             {
                 with (obj_npc_draw_text)
                 {
-                    if (global.t_npc_text_next_id[text_id] == 741 || global.t_npc_text_next_id[text_id] == 742)
+                    if (global.t_npc_text_next_id[text_id] == 742 || global.t_npc_text_next_id[text_id] == 743)
                         point_player = 1
                 }
             }
@@ -2347,7 +2347,7 @@ switch state
                     var _ret = scr_wolf_decidi_attaccare()
                 if (_next_state == (52 << 0))
                 {
-                    var _sound = choose(283, 284)
+                    var _sound = choose(284, 285)
                     var sound_durata = audio_sound_length(_sound)
                     wolf_ululato_max = (sound_durata * 60)
                     wolf_ululato = 0
@@ -2546,7 +2546,7 @@ switch state
                     }
                     if (_next_state == (52 << 0))
                     {
-                        _sound = choose(283, 284)
+                        _sound = choose(284, 285)
                         sound_durata = audio_sound_length(_sound)
                         wolf_ululato_max = (sound_durata * 60)
                         wolf_ululato = 0
@@ -3049,7 +3049,7 @@ switch state
         {
             if scr_chance(10)
             {
-                var ss = choose(310, 311, 312, 313, 314)
+                var ss = choose(311, 312, 313, 314, 315)
                 if (!audio_is_playing(ss))
                     audio_play_sound(ss, 10, false)
             }
@@ -3115,22 +3115,22 @@ if (hp <= 0)
         switch object_index
         {
             case obj_enemy_wolf_brown:
-                sound_ = 281
+                sound_ = 282
                 break
             case 219:
-                sound_ = 309
+                sound_ = 310
                 break
             case 220:
-                sound_ = 309
+                sound_ = 310
                 break
             case 208:
-                sound_ = 320
+                sound_ = 321
                 break
             case 221:
-                sound_ = 303
+                sound_ = 304
                 break
             case 210:
-                sound_ = 295
+                sound_ = 296
                 break
         }
 
@@ -3174,7 +3174,17 @@ if (state != (2 << 0))
     state_before = state
 if (room != r_hub && room != room_tutorial)
 {
+    var _seen = 1
+    if (global.fog_fow_on == 1)
+    {
+        if (!(point_in_triangle(x, y, obj_player.x, obj_player.y, global.field_of_view_x1, global.field_of_view_y1, global.field_of_view_x2, global.field_of_view_y2)))
+            _seen = 0
+        if (point_distance(x, y, obj_player.x, obj_player.y) <= global.fow_minimun_dis)
+            _seen = 1
+    }
     if collision_line(x, y, obj_player.x, obj_player.y, obj_solid, true, true)
+        _seen = 0
+    if (_seen == 0)
     {
         timer_visible++
         if (timer_visible >= timer_visible_max)

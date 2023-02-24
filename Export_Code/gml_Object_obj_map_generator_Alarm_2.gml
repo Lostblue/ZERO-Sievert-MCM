@@ -1,6 +1,81 @@
+if (state == (18 << 0))
+{
+    var _timer = round(tempo_generazione[(18 << 0)])
+    var _time = string(round(tempo_gen_assoluto[state]))
+    var _text = ("MAPGEN:assolute:" + _time)
+    ga_addDesignEvent(_text, 1)
+}
+scr_get_time_gen()
+var _pre = (("MAPGEN::state_" + string(state)) + ":")
+_time = round(tempo_generazione[state])
+var _full_text = (_pre + string(_time))
+ga_addDesignEvent(_full_text, 1)
 switch state
 {
     case (0 << 0):
+        state = (1 << 0)
+        break
+    case (1 << 0):
+        state = (2 << 0)
+        break
+    case (2 << 0):
+        state = (3 << 0)
+        break
+    case (3 << 0):
+        state = (4 << 0)
+        break
+    case (4 << 0):
+        state = (5 << 0)
+        break
+    case (5 << 0):
+        state = (6 << 0)
+        break
+    case (6 << 0):
+        state = (7 << 0)
+        break
+    case (7 << 0):
+        state = (8 << 0)
+        break
+    case (8 << 0):
+        state = (9 << 0)
+        break
+    case (9 << 0):
+        state = (10 << 0)
+        break
+    case (10 << 0):
+        state = (11 << 0)
+        break
+    case (11 << 0):
+        state = (12 << 0)
+        break
+    case (12 << 0):
+        state = (13 << 0)
+        break
+    case (13 << 0):
+        state = (14 << 0)
+        break
+    case (14 << 0):
+        state = (15 << 0)
+        break
+    case (15 << 0):
+        state = (16 << 0)
+        break
+    case (16 << 0):
+        state = (17 << 0)
+        break
+    case (17 << 0):
+        state = (18 << 0)
+        break
+    case (18 << 0):
+        state = (19 << 0)
+        break
+    case (19 << 0):
+        break
+}
+
+switch state
+{
+    case (1 << 0):
         ds_grid_clear(grid_map, -7)
         generator_startx = (grid_map_w div 2)
         generator_starty = (grid_map_h div 2)
@@ -223,7 +298,7 @@ switch state
             }
         }
         break
-    case (1 << 0):
+    case (2 << 0):
         train_start_x = 0
         train_start_y = 0
         train_stop_x = 0
@@ -376,7 +451,7 @@ switch state
             }
         }
         break
-    case (2 << 0):
+    case (3 << 0):
         if (area == (1 << 0) || area == (3 << 0) || area == (2 << 0) || area == (7 << 0) || area == (8 << 0))
         {
             for (yy = 1; yy < (grid_tile_w - 1); yy++)
@@ -445,7 +520,7 @@ switch state
             }
         }
         break
-    case (3 << 0):
+    case (4 << 0):
         var _tiling_road = 1
         if (area == (3 << 0))
             _tiling_road = 0
@@ -472,7 +547,7 @@ switch state
             }
         }
         break
-    case (4 << 0):
+    case (5 << 0):
         if (area != (7 << 0) && area != (3 << 0) && area != (8 << 0))
         {
             train_stop_x = irandom_range(10, (grid_train_w - 10))
@@ -496,10 +571,10 @@ switch state
         ds_grid_set_disk(grid_building, (train_stop_x * 6), (train_stop_y * 6), 20, (2 << 0))
         instance_create_depth(((train_stop_x * 6) + 48), ((train_stop_y * 6) + 48), 0, obj_train_stop)
         break
-    case (5 << 0):
+    case (6 << 0):
         scr_from_grid_map_to_grid_tile()
         break
-    case (6 << 0):
+    case (7 << 0):
         if (area == (1 << 0))
         {
             for (yy = 1; yy < (grid_48_x - 1); yy++)
@@ -654,7 +729,7 @@ switch state
             }
         }
         break
-    case (7 << 0):
+    case (8 << 0):
         depth = 50
         for (xx = 0; xx < grid_tile_w; xx++)
         {
@@ -747,7 +822,7 @@ switch state
             }
         }
         break
-    case (8 << 0):
+    case (9 << 0):
         for (xx = 1; xx < (grid_tile_w - 1); xx++)
         {
             for (yy = 1; yy < (grid_tile_h - 1); yy++)
@@ -772,7 +847,7 @@ switch state
             }
         }
         break
-    case (9 << 0):
+    case (10 << 0):
         if (area == (3 << 0))
             ds_grid_set_region(grid_building, 61, 42, 76, 52, (1 << 0))
         scr_building_list()
@@ -833,7 +908,7 @@ switch state
             }
         }
         break
-    case (10 << 0):
+    case (11 << 0):
         var lista_place = ds_list_create()
         for (i = 0; i < array_length_2d(area_index, area); i++)
         {
@@ -885,7 +960,7 @@ switch state
             }
         }
         break
-    case (11 << 0):
+    case (12 << 0):
         var ii = 0
         amount = (35 * global.sk_k[(15 << 0)])
         repeat amount
@@ -951,7 +1026,7 @@ switch state
             }
         }
         break
-    case (12 << 0):
+    case (13 << 0):
         scr_autotiling_water()
         with (obj_decor_parent)
         {
@@ -1702,10 +1777,10 @@ switch state
                 room_restart()
         }
         break
-    case (13 << 0):
+    case (14 << 0):
         instance_create_depth(0, 0, 0, obj_vertex_grass)
         break
-    case (14 << 0):
+    case (15 << 0):
         if (area == (6 << 0))
         {
             if instance_exists(obj_enemy_spawner_killa)
@@ -1771,7 +1846,7 @@ switch state
         obj_fog_setup.alarm[0] = 1
         obj_fog_setup.alarm[1] = 5
         break
-    case (15 << 0):
+    case (16 << 0):
         _amount = 12
         var _n_max_gruppi_disponibili = array_length_1d(global.d_npc_id)
         var _list = ds_list_create()
@@ -1913,7 +1988,7 @@ switch state
             }
         }
         break
-    case (16 << 0):
+    case (17 << 0):
         j = 0
         with (obj_npc_parent)
         {
@@ -1942,75 +2017,9 @@ switch state
                 state = npc_state_patrol[npc_id]
         }
         break
-    case (17 << 0):
-        break
-}
-
-tempo_generazione[state] = (current_time - tempo_start)
-if (state == (17 << 0))
-{
-    var _timer = round(tempo_generazione[(17 << 0)])
-    ga_addDesignEvent("Map_gen:Time", _timer)
-}
-switch state
-{
-    case (0 << 0):
-        state = (1 << 0)
-        break
-    case (1 << 0):
-        state = (2 << 0)
-        break
-    case (2 << 0):
-        state = (3 << 0)
-        break
-    case (3 << 0):
-        state = (4 << 0)
-        break
-    case (4 << 0):
-        state = (5 << 0)
-        break
-    case (5 << 0):
-        state = (6 << 0)
-        break
-    case (6 << 0):
-        state = (7 << 0)
-        break
-    case (7 << 0):
-        state = (8 << 0)
-        break
-    case (8 << 0):
-        state = (9 << 0)
-        break
-    case (9 << 0):
-        state = (10 << 0)
-        break
-    case (10 << 0):
-        state = (11 << 0)
-        break
-    case (11 << 0):
-        state = (12 << 0)
-        break
-    case (12 << 0):
-        state = (13 << 0)
-        break
-    case (13 << 0):
-        state = (14 << 0)
-        break
-    case (14 << 0):
-        state = (15 << 0)
-        break
-    case (15 << 0):
-        state = (16 << 0)
-        break
-    case (16 << 0):
-        state = (17 << 0)
-        break
-    case (17 << 0):
-        state = (18 << 0)
-        break
     case (18 << 0):
         break
 }
 
-if (state != (19 << 0) && debug == 0)
+if (state != (20 << 0) && debug == 0)
     alarm[2] = time_beetween_generation
